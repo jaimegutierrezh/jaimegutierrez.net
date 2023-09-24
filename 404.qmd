@@ -1,0 +1,6 @@
+---
+title: "404"
+---
+
+¡Lo siento! No he podido encontrar la página 
+Prueba a volver atrás o buscar la página web de inicio.
