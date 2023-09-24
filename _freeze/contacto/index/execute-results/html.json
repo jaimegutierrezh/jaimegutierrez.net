@@ -1,0 +1,14 @@
+{
+  "hash": "b053725dd47b0ae5513695bf0d33ef14",
+  "result": {
+    "markdown": "## Contacto\n\nPreguntas, dudas, sugerencias... ¡Tus mensajes son bienvenidos! No prometo contestar rápido, pero sí que lo leeré con atención y que intentaré responder lo mejor que sepa.\n\n\n```{=html}\nPuedes escribirme por <a href=\"mailto:jaimegutierrezh@outlook.com\">correo electrónico</a> o a través de <a href=\"https://twitter.com/JaimeGutierrezH\">Twitter</a>.\n```\n\n::: columns\n::: {.column width=\"40%\"}\n\n```{=html}\n<div  style=\"margin: 30px; text-align: center;\">\n<a class=\"btn btn-primary\" href=\"mailto:jaime.gutierrezhernandez@gmail.com\" role=\"button\" target=\"_blank\" style=\"padding: 15px 30px;\"></i> <svg aria-hidden=\"true\" role=\"img\" viewBox=\"0 0 512 512\" style=\"height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;\"><path d=\"M255.4 48.2c.2-.1 .4-.2 .6-.2s.4 .1 .6 .2L460.6 194c2.1 1.5 3.4 3.9 3.4 6.5v13.6L291.5 355.7c-20.7 17-50.4 17-71.1 0L48 214.1V200.5c0-2.6 1.2-5 3.4-6.5L255.4 48.2zM48 276.2L190 392.8c38.4 31.5 93.7 31.5 132 0L464 276.2V456c0 4.4-3.6 8-8 8H56c-4.4 0-8-3.6-8-8V276.2zM256 0c-10.2 0-20.2 3.2-28.5 9.1L23.5 154.9C8.7 165.4 0 182.4 0 200.5V456c0 30.9 25.1 56 56 56H456c30.9 0 56-25.1 56-56V200.5c0-18.1-8.7-35.1-23.4-45.6L284.5 9.1C276.2 3.2 266.2 0 256 0z\"/></svg> Por mail</a>\n</div>\n```\n\n:::\n\n::: {.column width=\"60%\"}\n\n```{=html}\n<div  style=\"margin: 30px; text-align: center;\">\n<a class=\"btn btn-primary\" href=\"https://twitter.com/JaimeGutierrezH\" role=\"button\" target=\"_blank\" style=\"padding: 15px 30px;\"></i> <svg aria-hidden=\"true\" role=\"img\" viewBox=\"0 0 512 512\" style=\"height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:white;overflow:visible;position:relative;\"><path d=\"M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z\"/></svg> Twitter</a>\n</div>\n```\n\n:::\n:::\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
