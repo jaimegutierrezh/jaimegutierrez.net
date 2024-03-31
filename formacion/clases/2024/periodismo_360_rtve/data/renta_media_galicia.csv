@@ -1,0 +1,318 @@
+cod_mun,prov,Municipios,Total
+15001,Abegondo,15001 Abegondo,12963
+15002,Ames,15002 Ames,13038
+15003,Aranga,15003 Aranga,12079
+15004,Ares,15004 Ares,13363
+15005,Arteixo,15005 Arteixo,11970
+15006,Arzúa,15006 Arzúa,11633
+15007,"Baña, A","15007 Baña, A",11482
+15008,Bergondo,15008 Bergondo,13569
+15009,Betanzos,15009 Betanzos,12558
+15010,Boimorto,15010 Boimorto,11461
+15011,Boiro,15011 Boiro,11557
+15012,Boqueixón,15012 Boqueixón,12773
+15013,Brión,15013 Brión,12993
+15014,Cabana de Bergantiños,15014 Cabana de Bergantiños,11569
+15015,Cabanas,15015 Cabanas,14389
+15016,Camariñas,15016 Camariñas,10175
+15017,Cambre,15017 Cambre,13177
+15018,"Capela, A","15018 Capela, A",13322
+15019,Carballo,15019 Carballo,11561
+15020,Carnota,15020 Carnota,11247
+15021,Carral,15021 Carral,12245
+15022,Cedeira,15022 Cedeira,11787
+15023,Cee,15023 Cee,11451
+15024,Cerceda,15024 Cerceda,13085
+15025,Cerdido,15025 Cerdido,10982
+15026,Cesuras,15026 Cesuras,
+15027,Coirós,15027 Coirós,13198
+15028,Corcubión,15028 Corcubión,12566
+15029,Coristanco,15029 Coristanco,10999
+15030,"Coruña, A","15030 Coruña, A",14961
+15031,Culleredo,15031 Culleredo,13357
+15032,Curtis,15032 Curtis,11769
+15033,Dodro,15033 Dodro,11550
+15034,Dumbría,15034 Dumbría,11625
+15035,Fene,15035 Fene,13289
+15036,Ferrol,15036 Ferrol,13487
+15037,Fisterra,15037 Fisterra,10139
+15038,Frades,15038 Frades,11700
+15039,Irixoa,15039 Irixoa,12355
+15040,Laxe,15040 Laxe,11459
+15041,"Laracha, A","15041 Laracha, A",12133
+15042,Lousame,15042 Lousame,10986
+15043,Malpica de Bergantiños,15043 Malpica de Bergantiños,11474
+15044,Mañón,15044 Mañón,11940
+15045,Mazaricos,15045 Mazaricos,11591
+15046,Melide,15046 Melide,10936
+15047,Mesía,15047 Mesía,11200
+15048,Miño,15048 Miño,13431
+15049,Moeche,15049 Moeche,11967
+15050,Monfero,15050 Monfero,10855
+15051,Mugardos,15051 Mugardos,12722
+15052,Muxía,15052 Muxía,10503
+15053,Muros,15053 Muros,11137
+15054,Narón,15054 Narón,12477
+15055,Neda,15055 Neda,12930
+15056,Negreira,15056 Negreira,11004
+15057,Noia,15057 Noia,12022
+15058,Oleiros,15058 Oleiros,16471
+15059,Ordes,15059 Ordes,11600
+15060,Oroso,15060 Oroso,11983
+15061,Ortigueira,15061 Ortigueira,11943
+15062,Outes,15062 Outes,11835
+15063,Oza dos Ríos,15063 Oza dos Ríos,
+15064,Paderne,15064 Paderne,12877
+15065,Padrón,15065 Padrón,12318
+15066,"Pino, O","15066 Pino, O",11814
+15067,"Pobra do Caramiñal, A","15067 Pobra do Caramiñal, A",11953
+15068,Ponteceso,15068 Ponteceso,11612
+15069,Pontedeume,15069 Pontedeume,12763
+15070,"Pontes de García Rodríguez, As","15070 Pontes de García Rodríguez, As",15373
+15071,Porto do Son,15071 Porto do Son,11327
+15072,Rianxo,15072 Rianxo,11300
+15073,Ribeira,15073 Ribeira,11482
+15074,Rois,15074 Rois,11165
+15075,Sada,15075 Sada,13123
+15076,San Sadurniño,15076 San Sadurniño,12400
+15077,Santa Comba,15077 Santa Comba,11459
+15078,Santiago de Compostela,15078 Santiago de Compostela,15300
+15079,Santiso,15079 Santiso,10512
+15080,Sobrado,15080 Sobrado,11387
+15081,"Somozas, As","15081 Somozas, As",16851
+15082,Teo,15082 Teo,14313
+15083,Toques,15083 Toques,10877
+15084,Tordoia,15084 Tordoia,11817
+15085,Touro,15085 Touro,11602
+15086,Trazo,15086 Trazo,11949
+15087,Valdoviño,15087 Valdoviño,13073
+15088,Val do Dubra,15088 Val do Dubra,11790
+15089,Vedra,15089 Vedra,12443
+15090,Vilasantar,15090 Vilasantar,11853
+15091,Vilarmaior,15091 Vilarmaior,13147
+15092,Vimianzo,15092 Vimianzo,11111
+15093,Zas,15093 Zas,11262
+15901,Cariño,15901 Cariño,11248
+15902,Oza-Cesuras,15902 Oza-Cesuras,12476
+27001,Abadín,27001 Abadín,11061
+27002,Alfoz,27002 Alfoz,12302
+27003,Antas de Ulla,27003 Antas de Ulla,10799
+27004,Baleira,27004 Baleira,11814
+27005,Barreiros,27005 Barreiros,12880
+27006,Becerreá,27006 Becerreá,11318
+27007,Begonte,27007 Begonte,12352
+27008,Bóveda,27008 Bóveda,11994
+27009,Carballedo,27009 Carballedo,11697
+27010,Castro de Rei,27010 Castro de Rei,12046
+27011,Castroverde,27011 Castroverde,11745
+27012,Cervantes,27012 Cervantes,11670
+27013,Cervo,27013 Cervo,14829
+27014,"Corgo, O","27014 Corgo, O",12646
+27015,Cospeito,27015 Cospeito,11391
+27016,Chantada,27016 Chantada,11172
+27017,Folgoso do Courel,27017 Folgoso do Courel,12146
+27018,"Fonsagrada, A","27018 Fonsagrada, A",12145
+27019,Foz,27019 Foz,13240
+27020,Friol,27020 Friol,11734
+27021,Xermade,27021 Xermade,12707
+27022,Guitiriz,27022 Guitiriz,11070
+27023,Guntín,27023 Guntín,11548
+27024,"Incio, O","27024 Incio, O",11533
+27025,Xove,27025 Xove,13514
+27026,Láncara,27026 Láncara,10522
+27027,Lourenzá,27027 Lourenzá,11587
+27028,Lugo,27028 Lugo,13614
+27029,Meira,27029 Meira,12148
+27030,Mondoñedo,27030 Mondoñedo,11692
+27031,Monforte de Lemos,27031 Monforte de Lemos,11969
+27032,Monterroso,27032 Monterroso,11338
+27033,Muras,27033 Muras,11681
+27034,Navia de Suarna,27034 Navia de Suarna,12255
+27035,Negueira de Muñiz,27035 Negueira de Muñiz,10558
+27037,"Nogais, As","27037 Nogais, As",11477
+27038,Ourol,27038 Ourol,11916
+27039,Outeiro de Rei,27039 Outeiro de Rei,13679
+27040,Palas de Rei,27040 Palas de Rei,11811
+27041,Pantón,27041 Pantón,11646
+27042,Paradela,27042 Paradela,11220
+27043,"Páramo, O","27043 Páramo, O",10968
+27044,"Pastoriza, A","27044 Pastoriza, A",11187
+27045,Pedrafita do Cebreiro,27045 Pedrafita do Cebreiro,13098
+27046,Pol,27046 Pol,11719
+27047,"Pobra do Brollón, A","27047 Pobra do Brollón, A",12209
+27048,"Pontenova, A","27048 Pontenova, A",12376
+27049,Portomarín,27049 Portomarín,12812
+27050,Quiroga,27050 Quiroga,11939
+27051,Ribadeo,27051 Ribadeo,12792
+27052,Ribas de Sil,27052 Ribas de Sil,12208
+27053,Ribeira de Piquín,27053 Ribeira de Piquín,12465
+27054,Riotorto,27054 Riotorto,12046
+27055,Samos,27055 Samos,11105
+27056,Rábade,27056 Rábade,11987
+27057,Sarria,27057 Sarria,11516
+27058,"Saviñao, O","27058 Saviñao, O",11089
+27059,Sober,27059 Sober,11714
+27060,Taboada,27060 Taboada,11364
+27061,Trabada,27061 Trabada,12296
+27062,Triacastela,27062 Triacastela,10194
+27063,"Valadouro, O","27063 Valadouro, O",11919
+27064,"Vicedo, O","27064 Vicedo, O",12530
+27065,Vilalba,27065 Vilalba,11877
+27066,Viveiro,27066 Viveiro,12960
+27901,Baralla,27901 Baralla,11450
+27902,Burela,27902 Burela,12960
+32001,Allariz,32001 Allariz,12715
+32002,Amoeiro,32002 Amoeiro,12710
+32003,"Arnoia, A","32003 Arnoia, A",12837
+32004,Avión,32004 Avión,7615
+32005,Baltar,32005 Baltar,11296
+32006,Bande,32006 Bande,11959
+32007,Baños de Molgas,32007 Baños de Molgas,12141
+32008,Barbadás,32008 Barbadás,11753
+32009,"Barco de Valdeorras, O","32009 Barco de Valdeorras, O",12511
+32010,Beade,32010 Beade,10845
+32011,Beariz,32011 Beariz,9080
+32012,"Blancos, Os","32012 Blancos, Os",11799
+32013,Boborás,32013 Boborás,9609
+32014,"Bola, A","32014 Bola, A",11246
+32015,"Bolo, O","32015 Bolo, O",10797
+32016,Calvos de Randín,32016 Calvos de Randín,11671
+32017,Carballeda de Valdeorras,32017 Carballeda de Valdeorras,13734
+32018,Carballeda de Avia,32018 Carballeda de Avia,11006
+32019,"Carballiño, O","32019 Carballiño, O",10931
+32020,Cartelle,32020 Cartelle,11834
+32021,Castrelo do Val,32021 Castrelo do Val,10856
+32022,Castrelo de Miño,32022 Castrelo de Miño,11938
+32023,Castro Caldelas,32023 Castro Caldelas,12450
+32024,Celanova,32024 Celanova,10874
+32025,Cenlle,32025 Cenlle,12411
+32026,Coles,32026 Coles,12906
+32027,Cortegada,32027 Cortegada,11427
+32028,Cualedro,32028 Cualedro,11073
+32029,Chandrexa de Queixa,32029 Chandrexa de Queixa,11558
+32030,Entrimo,32030 Entrimo,12699
+32031,Esgos,32031 Esgos,12721
+32032,Xinzo de Limia,32032 Xinzo de Limia,11167
+32033,Gomesende,32033 Gomesende,10570
+32034,"Gudiña, A","32034 Gudiña, A",11887
+32035,"Irixo, O","32035 Irixo, O",12095
+32036,Xunqueira de Ambía,32036 Xunqueira de Ambía,11946
+32037,Xunqueira de Espadanedo,32037 Xunqueira de Espadanedo,12873
+32038,Larouco,32038 Larouco,12073
+32039,Laza,32039 Laza,12528
+32040,Leiro,32040 Leiro,11319
+32041,Lobeira,32041 Lobeira,13576
+32042,Lobios,32042 Lobios,11658
+32043,Maceda,32043 Maceda,11938
+32044,Manzaneda,32044 Manzaneda,12181
+32045,Maside,32045 Maside,10466
+32046,Melón,32046 Melón,11147
+32047,"Merca, A","32047 Merca, A",12732
+32048,"Mezquita, A","32048 Mezquita, A",11011
+32049,Montederramo,32049 Montederramo,13080
+32050,Monterrei,32050 Monterrei,10905
+32051,Muíños,32051 Muíños,13453
+32052,Nogueira de Ramuín,32052 Nogueira de Ramuín,12290
+32053,Oímbra,32053 Oímbra,10194
+32054,Ourense,32054 Ourense,13473
+32055,Paderne de Allariz,32055 Paderne de Allariz,12665
+32056,Padrenda,32056 Padrenda,10105
+32057,Parada de Sil,32057 Parada de Sil,13964
+32058,"Pereiro de Aguiar, O","32058 Pereiro de Aguiar, O",13836
+32059,"Peroxa, A","32059 Peroxa, A",12420
+32060,Petín,32060 Petín,11427
+32061,Piñor,32061 Piñor,11588
+32062,Porqueira,32062 Porqueira,11741
+32063,"Pobra de Trives, A","32063 Pobra de Trives, A",12721
+32064,Pontedeva,32064 Pontedeva,12112
+32065,Punxín,32065 Punxín,12271
+32066,Quintela de Leirado,32066 Quintela de Leirado,10207
+32067,Rairiz de Veiga,32067 Rairiz de Veiga,12115
+32068,Ramirás,32068 Ramirás,10355
+32069,Ribadavia,32069 Ribadavia,11573
+32070,San Xoán de Río,32070 San Xoán de Río,11667
+32071,Riós,32071 Riós,11040
+32072,"Rúa, A","32072 Rúa, A",12262
+32073,Rubiá,32073 Rubiá,12554
+32074,San Amaro,32074 San Amaro,11091
+32075,San Cibrao das Viñas,32075 San Cibrao das Viñas,12953
+32076,San Cristovo de Cea,32076 San Cristovo de Cea,12003
+32077,Sandiás,32077 Sandiás,12706
+32078,Sarreaus,32078 Sarreaus,13087
+32079,Taboadela,32079 Taboadela,12523
+32080,"Teixeira, A","32080 Teixeira, A",11928
+32081,Toén,32081 Toén,13022
+32082,Trasmiras,32082 Trasmiras,10550
+32083,"Veiga, A","32083 Veiga, A",11976
+32084,Verea,32084 Verea,11044
+32085,Verín,32085 Verín,10771
+32086,Viana do Bolo,32086 Viana do Bolo,11876
+32087,Vilamarín,32087 Vilamarín,13132
+32088,Vilamartín de Valdeorras,32088 Vilamartín de Valdeorras,12064
+32089,Vilar de Barrio,32089 Vilar de Barrio,12558
+32090,Vilar de Santos,32090 Vilar de Santos,12289
+32091,Vilardevós,32091 Vilardevós,10728
+32092,Vilariño de Conso,32092 Vilariño de Conso,12359
+36001,Arbo,36001 Arbo,10917
+36002,Barro,36002 Barro,11421
+36003,Baiona,36003 Baiona,13615
+36004,Bueu,36004 Bueu,12299
+36005,Caldas de Reis,36005 Caldas de Reis,11038
+36006,Cambados,36006 Cambados,10919
+36007,Campo Lameiro,36007 Campo Lameiro,11118
+36008,Cangas,36008 Cangas,12279
+36009,"Cañiza, A","36009 Cañiza, A",9957
+36010,Catoira,36010 Catoira,11520
+36011,Cerdedo,36011 Cerdedo,
+36012,Cotobade,36012 Cotobade,
+36013,Covelo,36013 Covelo,10752
+36014,Crecente,36014 Crecente,11191
+36015,Cuntis,36015 Cuntis,11634
+36016,Dozón,36016 Dozón,10697
+36017,"Estrada, A","36017 Estrada, A",11581
+36018,Forcarei,36018 Forcarei,11614
+36019,Fornelos de Montes,36019 Fornelos de Montes,10742
+36020,Agolada,36020 Agolada,11002
+36021,Gondomar,36021 Gondomar,12296
+36022,"Grove, O","36022 Grove, O",11162
+36023,"Guarda, A","36023 Guarda, A",10893
+36024,Lalín,36024 Lalín,11077
+36025,"Lama, A","36025 Lama, A",9403
+36026,Marín,36026 Marín,11382
+36027,Meaño,36027 Meaño,10508
+36028,Meis,36028 Meis,10784
+36029,Moaña,36029 Moaña,12050
+36030,Mondariz,36030 Mondariz,10684
+36031,Mondariz-Balneario,36031 Mondariz-Balneario,13813
+36032,Moraña,36032 Moraña,10768
+36033,Mos,36033 Mos,11801
+36034,"Neves, As","36034 Neves, As",10276
+36035,Nigrán,36035 Nigrán,13976
+36036,Oia,36036 Oia,11889
+36037,Pazos de Borbén,36037 Pazos de Borbén,10943
+36038,Pontevedra,36038 Pontevedra,13676
+36039,"Porriño, O","36039 Porriño, O",11607
+36040,Portas,36040 Portas,11070
+36041,Poio,36041 Poio,12926
+36042,Ponteareas,36042 Ponteareas,11012
+36043,Ponte Caldelas,36043 Ponte Caldelas,10885
+36044,Pontecesures,36044 Pontecesures,11824
+36045,Redondela,36045 Redondela,12313
+36046,Ribadumia,36046 Ribadumia,11082
+36047,Rodeiro,36047 Rodeiro,10855
+36048,"Rosal, O","36048 Rosal, O",10755
+36049,Salceda de Caselas,36049 Salceda de Caselas,11405
+36050,Salvaterra de Miño,36050 Salvaterra de Miño,11018
+36051,Sanxenxo,36051 Sanxenxo,11767
+36052,Silleda,36052 Silleda,11094
+36053,Soutomaior,36053 Soutomaior,11423
+36054,Tomiño,36054 Tomiño,11461
+36055,Tui,36055 Tui,11259
+36056,Valga,36056 Valga,11261
+36057,Vigo,36057 Vigo,13655
+36058,Vilaboa,36058 Vilaboa,12225
+36059,Vila de Cruces,36059 Vila de Cruces,10955
+36060,Vilagarcía de Arousa,36060 Vilagarcía de Arousa,11459
+36061,Vilanova de Arousa,36061 Vilanova de Arousa,10439
+36901,"Illa de Arousa, A","36901 Illa de Arousa, A",10634
+36902,Cerdedo-Cotobade,36902 Cerdedo-Cotobade,11770
