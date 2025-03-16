@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../../img/favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/quarto-contrib/reveal-header-1.0.0/add_header.js" defer="true"></script>
+<link href="../../../site_libs/quarto-contrib/reveal-header-1.0.0/add_header.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-contrib/sc-sb-title-1.0.0/sc_sb_title.js" defer="true"></script>
+<link href="../../../site_libs/quarto-contrib/grid-no-htext-1.0.0/grid_no_htext.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Jaime Gutiérrez @jaimegutierrezh">
+  <title>Jaime Gutiérrez – Periodismo de datos</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-0009b83657148c616924c64ffac800b3.css">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#45498B" class="quarto-title-block center">
+  <h1 class="title">Periodismo de datos</h1>
+  <p class="subtitle"><span style="color:#ffffff;">Máster Periodismo 360º<br>RTVE Instituto - Universidad de Sevilla</span></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Jaime Gutiérrez <span class="citation" data-cites="jaimegutierrezh">@jaimegutierrezh</span> 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="hola" class="title-slide slide level1 center">
+<h1>¡Hola!</h1>
+<div class="footer">
+
+</div>
+</section>
+<section id="jaime-gutiérrez" class="slide level2">
+<h2>Jaime Gutiérrez</h2>
+<ul>
+<li><p>Soy periodista de datos en la web de RTVE</p></li>
+<li><p>Me dedico a crear nuevas narrativas para contar historias</p></li>
+<li><p>Datos, gráficos, mapas, visualizaciones, ilustraciones…</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="https://twitter.com/JaimeGutierrezH">@jaimegutierrezh</a></p>
+</div><div class="column" style="width:50%;">
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i> jaime.gutierrez@rtve.es</p>
+</div></div>
+</section></section>
+<section>
+<section id="antes-de-empezar" class="title-slide slide level1 center">
+<h1>Antes de empezar</h1>
+<div class="footer">
+
+</div>
+</section>
+<section id="qué-vamos-a-ver" class="slide level2">
+<h2>¿Qué vamos a ver?</h2>
+<ul>
+<li><p>Introducción al periodismo de datos</p></li>
+<li><p>Presentación periodística de datos, hechos y cifras</p></li>
+<li><p>Narrativas visuales</p></li>
+<li><p>Herramientas del periodista de datos</p></li>
+</ul>
+<div class="footer">
+
+</div>
+</section></section>
+<section>
+<section id="introducción-al-periodismo-de-datos" class="title-slide slide level1 center">
+<h1>Introducción al periodismo de datos</h1>
+<div class="footer">
+
+</div>
+</section>
+<section id="qué-es-el-periodismo-de-datos" class="slide level2">
+<h2>¿Qué es el periodismo de datos?</h2>
+<div class="footer">
+
+</div>
+</section>
+<section id="qué-es-y-de-dónde-viene-el-periodismo-de-datos" class="slide level2">
+<h2>¿Qué es y de dónde viene el periodismo de datos?</h2>
+<p><br></p>
+<dl>
+<dt>Periodismo de datos</dt>
+<dd>
+<p>“Un proceso periodístico basado en analizar y filtrar grandes bases de datos con el propósito de crear una nueva historia”.</p>
+</dd>
+</dl>
+<p><em>Wikipedia</em></p>
+<div class="footer">
+
+</div>
+</section>
+<section id="mapa-del-cólera-de-j.-snow" class="slide level2">
+<h2>Mapa del cólera de J. Snow</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>La investigación del epidemiólogo John Snow de los casos de cólera durante el brote de 1854 en Londres es uno de los ejemplos más famosos de razonamiento inductivo.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/mapa_colera_snow.png"></p>
+<figcaption>Bario de Soho (Londres, 1854)</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="mapa-del-cólera-de-j.-snow-1" class="slide level2">
+<h2>Mapa del cólera de J. Snow</h2>
+<p>Al colocar sobre un mapa las <span class="hl-blue"><strong>muertes en el vecindario del brote</strong></span>, Snow detectó una concentración más alta alrededor del surtidor de agua de Broad Street.</p>
+
+<img data-src="img/mapa_colera_snow_detalle.png" class="quarto-figure quarto-figure-center r-stretch"><div>
+<ul>
+<li class="fragment">Su conclusión fue que el <span class="hl-blue"><strong>agua contaminada</strong></span> era la causa de la epidemia y no la transmisión por el aire, como se creía hasta entonces.</li>
+</ul>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="diagrama-de-f.-nightingale" class="slide level2">
+<h2>Diagrama de F. Nightingale</h2>
+<table class="caption-top" style="width:99%;">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 34%">
+<col style="width: 30%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><b style="color:#b0c4cb">▇</b> Muertes evitables</td>
+<td><b style="color:#d3beb7">▇</b> Muertes por herida</td>
+<td><b style="color:#afa49e">▇</b> Otras causas</td>
+</tr>
+</tbody>
+</table>
+
+<img data-src="img/diagrama_mortalidad_nightingale.jpg" class="r-stretch quarto-figure-center"><p class="caption">En 1855, la enfermera británica Florence Nightingale demostró la magnitud del desastre en la sanidad del ejército durante la Guerra de Crimea colocando las muertes por cada 1.000 soldados en un gráfico.</p><div class="footer">
+
+</div>
+</section>
+<section id="escuelas-de-manchester" class="slide level2">
+<h2>Escuelas de Manchester</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.theguardian.com/news/datablog/2011/sep/26/data-journalism-guardian"><img data-src="img/escuelas_manchester_guardian.jpg" class="quarto-figure quarto-figure-center" style="width:70.0%"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.theguardian.com/news/datablog/2011/sep/26/data-journalism-guardian"><img data-src="img/escuelas_manchester_guardian_detalle.jpg" class="quarto-figure quarto-figure-center" style="width:90.0%" alt="The Guardian, 1821"></a></p>
+</figure>
+</div>
+<figcaption>The Guardian, 1821</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="datos-periodismo" class="slide level2">
+<h2>Datos + periodismo</h2>
+<h3 id="section"><br><br></h3>
+<div>
+<ul>
+<li class="fragment">Los datos ayudan al periodista a contar <span class="hl-blue"><strong>una historia convincente</strong></span>, que deje poco margen para rebatirla.</li>
+<li class="fragment">Los datos ayudan al periodista a explicar cómo se relaciona una <span class="hl-blue"><strong>historia</strong></span> con un <span class="hl-blue"><strong>individuo</strong></span>.</li>
+</ul>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="radiografía-de-la-sanidad" class="slide level2">
+<h2>Radiografía de la sanidad</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><br><br><em>RTVE, febrero 2023</em></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.rtve.es/noticias/20241017/listas-espera-sanidad-operacion-consulta-especialista-calculadora/16290700.shtml"><img data-src="img/calculadora_sanidad_rtve.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="qué-son-datos" class="slide level2">
+<h2>¿Qué son datos?</h2>
+<p><br><br> El lenguaje de datos consiste en recopilar <span class="hl-blue"><strong>pequeños puntos de información</strong></span>, que a menudo son irrelevantes como instancia individual, pero enormemente importantes cuando se los ve desde el ángulo correcto.</p>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>![<img data-src="img/noticia_violencia_genero.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+
+<img data-src="img/noticias_violencia_genero.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="img/seleccion_noticias_violencia_genero.png" class="quarto-figure quarto-figure-center r-stretch"><div class="footer">
+
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://lab.rtve.es/mil-mujeres-asesinadas/"><img data-src="img/especial_1000_mujeres.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="periodismo-de-datos-vs.-periodismo-con-datos" class="slide level2">
+<h2>Periodismo de datos vs.&nbsp;periodismo con datos</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div>
+<ul>
+<li class="fragment">El periodismo de datos requiere que, además de aportar unos datos, el periodista tenga la capacidad de <span class="hl-blue"><strong>analizar</strong></span> los datos y <span class="hl-blue"><strong>dialogar</strong></span> técnicamente con ellos.</li>
+<li class="fragment">El periodismo de datos es la búsqueda <span class="hl-blue"><strong>sistematizada</strong></span> de una verdad <span class="hl-blue"><strong>verificable</strong></span>.</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div>
+<ul>
+<li class="fragment">Periodismo de datos <span class="hl-yellow"><strong>no es solo periodismo con datos</strong></span></li>
+</ul>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.rtve.es/noticias/20240314/precios-subieron-febrero-28-segun-confirma-ine/16014631.shtml"><img data-src="img/ipc_noticia.png" class="quarto-figure quarto-figure-center" style="width:70.0%" alt="RTVE Noticias"></a></p>
+</figure>
+</div>
+<figcaption>RTVE Noticias</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.rtve.es/noticias/20240215/ipc-lista-compra-chocolate-luz-turismo-mayores-subidas-2024/15949297.shtml"><img data-src="img/ipc_tracker.png" class="quarto-figure quarto-figure-center" style="width:70.0%" alt="DatosRTVE"></a></p>
+</figure>
+</div>
+<figcaption>DatosRTVE</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="por-qué-hacer-periodismo-de-datos" class="slide level2">
+<h2>¿Por qué hacer periodismo de datos?</h2>
+<div class="footer">
+
+</div>
+</section>
+<section id="por-qué-hacer-periodismo-de-datos-1" class="slide level2">
+<h2>¿Por qué hacer periodismo de datos?</h2>
+<p><br></p>
+<blockquote>
+<p>“Cuando la información era <span class="hl-blue"><strong>escasa</strong></span>, la mayor parte de nuestros esfuerzos estaban dedicados a buscarla y recogerla. Ahora que hay información <span class="hl-blue"><strong>abundante</strong></span>, el <span class="hl-blue"><strong>procesamiento</strong></span> es más importante”.</p>
+</blockquote>
+<p><sup><em>Philip&nbsp;Meyer,&nbsp;periodista&nbsp;y&nbsp;profesor&nbsp;titular&nbsp;de&nbsp;la&nbsp;cátedra&nbsp;Knight&nbsp;de&nbsp;Periodismo&nbsp;en&nbsp;la&nbsp;Universidad&nbsp;de&nbsp;Carolina&nbsp;del&nbsp;Norte</em></sup></p>
+<div class="footer">
+
+</div>
+</section>
+<section id="para-qué-sirve-el-periodismo-de-datos" class="slide level2">
+<h2>¿Para qué sirve el periodismo de datos?</h2>
+<div>
+<ul>
+<li class="fragment"><p>Filtrar el flujo de datos</p></li>
+<li class="fragment"><p>Enriquecer los artículos</p></li>
+<li class="fragment"><p>Ayudar a entender cuestiones complejas</p></li>
+<li class="fragment"><p>Encontrar nuevos enfoques e historias únicas más allá de las agencias</p></li>
+<li class="fragment"><p>Identificar tendencias y monitorizarlas</p></li>
+<li class="fragment"><p>Dar acceso a datos en los que hay un interés público</p></li>
+<li class="fragment"><p>Promover interpretaciones independientes de la información oficial</p></li>
+<li class="fragment"><p>Hacer rendir cuentas al poder</p></li>
+</ul>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="quién-hace-periodismo-de-datos" class="slide level2">
+<h2>¿Quién hace periodismo de datos?</h2>
+<p><br><br><br> Algunos ejemplos de narrativas con datos</p>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.rtve.es/noticias/20241005/muertes-palestinos-victimas-guerra-gaza-israel/16274312.shtml"><img data-src="img/muertes_gaza.jpeg" class="quarto-figure quarto-figure-center" style="width:100.0%" alt="Un año de muerte en Gaza, Datos RTVE"></a></p>
+</figure>
+</div>
+<figcaption>Un año de muerte en Gaza, Datos RTVE</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://elpais.com/economia/vivienda/2024-10-13/que-pasa-con-la-vivienda-diez-datos-esenciales-para-entender-el-problema.html"><img data-src="img/vivienda_elpais.png" style="width:60.0%" alt="Diez datos esenciales para entender el problema de la vivienda, El País"></a></p>
+<figcaption>Diez datos esenciales para entender el problema de la vivienda, El País</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.elconfidencial.com/espana/observatorio-electoral/2023-07-17/sondeos-elecciones-generales-23j-pp-consolida-ganar-mayoria-vox_3434093/"><img data-src="img/observatorio_electoral_elconfidencial.png" class="quarto-figure quarto-figure-center" style="width:60.0%" alt="Observatorio electoral, El Confidencial"></a></p>
+</figure>
+</div>
+<figcaption>Observatorio electoral, El Confidencial</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.eldiario.es/sociedad/padres-amigos-pareja-solos-compartimos-vida-edad-uso-tiempo_1_9852833.html"><img data-src="img/tiempo_compartido_eldiario.png" class="quarto-figure quarto-figure-center" alt="¿Con quién compartimos la vida a lo largo de los años?, El Diario"></a></p>
+</figure>
+</div>
+<figcaption>¿Con quién compartimos la vida a lo largo de los años?, El Diario</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-11" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://civio.es/espana-en-llamas/2023/10/17/el-territorio-de-europa-en-riesgo-alto-de-incendios-se-ha-duplicado-en-los-ultimos-50-anos/"><img data-src="img/riesgo_incendio_civio.png" class="quarto-figure quarto-figure-center" style="width:60.0%" alt="El riesgo de incendio se ha duplicado en los últimos 50 años, Civio"></a></p>
+</figure>
+</div>
+<figcaption>El riesgo de incendio se ha duplicado en los últimos 50 años, Civio</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.newtral.es/enfermeras-espana/20250116/"><img data-src="img/enfermeras_newtral.png" class="quarto-figure quarto-figure-center" style="width:80.0%" alt="España tiene seis enfermeras por cada mil habitantes, Newtral"></a></p>
+</figure>
+</div>
+<figcaption>España tiene seis enfermeras por cada mil habitantes, Newtral</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.nytimes.com/interactive/2022/12/13/climate/climate-footprint-map-neighborhood.html"><img data-src="img/impacto_climatico_nyt.png" class="quarto-figure quarto-figure-center" alt="The Climate Impact of Your Neighborhood, Mapped, The New York Times"></a></p>
+</figure>
+</div>
+<figcaption>The Climate Impact of Your Neighborhood, Mapped, The New York Times</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.washingtonpost.com/sports/interactive/2023/lebron-james-nba-scoring-record/"><img data-src="img/lebron_washingtonpost.png" class="quarto-figure quarto-figure-center" style="width:70.0%" alt="How the NBA scoring record evolved from Wilt to Kareem to LeBron, The Washington Post"></a></p>
+</figure>
+</div>
+<figcaption>How the NBA scoring record evolved from Wilt to Kareem to LeBron, The Washington Post</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.epdata.es/datos/paro-registrado-datos-graficos/38/espana/106"><img data-src="img/paro_epdata.png" class="quarto-figure quarto-figure-center" alt="Datos del paro en España, EPData"></a></p>
+</figure>
+</div>
+<figcaption>Datos del paro en España, EPData</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.reuters.com/graphics/CLIMATE-CHANGE/URBAN-HEAT/zgpormdkevd/"><img data-src="img/the_floor_is_lava_reuters.png" class="quarto-figure quarto-figure-center" style="width:60.0%" alt="The floor is lava, Reuters Graphics"></a></p>
+</figure>
+</div>
+<figcaption>The floor is lava, Reuters Graphics</figcaption>
+</figure>
+</div>
+<div class="footer">
+
+</div>
+</section></section>
+<section>
+<section id="cómo-hacer-periodismo-de-datos" class="title-slide slide level1 center">
+<h1>¿Cómo hacer periodismo de datos?</h1>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-17" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>El periodismo de datos es un proceso</p>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="hl-blue"><strong>Obtener los datos</strong></span></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/obtener_datos.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-19" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="hl-blue"><strong>Obtener los datos</strong></span></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>¿Dónde hay datos?</p>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td>INE</td>
+<td>Eurostat</td>
+</tr>
+<tr class="even">
+<td>CIS</td>
+<td>OCDE</td>
+</tr>
+<tr class="odd">
+<td>BOE</td>
+<td>OMS</td>
+</tr>
+<tr class="even">
+<td>Banco de España</td>
+<td>Banco Mundial</td>
+</tr>
+<tr class="odd">
+<td>Tribunal de Cuentas</td>
+<td>ONU</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Literatura científica (Google Scholar)</li>
+<li>Estudios de diversas organizaciones (CSIC)</li>
+</ul>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-20" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="hl-blue"><strong>Obtener los datos</strong></span></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>¿Dónde hay datos? <img data-src="img/transparencia.png" class="quarto-figure quarto-figure-center"></p>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="hl-blue"><strong>Obtener los datos</strong></span></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>¿De dónde los sacamos?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/tabula.png" style="width:20.0%"></p>
+<figcaption>PDF (Tabula / Table Capture)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/api.png" style="width:20.0%"></p>
+<figcaption>WEB (Scraping / API)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/detective.svg" style="width:20.0%"></p>
+<figcaption>RECOPILACIÓN (Trabajo de campo)</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-22" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="hl-blue"><strong>Obtener los datos</strong></span></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>El formato importa</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/semaforo-datos.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-23" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><span class="hl-blue"><strong>Limpieza</strong></span></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/limpieza.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-24" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><span class="hl-blue"><strong>Limpieza</strong></span></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>Tener los datos no significa que estén listo para ser utilizados.</p>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-25" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><span class="hl-blue"><strong>Limpieza</strong></span></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 51%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img data-src="img/excel.svg" style="width:40.0%"></td>
+<td style="text-align: center;"><img data-src="img/google_sheets.png" style="width:33.0%"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img data-src="img/open_refine.png" style="width:45.0%"></td>
+<td style="text-align: center;"><img data-src="img/r_logo.png" style="width:45.0%"></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-26" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><span class="hl-blue"><strong>Análisis</strong></span></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/analisis.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-27" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><span class="hl-blue"><strong>Análisis</strong></span></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>Los datos son una <span class="hl-red"><strong>fuente</strong></span>: hay que <span class="hl-red"><strong>entrevistarlos</strong></span>.</p>
+<p>Invertir tiempo en pensar.</p>
+<p>Entender los datos, profundizar, calcular, cruzar con otros datos…</p>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-28" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><span class="hl-blue"><strong>Enfoque</strong></span></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/enfoque.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-29" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><span class="hl-blue"><strong>Enfoque</strong></span></p>
+<p><strong>Verificación</strong></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>Los datos tienen que confrontarse y completarse con <span class="hl-red"><strong>otras fuentes</strong></span>: más datos, testigos, expertos…</p>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-30" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><span class="hl-blue"><strong>Verificación</strong></span></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/verificacion.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-31" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><span class="hl-blue"><strong>Verificación</strong></span></p>
+<p><strong>Comunicación</strong></p>
+</div><div class="column" style="width:50%;">
+<p>Como a cualquier fuente, hay que <span class="hl-red"><strong>contrastar</strong></span> y completar los datos con otras fuentes: testigos, expertos…</p>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-32" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><span class="hl-blue"><strong>Comunicación</strong></span></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/comunicacion.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-33" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Obtener los datos</strong></p>
+<p><strong>Limpieza</strong></p>
+<p><strong>Análisis</strong></p>
+<p><strong>Enfoque</strong></p>
+<p><strong>Verificación</strong></p>
+<p><span class="hl-blue"><strong>Comunicación</strong></span></p>
+</div><div class="column" style="width:50%;">
+<p>Buscar la mejor forma de contar lo que queremos <img data-src="img/formatos.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-34" class="slide level2">
+<h2></h2>
+<p>El proceso parece estricto, pero es <span class="hl-red"><strong>iterativo</strong></span> (y no necesariamente lineal) <img data-src="img/proceso_periodismo_datos.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<div class="footer">
+
+</div>
+</section>
+<section id="section-35" class="slide level2">
+<h2></h2>
+
+<img data-src="img/lego.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div class="footer">
+
+</div>
+</section></section>
+<section>
+<section id="el-periodismo-de-datos-en-la-narrativa-visual" class="title-slide slide level1 center">
+<h1>El periodismo de datos en la narrativa visual</h1>
+<div class="footer">
+
+</div>
+</section>
+<section id="qué-es-la-narrativa-visual" class="slide level2">
+<h2>¿Qué es la narrativa visual?</h2>
+<div>
+<ul>
+<li class="fragment">Las <span class="hl-blue"><strong>narrativas visuales</strong></span> o visual storytelling son un proceso de comunicación a través de medios visuales.</li>
+<li class="fragment">Son una herramienta potente para <span class="hl-blue"><strong>informar, explicar y ayudar a entender</strong></span> asuntos complejos.</li>
+<li class="fragment">Suelen producir un <span class="hl-blue"><strong>impacto</strong></span> memorable en la audiencia y generan <span class="hl-blue"><strong>interés</strong></span> y <span class="hl-blue"><strong>valor añadido</strong></span>.</li>
+<li class="fragment">Entre los <span class="hl-blue"><strong>elementos</strong></span> de una narrativa visual puede haber ilustraciones, gráficos, mapas, vídeos, texto, audios…</li>
+</ul>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="ejemplos" class="slide level2">
+<h2>Ejemplos</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.reuters.com/graphics/MOROCCO-QUAKE/CONSTRUCTION/xmpjlblojpr/"><img data-src="img/terremotos_marruecos_reuters.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.nytimes.com/interactive/2023/09/02/world/asia/china-xi-rule.html"><img data-src="img/xi_nyt.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://www.rtve.es/noticias/20241205/notre-dame-catedral-resucito-del-fuego/16359468.shtml"><img data-src="img/notredame_rtve.png" class="quarto-figure quarto-figure-center"></a></p>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section></section>
+<section>
+<section id="tratamiento-de-datos-i" class="title-slide slide level1 center">
+<h1>Tratamiento de datos (I)</h1>
+<div class="footer">
+
+</div>
+</section>
+<section id="operaciones-básicas-del-periodismo-de-datos" class="slide level2">
+<h2>Operaciones básicas del periodismo de datos</h2>
+<div>
+<ul>
+<li class="fragment">Media, mediana y moda</li>
+<li class="fragment">Media ponderada y media móvil</li>
+<li class="fragment">Variación porcentual</li>
+</ul>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="media-mediana-y-moda-i" class="slide level2">
+<h2>Media, mediana y moda (I)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell" data-fig.bg="transparent">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="parte1_files/figure-revealjs/mmm-chart-1.png" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div>
+<ul>
+<li class="fragment"><p><strong>Media.</strong> Suma de un conjunto de valores dividida entre el número total de sumandos</p></li>
+<li class="fragment"><p><strong>Mediana.</strong> Valor de la variable de posición central en un conjunto de datos ordenados</p></li>
+<li class="fragment"><p><strong>Moda.</strong> Valor que aparece con mayor frecuencia en un conjunto de datos</p></li>
+</ul>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="media-mediana-y-moda-ii" class="slide level2">
+<h2>Media, mediana y moda (II)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell" data-fig.bg="transparent">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="parte1_files/figure-revealjs/mmm2-chart-1.png" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li><p><strong>Media.</strong> Suma de un conjunto de valores dividida entre el número total de sumandos</p></li>
+<li><p><strong>Mediana.</strong> Valor de la variable de posición central en un conjunto de datos ordenados</p></li>
+<li><p><strong>Moda.</strong> Valor que aparece con mayor frecuencia en un conjunto de datos</p></li>
+</ul>
+</div></div>
+<p>Media <span class="math display">\[\frac{1+2+3+3+4+7+7+7+11}{9} = 5\]</span></p>
+<div class="footer">
+
+</div>
+</section>
+<section id="conoce-tus-datos-para-usar-la-media" class="slide level2">
+<h2>Conoce tus datos para usar la media</h2>
+<div>
+<ul>
+<li class="fragment"><p>Las medias nos ayudan a resumir los datos, pero pueden esconder la realidad.</p></li>
+<li class="fragment"><p>Necesitas entender la <span class="hl-blue"><strong>distribución, extensión y variabilidad</strong></span> de los datos.</p></li>
+<li class="fragment"><p>Decide si usas una media <strong>anual</strong>, <strong>mensual</strong> o <strong>diaria</strong>.</p></li>
+</ul>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="media-vs.-media-ponderada-i" class="slide level2">
+<h2>Media vs.&nbsp;media ponderada (I)</h2>
+<div>
+<ul>
+<li class="fragment"><p><strong>Media ponderada.</strong> Es apropiada cuando, en un conjunto de datos, cada uno de ellos tiene una importancia relativa (o peso) respecto de los demás</p></li>
+<li class="fragment"><p>Se obtiene multiplicando cada uno de los datos por su ponderación (peso) para luego sumarlos<em>;</em> después se divide esta entre la suma de los pesos</p></li>
+</ul>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Precio por acción ($)</th>
+<th>Nº acciones</th>
+<th>Precio * Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>22</td>
+<td>700</td>
+<td>15.400</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>1.000</td>
+<td>19.000</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>200</td>
+<td>3.000</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>400</td>
+<td>7.200</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>300</td>
+<td>4.800</td>
+</tr>
+<tr class="even">
+<td><strong>90</strong></td>
+<td><strong>2.600</strong></td>
+<td><strong>49.000</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="footer">
+
+</div>
+</section>
+<section id="media-vs.-media-ponderada-ii" class="slide level2">
+<h2>Media vs.&nbsp;media ponderada (II)</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Fórmulas</a></li><li><a href="#tabset-1-2">Resultados</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Media simple</strong> <span class="math display">\[\frac{\sum \text{precios}}{\text{nº elementos}}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Media ponderada</strong> <span class="math display">\[\frac{\sum (\text{precios} \times \text{peso})}{\sum \text{pesos}}\]</span></p>
+</div></div>
+</div>
+<div id="tabset-1-2">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Media simple</strong> <span class="math display">\[\frac{90}{5} = 18 \text{ dólares}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Media ponderada</strong> <span class="math display">\[\frac{49.400}{2.600} = 19 \text{ dólares}\]</span></p>
+</div></div>
+</div>
+</div>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Precio por acción ($)</th>
+<th>Nº acciones</th>
+<th>Precio * Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>22</td>
+<td>700</td>
+<td>15.400</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>1.000</td>
+<td>19.000</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>200</td>
+<td>3.000</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>400</td>
+<td>7.200</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>300</td>
+<td>4.800</td>
+</tr>
+<tr class="even">
+<td><strong>90</strong></td>
+<td><strong>2.600</strong></td>
+<td><strong>49.000</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="footer">
+
+</div>
+</section>
+<section id="media-vs.-media-ponderada-iii" class="slide level2">
+<h2>Media vs.&nbsp;media ponderada (III)</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Aunque no cambie el precio de las acciones, una modificación en los pesos influye en la media</p>
+</div>
+</div>
+</div>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Resultados</a></li><li><a href="#tabset-2-2">Datos</a></li><li><a href="#tabset-2-3">Fórmulas</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Media simple</strong> <span class="math display">\[\frac{90}{5} = 18 \text{ dólares}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Media ponderada</strong> <span class="math display">\[\frac{49.400}{2.600} = 19 \text{ dólares}\]</span></p>
+</div></div>
+</div>
+<div id="tabset-2-2">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Precio por acción ($)</th>
+<th>Nº acciones</th>
+<th>Precio * Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>22</td>
+<td>700</td>
+<td>15.400</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>1.000</td>
+<td>19.000</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>200</td>
+<td>3.000</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>400</td>
+<td>7.200</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>300</td>
+<td>4.800</td>
+</tr>
+<tr class="even">
+<td><strong>90</strong></td>
+<td><strong>2.600</strong></td>
+<td><strong>49.000</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-2-3">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Media simple</strong> <span class="math display">\[\frac{\sum \text{precios}}{\text{nº elementos}}\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Media ponderada</strong> <span class="math display">\[\frac{\sum (\text{precios} \times \text{peso})}{\sum \text{pesos}}\]</span></p>
+</div></div>
+</div>
+</div>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="media-móvil" class="slide level2">
+<h2>Media móvil</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Gráfico</a></li><li><a href="#tabset-3-2">Tabla</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p><em>Media móvil de cuatro días para ilustrar la tendencia subyacente</em></p>
+<div class="cell" data-fig.bg="transparent">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="parte1_files/figure-revealjs/mobile-mean-chart-1.png" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Datos originales</th>
+<th>Fórmula</th>
+<th>Media Móvil</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>(1+4+2+8)/4</td>
+<td>3,75</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>(4+2+8+3)/4</td>
+<td>4,25</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>(2+8+3+12)/4</td>
+<td>6,25</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>(8+3+12+4)/4</td>
+<td>6,75</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>(3+12+4+16)/4</td>
+<td>8,75</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>(12+4+16+5)/4</td>
+<td>9,25</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>(4+16+5+16)/4</td>
+<td>10,25</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>(16+5+16+9)/4</td>
+<td>11,50</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="variación-porcentual" class="slide level2">
+<h2>Variación porcentual</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div>
+<ul>
+<li class="fragment"><p>El cambio en los valores se puede expresar como un porcentaje a partir del dato original</p></li>
+<li class="fragment"><p>Cuando el nuevo valor es más pequeño que el antiguo, el resultado es negativo</p></li>
+</ul>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="cell" data-fig.bg="transparent">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="parte1_files/figure-revealjs/var-chart-1.png" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p><span class="math display">\[\text{% Variación} = \left( \frac{\text{nuevo} - \text{antiguo}}{\text{antiguo}} \right) \times 100\]</span></p>
+<div class="footer">
+
+</div>
+</section>
+<section id="valores-absolutos-vs.-cambios-porcentuales" class="slide level2">
+<h2>Valores absolutos vs.&nbsp;cambios porcentuales</h2>
+<p>La representación de valores absolutos o de su cambio porcentual desde el dato de origen dibuja una curva de forma idéntica pero que atraviesa la línea de base</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-fig.bg="transparent">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="parte1_files/figure-revealjs/absolute-chart-1.png" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-fig.bg="transparent">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="parte1_files/figure-revealjs/absolute2-chart-1.png" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="expresar-porcentajes" class="slide level2">
+<h2>Expresar porcentajes</h2>
+<h5 id="porcentaje-puntos-porcentuales-puntos-básicos"><strong>Porcentaje ≠ Puntos porcentuales ≠ Puntos básicos</strong></h5>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div>
+<ul>
+<li class="fragment"><p>Distintas formas de expresar un cambio en los valores:</p></li>
+<li class="fragment"><p><em>Un incremento de 2 a 6 se puede expresar como…</em></p></li>
+<li class="fragment"><p><em>… que el valor se triplica</em></p></li>
+<li class="fragment"><p><em>… que el valor crece un 200%</em></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:33%;">
+<div>
+<ul>
+<li class="fragment"><p>La diferencia entre dos porcentajes se expresa como puntos porcentuales</p></li>
+<li class="fragment"><p><em>Si un dato pasa del 2% al 1,75%…</em></p></li>
+<li class="fragment"><p><em>…decrece 0,25 puntos porcentuales</em></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:33%;">
+<div>
+<ul>
+<li class="fragment"><p>También se puede expresar en puntos básicos</p></li>
+<li class="fragment"><p><strong>1 punto porcentual = 100 puntos básicos</strong></p></li>
+<li class="fragment"><p><em>Si un dato pasa del 2% al 1,75%…</em></p></li>
+<li class="fragment"><p><em>…decrece 25 puntos básicos</em></p></li>
+</ul>
+</div>
+</div></div>
+<div class="footer">
+
+</div>
+</section>
+<section id="no-hagas-medias-con-porcentajes" class="slide level2">
+<h2>No hagas medias con porcentajes</h2>
+<p>Los porcentajes no se pueden tratar como números normales. Para hacer un promedio hay que volver a los datos originales.</p>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>¡Cuidado!</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\text{Media de } A\% \text{ y } B\% \neq \frac{A + B}{2}\]</span></p>
+</div>
+</div>
+</div>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[A\% = \frac{c}{e}\]</span></td>
+<td><span class="math display">\[B\% = \frac{d}{f}\]</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\text{Nuevo porcentaje} = \left( \frac{c + d}{e + f} \right) \times 100\]</span></p>
+<!-- *NOTA: Solo puedes calcular medias de porcentajes si parten de la misma base. Por ejemplo, la nota media de una clase es la media simple del % aprobado de cada alumno, porque todos parten de 100%.* -->
+<div class="footer">
+
+</div>
+</section></section>
+<section id="continuará" class="title-slide slide level1 center">
+<h1>Continuará…</h1>
+<p><a href="parte2.html">Ver Presentación periodística de datos, hechos y cifras</a></p>
+<div class="footer">
+
+</div>
+
+
+<div class="reveal-header">
+<div class="header-logo">
+<img data-src="">
+</div>
+<div class="sc-title">
+<p> </p>
+</div>
+<div class="header-text">
+<p> </p>
+</div>
+<div class="sb-title">
+<p> </p>
+</div>
+</div>
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><img src="img/faldon_institucional.png" width="100%"></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
