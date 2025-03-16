@@ -1,0 +1,199 @@
+/*-- scss:defaults --*/
+
+// Fuentes: Ubuntu, Urbanist, Alkatra
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Urbanist:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Ubuntu:wght@300;400;500;600;700&display=swap');
+
+$icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">  <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/></svg>') !default;
+
+/*-- scss:defaults --*/
+
+// general
+$body-bg: #ffffff !default; // color de fondo
+$body-color: #444442 !default; // color de texto
+$link-color: #45498B !default; // color de links
+$link-weight: bold !default;
+$presentation-font-size-root: 2.3em;
+$font-size-root: 1.5em;
+$font-family-sans-serif: 'Urbanist', sans-serif !default;
+
+// headings
+$presentation-heading-font: "Ubuntu", sans-serif !default;
+$presentation-heading-color: #45498B !default; // color headings
+$presentation-heading-font-weight: bold !default;
+$h1-font-size: 2.5em !default;
+$h2-font-size: 2.1em !default;
+$h3-font-size: 1.5em !default;
+$h4-font-size: 1.2em !default;
+$footer-font-size: 1.2em !default;
+
+//code
+$code-color: #45498B !default;
+$font-family-monospace: "Spline Sans Mono", monospace  !default;
+$code-block-border-color: lighten($body-color, 30%) !default;
+$code-block-bg: lighten(#83A6BD, 35%) !default;
+
+.reveal pre.sourceCode code {
+    padding: 6px 9px !important;
+    max-height: 400px !important;
+    white-space: pre !important;
+}
+
+
+.reveal pre code {
+    display: block !important;
+    overflow: auto !important;
+    word-wrap: normal !important;
+    font-weight: 500 !important;
+    font-size: 1.3em !important;
+}
+
+
+
+
+code span.fu {
+  color: #45498B !important; // a1ffe2
+}
+
+code span.at {
+  color: #2972A8 !important; // a1ffe2
+}
+
+code span.sc {
+  color: #83A6BD !important; // a1ffe2
+}
+
+code span.st {
+  color: #990600 !important; // a1ffe2
+}
+
+code span.ot {
+  color: #30ad7e !important; // a1ffe2
+}
+
+
+/*-- scss:mixins --*/
+
+// Background generator
+@mixin bodyBackground() {
+  @include radial-gradient(#E8F3F5, #ffffff);
+}
+
+/*-- scss:rules --*/
+
+.backgrounds .title-slide {
+    background-color: #C9E0F1 !important;
+}
+ 
+  
+.title{
+  font-size: 2.7em !important;
+  font-weight: bold !important;
+}
+
+.subtitle {
+  color: $body-color !important;
+  font-size: $h3-font-size !important;
+  font-family: $presentation-heading-font !important;
+  font-weight: bold !important;
+}
+
+.reveal .footer {
+  font-size: 0.9em !important;
+}
+
+.reveal code {
+    background-color: rgba(0,0,0,0);
+    white-space: pre-wrap !important;
+    font-weight: bold !important;
+}
+
+
+.reveal h1, h2 {
+  color: #45498B !important;
+  font-weight: bold !important;
+}
+
+.reveal h1 {
+  font-size: 4.5em !important;
+  text-align: center !important;
+}
+
+.reveal h2 {
+  font-size: 2.7em !important;
+}
+
+.hl-yellow{
+   background: linear-gradient(
+    to bottom,
+    transparent 65%,
+    #F8DF58 35%
+  );
+}
+
+.hl-red{
+   background: linear-gradient(
+    to bottom,
+    transparent 65%,
+    #EEB0B1 35%
+  );
+}
+
+.hl-purple{
+   background: linear-gradient(
+    to bottom,
+    transparent 65%,
+    #CAB0EE 35%
+  );
+}
+
+.hl-green{
+   background: linear-gradient(
+    to bottom,
+    transparent 65%,
+    #B0EED1 35%
+  );
+}
+
+
+.hl-orange{
+   background: linear-gradient(
+    to bottom,
+    transparent 65%,
+    #EFD3A7 35%
+  );
+}
+
+li{
+  margin: 0.35em 0 0.3em -0.6em !important;
+}
+
+div.callout-caution.callout-caption {
+  title: "hola" !important;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a.active {
+    border-left: 1px solid #45498B;
+    color: #45498B !important;
+    font-weight: bold;
+}
+
+.sidebar nav[role=doc-toc] ul>li>a:hover {
+    color: #45498B !important;
+    background-color: #83A6BD30;
+}
+
+.sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
+    border-left: 1px solid #45498B;
+    color: #45498B !important;
+    font-weight: bold;
+}
+
+.sidebar nav[role=doc-toc] ul>li>ul>li>a:hover {
+    color: #45498B !important;
+    background-color: #83A6BD30;
+}
+
+.navbar {
+  display: none;
+}
+
