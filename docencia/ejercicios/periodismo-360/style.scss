@@ -97,9 +97,6 @@ code span.ot {
   font-weight: bold !important;
 }
 
-.reveal .footer {
-  font-size: 0.9em !important;
-}
 
 .reveal code {
     background-color: rgba(0,0,0,0);
@@ -195,6 +192,21 @@ div.callout-caution.callout-caption {
 
 .navbar {
   display: none;
+}
+
+.nav-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  background: #e5e7e9;
+  color: #444442;
+  padding: 0.8em 0;
+}
+.nav-footer-left, .nav-footer-center, .nav-footer-right {
+  flex: 1 1 0;
+  text-align: center;
 }
 
 /* Estilos scrolly para versión de escritorio */
