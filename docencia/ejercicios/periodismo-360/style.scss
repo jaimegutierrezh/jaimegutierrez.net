@@ -204,9 +204,13 @@ div.callout-caution.callout-caption {
   color: #444442;
   padding: 0.8em 0;
 }
-.nav-footer-left, .nav-footer-center, .nav-footer-right {
+.nav-footer-left, .nav-footer-center {
   flex: 1 1 0;
   text-align: center;
+}
+
+.nav-footer-right{
+  display: none;
 }
 
 /* Estilos scrolly para versión de escritorio */
