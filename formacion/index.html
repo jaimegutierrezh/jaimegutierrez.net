@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formación · Jaime Gutiérrez</title>
+  <meta name="description" content="Materiales de formación en periodismo de datos y narrativa visual por Jaime Gutiérrez.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ---- Estilos específicos de subpágina ---- */
+    .page-hero {
+      background: var(--paper);
+      padding: calc(3.25rem + var(--sp-lg)) var(--pad) var(--sp-lg);
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-hero__inner {
+      max-width: var(--max-w);
+      margin-inline: auto;
+    }
+    .page-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: var(--sp-md);
+      transition: color 0.2s;
+    }
+    .page-hero__back:hover { color: var(--ink); }
+    .page-hero__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: var(--sp-xs);
+    }
+    .page-hero__title {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 7vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 0.92;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+    .page-hero__desc {
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      color: var(--mid);
+      max-width: 52ch;
+      line-height: 1.6;
+    }
+
+    /* ---- Contenido ---- */
+    .page-content {
+      background: var(--paper);
+      padding-block: var(--sp-xl);
+    }
+    .page-content__inner {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+    }
+
+    /* ---- Bloque de programa ---- */
+    .program-block {
+      margin-bottom: var(--sp-xl);
+    }
+    .program-block + .program-block {
+      border-top: 1px solid var(--rule);
+      padding-top: var(--sp-xl);
+    }
+    .program-header {
+      margin-bottom: var(--sp-lg);
+    }
+    .program-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .program-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+    .program-desc {
+      font-size: 0.9375rem;
+      color: var(--mid);
+      max-width: 60ch;
+      line-height: 1.65;
+    }
+
+    /* ---- Mosaico de tarjetas ---- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: #fff;
+      border: 1.5px solid var(--rule);
+      border-radius: 4px;
+      padding: var(--sp-md);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      transform: translate(-2px, -2px);
+    }
+    .card__num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.6rem;
+    }
+    .card__title {
+      font-family: var(--ff-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+    .card__desc {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: var(--sp-sm);
+    }
+    .card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      transition: gap 0.2s;
+      margin-top: auto;
+    }
+    .card__link:hover { gap: 0.55rem; }
+    .card__link svg { flex-shrink: 0; }
+
+    /* ---- Footer subpágina ---- */
+    .page-footer {
+      background: var(--ink);
+      padding-block: var(--sp-md);
+    }
+    .page-footer__inner {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-sm);
+    }
+    .page-footer__name,
+    .page-footer__copy {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.28);
+      letter-spacing: 0.07em;
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="../" class="nav__brand"><em>JG</em></a>
+      <ul class="nav__list" role="list">
+        <li><a href="../#sobre-mi" class="nav__link">Sobre mí</a></li>
+        <li><a href="../#trabajo" class="nav__link">Trabajo</a></li>
+        <li><a href="../#docencia" class="nav__link">Docencia</a></li>
+        <li><a href="../#contacto" class="nav__link">Contacto</a></li>
+        <li>
+          <a href="mailto:jaime.gutierrezhernandez@gmail.com" class="nav__cta" aria-label="Enviar email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" aria-hidden="true">
+              <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO DE PÁGINA -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <a href="../" class="page-hero__back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Volver al inicio
+      </a>
+      <p class="page-hero__eyebrow">Periodismo · Datos · Narrativa visual</p>
+      <h1 class="page-hero__title">Formación</h1>
+      <p class="page-hero__desc">Materiales docentes sobre periodismo de datos, visualización y narrativa visual para posgrados, redacciones y formación especializada.</p>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="page-content">
+    <div class="page-content__inner">
+
+      <!-- BLOQUE: Máster Periodismo 360º -->
+      <section class="program-block">
+        <div class="program-header">
+          <p class="program-eyebrow">Instituto RTVE · Universidad de Sevilla</p>
+          <h2 class="program-title">Máster en Periodismo 360º</h2>
+          <p class="program-desc">Módulo enfocado en contenidos multiplataforma, storytelling, nuevos formatos y narrativas digitales. Los materiales cubren desde la introducción al periodismo de datos hasta la construcción de narrativas visuales.</p>
+        </div>
+
+        <div class="cards-grid">
+
+          <!-- Tarjeta 1 -->
+          <article class="card">
+            <span class="card__num">Parte 1</span>
+            <h3 class="card__title">Introducción al periodismo de datos</h3>
+            <p class="card__desc">Qué es el periodismo de datos, cómo ha evolucionado y cuál es su papel en el ecosistema informativo actual. Fundamentos, flujo de trabajo y casos de referencia.</p>
+            <a href="periodismo_360/parte1.html" class="card__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13" aria-hidden="true"><path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+              Ver presentación
+            </a>
+          </article>
+
+          <!-- Tarjeta 2 -->
+          <article class="card">
+            <span class="card__num">Parte 2</span>
+            <h3 class="card__title">Presentación periodística de datos, hechos y cifras</h3>
+            <p class="card__desc">Cómo trabajar con datos en una redacción: verificación, contexto y presentación de cifras. Buenas prácticas para comunicar datos con precisión y claridad.</p>
+            <a href="periodismo_360/parte2.html" class="card__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13" aria-hidden="true"><path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+              Ver presentación
+            </a>
+          </article>
+
+          <!-- Tarjeta 3 -->
+          <article class="card">
+            <span class="card__num">Parte 3</span>
+            <h3 class="card__title">Narrativas visuales</h3>
+            <p class="card__desc">De los datos a la historia visual: principios de visualización de datos, tipos de gráficos, elección del formato adecuado y construcción de narrativas con datos.</p>
+            <a href="periodismo_360/parte3.html" class="card__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13" aria-hidden="true"><path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+              Ver presentación
+            </a>
+          </article>
+
+          <!-- Tarjeta 4: Ejercicios -->
+          <article class="card">
+            <span class="card__num">Ejercicios</span>
+            <h3 class="card__title">Workbook: ejercicios prácticos</h3>
+            <p class="card__desc">Cuaderno de ejercicios para aplicar los conceptos de las tres partes. Actividades prácticas con datos reales para desarrollar habilidades de análisis y visualización.</p>
+            <a href="periodismo_360/ejercicios/workbook-RTVE.html" class="card__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13" aria-hidden="true"><path d="M4.5 12.75l6 6 9-13.5"/></svg>
+              Comenzar ejercicios
+            </a>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__name">Jaime Gutiérrez · jaimegutierrez.net</span>
+      <span class="page-footer__copy">© 2025 · CC BY-SA 4.0</span>
+    </div>
+  </footer>
+
+</body>
+</html>

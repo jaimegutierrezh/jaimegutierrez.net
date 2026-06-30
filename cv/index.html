@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV · Jaime Gutiérrez</title>
+  <meta name="description" content="Currículum vitae de Jaime Gutiérrez, periodista de datos en RTVE Noticias.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+
+    /* ---- Hero ---- */
+    .page-hero {
+      background: var(--paper);
+      padding: calc(3.25rem + var(--sp-lg)) var(--pad) var(--sp-lg);
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-hero__inner {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--sp-md);
+    }
+    .page-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: var(--sp-md);
+      transition: color 0.2s;
+    }
+    .page-hero__back:hover { color: var(--ink); }
+    .page-hero__eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: var(--sp-xs);
+    }
+    .page-hero__title {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 7vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 0.92;
+      color: var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+    .page-hero__desc {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--ink-2);
+      max-width: 60ch;
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+      padding: 0.65em 1.2em;
+      border-radius: 2px;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cv-download:hover { background: var(--ink); color: var(--paper); }
+
+    /* ---- Layout ---- */
+    .cv-body {
+      background: var(--paper);
+      padding-block: var(--sp-xl);
+    }
+    .cv-body__inner {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+      display: grid;
+      grid-template-columns: 1fr 17rem;
+      gap: var(--sp-xl);
+      align-items: start;
+    }
+
+    /* ---- Secciones principales ---- */
+    .cv-section { margin-bottom: var(--sp-xl); }
+    .cv-section:last-child { margin-bottom: 0; }
+    .cv-section__title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: var(--sp-md);
+    }
+
+    /* ---- Timeline de entradas ---- */
+    .cv-entries { display: flex; flex-direction: column; gap: 0; }
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 9rem 1fr;
+      gap: var(--sp-sm) var(--sp-md);
+      padding-block: var(--sp-md);
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-entry:last-child { border-bottom: none; }
+    .cv-entry__date {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding-top: 0.2rem;
+      line-height: 1.4;
+    }
+    .cv-entry__role {
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--ink);
+      margin-bottom: 0.15rem;
+    }
+    .cv-entry__org {
+      font-size: 0.775rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .cv-entry__desc {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .cv-entry__desc a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+    .cv-entry__desc a:hover { text-decoration: none; }
+
+    /* ---- Lista de formación ---- */
+    .cv-courses { list-style: none; padding: 0; }
+    .cv-course {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      padding-block: 0.7rem;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+    .cv-course:last-child { border-bottom: none; }
+    .cv-course__name {
+      font-size: 0.875rem;
+      color: var(--ink-2);
+      line-height: 1.4;
+    }
+    .cv-course__inst {
+      font-size: 0.75rem;
+      color: var(--mid);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ---- Sidebar ---- */
+    .cv-sidebar { position: sticky; top: 4.5rem; }
+    .cv-sidebar-block { margin-bottom: var(--sp-lg); }
+    .cv-sidebar-block:last-child { margin-bottom: 0; }
+    .cv-sidebar__title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: var(--sp-sm);
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* Skills */
+    .cv-skills { display: flex; flex-direction: column; gap: 0.6rem; }
+    .cv-skill__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+    }
+    .cv-skill__name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .cv-skill__years {
+      font-size: 0.72rem;
+      color: var(--mid);
+    }
+    .cv-skill__bar {
+      height: 3px;
+      background: var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .cv-skill__fill {
+      height: 100%;
+      background: var(--ink);
+      border-radius: 2px;
+      width: 0;
+      transition: width 0.8s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* Herramientas */
+    .cv-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .cv-tool {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink-2);
+      border: 1px solid var(--rule);
+      padding: 0.3em 0.65em;
+      border-radius: 2px;
+    }
+
+    /* Educación sidebar */
+    .cv-edu-items { display: flex; flex-direction: column; gap: var(--sp-sm); }
+    .cv-edu-item {}
+    .cv-edu-item__title {
+      font-size: 0.825rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 0.1rem;
+    }
+    .cv-edu-item__inst {
+      font-size: 0.75rem;
+      color: var(--mid);
+      margin-bottom: 0.1rem;
+    }
+    .cv-edu-item__dates {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rule);
+    }
+
+    /* Footer */
+    .page-footer {
+      background: var(--ink);
+      padding-block: var(--sp-md);
+    }
+    .page-footer__inner {
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--sp-sm);
+    }
+    .page-footer__name,
+    .page-footer__copy {
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.28);
+      letter-spacing: 0.07em;
+    }
+
+    @media (max-width: 768px) {
+      .cv-body__inner {
+        grid-template-columns: 1fr;
+      }
+      .cv-sidebar { position: static; }
+      .cv-entry { grid-template-columns: 1fr; gap: 0.25rem; }
+      .cv-course { grid-template-columns: 1fr; }
+      .cv-course__inst { text-align: left; }
+    }
+
+    @media print {
+      @page { margin: 1.8cm 1.5cm; size: A4; }
+      .nav, .page-hero__back, .cv-download, .page-footer { display: none !important; }
+      .page-hero {
+        padding: 0 0 1rem;
+        border-bottom: 2px solid #0F0E0C;
+      }
+      .page-hero__inner { display: block; }
+      .page-hero__title { font-size: 3.5rem; margin-bottom: 0.5rem; }
+      .page-hero__desc { font-size: 0.9rem; }
+      .cv-body { padding-block: 0; }
+      .cv-body__inner {
+        grid-template-columns: 1fr 14rem;
+        gap: 2rem;
+        padding-inline: 0;
+      }
+      .cv-sidebar { position: static; }
+      .cv-section { margin-bottom: 1.5rem; }
+      .cv-entry { padding-block: 0.6rem; }
+      .cv-skill__fill { width: attr(data-w) !important; }
+      a { text-decoration: none; color: inherit; }
+      .cv-section__title { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav is-scrolled" id="nav">
+    <div class="nav__inner">
+      <a href="../" class="nav__brand"><em>JG</em></a>
+      <ul class="nav__list" role="list">
+        <li><a href="../#sobre-mi" class="nav__link">Sobre mí</a></li>
+        <li><a href="../#trabajo" class="nav__link">Trabajo</a></li>
+        <li><a href="../#docencia" class="nav__link">Docencia</a></li>
+        <li><a href="../#contacto" class="nav__link">Contacto</a></li>
+        <li>
+          <a href="mailto:jaime.gutierrezhernandez@gmail.com" class="nav__cta" aria-label="Enviar email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" aria-hidden="true">
+              <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <div class="page-hero__inner">
+      <div>
+        <a href="../" class="page-hero__back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+          Volver al inicio
+        </a>
+        <p class="page-hero__eyebrow">Periodismo · Datos · Narrativa visual</p>
+        <h1 class="page-hero__title">Currículum</h1>
+        <p class="page-hero__desc">Soy periodista de datos en RTVE, la radiotelevisión pública de España. Tras mi paso por las secciones de economía y política de la web, la pandemia de 2020 me permitió centrar mi carrera en el periodismo visual. Desde entonces construyo nuevas narrativas para contar historias a través de datos, gráficos, mapas e ilustración, combinando reporterismo, programación y diseño para hacer accesibles las historias complejas.</p>
+      </div>
+      <a href="jaime_gutierrez_cv.pdf" class="cv-download" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" aria-hidden="true"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+        Descargar CV
+      </a>
+    </div>
+  </header>
+
+  <!-- CUERPO -->
+  <main class="cv-body">
+    <div class="cv-body__inner">
+
+      <!-- COLUMNA PRINCIPAL -->
+      <div class="cv-main">
+
+        <!-- Experiencia -->
+        <section class="cv-section">
+          <h2 class="cv-section__title">Experiencia</h2>
+          <div class="cv-entries">
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2019 — Actualidad</span>
+              <div>
+                <p class="cv-entry__role">Periodista de datos y editor</p>
+                <p class="cv-entry__org">RTVE Noticias</p>
+                <p class="cv-entry__desc">Redactor especializado en periodismo de datos, visualización y nuevas narrativas. Editor del equipo de Datos y Narrativas Visuales de RTVE desde 2022.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2017 — 2019</span>
+              <div>
+                <p class="cv-entry__role">Editor MOOC y formación online</p>
+                <p class="cv-entry__org">Universidad Carlos III de Madrid</p>
+                <p class="cv-entry__desc">Producción, realización y edición de vídeos con fines académicos y de innovación docente para máster online, material complementario y MOOC.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2017</span>
+              <div>
+                <p class="cv-entry__role">Redactor web y redes sociales</p>
+                <p class="cv-entry__org">Zebra Producciones</p>
+                <p class="cv-entry__desc">Seguimiento y gestión de la comunidad en redes sociales del programa de RTVE '¿Cómo lo ves?', presentado por Carlos Herrera.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2017</span>
+              <div>
+                <p class="cv-entry__role">Editor web</p>
+                <p class="cv-entry__org">Leroy Merlin</p>
+                <p class="cv-entry__desc">Redacción, edición, maquetación de contenidos y gestión de bases de datos para el relanzamiento de la tienda online.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2016 — 2017</span>
+              <div>
+                <p class="cv-entry__role">Responsable de comunicación y diseño</p>
+                <p class="cv-entry__org">Singular Wod</p>
+                <p class="cv-entry__desc">Elaboración de notas de prensa, maquetación, organización de eventos, gestión de e-Commerce, diseño textil y de packaging.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2016</span>
+              <div>
+                <p class="cv-entry__role">Editor de español</p>
+                <p class="cv-entry__org">BQ España</p>
+                <p class="cv-entry__desc">Redacción y corrección de estilo de materiales de comunicación interna y externa, manuales, guías, garantías y QSG.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2013 — 2016</span>
+              <div>
+                <p class="cv-entry__role">Redactor</p>
+                <p class="cv-entry__org">RTVE Noticias</p>
+                <p class="cv-entry__desc">Redactor en distintas secciones de la web de RTVE Noticias: economía, nacional, ciencia y turno de noche.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2012</span>
+              <div>
+                <p class="cv-entry__role">Redactor</p>
+                <p class="cv-entry__org">Cadena Ser</p>
+                <p class="cv-entry__desc">Redactor y productor en la edición de verano del programa 'Hoy por hoy Madrid'. Elaboración de reportajes y directos sobre la actualidad de la capital.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Premios y reconocimientos -->
+        <section class="cv-section">
+          <h2 class="cv-section__title">Premios y reconocimientos</h2>
+          <div class="cv-entries">
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2024</span>
+              <div>
+                <p class="cv-entry__role">Premio API de Periodismo de Investigación · Categoría Datos</p>
+                <p class="cv-entry__org">Asociación de Periodistas de Investigación</p>
+                <p class="cv-entry__desc">Por <a href="https://www.rtve.es/noticias/radiografia-sanidad-espana/" target="_blank" rel="noopener noreferrer">«Radiografía de la Sanidad en España»</a>, serie de datos coordinada por mí.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2024</span>
+              <div>
+                <p class="cv-entry__role">Mención especial · Premio Ortega y Gasset de Periodismo</p>
+                <p class="cv-entry__org">El País</p>
+                <p class="cv-entry__desc">Por <a href="https://www.rtve.es/noticias/20231201/guerra-gaza-diario-testigo-incomodo/2462999.shtml" target="_blank" rel="noopener noreferrer">«La vida de Jebreel: diario de un testigo incómodo de la guerra en Gaza»</a>, reportaje sobre el periodista gazatí Jebreel Abu Kmail, para el que coordiné la narrativa visual y de datos.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2025</span>
+              <div>
+                <p class="cv-entry__role">Premio Society for News Design (SND)</p>
+                <p class="cv-entry__org">Society for News Design</p>
+                <p class="cv-entry__desc">Por <a href="https://www.rtve.es/noticias/20241205/notre-dame-catedral-resucito-del-fuego/16359468.shtml" target="_blank" rel="noopener noreferrer">«Catedral de Notre-Dame de París: reconstrucción tras el incendio»</a>, especial con la ilustración como elemento fundamental que repasa en cinco bloques temáticos los cinco años de reconstrucción tras el incendio de 2019.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Docencia y divulgación -->
+        <section class="cv-section">
+          <h2 class="cv-section__title">Docencia y divulgación</h2>
+          <div class="cv-entries">
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">2023 — Actualidad</span>
+              <div>
+                <p class="cv-entry__role">Periodismo de datos y narrativas visuales</p>
+                <p class="cv-entry__org">Universidad de Sevilla · Instituto RTVE</p>
+                <p class="cv-entry__desc">Profesor del módulo en contenidos multiplataforma del Máster de formación permanente en Periodismo 360. Cuarta edición en curso (2026), con cerca de 80 alumnos formados.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">Mar 2024</span>
+              <div>
+                <p class="cv-entry__role">Here's your graphic: how DatosRTVE created a systematic dataviz workflow</p>
+                <p class="cv-entry__org">Datawrapper · Unwrapped Conference</p>
+                <p class="cv-entry__desc">Intervención en la conferencia organizada por Datawrapper acerca de la elaboración de gráficos recurrentes a partir de bases de datos abiertas.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">Feb 2024</span>
+              <div>
+                <p class="cv-entry__role">Periodismo de datos para centros territoriales</p>
+                <p class="cv-entry__org">Instituto RTVE</p>
+                <p class="cv-entry__desc">Curso de iniciación en el periodismo de datos y el uso de gráficos en noticias para redactores y editores de los centros territoriales de RTVE.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">Sep 2023</span>
+              <div>
+                <p class="cv-entry__role">Decálogo de buenas prácticas para trabajar con periodistas</p>
+                <p class="cv-entry__org">Coordinadora de Organizaciones para el Desarrollo</p>
+                <p class="cv-entry__desc">Formación sobre métodos de trabajo para redefinir la relación entre periodistas y gabinetes de prensa ante la irrupción del periodismo de datos. Curso 'Relatos detrás de los datos'.</p>
+              </div>
+            </div>
+
+            <div class="cv-entry">
+              <span class="cv-entry__date">Abr 2023</span>
+              <div>
+                <p class="cv-entry__role">¡Ojo al dato! Periodismo de datos en la práctica</p>
+                <p class="cv-entry__org">Universidad Complutense de Madrid</p>
+                <p class="cv-entry__desc">Charla divulgativa sobre periodismo de datos para estudiantes de Periodismo y Comunicación.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Formación complementaria -->
+        <section class="cv-section">
+          <h2 class="cv-section__title">Formación complementaria</h2>
+          <ul class="cv-courses">
+            <li class="cv-course">
+              <span class="cv-course__name">Estadística con R aplicada al periodismo de datos</span>
+              <span class="cv-course__inst">Instituto RTVE · 2024</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Periodismo de datos con R</span>
+              <span class="cv-course__inst">Instituto RTVE · 2023</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Advanced data journalism: doing more with R</span>
+              <span class="cv-course__inst">Knight Center · 2022</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Cómo cubrir la crisis climática y combatir la desinformación</span>
+              <span class="cv-course__inst">Knight Center · 2022</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Hands on Mapping for Journalists</span>
+              <span class="cv-course__inst">Knight Center · 2022</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Iniciación al análisis de datos con R</span>
+              <span class="cv-course__inst">Centro de Estudios Andaluces · 2022</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Narraciones interactivas y periodismo visual</span>
+              <span class="cv-course__inst">Instituto RTVE · 2022</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Verificación y fact checking / Google Trends</span>
+              <span class="cv-course__inst">Instituto RTVE · 2019</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Transmedia storytelling</span>
+              <span class="cv-course__inst">UNSW Australia · 2018</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Edición gráfica de contenidos multimedia</span>
+              <span class="cv-course__inst">Instituto RTVE · 2015</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">After Effects: composición, animación y efectos</span>
+              <span class="cv-course__inst">Instituto RTVE · 2015</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Locución, doblaje y aprovechamiento de la voz</span>
+              <span class="cv-course__inst">Instituto RTVE · 2015</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Realización interactiva para web y nuevos dispositivos</span>
+              <span class="cv-course__inst">Instituto RTVE · 2014</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Programación de aplicaciones Android</span>
+              <span class="cv-course__inst">Instituto RTVE · 2015</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Diseño gráfico con software libre</span>
+              <span class="cv-course__inst">UC3M · 2013</span>
+            </li>
+            <li class="cv-course">
+              <span class="cv-course__name">Guion cinematográfico</span>
+              <span class="cv-course__inst">Círculo de Bellas Artes · 2010</span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="cv-sidebar">
+
+        <!-- Habilidades -->
+        <div class="cv-sidebar-block">
+          <h3 class="cv-sidebar__title">Habilidades</h3>
+          <div class="cv-skills" id="cvSkills">
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">Adobe Creative Cloud</span>
+                <span class="cv-skill__years">+10 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="100"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">Final Cut / Premiere</span>
+                <span class="cv-skill__years">+10 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="100"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">After Effects</span>
+                <span class="cv-skill__years">+10 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="80"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">Operador DSLR / DV CAM</span>
+                <span class="cv-skill__years">+10 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="80"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">Excel</span>
+                <span class="cv-skill__years">+10 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="90"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">Análisis de datos</span>
+                <span class="cv-skill__years">6 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="75"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">R</span>
+                <span class="cv-skill__years">5 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="70"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">Web Scraping</span>
+                <span class="cv-skill__years">5 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="70"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">QGIS</span>
+                <span class="cv-skill__years">5 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="60"></div></div>
+            </div>
+            <div class="cv-skill">
+              <div class="cv-skill__header">
+                <span class="cv-skill__name">Inteligencia artificial</span>
+                <span class="cv-skill__years">2 años</span>
+              </div>
+              <div class="cv-skill__bar"><div class="cv-skill__fill" data-w="30"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Herramientas -->
+        <div class="cv-sidebar-block">
+          <h3 class="cv-sidebar__title">Herramientas</h3>
+          <div class="cv-tools">
+            <span class="cv-tool">GitHub</span>
+            <span class="cv-tool">RStudio / VS Code</span>
+            <span class="cv-tool">Mapshaper</span>
+            <span class="cv-tool">Claude / Perplexity</span>
+            <span class="cv-tool">Observable</span>
+            <span class="cv-tool">Mapbox</span>
+          </div>
+        </div>
+
+        <!-- Idiomas -->
+        <div class="cv-sidebar-block">
+          <h3 class="cv-sidebar__title">Idiomas</h3>
+          <div class="cv-edu-items">
+            <div class="cv-edu-item">
+              <p class="cv-edu-item__title">Español</p>
+              <p class="cv-edu-item__inst">Nativo</p>
+            </div>
+            <div class="cv-edu-item">
+              <p class="cv-edu-item__title">Inglés</p>
+              <p class="cv-edu-item__inst">Nivel profesional de trabajo · B2 (Escuela Oficial de Idiomas)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educación -->
+        <div class="cv-sidebar-block">
+          <h3 class="cv-sidebar__title">Educación</h3>
+          <div class="cv-edu-items">
+            <div class="cv-edu-item">
+              <p class="cv-edu-item__title">Periodismo y Comunicación Audiovisual</p>
+              <p class="cv-edu-item__inst">Universidad Carlos III de Madrid</p>
+              <p class="cv-edu-item__dates">2008 — 2013</p>
+            </div>
+            <div class="cv-edu-item">
+              <p class="cv-edu-item__title">Periodismo · Erasmus</p>
+              <p class="cv-edu-item__inst">Kingston University London</p>
+              <p class="cv-edu-item__dates">2012</p>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span class="page-footer__name">Jaime Gutiérrez · jaimegutierrez.net</span>
+      <span class="page-footer__copy">© 2026 · CC BY-SA 4.0</span>
+    </div>
+  </footer>
+
+  <script>
+    // Animar skill bars al entrar en viewport
+    const fills = document.querySelectorAll('.cv-skill__fill');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.width = e.target.dataset.w + '%';
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    fills.forEach(f => obs.observe(f));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Periodismo de datos — Jaime Gutiérrez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F0E8; --ink:#0F0E0C; --ink-2:#2E2C28; --mid:#8A8478;
+  --rule:#D8D1C8; --accent:#C1440E; --teal:#16706A;
+  --ff-display:'Fraunces',Georgia,serif; --ff-body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper); color:var(--ink-2);
+  font-family:var(--ff-body); line-height:1.55;
+  min-height:100vh; display:flex; flex-direction:column;
+}
+.wrap{width:100%; max-width:960px; margin:0 auto; padding:0 24px;}
+
+/* Cabecera */
+header{
+  background:var(--accent); color:#fff;
+  padding:88px 0 72px;
+}
+header .eyebrow{
+  font-family:var(--ff-body); font-weight:600; font-size:.8rem;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,.78); margin-bottom:18px;
+}
+header h1{
+  font-family:var(--ff-display); font-weight:900; line-height:1.02;
+  letter-spacing:-.025em; font-size:clamp(2.6rem,7vw,4.4rem); color:#fff;
+}
+header p{
+  margin-top:18px; max-width:48ch; font-size:1.05rem;
+  color:rgba(255,255,255,.9);
+}
+
+/* Listado de partes */
+main{flex:1 0 auto; padding:64px 0 80px;}
+main h2{
+  font-family:var(--ff-display); font-weight:900; color:var(--ink);
+  font-size:1.6rem; letter-spacing:-.02em; margin-bottom:28px;
+}
+.cards{display:grid; gap:18px;}
+@media(min-width:720px){.cards{grid-template-columns:repeat(3,1fr);}}
+
+.card{
+  display:flex; flex-direction:column;
+  background:#fff; border:1px solid var(--rule); border-radius:14px;
+  padding:26px 24px 24px; text-decoration:none; color:inherit;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(15,14,12,.10);
+  border-color:var(--accent);
+}
+.card .num{
+  font-family:var(--ff-display); font-weight:900; font-size:2.4rem;
+  color:var(--accent); line-height:1; margin-bottom:14px;
+}
+.card .part{
+  font-family:var(--ff-body); font-weight:700; font-size:.72rem;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--mid);
+  margin-bottom:6px;
+}
+.card .title{
+  font-family:var(--ff-display); font-weight:600; font-size:1.18rem;
+  color:var(--ink); margin-bottom:10px; line-height:1.2;
+}
+.card .desc{font-size:.93rem; color:var(--ink-2); flex:1 0 auto;}
+.card .go{
+  margin-top:18px; font-weight:700; font-size:.9rem; color:var(--accent);
+  display:inline-flex; align-items:center; gap:6px;
+}
+.card .go::after{content:"→"; transition:transform .15s ease;}
+.card:hover .go::after{transform:translateX(4px);}
+
+/* Apartado material práctico */
+.section-gap{margin-top:52px;}
+@media(min-width:720px){.cards--solo{grid-template-columns:1fr;}}
+.card--wide{padding:30px 28px;}
+@media(min-width:720px){
+  .card--wide{
+    display:grid; grid-template-columns:auto 1fr auto;
+    align-items:center; gap:28px;
+  }
+  .card--wide .num{margin-bottom:0;}
+  .card--wide .go{margin-top:0; white-space:nowrap;}
+}
+
+footer{
+  border-top:1px solid var(--rule); padding:28px 0;
+  font-size:.85rem; color:var(--mid);
+}
+footer a{color:var(--accent); text-decoration:none; font-weight:600;}
+footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Formación · Jaime Gutiérrez</div>
+    <h1>Periodismo<br>de datos</h1>
+    <p>Curso introductorio: de los orígenes del periodismo de datos al tratamiento de cifras y la cartografía. Tres partes, una misma idea.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h2>Contenidos del curso</h2>
+    <div class="cards">
+
+      <a class="card" href="parte1.html">
+        <div class="num">1</div>
+        <div class="part">Parte 1</div>
+        <div class="title">Introducción y narrativa visual</div>
+        <div class="desc">Qué es el periodismo de datos, de dónde viene, para qué sirve y cómo se cuenta con datos.</div>
+        <span class="go">Abrir presentación</span>
+      </a>
+
+      <a class="card" href="parte2.html">
+        <div class="num">2</div>
+        <div class="part">Parte 2</div>
+        <div class="title">Tratamiento de datos</div>
+        <div class="desc">Medias, porcentajes, variaciones y los gráficos para representarlos sin engañar.</div>
+        <span class="go">Abrir presentación</span>
+      </a>
+
+      <a class="card" href="parte3.html">
+        <div class="num">3</div>
+        <div class="part">Parte 3</div>
+        <div class="title">Cartografía y mapas</div>
+        <div class="desc">Cómo construir mapas con datos para localizar y comparar fenómenos en el territorio.</div>
+        <span class="go">Abrir presentación</span>
+      </a>
+
+    </div>
+
+    <h2 class="section-gap">Material práctico</h2>
+    <div class="cards cards--solo">
+      <a class="card card--wide" href="ejercicios/workbook-RTVE.html">
+        <div class="num">✎</div>
+        <div>
+          <div class="part">Taller · Ejercicios</div>
+          <div class="title">Workbook de periodismo de datos</div>
+          <div class="desc">Cuaderno práctico paso a paso con datos reales: hojas de cálculo, tablas dinámicas, tasas y valores relativos, gráficos con Datawrapper y mapas.</div>
+        </div>
+        <span class="go">Abrir workbook</span>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    Jaime Gutiérrez · Periodista de datos en RTVE ·
+    <a href="https://twitter.com/JaimeGutierrezH">@jaimegutierrezh</a>
+  </div>
+</footer>
+</body>
+</html>
