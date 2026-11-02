@@ -1,0 +1,22 @@
+# Archivos locales que NO deben publicarse en la web (GitHub Pages sirve todo lo que se sube)
+
+# Contexto para Claude Code
+CLAUDE.md
+.claude/
+
+# Notas, planes y borradores privados
+privado/
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Restos de R / Quarto si se renderiza algo en local
+.Rhistory
+.RData
+.Rproj.user/
+.quarto/
+*_cache/
