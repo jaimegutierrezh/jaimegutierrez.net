@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resultados de la encuesta · Periodismo de datos con IA</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../assets/curso.css">
+<link rel="stylesheet" href="encuesta.css">
+<script src="config.js" defer></script>
+<script src="preguntas.js" defer></script>
+<script src="comun.js" defer></script>
+<script src="../assets/curso.js" defer></script>
+<script src="resultados.js" defer></script>
+</head>
+<body class="panel-encuesta">
+
+<header class="panel-encuesta__cabecera">
+  <div>
+    <h1 class="panel-encuesta__titulo">Tu vida en datos</h1>
+    <p class="panel-encuesta__grupo"></p>
+  </div>
+  <div class="panel-encuesta__contador">
+    <p class="panel-encuesta__n" aria-live="polite">0</p>
+    <p>respuestas</p>
+    <p class="panel-encuesta__estado"></p>
+    <div class="panel-encuesta__acciones">
+      <button class="boton boton--secundario" type="button" data-accion="pausa" aria-pressed="false" hidden>Pausar</button>
+      <button class="boton boton--secundario" type="button" data-accion="proyector" aria-pressed="false">Proyector</button>
+      <button class="boton" type="button" data-accion="csv" disabled>Descargar CSV</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="acceso" hidden>
+    <h2 class="tarjeta__titulo">Vista del profesor</h2>
+    <p id="acceso-mensaje" class="pantalla__error"></p>
+    <form id="acceso-form" class="campo">
+      <label class="campo__etiqueta" for="acceso-clave">Clave</label>
+      <input class="campo__entrada campo__entrada--ancha" id="acceso-clave" type="password" autocomplete="off">
+      <button class="boton" type="submit">Ver resultados</button>
+    </form>
+    <p id="acceso-sin-servidor" class="tarjeta__nota" hidden>La encuesta aún no está conectada a la hoja de Google.</p>
+    <label class="campo">
+      <span class="campo__etiqueta">Plan B: cargar un CSV con las respuestas</span>
+      <input id="cargar-csv" type="file" accept=".csv,text/csv">
+    </label>
+    <button class="boton boton--secundario" type="button" data-accion="ejemplo">Ensayar con datos de ejemplo</button>
+  </section>
+
+  <div class="panel-encuesta__rejilla" hidden>
+    <article class="tarjeta tarjeta--ancha" id="t-pantalla">
+      <h2 class="tarjeta__titulo">¿Cuánto tiempo usas el móvil al día?</h2>
+      <p class="tarjeta__nota">Cada punto es una persona.</p>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-origen">
+      <h2 class="tarjeta__titulo">Medido o estimado</h2>
+      <p class="tarjeta__nota">Mediana del tiempo de pantalla según de dónde sale el dato.</p>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-app">
+      <h2 class="tarjeta__titulo">¿Qué app usas más?</h2>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-preocupacion">
+      <h2 class="tarjeta__titulo">¿Te preocupa el tiempo que pasas con el móvil?</h2>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-informacion">
+      <h2 class="tarjeta__titulo">¿Dónde te informas?</h2>
+      <p class="tarjeta__nota"></p>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-informativos">
+      <h2 class="tarjeta__titulo">Informativos de TV vistos enteros la última semana</h2>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-convivencia">
+      <h2 class="tarjeta__titulo">¿Con quién vives?</h2>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-gasto">
+      <h2 class="tarjeta__titulo">Gasto en ocio al mes</h2>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+    <article class="tarjeta" id="t-edad">
+      <h2 class="tarjeta__titulo">Edad a la que crees que te independizarás</h2>
+      <p class="tarjeta__nota">Solo quienes aún no se han independizado.</p>
+      <div class="tarjeta__cuerpo"></div>
+    </article>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encuesta del curso · Periodismo de datos con IA</title>
+<meta name="description" content="Encuesta anónima para los alumnos del curso de periodismo de datos con IA.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="encuesta.css">
+<script src="config.js" defer></script>
+<script src="preguntas.js" defer></script>
+<script src="comun.js" defer></script>
+<script src="formulario.js" defer></script>
+</head>
+<body>
+<div class="encuesta">
+  <header class="encuesta__cabecera">
+    <span class="encuesta__marca">Periodismo de datos con IA</span>
+    <span>Encuesta</span>
+  </header>
+  <div class="encuesta__progreso" aria-hidden="true"><div class="encuesta__progreso-barra"></div></div>
+
+  <main class="encuesta__cuerpo">
+    <div>
+      <form id="pantalla" class="pantalla" novalidate onsubmit="return false">
+        <noscript><p class="pantalla__texto">La encuesta necesita JavaScript para funcionar.</p></noscript>
+      </form>
+      <div class="navegacion" hidden>
+        <button class="boton boton--secundario" id="atras" type="button">Atrás</button>
+        <button class="boton" id="siguiente" type="button">Empezar</button>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
