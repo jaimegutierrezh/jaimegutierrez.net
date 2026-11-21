@@ -8,7 +8,11 @@
 // ---- REGISTRO DE GRÁFICOS ----
 // Cada clase registra sus gráficos de scrollytelling en CURSO.graficos
 // antes de que se dispare DOMContentLoaded (scripts con defer, en orden).
+// CURSO.redibujar(nombre) vuelve a crear un gráfico (por ejemplo, cuando
+// llegan datos nuevos) y lo deja en el paso en el que estaba.
 window.CURSO = window.CURSO || { graficos: {} };
+window.CURSO.instancias = {};
+window.CURSO.redibujar = nombre => window.CURSO.instancias[nombre]?.redibujar();
 
 // ---- UTILIDADES ----
 const CURSO_UTIL = {
@@ -168,8 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const svg = scrolly.querySelector('.scrolly__svg');
     const pasos = [...scrolly.querySelectorAll('.scrolly__paso')];
     if (!crear || !svg) return;
-    const grafico = crear(svg);
+    let grafico = crear(svg);
     let actual = -1;
+    window.CURSO.instancias[scrolly.dataset.scrolly] = {
+      redibujar() {
+        svg.replaceChildren();
+        grafico = crear(svg);
+        grafico.paso(Math.max(actual, 0));
+      },
+    };
 
     function activar(n) {
       if (n === actual) return;

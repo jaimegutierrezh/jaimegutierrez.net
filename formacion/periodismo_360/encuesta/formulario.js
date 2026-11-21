@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const respuestas = {};
   let indice = -1; // -1 = pantalla de inicio
+  let estado = null; // respuesta de ?accion=estado: { abierta, motivo, hasta }
+
+  // ---- MENSAJES DE ENCUESTA CERRADA ----
+  const MOTIVOS = {
+    cerrada: 'Esta encuesta ya no admite respuestas. Si crees que es un error, avisa al profesor.',
+    fecha: 'El plazo para responder esta encuesta ha terminado. Gracias de todas formas.',
+    grupo: 'Este enlace no corresponde a ninguna encuesta abierta. Revisa el enlace que os han dado en clase.',
+  };
 
   // ---- PREGUNTAS VISIBLES ----
   // Las condicionales (alquiler) dependen de respuestas anteriores
@@ -51,7 +59,38 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (yaEnviada) {
       hijos.push(el('p', { clase: 'pantalla__aviso', texto: 'Ya has respondido desde este dispositivo. Si lo haces otra vez, contará como una respuesta más.' }));
     }
+    if (estado?.hasta) {
+      hijos.push(el('p', { clase: 'pantalla__ayuda', texto: `Abierta hasta el ${estado.hasta}.` }));
+    }
     pintar(hijos, 'Empezar');
+    if (C.endpoint && estado === null) comprobarEstado();
+  }
+
+  // ---- ¿ESTÁ ABIERTA? ----
+  // Si no se puede comprobar (sin conexión), se deja empezar: el script
+  // vuelve a comprobarlo al enviar.
+  async function comprobarEstado() {
+    btnSiguiente.disabled = true;
+    btnSiguiente.textContent = 'Comprobando…';
+    try {
+      const resp = await fetch(`${C.endpoint}?accion=estado&grupo=${encodeURIComponent(C.grupo)}`);
+      const json = await resp.json();
+      estado = json.ok ? json : { abierta: true };
+    } catch (err) {
+      estado = { abierta: true };
+    }
+    if (!estado.abierta) return pintarCerrada(estado.motivo);
+    if (indice < 0) pintarInicio();
+  }
+
+  function pintarCerrada(motivo) {
+    nav.hidden = true;
+    caja.replaceChildren(
+      el('p', { clase: 'pantalla__contador', texto: 'Encuesta cerrada' }),
+      el('h1', { clase: 'pantalla__titulo', tabindex: '-1', texto: 'Tu vida en datos' }),
+      el('p', { clase: 'pantalla__texto pantalla__campos', texto: MOTIVOS[motivo] || MOTIVOS.cerrada }),
+    );
+    caja.querySelector('.pantalla__titulo').focus({ preventScroll: true });
   }
 
   // ---- PANTALLA DE PREGUNTA ----
@@ -348,12 +387,12 @@ document.addEventListener('DOMContentLoaded', () => {
       C.guardar(claveEnviada, new Date().toISOString());
       pintarFinal(json, datos.respuestas);
     } catch (err) {
+      // Se cerró mientras respondía: no tiene sentido reintentar
+      if (MOTIVOS[err.message]) return pintarCerrada(err.message);
       btnSiguiente.disabled = false;
       btnSiguiente.textContent = 'Reintentar';
-      const mensaje = err.message === 'cerrada'
-        ? 'La encuesta ya está cerrada.'
-        : 'No se ha podido enviar. Revisa la conexión y vuelve a intentarlo: tus respuestas siguen aquí.';
-      document.getElementById('error').textContent = mensaje;
+      document.getElementById('error').textContent =
+        'No se ha podido enviar. Revisa la conexión y vuelve a intentarlo: tus respuestas siguen aquí.';
     }
   }
 

@@ -472,6 +472,8 @@ body.leccion {
 .g-punto { fill: var(--ink-2); transition: fill 0.4s ease, opacity 0.5s ease, transform 0.6s cubic-bezier(.2,.8,.2,1); }
 .g-punto--moda { fill: #B8860B; }
 .g-punto--atipico { fill: var(--accent); }
+.g-punto--inventado { fill: #fff; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 3 2; }
+.g-etiqueta--inventado { fill: var(--accent); font-size: 12px; transition: opacity 0.4s ease; }
 .g-anillo { fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0; transition: opacity 0.4s ease; }
 .g-linea { stroke-width: 2.5; stroke-dasharray: 5 4; }
 .g-capa { opacity: 0; transition: opacity 0.5s ease, transform 0.8s cubic-bezier(.2,.8,.2,1); }

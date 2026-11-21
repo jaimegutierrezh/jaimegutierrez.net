@@ -40,6 +40,7 @@
 <link rel="stylesheet" href="../../../style.css">
 <link rel="stylesheet" href="../assets/curso.css">
 <script>document.documentElement.classList.add('js');</script>
+<script src="../encuesta/config.js" defer></script>
 <script src="../assets/curso.js" defer></script>
 <script src="clase1.js" defer></script>
 </head>
@@ -74,13 +75,13 @@
   <section class="portada" data-parada>
     <div class="portada__capa portada__capa--puntos" data-velocidad="0.15" aria-hidden="true"></div>
     <div class="portada__capa" data-velocidad="0.35" aria-hidden="true">
-      <span class="portada__cifra" style="top:18%;left:58%;font-size:clamp(6rem,20vw,16rem)">4,5 h</span>
-      <span class="portada__cifra" style="top:52%;left:-4%;font-size:clamp(4rem,12vw,10rem)">80%</span>
+      <span class="portada__cifra" data-dato="p-mediana" style="top:18%;left:58%;font-size:clamp(6rem,20vw,16rem)">4,5 h</span>
+      <span class="portada__cifra" data-dato="p-familia" style="top:52%;left:-4%;font-size:clamp(4rem,12vw,10rem)">80%</span>
     </div>
     <div class="portada__capa" data-velocidad="0.6" aria-hidden="true">
-      <span class="portada__cifra portada__cifra--acento" style="top:30%;left:8%;font-size:clamp(3rem,8vw,6rem)">25</span>
-      <span class="portada__cifra" style="top:8%;left:20%;font-size:clamp(2.5rem,6vw,4.5rem)">TikTok</span>
-      <span class="portada__cifra portada__cifra--acento" style="top:62%;left:72%;font-size:clamp(2.5rem,6vw,5rem)">30 años</span>
+      <span class="portada__cifra portada__cifra--acento" data-dato="p-n" style="top:30%;left:8%;font-size:clamp(3rem,8vw,6rem)">25</span>
+      <span class="portada__cifra" data-dato="p-app" style="top:8%;left:20%;font-size:clamp(2.5rem,6vw,4.5rem)">TikTok</span>
+      <span class="portada__cifra portada__cifra--acento" data-dato="p-edad" style="top:62%;left:72%;font-size:clamp(2.5rem,6vw,5rem)">30 años</span>
     </div>
     <div class="portada__contenido">
       <p class="portada__antetitulo">Clase 1 de 5 · Periodismo de datos con IA</p>
@@ -95,18 +96,18 @@
     <div class="bloque__interior">
       <p class="bloque__etiqueta">Gancho · 15 min</p>
       <div data-parada>
-        <p class="cifra aparece" aria-label="5,1 horas"><span data-contar="5.06" data-decimales="1">5,1</span><span class="cifra__unidad"> h</span></p>
+        <p class="cifra aparece" aria-label="5,1 horas"><span data-dato="media" data-contar="5.06" data-decimales="1">5,1</span><span class="cifra__unidad"> h</span></p>
         <p class="cifra__pie aparece" style="--retraso:2">al día con el móvil. Es la media de esta clase.</p>
         <p class="cifra__pie aparece" style="--retraso:4"><strong style="color:var(--accent)">¿Es mucho?</strong></p>
       </div>
       <div class="preguntas" data-parada>
         <p class="preguntas__item aparece">¿Comparado con qué?</p>
         <p class="preguntas__item aparece" style="--retraso:1">¿Quién lo dice y cómo lo midió?</p>
-        <p class="preguntas__item aparece" style="--retraso:2">¿A quién representan estas 25 personas?</p>
+        <p class="preguntas__item aparece" style="--retraso:2">¿A quién representan estas <span data-dato="n">25</span> personas?</p>
         <p class="preguntas__item aparece" style="--retraso:3">¿Describe la media a «una persona normal» de la clase?</p>
         <p class="preguntas__item preguntas__item--remate aparece" style="--retraso:5">Hacerse estas preguntas es periodismo de datos.</p>
       </div>
-      <p class="bloque__nota">Datos ficticios de ejemplo. El día de clase se sustituyen por las respuestas de vuestra encuesta.</p>
+      <p class="bloque__nota" data-dato="nota-origen">Datos ficticios de ejemplo. El día de clase se sustituyen por las respuestas de vuestra encuesta.</p>
     </div>
   </section>
 
@@ -150,13 +151,13 @@
         <article class="ficha aparece">
           <p class="ficha__antetitulo">Categórico</p>
           <p class="ficha__titulo">App más usada</p>
-          <p class="ficha__ejemplo">Se cuenta cuántas veces aparece cada valor. En el ejemplo hay empate: TikTok e Instagram, 8 personas cada una.</p>
+          <p class="ficha__ejemplo">Se cuenta cuántas veces aparece cada valor. <span data-dato="app-frase">Hay empate: TikTok e Instagram, 8 personas cada una.</span></p>
           <p class="ficha__pie">Se resume con <b>recuentos, % y moda</b> · gráfico de barras</p>
         </article>
         <article class="ficha aparece" style="--retraso:1">
           <p class="ficha__antetitulo">Sí / no</p>
-          <p class="ficha__titulo">¿Vives con tus padres?</p>
-          <p class="ficha__ejemplo">Un caso especial de categórico: 20 de 25 dicen que sí, el 80%.</p>
+          <p class="ficha__titulo">¿Vives con tu familia?</p>
+          <p class="ficha__ejemplo">Un caso especial de categórico: <span data-dato="familia-frase">20 de 25 dicen que sí, el 80%</span>.</p>
           <p class="ficha__pie">Se resume con <b>un porcentaje</b> · una cifra grande basta</p>
         </article>
         <article class="ficha aparece" style="--retraso:2">
@@ -206,37 +207,37 @@
           <div class="scrolly__paso" data-paso="1" data-parada="centro">
             <div class="scrolly__tarjeta">
               <p>La <strong>media</strong>: se suman todas las horas y se divide entre el número de personas.</p>
-              <p>126,5 horas ÷ 25 = <span class="dato dato--media">5,1 h</span>. Es la cifra del principio.</p>
+              <p><span data-dato="s-suma">126,5</span> horas ÷ <span data-dato="s-n1">25</span> = <span class="dato dato--media" data-dato="s-media">5,1 h</span>.<span data-dato="s-principio"> Es la cifra del principio.</span></p>
             </div>
           </div>
           <div class="scrolly__paso" data-paso="2" data-parada="centro">
-            <div class="scrolly__tarjeta"><p>Pero mirad este punto: una persona dice que pasa <strong>15 horas</strong> al día con el móvil.</p><p>Un solo valor extremo tira de la media hacia arriba.</p></div>
+            <div class="scrolly__tarjeta"><p data-dato="s-extremo-1">Pero mirad este punto: una persona dice que pasa 15 horas al día con el móvil.</p><p data-dato="s-extremo-2">Un solo valor extremo tira de la media hacia arriba.</p></div>
           </div>
           <div class="scrolly__paso" data-paso="3" data-parada="centro">
             <div class="scrolly__tarjeta">
-              <p>La <strong>mediana</strong>: se ordenan los valores y se busca el del centro. Con 25 personas, el puesto 13: <span class="dato dato--mediana">4,5 h</span>.</p>
-              <p>A la mediana le da igual que el extremo mida 15 horas o 50.</p>
+              <p>La <strong>mediana</strong>: se ordenan los valores y se busca el del centro. Con <span data-dato="s-n">25</span> personas, <span data-dato="s-posicion">el puesto 13</span>: <span class="dato dato--mediana" data-dato="s-mediana">4,5 h</span>.</p>
+              <p>A la mediana le da casi igual cuánto mida el extremo.</p>
             </div>
           </div>
           <div class="scrolly__paso" data-paso="4" data-parada="centro">
-            <div class="scrolly__tarjeta"><p>Si quitamos esa respuesta, la media baja a <span class="dato dato--media">4,6 h</span>. Una sola persona la movía casi 25 minutos.</p><p>La mediana se queda en <span class="dato dato--mediana">4,5 h</span>.</p></div>
+            <div class="scrolly__tarjeta"><p><span data-dato="s-quitar">Si quitamos esa respuesta, la media baja a </span><span class="dato dato--media" data-dato="s-media-sin">4,6 h</span>. Una sola persona la movía <span data-dato="s-minutos">unos 25 minutos</span>.</p><p data-dato="s-mediana-sin">La mediana se queda en 4,5 h.</p></div>
           </div>
           <div class="scrolly__paso" data-paso="5" data-parada="centro">
-            <div class="scrolly__tarjeta"><p>La <strong>moda</strong> es el valor que más se repite: <span class="dato dato--moda">4,5 h</span>, solo dos veces.</p><p>Con números con decimales sirve de poco. Con categorías, como la app más usada, es la medida que manda.</p></div>
+            <div class="scrolly__tarjeta"><p>La <strong>moda</strong> es el valor que más se repite: <span class="dato--moda" data-dato="s-moda">4,5 h, que se repite 2 veces.</span></p><p>Con números con decimales sirve de poco. Con categorías, como la app más usada, es la medida que manda.</p></div>
           </div>
           <div class="scrolly__paso" data-paso="6" data-parada="centro">
             <div class="scrolly__tarjeta">
               <p><strong>¿Error o realidad?</strong> Antes de borrar un dato extremo, hay que preguntar. Quizá deja vídeos reproduciéndose toda la noche. Quizá se equivocó al escribir.</p>
-              <p>Para la tele, la mediana se cuenta mejor: <strong>«La mitad de la clase pasa al menos cuatro horas y media al día con el móvil».</strong></p>
+              <p>Para la tele, la mediana se cuenta mejor: <strong data-dato="s-tv">«La mitad de la clase pasa al menos 4 horas y media al día con el móvil».</strong></p>
             </div>
           </div>
         </div>
       </div>
-      <p class="bloque__nota">Datos ficticios de ejemplo (<a href="datos/encuesta_ejemplo.csv">descargar CSV</a>).</p>
+      <p class="bloque__nota" data-dato="s-nota">Datos ficticios de ejemplo (<a href="datos/encuesta_ejemplo.csv">descargar CSV</a>).</p>
 
       <h3 class="bloque__subtitulo aparece" data-parada>Vosotros no sois «los jóvenes»</h3>
       <div class="bloque__texto aparece">
-        <p>Somos 25 personas de una misma clase de periodismo, en la misma ciudad, que hemos elegido estudiar lo mismo. Eso es una <strong>muestra</strong>, pero no una muestra aleatoria de la <strong>población</strong> joven de España.</p>
+        <p>Somos <span data-dato="n">25</span> personas de una misma clase de periodismo, en la misma ciudad, que hemos elegido estudiar lo mismo. Eso es una <strong>muestra</strong>, pero no una muestra aleatoria de la <strong>población</strong> joven de España.</p>
         <p>Podemos contar lo que pasa en esta clase. Para hablar de «los jóvenes» necesitamos una fuente que haya preguntado a una muestra representativa.</p>
       </div>
       <div class="poblacion aparece" data-poblacion data-total="600" data-destacados="25" aria-hidden="true"></div>
@@ -265,7 +266,7 @@
       <div class="prompt aparece" data-parada>
         <div class="prompt__cabecera"><span>Receta 1 · Encargo con fuente</span><button class="prompt__copiar" type="button">Copiar</button></div>
         <pre class="prompt__texto">Soy estudiante de periodismo y preparo una pieza de 20 segundos para un informativo de televisión.
-Adjunto un CSV con una encuesta anónima a 25 compañeros de clase (una fila por persona).
+Adjunto un CSV con una encuesta anónima a <span data-dato="n">25</span> compañeros de clase (una fila por persona).
 
 Calcula la media, la mediana y la moda de la columna horas_pantalla y explícame en una frase cuál describe mejor a «una persona normal» de la clase y por qué.
 
@@ -346,20 +347,20 @@ Dime qué estadísticas oficiales españolas o europeas miden el uso del móvil 
       <div class="pantalla-tv aparece aparece--escala" data-parada role="img" aria-label="Simulación de un gráfico de televisión: la mitad de la clase pasa al menos 4,5 horas al día con el móvil. 6 personas pasan menos de 4 horas, 14 entre 4 y 6, y 5 seis horas o más.">
         <div class="pantalla-tv__segura" aria-hidden="true"></div>
         <div class="pantalla-tv__grafico" aria-hidden="true">
-          <p class="pantalla-tv__cifra">4,5<small> h</small></p>
+          <p class="pantalla-tv__cifra"><span data-dato="tv-cifra">4,5</span><small> h</small></p>
           <div class="pantalla-tv__barras">
-            <div class="pantalla-tv__fila"><span>Menos de 4 h</span><span class="pantalla-tv__barra" style="--v:0.43"></span><span class="pantalla-tv__valor">6</span></div>
-            <div class="pantalla-tv__fila"><span>De 4 a 6 h</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:1"></span><span class="pantalla-tv__valor">14</span></div>
-            <div class="pantalla-tv__fila"><span>6 h o más</span><span class="pantalla-tv__barra" style="--v:0.36"></span><span class="pantalla-tv__valor">5</span></div>
+            <div class="pantalla-tv__fila"><span>Menos de 4 h</span><span class="pantalla-tv__barra" data-barra="1" style="--v:0.43"></span><span class="pantalla-tv__valor" data-dato="tv-t1">6</span></div>
+            <div class="pantalla-tv__fila"><span>De 4 a 6 h</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" data-barra="2" style="--v:1"></span><span class="pantalla-tv__valor" data-dato="tv-t2">14</span></div>
+            <div class="pantalla-tv__fila"><span>6 h o más</span><span class="pantalla-tv__barra" data-barra="3" style="--v:0.36"></span><span class="pantalla-tv__valor" data-dato="tv-t3">5</span></div>
           </div>
         </div>
         <div class="pantalla-tv__rotulo" aria-hidden="true">
           <span class="pantalla-tv__marca">DATOS</span>
-          <span class="pantalla-tv__texto">La mitad de la clase pasa al menos 4 horas y media al día con el móvil</span>
+          <span class="pantalla-tv__texto" data-dato="tv-rotulo">La mitad de la clase pasa al menos 4 horas y media al día con el móvil</span>
         </div>
-        <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: encuesta del curso (datos de ejemplo)</p>
+        <p class="pantalla-tv__fuente" aria-hidden="true" data-dato="tv-fuente">Fuente: encuesta del curso (datos de ejemplo)</p>
       </div>
-      <p class="locucion aparece">Cuatro horas y media al día con el móvil. Es lo que pasa, como mínimo, la mitad de esta clase. Y una de cada cinco llega a las seis horas o más.</p>
+      <p class="locucion aparece" data-dato="tv-locucion">4 horas y media al día con el móvil. Es lo que pasa, como mínimo, la mitad de esta clase. Y 5 personas llegan a las seis horas o más.</p>
       <p class="bloque__nota">Cifras redondas, un solo mensaje, la fuente siempre visible y todo dentro de la zona segura de la pantalla.</p>
     </div>
   </section>

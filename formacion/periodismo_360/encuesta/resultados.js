@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let pausado = false;
   let temporizador = null;
   let ultima = null;
+  let estadoEncuesta = ''; // «abierta hasta…», «cerrada»…
 
   // ---- CLAVE ----
   function leerClave() {
@@ -44,8 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
   async function cargar() {
     if (origen !== 'servidor' || pausado) return;
     const url = `${C.endpoint}?accion=respuestas&grupo=${encodeURIComponent(C.grupo)}&clave=${encodeURIComponent(clave)}`;
+    const urlEstado = `${C.endpoint}?accion=estado&grupo=${encodeURIComponent(C.grupo)}`;
     try {
-      const resp = await fetch(url);
+      const [resp, est] = await Promise.all([
+        fetch(url),
+        fetch(urlEstado).then(r => r.json()).catch(() => null),
+      ]);
+      if (est?.ok) {
+        const motivos = { cerrada: 'cerrada', fecha: 'cerrada: pasó la fecha límite', grupo: 'cerrada: el grupo no está en GRUPOS_ABIERTOS' };
+        estadoEncuesta = est.abierta
+          ? `Encuesta abierta${est.hasta ? ` hasta el ${est.hasta}` : ''}`
+          : `Encuesta ${motivos[est.motivo] || 'cerrada'}`;
+      }
       const json = await resp.json();
       if (!json.ok) {
         if (json.error === 'clave') { pedirClave('La clave no es correcta.'); return; }
@@ -149,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const op = campo => E.preguntas.find(p => p.campo === campo).opciones;
     return Array.from({ length: n }, (_, i) => {
       const conv = elige(op('convivencia'), [14, 6, 2, 1, 4, 1]);
-      const info = op('informacion').filter((o, k) => k < 9 && azar() < [0.6, 0.7, 0.3, 0.4, 0.5, 0.35, 0.15, 0.2, 0.1][k]);
+      const info = op('informacion').filter((_, k) => k < 9 && azar() < [0.6, 0.7, 0.3, 0.4, 0.5, 0.35, 0.15, 0.2, 0.1][k]);
       return {
         grupo: 'ejemplo', fecha: '',
         pantalla_horas: i === 0 ? 14.5 : Math.round((2.5 + azar() * 4.5) * 4) / 4,
@@ -189,7 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function pintar() {
     contador.textContent = filas.length;
     const textos = { servidor: 'En directo', csv: 'Datos cargados desde un CSV', ejemplo: 'Datos de ejemplo (ficticios)' };
-    estado.textContent = `${textos[origen]} · ${ultima ? ultima.toLocaleTimeString('es-ES') : ''}`;
+    estado.textContent = `${textos[origen]} · ${ultima ? ultima.toLocaleTimeString('es-ES') : ''}` +
+      (origen === 'servidor' && estadoEncuesta ? ` · ${estadoEncuesta}` : '');
     btnPausa.hidden = origen !== 'servidor';
     btnCsv.disabled = !filas.length;
 
