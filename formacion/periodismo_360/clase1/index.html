@@ -319,22 +319,68 @@ Si algo no está en el archivo, dilo.</pre>
     <div class="bloque__interior">
       <p class="bloque__etiqueta">Reto en grupos · 75 min</p>
       <h2 class="bloque__titulo aparece" data-parada>¿Somos normales?</h2>
-      <div class="bloque__texto aparece"><p>Comparad la clase con los jóvenes de España usando una fuente oficial. Al final, un titular con una cifra verificada.</p></div>
+      <div class="bloque__texto aparece">
+        <p>La clase pasa una mediana de <strong data-dato="p-mediana">4,5 h</strong> al día con el móvil. ¿Es mucho comparado con los jóvenes de España? Buscad una fuente oficial y contestad con un titular que se pueda emitir.</p>
+        <p>Aviso: la pregunta tiene trampa. Parte del reto es descubrir cuál.</p>
+      </div>
       <ol class="pasos">
-        <li class="pasos__item aparece">Pedid al chatbot qué estadísticas oficiales miden el uso del móvil o de internet por edad (receta 2).</li>
-        <li class="pasos__item aparece">Abrid cada enlace. ¿Existe? ¿Dice lo que el chatbot asegura? Empezad por la encuesta del INE sobre equipamiento y uso de las TIC en los hogares (TIC-H).</li>
-        <li class="pasos__item aparece">¿Mide lo mismo que vuestra encuesta? Revisad la pregunta, las edades y el año. ¿Horas al día o porcentaje de usuarios?</li>
-        <li class="pasos__item aparece">Escribid un titular con una cifra verificada, su fuente y una frase de contexto.</li>
-        <li class="pasos__item aparece">Preparad 20 segundos para contarlo «al aire».</li>
+        <li class="pasos__item aparece">Pedid al chatbot fuentes oficiales con la <strong>receta 2</strong>. Copiad su respuesta en un documento antes de abrir ningún enlace.</li>
+        <li class="pasos__item aparece">Verificad cada afirmación en la tabla de abajo. ¿El enlace existe? ¿La fuente dice eso? Clasificadla: <strong>fuente</strong>, <strong>inferencia</strong> o <strong>no encontrado</strong>.</li>
+        <li class="pasos__item aparece">Localizad la encuesta del INE sobre equipamiento y uso de TIC en los hogares (TIC-H) más reciente. Leed qué pregunta exactamente: ¿horas al día o porcentaje de personas?</li>
+        <li class="pasos__item aparece">Decidid qué se puede comparar y qué no. Si las dos fuentes miden cosas distintas, el titular tiene que decirlo.</li>
+        <li class="pasos__item aparece">Escribid el titular con una cifra verificada, su fuente y una frase de contexto. Preparad 20 segundos para contarlo «al aire».</li>
       </ol>
+
       <div class="prompt aparece" data-parada>
         <div class="prompt__cabecera"><span>Receta 2 · Buscar fuentes sin inventar</span><button class="prompt__copiar" type="button">Copiar</button></div>
-        <pre class="prompt__texto">Busco datos oficiales para comparar una encuesta de clase sobre el uso del móvil entre jóvenes en España.
+        <pre class="prompt__texto">Preparo una pieza de televisión que compara una encuesta de clase con datos oficiales. En clase hemos medido cuántas horas al día pasamos con el móvil.
 
-Dime qué estadísticas oficiales españolas o europeas miden el uso del móvil o de internet por edad. Para cada una indica: organismo, nombre exacto de la encuesta, qué mide exactamente, grupos de edad, último año disponible y enlace.
+¿Qué estadísticas oficiales españolas o europeas miden cuántas horas al día pasan los jóvenes con el móvil o en internet? Para cada una indica: organismo, nombre exacto de la encuesta, qué mide exactamente (la pregunta que se hace), grupos de edad, último año disponible y enlace.
 
-<mark>No inventes cifras ni enlaces. Si no estás seguro de algo, márcalo con [VERIFICAR].</mark></pre>
+<mark>No inventes cifras ni enlaces. Si no estás seguro de algo, márcalo con [VERIFICAR]. Si no existe una estadística oficial que mida exactamente eso, dilo.</mark></pre>
       </div>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>Hoja de verificación</h3>
+      <div class="tabla-scroll aparece">
+        <table class="tabla">
+          <thead><tr><th>Lo que dice el chatbot</th><th>¿El enlace funciona?</th><th>¿Lo dice la fuente?</th><th>Fuente / inferencia / no encontrado</th></tr></thead>
+          <tbody>
+            <tr><td>Organismo y encuesta</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Qué mide (la pregunta)</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Edades y año</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>La cifra</td><td>…</td><td>…</td><td>…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rejilla rejilla--2" style="margin-top:2.5rem">
+        <article class="ficha aparece">
+          <p class="ficha__antetitulo">Si el chatbot os da horas</p>
+          <p class="ficha__titulo">¿De dónde sale esa cifra?</p>
+          <p class="ficha__ejemplo">Pedidle la fuente exacta y abridla. Las cifras de horas que circulan suelen venir de informes de empresas o de datos de apps, no de estadísticas oficiales. Pueden servir, pero hay que contar quién las publica, cómo midió y a quién preguntó.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Si acabáis antes</p>
+          <p class="ficha__titulo">La misma encuesta trae otra noticia</p>
+          <p class="ficha__ejemplo">Buscad en la TIC-H 2026 cuántos jóvenes de 16 a 24 años usaron IA generativa y cuánto creció el uso entre toda la población respecto a 2025. ¿Lo contaríais en puntos o en porcentaje? Lo veremos en la clase 2.</p>
+        </article>
+      </div>
+
+      <details class="solucion aparece" data-parada>
+        <summary>Solución: abrir al terminar el reto</summary>
+        <div class="solucion__cuerpo">
+          <p><strong>La trampa:</strong> ninguna estadística oficial española mide horas de pantalla. La TIC-H del INE pregunta <em>con qué frecuencia</em> se usa internet, no cuánto tiempo. Si el chatbot da una cifra de horas «del INE», se la ha inventado.</p>
+          <p>Lo que sí dice la TIC-H 2026, para los jóvenes de 16 a 24 años:</p>
+          <div class="solucion__cifras">
+            <p><b>100 %</b> usó internet en los últimos tres meses</p>
+            <p><b>98,5 %</b> lo usa a diario (al menos cinco días a la semana)</p>
+            <p><b>94,3 %</b> lo usa varias veces al día</p>
+          </div>
+          <p>Un titular honesto junta las dos fuentes y dice qué mide cada una: <strong>«Casi todos los jóvenes se conectan cada día. En esta clase, la mitad pasa al menos <span data-dato="p-mediana">4,5 h</span> al día con el móvil.»</strong> La primera frase es del INE. La segunda es de la encuesta del curso, y vale solo para esta clase.</p>
+          <p>Para quien acabe antes: el 83,3 % de los jóvenes de 16 a 24 años usó IA generativa en 2026. En toda la población de 16 a 74 años, el uso pasó del 37,9 % al 54,8 %: son 16,9 puntos más, pero un 45 % más.</p>
+          <p class="solucion__fuente">Fuente: INE, <a href="https://www.ine.es/jaxi/Tabla.htm?tpx=82785&amp;L=0" target="_blank" rel="noopener noreferrer">Encuesta TIC-H 2026, tabla 82785</a> y <a href="https://www.ine.es/dyngs/Prensa/TICH2026.htm" target="_blank" rel="noopener noreferrer">nota de prensa del 11 de noviembre de 2026</a>. Datos limpios: <a href="../datos/ine_tich_2026_uso_internet_por_edad.csv" download>uso de internet por edad (CSV)</a> y <a href="../datos/ine_tich_2026_ia_generativa_por_edad.csv" download>IA generativa por edad (CSV)</a>.</p>
+        </div>
+      </details>
     </div>
   </section>
 

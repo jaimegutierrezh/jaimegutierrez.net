@@ -623,6 +623,48 @@ body.leccion {
 .tabla td:not(:first-child) { font-variant-numeric: tabular-nums; }
 .tabla-scroll { overflow-x: auto; }
 
+/* ---- PIEZAS SOBRE FONDO DE ACENTO (reto) ---- */
+.bloque--acento .bloque__subtitulo { color: #fff; }
+.bloque--acento .tabla th { color: #fff; }
+.bloque--acento .tabla th,
+.bloque--acento .tabla td { border-bottom-color: rgba(255, 255, 255, 0.3); }
+.bloque--acento .ficha { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); }
+.bloque--acento .ficha__antetitulo { color: rgba(255, 255, 255, 0.8); }
+.bloque--acento .ficha__titulo { color: #fff; }
+.bloque--acento a { color: #fff; text-decoration: underline; text-underline-offset: 0.15em; }
+
+/* ---- SOLUCIÓN PLEGABLE ---- */
+.solucion {
+  margin-top: 2.5rem;
+  max-width: 48rem;
+  background: var(--paper);
+  color: var(--ink-2);
+  border-radius: var(--c-radio);
+}
+.solucion summary {
+  cursor: pointer;
+  padding: 1.1rem 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  list-style-position: inside;
+}
+.solucion summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: var(--c-radio); }
+.solucion__cuerpo { padding: 0 1.4rem 1.4rem; display: grid; gap: 0.9rem; }
+.bloque--acento .solucion strong { color: var(--ink); }
+.bloque--acento .solucion a { color: var(--accent); }
+.solucion__cifras { display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.solucion__cifras p { padding: 0.9rem 1rem; background: #fff; border-radius: 10px; font-size: 0.9rem; line-height: 1.3; }
+.solucion__cifras b {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.solucion__fuente { font-size: 0.82rem; color: var(--mid); }
+
 /* ---- PANTALLA DE TV (simulación 16:9) ---- */
 .pantalla-tv {
   position: relative;
