@@ -251,29 +251,41 @@ Después explícame paso a paso cómo has calculado la fila de Girona, para que 
       </div>
 
       <h3 class="bloque__subtitulo aparece" data-parada>Caza el error</h3>
-      <div class="bloque__texto aparece"><p>Esto es lo que respondió un chatbot con los mismos datos. Hay frases correctas y frases con fallos. Encontrad cuáles están mal y por qué.</p></div>
-      <div class="prompt prompt--respuesta aparece" data-parada>
-        <div class="prompt__cabecera"><span>Respuesta de un chatbot</span><button class="prompt__copiar" type="button">Copiar</button></div>
-        <pre class="prompt__texto">Según los datos del INE que me has enviado:
-
-1. Málaga concentra el 13,2 % de las viviendas turísticas de España.
-2. En Málaga y en Girona hay una vivienda turística por cada 40 habitantes.
-3. Madrid ha reducido sus viviendas turísticas 27,6 puntos porcentuales en un año.
-4. Cataluña tiene 11,6 viviendas turísticas por cada 1.000 habitantes, que es la media de sus cuatro provincias.
-5. Badajoz es la provincia donde más crece el alquiler turístico, un 16 %: es la tendencia emergente del año.
-6. En Girona, las viviendas turísticas cayeron un 22,8 % entre mayo y noviembre de 2025, una señal de que el sector está en retroceso.</pre>
-      </div>
-      <details class="solucion aparece" data-parada data-solucion="clase2-error">
-        <summary>Solución: abrir al terminar</summary>
-        <div class="solucion__cuerpo">
-          <p><strong>Correctas: la 1 y la 2.</strong></p>
-          <p><strong>3.</strong> Una cantidad de viviendas no baja «puntos»: baja un <strong>27,6 %</strong>. Los puntos porcentuales son para restar porcentajes.</p>
-          <p><strong>4.</strong> Media de tasas. La tasa de Cataluña se calcula con el total de viviendas y el total de población: <strong>6,2</strong>, no 11,6.</p>
-          <p><strong>5.</strong> El 16 % es cierto, pero son 105 viviendas. Y «tendencia emergente» es una interpretación que los datos no sostienen.</p>
-          <p><strong>6.</strong> La resta está bien hecha, pero compara mayo con noviembre: la bajada es estacional. Y «el sector está en retroceso» es una conclusión inventada.</p>
-          <p>Fijaos en que los errores 5 y 6 no son de cálculo: son de <strong>interpretación</strong>. Un chatbot redacta con la misma seguridad lo que sale de los datos y lo que se imagina.</p>
+      <div class="bloque__texto aparece"><p>Un chatbot respondió esto con los mismos datos. Frase a frase: ¿verdadero o falso? Votad en clase antes de pulsar.</p></div>
+      <div class="test aparece" data-test>
+        <p class="test__cabecera">Respuesta de un chatbot · «Según los datos del INE que me has enviado…»</p>
+        <ol class="test__lista">
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">Málaga concentra el 13,2 % de las viviendas turísticas de España.</p>
+            <div class="test__explicacion"><p>45.176 de 341.001 son el 13,2 %. Es un porcentaje bien calculado: parte entre total.</p></div>
+          </li>
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">En Málaga y en Girona hay una vivienda turística por cada 40 habitantes.</p>
+            <div class="test__explicacion"><p>1.818.415 ÷ 45.176 y 839.422 ÷ 20.821 dan 40 en los dos casos. Es la tasa de 24,8 por cada 1.000, contada al revés.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Madrid ha reducido sus viviendas turísticas 27,6 puntos porcentuales en un año.</p>
+            <div class="test__explicacion"><p>La cifra es buena, la unidad no. Una cantidad de viviendas baja un <strong>27,6 %</strong>. Los puntos porcentuales son para restar dos porcentajes.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Cataluña tiene 11,6 viviendas turísticas por cada 1.000 habitantes, que es la media de sus cuatro provincias.</p>
+            <div class="test__explicacion"><p>Es una media de tasas: Girona, con poca población, pesa lo mismo que Barcelona. Sumando viviendas y población de Cataluña, la tasa real es <strong>6,2</strong>.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Badajoz es la provincia donde más crece el alquiler turístico, un 16 %: es la tendencia emergente del año.</p>
+            <div class="test__explicacion"><p>El 16 % es cierto, pero son 105 viviendas: de 657 a 762. Y «tendencia emergente» es una interpretación que los datos no sostienen.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">En Girona, las viviendas turísticas cayeron un 22,8 % entre mayo y noviembre de 2025, una señal de que el sector está en retroceso.</p>
+            <div class="test__explicacion"><p>La resta está bien hecha, pero compara mayo con noviembre: es la temporada, no una caída. Y «el sector está en retroceso» es una conclusión inventada.</p></div>
+          </li>
+        </ol>
+        <div class="test__final" data-parada>
+          <p class="test__marcador" aria-live="polite"></p>
+          <p class="test__moraleja">Las frases 5 y 6 no fallan en el cálculo, sino en la <strong>interpretación</strong>. Un chatbot redacta con la misma seguridad lo que sale de los datos y lo que se imagina.</p>
+          <button class="test__repetir" type="button">Repetir</button>
         </div>
-      </details>
+      </div>
     </div>
   </section>
 

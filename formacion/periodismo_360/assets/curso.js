@@ -239,6 +239,78 @@ document.addEventListener('DOMContentLoaded', () => {
     secciones.forEach(s => obsS.observe(s));
   }
 
+  // ---- TEST DE VERDADERO O FALSO ----
+  // <div class="test" data-test><ol><li class="test__item" data-correcta="v|f">
+  //   <p class="test__frase">…</p><div class="test__explicacion">…</div></li>…
+  // Los botones los pone el JS. Al responder se marca acierto o fallo y se
+  // muestra la explicación. Sin JS, las explicaciones se ven directamente.
+  document.querySelectorAll('[data-test]').forEach(test => {
+    const items = [...test.querySelectorAll('.test__item')];
+    const marcador = test.querySelector('.test__marcador');
+    const final = test.querySelector('.test__final');
+
+    items.forEach(item => {
+      const botones = document.createElement('div');
+      botones.className = 'test__botones';
+      [['v', 'Verdadero'], ['f', 'Falso']].forEach(([valor, texto]) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'test__boton';
+        b.dataset.respuesta = valor;
+        b.textContent = texto;
+        b.setAttribute('aria-pressed', 'false');
+        b.addEventListener('click', () => responder(item, valor));
+        botones.append(b);
+      });
+      const veredicto = document.createElement('p');
+      veredicto.className = 'test__veredicto';
+      const explicacion = item.querySelector('.test__explicacion');
+      explicacion.prepend(veredicto);
+      explicacion.setAttribute('aria-live', 'polite');
+      item.querySelector('.test__frase').after(botones);
+    });
+
+    function responder(item, valor) {
+      if (item.dataset.respondida) return;
+      const acierto = valor === item.dataset.correcta;
+      item.dataset.respondida = acierto ? 'acierto' : 'fallo';
+      item.querySelectorAll('.test__boton').forEach(b => {
+        b.disabled = true;
+        b.setAttribute('aria-pressed', String(b.dataset.respuesta === valor));
+        b.classList.toggle('is-correcta', b.dataset.respuesta === item.dataset.correcta);
+      });
+      const correcta = item.dataset.correcta === 'v' ? 'verdadera' : 'falsa';
+      item.querySelector('.test__veredicto').textContent = acierto ? `Bien: es ${correcta}.` : `No: es ${correcta}.`;
+      actualizar();
+    }
+
+    function actualizar() {
+      const hechas = items.filter(i => i.dataset.respondida);
+      const aciertos = hechas.filter(i => i.dataset.respondida === 'acierto').length;
+      const completo = hechas.length === items.length;
+      test.classList.toggle('is-completo', completo);
+      if (final) final.hidden = !completo;
+      if (marcador) marcador.textContent = completo ? `${aciertos} de ${items.length} aciertos` : '';
+    }
+
+    test.querySelector('.test__repetir')?.addEventListener('click', () => {
+      items.forEach(item => {
+        delete item.dataset.respondida;
+        item.querySelector('.test__veredicto').textContent = '';
+        item.querySelectorAll('.test__boton').forEach(b => {
+          b.disabled = false;
+          b.setAttribute('aria-pressed', 'false');
+          b.classList.remove('is-correcta');
+        });
+      });
+      actualizar();
+      items[0].scrollIntoView({ behavior: reducir() ? 'auto' : 'smooth', block: 'center' });
+    });
+
+    test.classList.add('is-activo');
+    actualizar();
+  });
+
   // ---- VISTA DEL PROFESOR ----
   // Se entra con #clave=… en la URL: la clave pasa a la sesión de la pestaña
   // (sigue al navegar entre clases) y desaparece de la barra de direcciones.
