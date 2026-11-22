@@ -61,9 +61,9 @@
     <li><a class="indice__enlace" href="#gancho"><span class="indice__texto">Gancho</span></a></li>
     <li><a class="indice__enlace" href="#relativos"><span class="indice__texto">Absoluto y relativo</span></a></li>
     <li><a class="indice__enlace" href="#concepto"><span class="indice__texto">Herramientas</span></a></li>
-    <li><a class="indice__enlace" href="#trampas"><span class="indice__texto">Trampas</span></a></li>
     <li><a class="indice__enlace" href="#practica"><span class="indice__texto">Práctica</span></a></li>
     <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
+    <li><a class="indice__enlace" href="#trampas"><span class="indice__texto">Trampas</span></a></li>
     <li><a class="indice__enlace" href="#reto"><span class="indice__texto">Reto</span></a></li>
     <li><a class="indice__enlace" href="#al-aire"><span class="indice__texto">Al aire</span></a></li>
     <li><a class="indice__enlace" href="#cierre"><span class="indice__texto">Cierre</span></a></li>
@@ -192,42 +192,8 @@
     </div>
   </section>
 
-  <!-- ============ TRAMPAS ============ -->
-  <section class="bloque bloque--blanco" id="trampas" data-seccion>
-    <div class="bloque__interior">
-      <p class="bloque__etiqueta">Concepto · Trampas</p>
-      <h2 class="bloque__titulo aparece" data-parada>Cuatro formas de equivocarse con cifras ciertas</h2>
-      <div class="rejilla rejilla--2">
-        <article class="ficha ficha--acento aparece">
-          <p class="ficha__antetitulo">No hagas medias de tasas</p>
-          <p class="ficha__titulo">Cataluña: ¿11,6 o 6,2?</p>
-          <p class="ficha__ejemplo">La media de las tasas de sus cuatro provincias es 11,6 viviendas turísticas por cada 1.000 habitantes. Pero Girona, con poca población y una tasa altísima, pesa lo mismo que Barcelona. La tasa real de Cataluña se calcula <strong>sumando viviendas y sumando población</strong>: 6,2.</p>
-          <p class="ficha__pie">Lo mismo vale para porcentajes: <b>suma numeradores y denominadores</b></p>
-        </article>
-        <article class="ficha ficha--acento aparece" style="--retraso:1">
-          <p class="ficha__antetitulo">Compara el mismo momento</p>
-          <p class="ficha__titulo">Girona «pierde» un 22,8 %</p>
-          <p class="ficha__ejemplo">De mayo a noviembre de 2025, Girona pasó de 22.998 a 17.754 viviendas turísticas. No es una caída: es el invierno. Los pisos de temporada se dan de baja y vuelven en verano.</p>
-          <p class="ficha__pie">Datos con estacionalidad: <b>mayo con mayo</b></p>
-        </article>
-        <article class="ficha ficha--acento aparece" style="--retraso:2">
-          <p class="ficha__antetitulo">Cuidado con las bases pequeñas</p>
-          <p class="ficha__titulo">Badajoz, la que «más crece»</p>
-          <p class="ficha__ejemplo">Es la provincia donde más suben las viviendas turísticas en un año: un 16 %. Son 105 viviendas más, de 657 a 762. Málaga perdió más de 3.000.</p>
-          <p class="ficha__pie">Un porcentaje grande puede ser <b>muy poca cosa</b></p>
-        </article>
-        <article class="ficha ficha--acento aparece" style="--retraso:3">
-          <p class="ficha__antetitulo">Porcentaje o puntos</p>
-          <p class="ficha__titulo">«El paro baja un 2 %»</p>
-          <p class="ficha__ejemplo">Si estaba en el 10 %, ¿ahora está en el 8 % o en el 9,8 %? Lo primero son 2 puntos; lo segundo, un 2 %. Si no se dice cuál, la frase no informa.</p>
-          <p class="ficha__pie">Cuando lo que cambia es un %, <b>di «puntos»</b></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ PRÁCTICA ============ -->
-  <section class="bloque" id="practica" data-seccion>
+  <section class="bloque bloque--blanco" id="practica" data-seccion>
     <div class="bloque__interior">
       <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
       <h2 class="bloque__titulo aparece" data-parada>Primero a mano: tasas, variaciones y una tabla dinámica</h2>
@@ -243,12 +209,12 @@
         <li class="pasos__item aparece">La <strong>variación porcentual</strong> entre mayo de 2025 y mayo de 2026: <code>=(C2-F2)/F2*100</code>. ¿Dónde baja más? ¿Dónde sube? Mirad también la diferencia en viviendas, no solo el %.</li>
         <li class="pasos__item aparece">Una <strong>tabla dinámica</strong> por comunidad autónoma con la SUMA de viviendas y la SUMA de población. Calculad la tasa de cada comunidad a partir de esas sumas. Comparad Cataluña con la media de las tasas de sus provincias.</li>
       </ol>
-      <p class="bloque__nota">Si la hoja muestra la tasa de Cataluña como 11,6, habéis hecho una media de tasas. Volved al paso 5.</p>
+      <p class="bloque__nota">Guardad la tasa de Cataluña y la de vuestra provincia: las vais a necesitar en un rato.</p>
     </div>
   </section>
 
   <!-- ============ IA ============ -->
-  <section class="bloque bloque--blanco" id="ia" data-seccion>
+  <section class="bloque" id="ia" data-seccion>
     <div class="bloque__interior">
       <p class="bloque__etiqueta">IA · Comprobar con la máquina</p>
       <h2 class="bloque__titulo aparece" data-parada>Que lo calcule con código</h2>
@@ -320,6 +286,41 @@ Después explícame paso a paso cómo has calculado la fila de Girona, para que 
           <p class="test__moraleja">Las frases 5 y 6 no fallan en el cálculo, sino en la <strong>interpretación</strong>. Un chatbot redacta con la misma seguridad lo que sale de los datos y lo que se imagina.</p>
           <button class="test__repetir" type="button">Repetir</button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAMPAS ============ -->
+  <section class="bloque bloque--blanco" id="trampas" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Repaso · Trampas</p>
+      <h2 class="bloque__titulo aparece" data-parada>Cuatro formas de equivocarse con cifras ciertas</h2>
+      <div class="bloque__texto aparece"><p>Lo que acabáis de cazar, convertido en reglas. Y una más que aparece en cada informativo.</p></div>
+      <div class="rejilla rejilla--2">
+        <article class="ficha ficha--acento aparece">
+          <p class="ficha__antetitulo">No hagas medias de tasas</p>
+          <p class="ficha__titulo">Cataluña: ¿11,6 o 6,2?</p>
+          <p class="ficha__ejemplo">La media de las tasas de sus cuatro provincias es 11,6 viviendas turísticas por cada 1.000 habitantes. Pero Girona, con poca población y una tasa altísima, pesa lo mismo que Barcelona. La tasa real de Cataluña se calcula <strong>sumando viviendas y sumando población</strong>: 6,2.</p>
+          <p class="ficha__pie">Lo mismo vale para porcentajes: <b>suma numeradores y denominadores</b></p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Compara el mismo momento</p>
+          <p class="ficha__titulo">Girona «pierde» un 22,8 %</p>
+          <p class="ficha__ejemplo">De mayo a noviembre de 2025, Girona pasó de 22.998 a 17.754 viviendas turísticas. No es una caída: es el invierno. Los pisos de temporada se dan de baja y vuelven en verano.</p>
+          <p class="ficha__pie">Datos con estacionalidad: <b>mayo con mayo</b></p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:2">
+          <p class="ficha__antetitulo">Cuidado con las bases pequeñas</p>
+          <p class="ficha__titulo">Badajoz, la que «más crece»</p>
+          <p class="ficha__ejemplo">Es la provincia donde más suben las viviendas turísticas en un año: un 16 %. Son 105 viviendas más, de 657 a 762. Málaga perdió más de 3.000.</p>
+          <p class="ficha__pie">Un porcentaje grande puede ser <b>muy poca cosa</b></p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:3">
+          <p class="ficha__antetitulo">Porcentaje o puntos</p>
+          <p class="ficha__titulo">«El paro baja un 2 %»</p>
+          <p class="ficha__ejemplo">Si estaba en el 10 %, ¿ahora está en el 8 % o en el 9,8 %? Lo primero son 2 puntos; lo segundo, un 2 %. Si no se dice cuál, la frase no informa.</p>
+          <p class="ficha__pie">Cuando lo que cambia es un %, <b>di «puntos»</b></p>
+        </article>
       </div>
     </div>
   </section>
