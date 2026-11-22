@@ -47,6 +47,29 @@ const CURSO_UTIL = {
   leer(clave) {
     try { return localStorage.getItem(clave); } catch (e) { return null; }
   },
+  // CSV con comas y comillas («"Asturias, Principado de"») → lista de objetos
+  leerCsv(texto) {
+    const campos = linea => {
+      const out = [];
+      let actual = '', comillas = false;
+      for (let i = 0; i < linea.length; i++) {
+        const c = linea[i];
+        if (c === '"') {
+          if (comillas && linea[i + 1] === '"') { actual += '"'; i++; }
+          else comillas = !comillas;
+        } else if (c === ',' && !comillas) { out.push(actual); actual = ''; }
+        else actual += c;
+      }
+      out.push(actual);
+      return out;
+    };
+    const [cabecera, ...lineas] = texto.replace(/^\uFEFF/, '').trim().split(/\r?\n/);
+    const cols = campos(cabecera);
+    return lineas.map(l => {
+      const v = campos(l);
+      return Object.fromEntries(cols.map((c, i) => [c, v[i]]));
+    });
+  },
 };
 window.CURSO.util = CURSO_UTIL;
 

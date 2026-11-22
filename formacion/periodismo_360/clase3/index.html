@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es" data-clase="clase3">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clase 3. El gráfico justo · Periodismo de datos con IA · Jaime Gutiérrez</title>
+<meta name="description" content="Tercera clase del curso de periodismo de datos con IA: qué gráfico elegir para cada pregunta, vocabulario visual, buenas prácticas y códigos de televisión, con Datawrapper y la IA como crítica.">
+<link rel="canonical" href="https://jaimegutierrez.net/formacion/periodismo_360/clase3/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Jaime Gutiérrez">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Clase 3. El gráfico justo">
+<meta property="og:description" content="Vocabulario visual para televisión: qué gráfico para cada pregunta, cómo leerlo y cómo no engañar. Curso de periodismo de datos con IA.">
+<meta property="og:url" content="https://jaimegutierrez.net/formacion/periodismo_360/clase3/">
+<meta property="og:image" content="https://jaimegutierrez.net/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jaime Gutiérrez, periodista de datos en RTVE Noticias">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@JaimeGutierrezH">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Clase 3. El gráfico justo",
+  "description": "Elegir el gráfico según la pregunta, anatomía de un gráfico, buenas prácticas, color y códigos de televisión.",
+  "url": "https://jaimegutierrez.net/formacion/periodismo_360/clase3/",
+  "inLanguage": "es",
+  "learningResourceType": "Clase",
+  "teaches": ["Visualización de datos", "Elección de gráficos", "Gráficos para televisión", "Datawrapper", "Crítica de gráficos con IA"],
+  "isPartOf": { "@type": "Course", "name": "Periodismo de datos con IA", "url": "https://jaimegutierrez.net/formacion/periodismo_360/" },
+  "author": { "@id": "https://jaimegutierrez.net/#person", "@type": "Person", "name": "Jaime Gutiérrez" }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../assets/curso.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../encuesta/config.js" defer></script>
+<script src="../assets/curso.js" defer></script>
+<script src="clase3.js" defer></script>
+</head>
+<body class="leccion">
+
+<div class="progreso" aria-hidden="true"></div>
+
+<header class="barra">
+  <a class="barra__volver" href="../">← Curso</a>
+  <span class="barra__titulo">Clase 3 · El gráfico justo</span>
+  <div class="barra__acciones">
+    <button class="barra__boton" type="button" data-accion="proyector" data-solo-profesor aria-pressed="false" title="Letra más grande para proyectar (tecla P)">Proyector</button>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Bloques de la clase">
+  <ol class="indice__lista">
+    <li><a class="indice__enlace" href="#gancho"><span class="indice__texto">Gancho</span></a></li>
+    <li><a class="indice__enlace" href="#pregunta"><span class="indice__texto">Según la pregunta</span></a></li>
+    <li><a class="indice__enlace" href="#catalogo"><span class="indice__texto">Catálogo</span></a></li>
+    <li><a class="indice__enlace" href="#anatomia"><span class="indice__texto">Anatomía</span></a></li>
+    <li><a class="indice__enlace" href="#tele"><span class="indice__texto">Códigos de TV</span></a></li>
+    <li><a class="indice__enlace" href="#practica"><span class="indice__texto">Práctica</span></a></li>
+    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
+    <li><a class="indice__enlace" href="#reto"><span class="indice__texto">Reto</span></a></li>
+    <li><a class="indice__enlace" href="#al-aire"><span class="indice__texto">Al aire</span></a></li>
+    <li><a class="indice__enlace" href="#cierre"><span class="indice__texto">Cierre</span></a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <!-- ============ PORTADA ============ -->
+  <section class="portada" data-parada>
+    <div class="portada__capa portada__capa--puntos" data-velocidad="0.15" aria-hidden="true"></div>
+    <div class="portada__capa" data-velocidad="0.35" aria-hidden="true">
+      <span class="portada__cifra" style="top:16%;left:56%;font-size:clamp(5rem,18vw,15rem)">16:9</span>
+      <span class="portada__cifra" style="top:56%;left:-3%;font-size:clamp(4rem,12vw,10rem)">0</span>
+    </div>
+    <div class="portada__capa" data-velocidad="0.6" aria-hidden="true">
+      <span class="portada__cifra portada__cifra--acento" style="top:32%;left:8%;font-size:clamp(2.5rem,6vw,5rem)">5 s</span>
+      <span class="portada__cifra portada__cifra--acento" style="top:66%;left:66%;font-size:clamp(2.5rem,6vw,5rem)">1 idea</span>
+    </div>
+    <div class="portada__contenido">
+      <p class="portada__antetitulo">Clase 3 de 5 · Periodismo de datos con IA</p>
+      <h1 class="portada__titulo">El gráfico<br><em>justo</em></h1>
+      <p class="portada__entradilla">Primero la pregunta, después el gráfico. Y en la tele, una idea cada vez.</p>
+      <p class="portada__pista"><span class="portada__flecha" aria-hidden="true">↓</span> Desliza o usa <kbd>→</kbd> para avanzar</p>
+    </div>
+  </section>
+
+  <!-- ============ GANCHO ============ -->
+  <section class="bloque bloque--oscuro" id="gancho" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Gancho · 15 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>El mismo dato, tres gráficos. ¿Cuál emitirías?</h2>
+      <div class="bloque__texto aparece"><p>Estudiantes de 14 a 18 años que han apostado dinero por internet en el último año. Es el dato de la clase pasada.</p></div>
+      <div class="rejilla mini-graficos" data-parada>
+        <figure class="mini-grafico aparece">
+          <svg viewBox="0 0 220 175" role="img" aria-label="Gráfico A: barras con el eje empezando en 10. La barra de 2025 parece cuatro veces más alta que la de 2023.">
+            <text x="0" y="14" class="mini-grafico__titulo">Juego online</text>
+            <line x1="40" x2="215" y1="150" y2="150" class="mini-grafico__eje"/>
+            <text x="34" y="154" class="mini-grafico__marca" text-anchor="end">10</text>
+            <text x="34" y="60" class="mini-grafico__marca" text-anchor="end">13</text>
+            <rect x="60" y="128" width="55" height="22" class="mini-grafico__barra"/>
+            <rect x="140" y="55.7" width="55" height="94.3" class="mini-grafico__barra mini-grafico__barra--acento"/>
+            <text x="87.5" y="122" class="mini-grafico__valor" text-anchor="middle">10,7 %</text>
+            <text x="167.5" y="49" class="mini-grafico__valor" text-anchor="middle">13,0 %</text>
+            <text x="87.5" y="167" class="mini-grafico__marca" text-anchor="middle">2023</text>
+            <text x="167.5" y="167" class="mini-grafico__marca" text-anchor="middle">2025</text>
+          </svg>
+          <figcaption class="mini-grafico__letra">A</figcaption>
+        </figure>
+        <figure class="mini-grafico aparece" style="--retraso:1">
+          <svg viewBox="0 0 220 175" role="img" aria-label="Gráfico B: barras con el eje empezando en 0. La barra de 2025 es algo más alta que la de 2023.">
+            <text x="0" y="14" class="mini-grafico__titulo">Juego online</text>
+            <line x1="40" x2="215" y1="150" y2="150" class="mini-grafico__eje"/>
+            <text x="34" y="154" class="mini-grafico__marca" text-anchor="end">0</text>
+            <text x="34" y="75" class="mini-grafico__marca" text-anchor="end">10</text>
+            <rect x="60" y="65.9" width="55" height="84.1" class="mini-grafico__barra"/>
+            <rect x="140" y="47.9" width="55" height="102.1" class="mini-grafico__barra mini-grafico__barra--acento"/>
+            <text x="87.5" y="59" class="mini-grafico__valor" text-anchor="middle">10,7 %</text>
+            <text x="167.5" y="41" class="mini-grafico__valor" text-anchor="middle">13,0 %</text>
+            <text x="87.5" y="167" class="mini-grafico__marca" text-anchor="middle">2023</text>
+            <text x="167.5" y="167" class="mini-grafico__marca" text-anchor="middle">2025</text>
+          </svg>
+          <figcaption class="mini-grafico__letra">B</figcaption>
+        </figure>
+        <figure class="mini-grafico aparece" style="--retraso:2">
+          <svg viewBox="0 0 220 175" role="img" aria-label="Gráfico C: una cifra. Uno de cada ocho estudiantes ha apostado online; en 2023, uno de cada nueve.">
+            <text x="0" y="14" class="mini-grafico__titulo">Juego online</text>
+            <text x="110" y="100" class="mini-grafico__cifra" text-anchor="middle">1 de cada 8</text>
+            <text x="110" y="128" class="mini-grafico__marca" text-anchor="middle">estudiantes ha apostado online</text>
+            <text x="110" y="148" class="mini-grafico__marca" text-anchor="middle">En 2023, 1 de cada 9</text>
+          </svg>
+          <figcaption class="mini-grafico__letra">C</figcaption>
+        </figure>
+      </div>
+      <div class="preguntas" data-parada>
+        <p class="preguntas__item aparece">¿Dónde empieza el eje?</p>
+        <p class="preguntas__item aparece" style="--retraso:1">¿Qué parece que ha pasado en cada uno?</p>
+        <p class="preguntas__item aparece" style="--retraso:2">¿Qué recordará quien lo vea cinco segundos?</p>
+        <p class="preguntas__item preguntas__item--remate aparece" style="--retraso:4">Los tres son ciertos. Solo dos informan.</p>
+      </div>
+      <p class="bloque__nota">Fuente: Ministerio de Sanidad, ESTUDES 2025.</p>
+    </div>
+  </section>
+
+  <!-- ============ SEGÚN LA PREGUNTA (SCROLLYTELLING) ============ -->
+  <section class="bloque bloque--blanco" id="pregunta" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Según la pregunta</p>
+      <h2 class="bloque__titulo aparece" data-parada>Mismos datos, otra pregunta, otro gráfico</h2>
+      <div class="bloque__texto aparece"><p>Alcohol, tabaco y cannabis entre estudiantes de 14 a 18 años. No se empieza eligiendo un gráfico: se empieza por lo que se quiere contar.</p></div>
+
+      <div class="scrolly" data-scrolly="elegirGrafico">
+        <figure class="scrolly__grafico">
+          <svg class="scrolly__svg"></svg>
+          <p class="bloque__nota" data-error-grafico hidden>No se han podido cargar los datos. Están en <a href="../datos/estudes_consumo_14_18_1998_2025.csv">este CSV</a>.</p>
+          <noscript><p>El gráfico necesita JavaScript. Los pasos explican lo mismo con palabras.</p></noscript>
+        </figure>
+        <div class="scrolly__pasos">
+          <div class="scrolly__paso" data-paso="0" data-parada="centro">
+            <div class="scrolly__tarjeta"><p><strong>¿Qué es más común hoy?</strong> Es una pregunta de <strong>comparar</strong> categorías: barras, ordenadas de mayor a menor.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="1" data-parada="centro">
+            <div class="scrolly__tarjeta"><p><strong>¿Cómo ha cambiado?</strong> Es una pregunta de <strong>evolución</strong>: líneas, con el tiempo en el eje horizontal.</p><p>Aquí el eje vertical sí puede no empezar en cero, pero dejarlo en cero ayuda a ver el tamaño real del cambio.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="2" data-parada="centro">
+            <div class="scrolly__tarjeta"><p><strong>¿Cuánto ha cambiado entre dos momentos?</strong> Sobran los años intermedios: un gráfico de <strong>pendiente</strong> une el antes y el después.</p><p>Las etiquetas van junto a cada línea, no en una leyenda.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="3" data-parada="centro">
+            <div class="scrolly__tarjeta"><p>Una trampa frecuente: tratar los años como categorías. ESTUDES no se hizo en 2017 ni en 2018, y aquí el salto de 2016 a 2019 <strong>parece de dos años</strong>.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="4" data-parada="centro">
+            <div class="scrolly__tarjeta"><p>Con el <strong>tiempo real</strong> en el eje, ese tramo ocupa sus tres años. Datawrapper lo hace solo si reconoce la columna como fecha. Comprobadlo siempre.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="bloque__nota">Fuente: Ministerio de Sanidad, ESTUDES 1998-2025. % de estudiantes de 14 a 18 años que lo han consumido en el último mes. <a href="../datos/estudes_consumo_14_18_1998_2025.csv" download>Descargar CSV</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ CATÁLOGO ============ -->
+  <section class="bloque" id="catalogo" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · 40 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Un gráfico para cada pregunta</h2>
+      <div class="bloque__texto aparece"><p>Ocho preguntas que se repiten en cualquier redacción y el gráfico que suele responderlas. No es una ley: es el punto de partida.</p></div>
+      <div class="rejilla">
+        <article class="ficha aparece">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><rect x="0" y="3" width="58" height="8"/><rect x="0" y="16" width="42" height="8"/><rect x="0" y="29" width="24" height="8"/></svg>
+          <p class="ficha__antetitulo">Comparar</p>
+          <p class="ficha__titulo">¿Quién tiene más?</p>
+          <p class="ficha__ejemplo">Barras, ordenadas. Horizontales si los nombres son largos. Siempre desde cero.</p>
+          <p class="ficha__pie">Ranking de emancipación en Europa</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <svg class="ficha__icono ficha__icono--linea" viewBox="0 0 64 40" aria-hidden="true"><polyline points="2,34 16,22 28,27 42,11 62,6"/></svg>
+          <p class="ficha__antetitulo">Evolución</p>
+          <p class="ficha__titulo">¿Cómo ha cambiado?</p>
+          <p class="ficha__ejemplo">Líneas, con el tiempo de izquierda a derecha y a escala real. Pocas series: tres ya son muchas en la tele.</p>
+          <p class="ficha__pie">Tabaco entre estudiantes, 1998-2025</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:2">
+          <svg class="ficha__icono ficha__icono--linea" viewBox="0 0 64 40" aria-hidden="true"><line x1="10" y1="8" x2="54" y2="30"/><line x1="10" y1="30" x2="54" y2="16"/><circle cx="10" cy="8" r="3"/><circle cx="54" cy="30" r="3"/><circle cx="10" cy="30" r="3"/><circle cx="54" cy="16" r="3"/></svg>
+          <p class="ficha__antetitulo">Antes y después</p>
+          <p class="ficha__titulo">¿Cuánto ha cambiado?</p>
+          <p class="ficha__ejemplo">Pendiente: dos momentos unidos por una línea. O dos barras, si es un solo dato.</p>
+          <p class="ficha__pie">Alcohol, tabaco y cannabis, 2014 frente a 2025</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:3">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><rect x="0" y="12" width="30" height="16"/><rect x="31" y="12" width="20" height="16" opacity="0.6"/><rect x="52" y="12" width="12" height="16" opacity="0.3"/></svg>
+          <p class="ficha__antetitulo">Parte de un todo</p>
+          <p class="ficha__titulo">¿Cómo se reparte?</p>
+          <p class="ficha__ejemplo">Barra apilada al 100 %. La tarta, solo con dos o tres partes: el ojo no compara bien ángulos.</p>
+          <p class="ficha__pie">Con quién vive la clase</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:4">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><rect x="2" y="32" width="9" height="6"/><rect x="12" y="24" width="9" height="14"/><rect x="22" y="12" width="9" height="26"/><rect x="32" y="6" width="9" height="32"/><rect x="42" y="20" width="9" height="18"/><rect x="52" y="30" width="9" height="8"/></svg>
+          <p class="ficha__antetitulo">Distribución</p>
+          <p class="ficha__titulo">¿Cómo se reparten los valores?</p>
+          <p class="ficha__ejemplo">Histograma o puntos, uno por caso. Enseña lo normal y lo extremo a la vez.</p>
+          <p class="ficha__pie">Horas de pantalla de la clase (clase 1)</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:5">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><circle cx="8" cy="32" r="3"/><circle cx="16" cy="26" r="3"/><circle cx="22" cy="30" r="3"/><circle cx="30" cy="20" r="3"/><circle cx="38" cy="22" r="3"/><circle cx="44" cy="12" r="3"/><circle cx="54" cy="10" r="3"/><circle cx="58" cy="16" r="3"/></svg>
+          <p class="ficha__antetitulo">Relación</p>
+          <p class="ficha__titulo">¿Van juntas dos cosas?</p>
+          <p class="ficha__ejemplo">Dispersión: un punto por caso, una variable en cada eje. Que vayan juntas no quiere decir que una cause la otra.</p>
+          <p class="ficha__pie">Horas de pantalla y horas de sueño</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:6">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><rect x="4" y="2" width="11" height="11" opacity="0.3"/><rect x="17" y="2" width="11" height="11" opacity="0.8"/><rect x="30" y="2" width="11" height="11" opacity="0.5"/><rect x="4" y="15" width="11" height="11" opacity="0.6"/><rect x="17" y="15" width="11" height="11"/><rect x="30" y="15" width="11" height="11" opacity="0.3"/><rect x="43" y="15" width="11" height="11" opacity="0.7"/><rect x="17" y="28" width="11" height="11" opacity="0.4"/><rect x="30" y="28" width="11" height="11" opacity="0.9"/></svg>
+          <p class="ficha__antetitulo">Dónde</p>
+          <p class="ficha__titulo">¿Dónde pasa más?</p>
+          <p class="ficha__ejemplo">Mapa de coropletas, siempre con tasas, nunca con números absolutos. Lo veremos en la clase 4.</p>
+          <p class="ficha__pie">Viviendas turísticas por cada 1.000 habitantes</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:7">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><text x="32" y="30" text-anchor="middle" font-size="24" font-weight="900" font-family="Fraunces, serif">1/8</text></svg>
+          <p class="ficha__antetitulo">Un solo dato</p>
+          <p class="ficha__titulo">¿Cuánto es?</p>
+          <p class="ficha__ejemplo">A veces el mejor gráfico es una cifra grande, con su contexto en una línea.</p>
+          <p class="ficha__pie">Uno de cada ocho estudiantes ha apostado online</p>
+        </article>
+      </div>
+      <p class="bloque__nota">Para ampliar: el <a href="https://ft-interactive.github.io/visual-vocabulary/" target="_blank" rel="noopener noreferrer">vocabulario visual del Financial Times</a>, con más de 70 tipos de gráfico ordenados por pregunta.</p>
+    </div>
+  </section>
+
+  <!-- ============ ANATOMÍA ============ -->
+  <section class="bloque bloque--blanco" id="anatomia" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Vocabulario</p>
+      <h2 class="bloque__titulo aparece" data-parada>Anatomía de un gráfico</h2>
+      <div class="bloque__texto aparece"><p>Las palabras que vais a oír en cualquier sección de gráficos. Cada número señala una parte.</p></div>
+      <div class="anatomia-grafico aparece" data-parada>
+        <svg viewBox="0 0 640 390" role="img" aria-label="Gráfico de barras de ejemplo: edad media al dejar el hogar familiar en 2025. Croacia 31,5; Grecia 30,9; Eslovaquia 30,9; España 30,2; Italia 30,2; Alemania 24,1; Finlandia 21,3. Una línea discontinua marca la media de la UE, 26,3.">
+          <text x="32" y="28" class="an-titulo">Los jóvenes españoles, de los que más tarde se van de casa</text>
+          <text x="32" y="54" class="an-subtitulo">Edad media al dejar el hogar familiar, 2025</text>
+          <g class="an-rejilla">
+            <line x1="260" x2="260" y1="76" y2="314"/><line x1="370" x2="370" y1="76" y2="314"/><line x1="480" x2="480" y1="76" y2="314"/>
+          </g>
+          <g class="an-filas">
+            <text x="140" y="100" text-anchor="end">Croacia</text><rect x="150" y="84" width="346.5" height="22"/><text x="502" y="100" class="an-valor">31,5</text>
+            <text x="140" y="134" text-anchor="end">Grecia</text><rect x="150" y="118" width="339.9" height="22"/><text x="496" y="134" class="an-valor">30,9</text>
+            <text x="140" y="168" text-anchor="end">Eslovaquia</text><rect x="150" y="152" width="339.9" height="22"/><text x="496" y="168" class="an-valor">30,9</text>
+            <text x="140" y="202" text-anchor="end" class="an-destacado">España</text><rect x="150" y="186" width="332.2" height="22" class="an-barra-destacada"/><text x="488" y="202" class="an-valor an-destacado">30,2</text>
+            <text x="140" y="236" text-anchor="end">Italia</text><rect x="150" y="220" width="332.2" height="22"/><text x="488" y="236" class="an-valor">30,2</text>
+            <text x="140" y="270" text-anchor="end">Alemania</text><rect x="150" y="254" width="265.1" height="22"/><text x="409" y="270" text-anchor="end" class="an-valor">24,1</text>
+            <text x="140" y="304" text-anchor="end">Finlandia</text><rect x="150" y="288" width="234.3" height="22"/><text x="390" y="304" class="an-valor">21,3</text>
+          </g>
+          <line x1="150" x2="150" y1="76" y2="318" class="an-base"/>
+          <line x1="439.3" x2="439.3" y1="74" y2="314" class="an-referencia"/>
+          <text x="446" y="72" class="an-anotacion">Media UE: 26,3</text>
+          <g class="an-escala">
+            <text x="150" y="336" text-anchor="middle">0</text><text x="260" y="336" text-anchor="middle">10</text><text x="370" y="336" text-anchor="middle">20</text><text x="480" y="336" text-anchor="middle">30 años</text>
+          </g>
+          <text x="32" y="374" class="an-fuente">Fuente: Eurostat (yth_demo_030)</text>
+          <g class="an-marcas">
+            <circle cx="16" cy="22" r="11"/><text x="16" y="26">1</text>
+            <circle cx="16" cy="50" r="11"/><text x="16" y="54">2</text>
+            <circle cx="16" cy="164" r="11"/><text x="16" y="168">3</text>
+            <circle cx="150" cy="350" r="11"/><text x="150" y="354">4</text>
+            <circle cx="560" cy="332" r="11"/><text x="560" y="336">5</text>
+            <circle cx="556" cy="96" r="11"/><text x="556" y="100">6</text>
+            <circle cx="540" cy="198" r="11"/><text x="540" y="202">7</text>
+            <circle cx="586" cy="68" r="11"/><text x="586" y="72">8</text>
+            <circle cx="16" cy="370" r="11"/><text x="16" y="374">9</text>
+          </g>
+        </svg>
+      </div>
+      <ol class="anatomia-lista">
+        <li class="aparece"><strong>Título-noticia.</strong> Cuenta lo que hay que ver, no lo que contiene el gráfico. «Edad de emancipación por país» es una etiqueta; esto es una noticia.</li>
+        <li class="aparece"><strong>Subtítulo.</strong> Qué se mide, en qué unidad y cuándo.</li>
+        <li class="aparece"><strong>Categorías.</strong> Los nombres de lo que se compara, ordenados con intención.</li>
+        <li class="aparece"><strong>Línea base.</strong> El cero. En barras es obligatoria: la longitud es el dato.</li>
+        <li class="aparece"><strong>Escala.</strong> Números redondos y pocos. Si hay etiquetas en cada barra, a veces sobra.</li>
+        <li class="aparece"><strong>Etiqueta directa.</strong> El valor junto al dato. En la tele no hay tiempo para mirar una leyenda.</li>
+        <li class="aparece"><strong>Color con intención.</strong> Un solo color fuerte para lo que importa y gris para el contexto.</li>
+        <li class="aparece"><strong>Anotación.</strong> Una línea o una frase que da la referencia: aquí, la media europea.</li>
+        <li class="aparece"><strong>Fuente.</strong> Siempre visible. Sin fuente no se emite.</li>
+      </ol>
+      <h3 class="bloque__subtitulo aparece" data-parada>Tres tipos de paleta</h3>
+      <div class="rejilla">
+        <article class="ficha aparece">
+          <div class="paleta" aria-hidden="true"><span style="background:#f6d8c7"></span><span style="background:#eba37f"></span><span style="background:#d9703f"></span><span style="background:#c1440e"></span><span style="background:#7d2c09"></span></div>
+          <p class="ficha__antetitulo">Secuencial</p>
+          <p class="ficha__ejemplo">De poco a mucho, en un solo tono. Para tasas en un mapa.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <div class="paleta" aria-hidden="true"><span style="background:#16706a"></span><span style="background:#8fbfb9"></span><span style="background:#ece6dc"></span><span style="background:#eba37f"></span><span style="background:#c1440e"></span></div>
+          <p class="ficha__antetitulo">Divergente</p>
+          <p class="ficha__ejemplo">Dos tonos que se alejan de un centro. Para subidas y bajadas, o por encima y por debajo de la media.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:2">
+          <div class="paleta" aria-hidden="true"><span style="background:#c1440e"></span><span style="background:#16706a"></span><span style="background:#3d3a35"></span><span style="background:#b8860b"></span><span style="background:#b9b2a7"></span></div>
+          <p class="ficha__antetitulo">Categórica</p>
+          <p class="ficha__ejemplo">Colores distintos para cosas distintas, sin orden. Cuantos menos, mejor. Evitad rojo frente a verde: uno de cada doce hombres no los distingue.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓDIGOS DE TV ============ -->
+  <section class="bloque bloque--oscuro" id="tele" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Televisión</p>
+      <h2 class="bloque__titulo aparece" data-parada>Lo que cambia en la tele</h2>
+      <div class="bloque__texto aparece"><p>En una web, el lector decide cuánto tiempo mira un gráfico. En la tele, lo decide la escaleta.</p></div>
+      <div class="rejilla">
+        <article class="ficha aparece"><p class="ficha__antetitulo">Formato</p><p class="ficha__titulo">16:9 y zona segura</p><p class="ficha__ejemplo">Nada importante pegado al borde: algunas pantallas lo recortan y el rótulo ocupa la parte de abajo.</p></article>
+        <article class="ficha aparece" style="--retraso:1"><p class="ficha__antetitulo">Mensaje</p><p class="ficha__titulo">Una idea por gráfico</p><p class="ficha__ejemplo">Si hay dos ideas, son dos gráficos. El espectador no puede volver atrás.</p></article>
+        <article class="ficha aparece" style="--retraso:2"><p class="ficha__antetitulo">Tiempo</p><p class="ficha__titulo">Entre 5 y 8 segundos por idea</p><p class="ficha__ejemplo">Lo que no se entiende en ese tiempo, no se entiende.</p></article>
+        <article class="ficha aparece" style="--retraso:3"><p class="ficha__antetitulo">Distancia</p><p class="ficha__titulo">Legible desde el sofá</p><p class="ficha__ejemplo">Cinco o seis barras como mucho, cifras redondas, letra grande. Si hace falta acercarse, sobra algo.</p></article>
+        <article class="ficha aparece" style="--retraso:4"><p class="ficha__antetitulo">Ritmo</p><p class="ficha__titulo">Animación al ritmo de la voz</p><p class="ficha__ejemplo">Cada elemento aparece cuando la locución lo nombra, ni antes ni después.</p></article>
+        <article class="ficha aparece" style="--retraso:5"><p class="ficha__antetitulo">Texto</p><p class="ficha__titulo">El rótulo no repite el gráfico</p><p class="ficha__ejemplo">El rótulo da la conclusión; el gráfico, la prueba; la voz, el contexto. Y la fuente, siempre en pantalla.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRÁCTICA ============ -->
+  <section class="bloque bloque--blanco" id="practica" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Tres gráficos en Datawrapper</h2>
+      <div class="bloque__texto aparece"><p>Datawrapper es la herramienta de gráficos de muchas redacciones y tiene una cuenta gratuita. Tres gráficos, tres preguntas distintas.</p></div>
+      <ol class="pasos">
+        <li class="pasos__item aparece">Cread una cuenta gratuita en <a href="https://www.datawrapper.de/" target="_blank" rel="noopener noreferrer">datawrapper.de</a> y empezad un gráfico nuevo.</li>
+        <li class="pasos__item aparece"><strong>Comparar.</strong> Subid <a href="../datos/eurostat_edad_emancipacion_2025.csv" download>eurostat_edad_emancipacion_2025.csv</a>, quedaos con los países de la UE y haced barras horizontales ordenadas. España en color y el resto en gris. Título-noticia y fuente.</li>
+        <li class="pasos__item aparece"><strong>Evolución.</strong> Subid <a href="../datos/estudes_consumo_14_18_1998_2025.csv" download>estudes_consumo_14_18_1998_2025.csv</a> con el año y las tres columnas de «últimos 30 días». Gráfico de líneas. Comprobad que el año se lee como fecha y poned etiquetas directas en lugar de leyenda.</li>
+        <li class="pasos__item aparece"><strong>Ranking.</strong> Abrid el <a href="https://kworb.net/spotify/country/es_weekly.html" target="_blank" rel="noopener noreferrer">top semanal de Spotify en España</a>, copiad las diez primeras canciones con sus reproducciones y pegadlas en Datawrapper. ¿Qué título-noticia tiene esta semana? Fuente: «Spotify Charts vía kworb.net».</li>
+        <li class="pasos__item aparece">Exportad los tres en <strong>16:9</strong> (por ejemplo, 960 × 540) y miradlos a pantalla completa desde el fondo de la clase.</li>
+      </ol>
+      <p class="bloque__nota">Guardad los tres gráficos: en un momento se los vais a enseñar a la IA.</p>
+    </div>
+  </section>
+
+  <!-- ============ IA ============ -->
+  <section class="bloque" id="ia" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">IA · La máquina como crítica</p>
+      <h2 class="bloque__titulo aparece" data-parada>Que la IA critique vuestro gráfico</h2>
+      <div class="bloque__texto aparece">
+        <p>Los chatbots gratuitos leen imágenes. Subid la captura de uno de vuestros gráficos y pedidle que lo revise con una lista de criterios: la vuestra, no la suya.</p>
+        <p>La IA propone; vosotros decidís. Si sugiere una tarta con ocho porciones, sabéis por qué no.</p>
+      </div>
+      <div class="prompt aparece" data-parada>
+        <div class="prompt__cabecera"><span>Receta 4 · Critica este gráfico</span><button class="prompt__copiar" type="button">Copiar</button></div>
+        <pre class="prompt__texto">Adjunto la captura de un gráfico que quiero emitir en un informativo de televisión. Revísalo con esta lista y dime, punto por punto, si lo cumple y qué cambiarías:
+
+1. ¿El título cuenta la noticia en una frase?
+2. ¿El tipo de gráfico responde a la pregunta (comparar, evolución, parte de un todo…)?
+3. Si son barras, ¿el eje empieza en cero?
+4. ¿Se lee a tres metros: pocas categorías, cifras redondas, letra grande?
+5. ¿Las etiquetas están junto a los datos y no en una leyenda?
+6. ¿El color destaca solo lo importante? ¿Lo distingue una persona daltónica?
+7. ¿Se ve la fuente?
+
+No rehagas el gráfico. Dame los problemas ordenados de más a menos grave.
+
+<mark>Si no puedes leer algún elemento de la imagen, dilo en lugar de suponerlo.</mark></pre>
+      </div>
+      <div class="prompt aparece" data-parada>
+        <div class="prompt__cabecera"><span>Receta 5 · ¿Qué gráfico para esta pregunta?</span><button class="prompt__copiar" type="button">Copiar</button></div>
+        <pre class="prompt__texto">Tengo estos datos: [nombre de las columnas y unas cuantas filas].
+La pregunta que quiero responder en una pieza de televisión es: [pregunta].
+
+Propón dos tipos de gráfico. Para cada uno, dime qué verá el espectador en cinco segundos. Después dime cuál descartarías y por qué.
+
+<mark>Es para televisión: formato 16:9, pocos elementos y una sola idea por gráfico.</mark></pre>
+      </div>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>¿Lo emitirías?</h3>
+      <div class="bloque__texto aparece"><p>Siete decisiones que alguien tomó en una redacción. ¿Verdadero o falso? Votad en clase antes de pulsar.</p></div>
+      <div class="test aparece" data-test>
+        <p class="test__cabecera">Buenas prácticas · verdadero o falso</p>
+        <ol class="test__lista">
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">En un gráfico de barras, el eje puede empezar en 10 si así se ven mejor las diferencias.</p>
+            <div class="test__explicacion"><p>En barras, la longitud es el dato. Cortar el eje exagera las diferencias, como en el gráfico A del principio.</p></div>
+          </li>
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">En un gráfico de líneas, el eje vertical no tiene por qué empezar en cero.</p>
+            <div class="test__explicacion"><p>En las líneas importa la pendiente, no la longitud. Se puede ajustar el eje, pero sin convertir una variación pequeña en un precipicio.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Una tarta es buena idea para enseñar qué app usa más la clase entre ocho opciones.</p>
+            <div class="test__explicacion"><p>Con ocho porciones nadie compara ángulos en cinco segundos. Barras ordenadas.</p></div>
+          </li>
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">Si las categorías no tienen un orden propio, ordenar las barras de mayor a menor ayuda a leerlas.</p>
+            <div class="test__explicacion"><p>Verdadero. La excepción son las categorías con orden propio, como los grupos de edad o «nada, poco, bastante, mucho»: esas se dejan en su orden.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Rojo para una serie y verde para la otra es la combinación más clara.</p>
+            <div class="test__explicacion"><p>Es la que más personas con daltonismo confunden. Mejor un color fuerte y un gris, o naranja frente a azul.</p></div>
+          </li>
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">En la tele, las etiquetas junto a cada línea funcionan mejor que una leyenda.</p>
+            <div class="test__explicacion"><p>El espectador no tiene tiempo de ir de la leyenda al dato y volver.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Un gráfico para la tele puede tener quince barras si la locución las va explicando.</p>
+            <div class="test__explicacion"><p>Quince barras no se leen desde el sofá. Quedaos con las cinco que cuentan la historia y agrupad o quitad el resto.</p></div>
+          </li>
+        </ol>
+        <div class="test__final" data-parada>
+          <p class="test__marcador" aria-live="polite"></p>
+          <p class="test__moraleja">Casi todas las reglas salen de la misma idea: el gráfico tiene que entenderse <strong>a la primera</strong>.</p>
+          <button class="test__repetir" type="button">Repetir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RETO ============ -->
+  <section class="bloque bloque--acento" id="reto" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Reto en grupos · 75 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Dato + pregunta = gráfico</h2>
+      <div class="bloque__texto aparece">
+        <p><strong>Primera parte (25 min).</strong> Ocho cartas, cada una con un dato y una pregunta. Para cada carta, decidid qué gráfico haríais y por qué. Si dudáis, usad la receta 5 y discutid si la IA acierta.</p>
+        <p><strong>Segunda parte (50 min).</strong> Elegid dos cartas que se puedan hacer con los datos del curso y producid los dos gráficos en Datawrapper, pensados para emitir.</p>
+      </div>
+      <div class="rejilla cartas">
+        <article class="ficha carta aparece"><p class="carta__num">1</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">Edad media de emancipación en los 27 países de la UE.</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Dónde está España?</p></article>
+        <article class="ficha carta aparece" style="--retraso:1"><p class="carta__num">2</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">% de estudiantes que fuman, de 1998 a 2025.</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Fuman menos que antes?</p></article>
+        <article class="ficha carta aparece" style="--retraso:2"><p class="carta__num">3</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">Las horas de pantalla de cada alumno de la clase.</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Hay alguien muy lejos del resto?</p></article>
+        <article class="ficha carta aparece" style="--retraso:3"><p class="carta__num">4</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">La app más usada de cada alumno (ocho opciones).</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Cuál gana?</p></article>
+        <article class="ficha carta aparece" style="--retraso:4"><p class="carta__num">5</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">% de personas que usan internet a diario, por grupo de edad (INE).</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Cambia con la edad?</p></article>
+        <article class="ficha carta aparece" style="--retraso:5"><p class="carta__num">6</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">Alcohol, tabaco y cannabis entre estudiantes, en 2014 y en 2025.</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Cuál ha bajado más?</p></article>
+        <article class="ficha carta aparece" style="--retraso:6"><p class="carta__num">7</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">Cuántos alumnos viven con su familia y cuántos fuera.</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Qué parte vive con su familia?</p></article>
+        <article class="ficha carta aparece" style="--retraso:7"><p class="carta__num">8</p><p class="ficha__antetitulo">Dato</p><p class="ficha__ejemplo">Horas de pantalla y horas de sueño de cada alumno.</p><p class="ficha__antetitulo">Pregunta</p><p class="ficha__titulo">¿Duerme menos quien más mira el móvil?</p></article>
+      </div>
+
+      <details class="solucion aparece" data-parada data-solucion="clase3-reto">
+        <summary>Solución: abrir al terminar la primera parte</summary>
+        <div class="solucion__cuerpo">
+          <div class="tabla-scroll">
+            <table class="tabla">
+              <thead><tr><th>Carta</th><th>Gráfico</th><th>Por qué</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Barras horizontales ordenadas, España destacada</td><td>Comparar y situar. Con 27 países, en la tele mejor recortar: los cinco primeros, España y la media.</td></tr>
+                <tr><td>2</td><td>Líneas</td><td>Evolución. Con el tiempo a escala real: entre 2016 y 2019 hay tres años.</td></tr>
+                <tr><td>3</td><td>Puntos o histograma</td><td>Distribución: se ve lo normal y lo extremo a la vez. Es el gráfico de la clase 1.</td></tr>
+                <tr><td>4</td><td>Barras ordenadas</td><td>Comparar ocho categorías. La tarta no funciona con tantas.</td></tr>
+                <tr><td>5</td><td>Barras en el orden de las edades</td><td>Las edades tienen orden propio: no se reordenan de mayor a menor.</td></tr>
+                <tr><td>6</td><td>Pendiente</td><td>Dos momentos y tres series: se ve qué línea cae más.</td></tr>
+                <tr><td>7</td><td>Una cifra grande o una barra apilada</td><td>Parte de un todo con dos partes. Aquí sí valdría una tarta, pero una cifra se entiende antes.</td></tr>
+                <tr><td>8</td><td>Dispersión</td><td>Relación entre dos variables. Y aunque los puntos bajen, no prueba que el móvil quite el sueño.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Hay más de una respuesta buena para casi todas. Lo que no vale es elegir el gráfico antes que la pregunta.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ AL AIRE ============ -->
+  <section class="bloque bloque--oscuro" id="al-aire" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Al aire · 30 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Proyectadlo y miradlo desde el fondo</h2>
+      <div class="bloque__texto aparece"><p>Cada grupo proyecta sus dos gráficos y los presenta en 20 segundos cada uno. El resto de la clase los revisa con esta lista desde el fondo del aula.</p></div>
+      <ul class="lista-control aparece" data-parada aria-label="Lista de comprobación antes de emitir">
+        <li><label><input type="checkbox"> El título cuenta la noticia</label></li>
+        <li><label><input type="checkbox"> Una sola idea</label></li>
+        <li><label><input type="checkbox"> El tipo de gráfico responde a la pregunta</label></li>
+        <li><label><input type="checkbox"> Si son barras, empiezan en cero</label></li>
+        <li><label><input type="checkbox"> Cinco o seis categorías como mucho</label></li>
+        <li><label><input type="checkbox"> Cifras redondas</label></li>
+        <li><label><input type="checkbox"> Etiquetas junto a los datos</label></li>
+        <li><label><input type="checkbox"> Color solo para lo importante</label></li>
+        <li><label><input type="checkbox"> La fuente se ve</label></li>
+        <li><label><input type="checkbox"> Se lee desde el fondo de la clase</label></li>
+      </ul>
+      <p class="bloque__nota">Si un gráfico no pasa la lista, no se emite: se arregla. En una redacción, esa revisión la hace otra persona antes de que salga al aire.</p>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="bloque bloque--oscuro" id="cierre" data-seccion data-tono="oscuro" style="padding-top:0">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Cierre · 5 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Tres ideas para llevarse</h2>
+      <div class="resumen">
+        <div class="resumen__item aparece"><p class="resumen__num">1</p><p class="resumen__texto">Primero la pregunta, después el gráfico.</p></div>
+        <div class="resumen__item aparece" style="--retraso:1"><p class="resumen__num">2</p><p class="resumen__texto">El eje, el orden y el color también informan. O engañan.</p></div>
+        <div class="resumen__item aparece" style="--retraso:2"><p class="resumen__num">3</p><p class="resumen__texto">En la tele: una idea, pocas categorías, cifras redondas y la fuente a la vista.</p></div>
+      </div>
+
+      <div class="rejilla rejilla--2" style="margin-top:3rem">
+        <article class="ficha aparece">
+          <p class="ficha__antetitulo">Recetas de IA de hoy</p>
+          <p class="ficha__titulo">Critica con mi lista y propón dos opciones</p>
+          <p class="ficha__ejemplo">La IA revisa con vuestros criterios y sugiere alternativas. La decisión final es vuestra.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Para practicar en casa</p>
+          <p class="ficha__titulo">Caza un gráfico</p>
+          <p class="ficha__ejemplo">Buscad un gráfico de un informativo de esta semana y pasadle la lista de «Al aire». ¿Lo habríais emitido?</p>
+        </article>
+      </div>
+
+      <div class="siguiente aparece" data-parada>
+        <p class="siguiente__titulo"><small>Próxima clase</small>Datos sucios, fuentes y mapas</p>
+        <p>Dónde se buscan los datos, cómo se limpian y cómo se pintan en un mapa.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="pie__interior">
+    <span>Jaime Gutiérrez · Periodista de datos en RTVE</span>
+    <a href="../">Volver al curso</a>
+  </div>
+</footer>
+
+<p class="atajos" aria-hidden="true"><kbd>→</kbd> <kbd>←</kbd> avanzar<span data-solo-profesor> · <kbd>P</kbd> proyector</span> · <kbd>F</kbd> pantalla completa</p>
+
+</body>
+</html>

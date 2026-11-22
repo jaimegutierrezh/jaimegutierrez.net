@@ -22,34 +22,9 @@ const NOMBRES = {
 };
 let PROVINCIAS = null; // [{ nombre, viviendas, poblacion, tasa, puestoAbs, puestoTasa }]
 
-// Separa una línea de CSV respetando las comillas («"Asturias, Principado de"»)
-function campos(linea) {
-  const out = [];
-  let actual = '', comillas = false;
-  for (let i = 0; i < linea.length; i++) {
-    const c = linea[i];
-    if (c === '"') {
-      if (comillas && linea[i + 1] === '"') { actual += '"'; i++; }
-      else comillas = !comillas;
-    } else if (c === ',' && !comillas) { out.push(actual); actual = ''; }
-    else actual += c;
-  }
-  out.push(actual);
-  return out;
-}
-
-function leerCsv(texto) {
-  const [cabecera, ...lineas] = texto.trim().split(/\r?\n/);
-  const cols = campos(cabecera);
-  return lineas.map(l => {
-    const v = campos(l);
-    return Object.fromEntries(cols.map((c, i) => [c, v[i]]));
-  });
-}
-
 async function cargarDatos() {
   try {
-    const filas = leerCsv(await (await fetch(RUTA_CSV)).text());
+    const filas = window.CURSO.util.leerCsv(await (await fetch(RUTA_CSV)).text());
     const lista = filas.map(f => {
       const viviendas = +f.viviendas_turisticas_may2026;
       const poblacion = +f.poblacion_abr2026;

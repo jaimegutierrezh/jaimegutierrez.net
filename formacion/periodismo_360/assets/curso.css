@@ -485,6 +485,22 @@ body.leccion {
 .g-etiqueta { font-family: var(--ff-body); font-size: 14px; font-weight: 700; }
 .g-oculto { opacity: 0; }
 
+/* Series de varios colores (clase 3) */
+.g-rejilla { stroke: var(--rule); stroke-width: 1; }
+.g-serie--a { fill: var(--accent); }
+.g-serie--b { fill: var(--teal); }
+.g-serie--c { fill: var(--ink-2); }
+.g-linea-serie { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.g-linea-serie--a { stroke: var(--accent); }
+.g-linea-serie--b { stroke: var(--teal); }
+.g-linea-serie--c { stroke: var(--ink-2); }
+.g-etiqueta-serie { font-family: var(--ff-body); font-size: 13px; font-weight: 700; }
+.g-etiqueta-serie--a { fill: var(--accent); }
+.g-etiqueta-serie--b { fill: var(--teal); }
+.g-etiqueta-serie--c { fill: var(--ink-2); }
+.g-hueco { fill: rgba(193, 68, 14, 0.12); }
+.g-marca--acento { fill: var(--accent); font-weight: 700; }
+
 /* Barras horizontales que se reordenan (clase 2) */
 .g-fila { transition: transform 0.7s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease; }
 .g-fila.is-oculta { opacity: 0; }
@@ -931,6 +947,94 @@ html:not(.vista-profesor) [data-solo-profesor] { display: none; }
 .locucion { margin-top: 1.5rem; max-width: 56rem; font-family: var(--ff-display); font-style: italic; font-size: 1.15rem; color: var(--ink); }
 .bloque--oscuro .locucion { color: #fff; }
 .locucion::before { content: "Locución · "; font-family: var(--ff-body); font-style: normal; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+
+/* ---- MINI GRÁFICOS (gancho de la clase 3) ---- */
+.mini-graficos { grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.mini-grafico {
+  margin: 0;
+  padding: 1rem 1rem 0.75rem;
+  background: var(--paper);
+  border-radius: var(--c-radio);
+  display: grid;
+  gap: 0.5rem;
+}
+.mini-grafico svg { width: 100%; height: auto; }
+.mini-grafico__titulo { font-family: var(--ff-body); font-size: 12px; font-weight: 700; fill: var(--ink); }
+.mini-grafico__eje { stroke: var(--ink-2); stroke-width: 1.5; }
+.mini-grafico__marca { font-family: var(--ff-body); font-size: 11px; fill: var(--mid); }
+.mini-grafico__valor { font-family: var(--ff-body); font-size: 11px; font-weight: 700; fill: var(--ink); }
+.mini-grafico__barra { fill: var(--rule); }
+.mini-grafico__barra--acento { fill: var(--accent); }
+.mini-grafico__cifra { font-family: var(--ff-display); font-weight: 900; font-size: 34px; fill: var(--accent); letter-spacing: -0.02em; }
+.mini-grafico__letra { font-family: var(--ff-display); font-weight: 900; font-size: 1.6rem; color: var(--ink); line-height: 1; }
+
+/* ---- ICONOS DEL CATÁLOGO DE GRÁFICOS ---- */
+.ficha__icono { width: 64px; height: 40px; fill: var(--accent); stroke: none; margin-bottom: 0.25rem; }
+.ficha__icono--linea { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.ficha__icono--linea circle { fill: var(--accent); stroke: none; }
+
+/* ---- ANATOMÍA DE UN GRÁFICO ---- */
+.anatomia-grafico { margin-top: 2rem; max-width: 48rem; padding: 1.25rem; background: var(--paper); border-radius: var(--c-radio); }
+.anatomia-grafico svg { width: 100%; height: auto; display: block; }
+.an-titulo { font-family: var(--ff-display); font-weight: 600; font-size: 20px; fill: var(--ink); }
+.an-subtitulo { font-family: var(--ff-body); font-size: 14px; fill: var(--mid); }
+.an-filas text { font-family: var(--ff-body); font-size: 14px; fill: var(--ink-2); }
+.an-filas rect { fill: var(--rule); }
+.an-filas .an-barra-destacada { fill: var(--accent); }
+.an-filas .an-valor { font-weight: 700; font-size: 13px; }
+.an-filas .an-destacado { fill: var(--accent); font-weight: 700; }
+.an-rejilla line { stroke: rgba(15, 14, 12, 0.08); }
+.an-base { stroke: var(--ink); stroke-width: 2; }
+.an-referencia { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.an-anotacion { font-family: var(--ff-body); font-size: 13px; font-weight: 700; fill: var(--ink); }
+.an-escala text { font-family: var(--ff-body); font-size: 12px; fill: var(--mid); }
+.an-fuente { font-family: var(--ff-body); font-size: 12px; fill: var(--mid); }
+.an-marcas circle { fill: var(--teal); }
+.an-marcas text { font-family: var(--ff-body); font-size: 12px; font-weight: 700; fill: #fff; text-anchor: middle; }
+.anatomia-lista { margin-top: 2rem; max-width: 48rem; display: grid; gap: 0.6rem; padding-left: 1.75rem; list-style: decimal; }
+.anatomia-lista li { display: list-item; }
+.anatomia-lista li::marker { font-weight: 700; color: var(--teal); }
+
+/* ---- PALETAS ---- */
+.paleta { display: flex; height: 1.5rem; border-radius: 4px; overflow: hidden; }
+.paleta span { flex: 1; }
+
+/* ---- CARTAS DEL RETO ---- */
+.cartas { margin-top: 2rem; }
+.carta { position: relative; }
+.carta__num {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---- LISTA DE COMPROBACIÓN ---- */
+.lista-control {
+  margin-top: 2rem;
+  max-width: 48rem;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+.lista-control label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--c-linea-clara);
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+.lista-control input { width: 1.2rem; height: 1.2rem; accent-color: var(--accent); flex: none; }
+.lista-control label:has(input:checked) { border-color: var(--accent); background: rgba(193, 68, 14, 0.15); }
 
 /* ---- CARRUSEL (pantallas de TV, una por tema) ---- */
 .carrusel {
