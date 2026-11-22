@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
       aviso.className = 'solucion-cerrada';
       aviso.dataset.parada = '';
       aviso.setAttribute('role', 'status');
-      aviso.innerHTML = `${candado}<p><strong>Solución cerrada.</strong> Se abrirá cuando terminéis el reto.</p>`;
+      aviso.innerHTML = `${candado}<p><strong>Solución cerrada.</strong> Se abrirá cuando terminéis el ejercicio.</p>`;
       det.before(aviso);
       const boton = esProfesor ? botonProfesor('solucion-profesor', det.dataset.solucion) : null;
       piezas.push({

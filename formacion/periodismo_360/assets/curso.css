@@ -484,6 +484,24 @@ body.leccion {
 .g-media text { fill: var(--accent); }
 .g-etiqueta { font-family: var(--ff-body); font-size: 14px; font-weight: 700; }
 .g-oculto { opacity: 0; }
+
+/* Barras horizontales que se reordenan (clase 2) */
+.g-fila { transition: transform 0.7s cubic-bezier(.2,.8,.2,1), opacity 0.4s ease; }
+.g-fila.is-oculta { opacity: 0; }
+.g-fila__nombre { fill: var(--ink-2); font-family: var(--ff-body); font-size: 13px; }
+.g-fila__valor { fill: var(--ink-2); font-family: var(--ff-body); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.g-barra {
+  fill: var(--rule);
+  transform-box: fill-box;
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(.2,.8,.2,1), fill 0.4s ease;
+}
+.g-fila[data-tono="a"] .g-barra { fill: var(--accent); }
+.g-fila[data-tono="b"] .g-barra { fill: var(--teal); }
+.g-fila[data-tono="c"] .g-barra { fill: var(--ink-2); }
+.g-fila[data-tono="a"] text,
+.g-fila[data-tono="b"] text,
+.g-fila[data-tono="c"] text { font-weight: 700; fill: var(--ink); }
 .g-anillo.is-visible { opacity: 1; }
 .g-anillo.is-latido { animation: latido 1.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 .g-punto.is-atenuado { opacity: 0.2; }
@@ -548,6 +566,11 @@ body.leccion {
   color: var(--c-texto-claro);
 }
 .prompt__texto mark { background: rgba(193, 68, 14, 0.35); color: #fff; padding: 0 0.15em; border-radius: 3px; }
+/* Respuesta de un chatbot (para analizarla, no para copiarla como encargo) */
+.prompt--respuesta { background: #fff; color: var(--ink-2); border: 1px solid var(--rule); border-left: 4px solid var(--teal); }
+.prompt--respuesta .prompt__cabecera { color: var(--teal); border-bottom-color: var(--rule); }
+.prompt--respuesta .prompt__copiar { color: var(--ink-2); border-color: var(--rule); }
+.prompt--respuesta .prompt__texto { font-family: var(--ff-body); font-size: 1rem; color: var(--ink-2); }
 
 /* ---- ANATOMÍA DEL ENCARGO ---- */
 .anatomia { margin-top: 2rem; display: grid; gap: 0.75rem; max-width: 48rem; }
@@ -631,7 +654,7 @@ body.leccion {
 .bloque--acento .ficha { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); }
 .bloque--acento .ficha__antetitulo { color: rgba(255, 255, 255, 0.8); }
 .bloque--acento .ficha__titulo { color: #fff; }
-.bloque--acento a { color: #fff; text-decoration: underline; text-underline-offset: 0.15em; }
+.bloque--acento a:not(.descarga) { color: #fff; text-decoration: underline; text-underline-offset: 0.15em; }
 
 /* ---- SOLUCIÓN PLEGABLE ---- */
 .solucion {
@@ -665,6 +688,11 @@ body.leccion {
 }
 .solucion__fuente { font-size: 0.82rem; color: var(--mid); }
 .solucion[hidden] { display: none; }
+/* Sobre fondo claro (fuera del reto) */
+.bloque:not(.bloque--acento) .solucion { background: #fff; border: 1px solid var(--rule); }
+.bloque--blanco .solucion { background: var(--paper); }
+.bloque:not(.bloque--acento) .solucion-cerrada { border-color: var(--rule); color: var(--ink-2); }
+.bloque:not(.bloque--acento) .solucion-cerrada svg { color: var(--accent); }
 
 /* ---- VISTA DEL PROFESOR ---- */
 html:not(.vista-profesor) [data-solo-profesor] { display: none; }
@@ -890,7 +918,7 @@ html:not(.vista-profesor) [data-solo-profesor] { display: none; }
   .portada__capa { transform: none !important; }
   .portada__flecha,
   .g-anillo.is-latido { animation: none; }
-  .g-punto, .g-capa, .pantalla-tv__barra, .poblacion__punto { transition: none; }
+  .g-punto, .g-capa, .g-fila, .g-barra, .pantalla-tv__barra, .poblacion__punto { transition: none; }
 }
 
 @media print {

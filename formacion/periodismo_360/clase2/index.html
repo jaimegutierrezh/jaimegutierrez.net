@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es" data-clase="clase2">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clase 2. ¿Mucho o poco? · Periodismo de datos con IA · Jaime Gutiérrez</title>
+<meta name="description" content="Segunda clase del curso de periodismo de datos con IA: números absolutos y relativos, tasas, porcentajes, variación porcentual y puntos porcentuales, con datos de viviendas turísticas y de consumo entre jóvenes.">
+<link rel="canonical" href="https://jaimegutierrez.net/formacion/periodismo_360/clase2/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Jaime Gutiérrez">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Clase 2. ¿Mucho o poco? Números relativos">
+<meta property="og:description" content="Tasas, porcentajes, variación porcentual y puntos porcentuales para no equivocarse con las cifras. Curso de periodismo de datos con IA.">
+<meta property="og:url" content="https://jaimegutierrez.net/formacion/periodismo_360/clase2/">
+<meta property="og:image" content="https://jaimegutierrez.net/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jaime Gutiérrez, periodista de datos en RTVE Noticias">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@JaimeGutierrezH">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Clase 2. ¿Mucho o poco? Números relativos",
+  "description": "Números absolutos y relativos, tasas por habitante, variación porcentual, puntos porcentuales y por qué no se hacen medias de porcentajes.",
+  "url": "https://jaimegutierrez.net/formacion/periodismo_360/clase2/",
+  "inLanguage": "es",
+  "learningResourceType": "Clase",
+  "teaches": ["Tasas por habitante", "Variación porcentual", "Puntos porcentuales", "Cálculo con IA verificable"],
+  "isPartOf": { "@type": "Course", "name": "Periodismo de datos con IA", "url": "https://jaimegutierrez.net/formacion/periodismo_360/" },
+  "author": { "@id": "https://jaimegutierrez.net/#person", "@type": "Person", "name": "Jaime Gutiérrez" }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../assets/curso.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../encuesta/config.js" defer></script>
+<script src="../assets/curso.js" defer></script>
+<script src="clase2.js" defer></script>
+</head>
+<body class="leccion">
+
+<div class="progreso" aria-hidden="true"></div>
+
+<header class="barra">
+  <a class="barra__volver" href="../">← Curso</a>
+  <span class="barra__titulo">Clase 2 · ¿Mucho o poco?</span>
+  <div class="barra__acciones">
+    <button class="barra__boton" type="button" data-accion="proyector" data-solo-profesor aria-pressed="false" title="Letra más grande para proyectar (tecla P)">Proyector</button>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Bloques de la clase">
+  <ol class="indice__lista">
+    <li><a class="indice__enlace" href="#gancho"><span class="indice__texto">Gancho</span></a></li>
+    <li><a class="indice__enlace" href="#relativos"><span class="indice__texto">Absoluto y relativo</span></a></li>
+    <li><a class="indice__enlace" href="#concepto"><span class="indice__texto">Herramientas</span></a></li>
+    <li><a class="indice__enlace" href="#trampas"><span class="indice__texto">Trampas</span></a></li>
+    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
+    <li><a class="indice__enlace" href="#practica"><span class="indice__texto">Práctica</span></a></li>
+    <li><a class="indice__enlace" href="#reto"><span class="indice__texto">Reto</span></a></li>
+    <li><a class="indice__enlace" href="#al-aire"><span class="indice__texto">Al aire</span></a></li>
+    <li><a class="indice__enlace" href="#cierre"><span class="indice__texto">Cierre</span></a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <!-- ============ PORTADA ============ -->
+  <section class="portada" data-parada>
+    <div class="portada__capa portada__capa--puntos" data-velocidad="0.15" aria-hidden="true"></div>
+    <div class="portada__capa" data-velocidad="0.35" aria-hidden="true">
+      <span class="portada__cifra" style="top:16%;left:52%;font-size:clamp(5rem,17vw,14rem)">45.176</span>
+      <span class="portada__cifra" style="top:55%;left:-4%;font-size:clamp(4rem,12vw,10rem)">−27,6 %</span>
+    </div>
+    <div class="portada__capa" data-velocidad="0.6" aria-hidden="true">
+      <span class="portada__cifra portada__cifra--acento" style="top:30%;left:6%;font-size:clamp(2.5rem,7vw,5.5rem)">1 de cada 40</span>
+      <span class="portada__cifra portada__cifra--acento" style="top:64%;left:70%;font-size:clamp(2.5rem,6vw,5rem)">+2,3 pp</span>
+    </div>
+    <div class="portada__contenido">
+      <p class="portada__antetitulo">Clase 2 de 5 · Periodismo de datos con IA</p>
+      <h1 class="portada__titulo">¿Mucho<br>o <em>poco</em>?</h1>
+      <p class="portada__entradilla">Un número solo no dice nada. Necesita con qué compararse.</p>
+      <p class="portada__pista"><span class="portada__flecha" aria-hidden="true">↓</span> Desliza o usa <kbd>→</kbd> para avanzar</p>
+    </div>
+  </section>
+
+  <!-- ============ GANCHO ============ -->
+  <section class="bloque bloque--oscuro" id="gancho" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Gancho · 15 min</p>
+      <div data-parada>
+        <p class="cifra aparece" aria-label="45.176"><span data-contar="45176" data-decimales="0">45.176</span></p>
+        <p class="cifra__pie aparece" style="--retraso:2">viviendas turísticas en Málaga. Más del doble que en Girona, que tiene 20.821.</p>
+        <p class="cifra__pie aparece" style="--retraso:4"><strong style="color:var(--accent)">¿Dónde pesan más?</strong></p>
+      </div>
+      <div class="preguntas" data-parada>
+        <p class="preguntas__item aparece">¿Cuánta gente vive en cada provincia?</p>
+        <p class="preguntas__item aparece" style="--retraso:1">¿Comparado con qué es mucho?</p>
+        <p class="preguntas__item aparece" style="--retraso:2">¿Hace un año había más o menos?</p>
+        <p class="preguntas__item preguntas__item--remate aparece" style="--retraso:4">Una cifra sin denominador no es una noticia.</p>
+      </div>
+      <p class="bloque__nota">Fuente: INE, viviendas turísticas en España, mayo de 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ ABSOLUTO Y RELATIVO (SCROLLYTELLING) ============ -->
+  <section class="bloque bloque--blanco" id="relativos" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Absoluto y relativo</p>
+      <h2 class="bloque__titulo aparece" data-parada>Lo mismo, dividido entre la gente</h2>
+      <div class="bloque__texto aparece"><p>Las 52 provincias, primero contadas y después divididas entre los que viven en ellas.</p></div>
+
+      <div class="scrolly" data-scrolly="absolutoRelativo">
+        <figure class="scrolly__grafico">
+          <svg class="scrolly__svg"></svg>
+          <p class="bloque__nota" data-error-grafico hidden>No se han podido cargar los datos. Están en <a href="../datos/ine_viviendas_turisticas_provincias_2026.csv">este CSV</a>.</p>
+          <noscript><p>El gráfico necesita JavaScript. Los pasos explican lo mismo con palabras.</p></noscript>
+        </figure>
+        <div class="scrolly__pasos">
+          <div class="scrolly__paso" data-paso="0" data-parada="centro">
+            <div class="scrolly__tarjeta"><p>Viviendas turísticas por provincia en <strong>número absoluto</strong>: cuántas hay, sin más. Málaga y Alicante encabezan la lista.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="1" data-parada="centro">
+            <div class="scrolly__tarjeta"><p>Málaga tiene <strong>más del doble</strong> que Girona: 45.176 frente a 20.821.</p><p>¿Titular? «Málaga sufre el doble de presión turística que Girona». Esperad.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="2" data-parada="centro">
+            <div class="scrolly__tarjeta"><p>Ahora dividimos entre los habitantes y multiplicamos por 1.000: es una <strong>tasa</strong>.</p><p>Málaga tiene también más del doble de población. Por cada 1.000 vecinos, <strong>Málaga y Girona empatan: 24,8</strong>.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="3" data-parada="centro">
+            <div class="scrolly__tarjeta"><p>Barcelona era la 7.ª provincia en número de viviendas turísticas. Por habitante cae al puesto <strong>37</strong>. Madrid, de la 9.ª a la <strong>44</strong>.</p><p>Son grandes, así que casi todo lo que cuentes de ellas será grande en absoluto.</p></div>
+          </div>
+          <div class="scrolly__paso" data-paso="4" data-parada="centro">
+            <div class="scrolly__tarjeta"><p>Para la tele, una tasa se cuenta mejor al revés: <strong>«una vivienda turística por cada 40 vecinos»</strong> en Málaga y en Girona. En Madrid, una por cada 535.</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="bloque__nota">Fuente: INE, viviendas turísticas (mayo de 2026) y Estadística Continua de Población (1 de abril de 2026). <a href="../datos/ine_viviendas_turisticas_provincias_2026.csv" download>Descargar CSV</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONCEPTO: HERRAMIENTAS ============ -->
+  <section class="bloque" id="concepto" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · 40 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>La caja de herramientas</h2>
+      <div class="bloque__texto aparece"><p>Seis operaciones que resuelven casi todas las comparaciones de un informativo. Todas con los datos de hoy.</p></div>
+      <div class="rejilla">
+        <article class="ficha ficha--teal aparece">
+          <p class="ficha__antetitulo">Porcentaje</p>
+          <p class="ficha__titulo">Parte ÷ total × 100</p>
+          <p class="ficha__ejemplo">Málaga tiene 45.176 de las 341.001 viviendas turísticas de España: el <strong>13,2 %</strong>.</p>
+          <p class="ficha__pie">Responde a <b>¿qué parte del total?</b></p>
+        </article>
+        <article class="ficha ficha--teal aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Tasa</p>
+          <p class="ficha__titulo">Casos ÷ población × 1.000</p>
+          <p class="ficha__ejemplo">Girona: 20.821 ÷ 839.422 × 1.000 = <strong>24,8</strong> viviendas turísticas por cada 1.000 habitantes. Para cosas raras (delitos, muertes) se usa por cada 100.000.</p>
+          <p class="ficha__pie">Responde a <b>¿cuánto para su tamaño?</b></p>
+        </article>
+        <article class="ficha ficha--teal aparece" style="--retraso:2">
+          <p class="ficha__antetitulo">Uno de cada</p>
+          <p class="ficha__titulo">Población ÷ casos</p>
+          <p class="ficha__ejemplo">839.422 ÷ 20.821 = 40. Una vivienda turística por cada <strong>40 vecinos</strong>. Es la misma tasa, contada para que se entienda a la primera.</p>
+          <p class="ficha__pie">La forma <b>más clara para la tele</b></p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:3">
+          <p class="ficha__antetitulo">Variación porcentual</p>
+          <p class="ficha__titulo">(Nuevo − antiguo) ÷ antiguo × 100</p>
+          <p class="ficha__ejemplo">Madrid tenía 18.555 viviendas turísticas en mayo de 2025 y 13.431 en mayo de 2026: (13.431 − 18.555) ÷ 18.555 × 100 = <strong>−27,6 %</strong>.</p>
+          <p class="ficha__pie">Para <b>cantidades</b> que cambian</p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:4">
+          <p class="ficha__antetitulo">Puntos porcentuales</p>
+          <p class="ficha__titulo">Porcentaje nuevo − porcentaje antiguo</p>
+          <p class="ficha__ejemplo">Los estudiantes que han apostado online pasan del 10,7 % (2023) al 13,0 % (2025): <strong>+2,3 puntos</strong>. En variación porcentual sería un +21 %. Las dos son ciertas; no son intercambiables.</p>
+          <p class="ficha__pie">Para <b>porcentajes</b> que cambian</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:5">
+          <p class="ficha__antetitulo">Para reconocerlos</p>
+          <p class="ficha__titulo">Puntos básicos y números índice</p>
+          <p class="ficha__ejemplo"><strong>Punto básico:</strong> la centésima parte de un punto porcentual. Si un tipo de interés pasa del 2,10 % al 2,35 %, sube 25 puntos básicos.<br><strong>Número índice:</strong> un año base vale 100. Si el IPC está en 120, los precios han subido un 20 % desde ese año.</p>
+          <p class="ficha__pie">Aparecen en <b>economía</b></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAMPAS ============ -->
+  <section class="bloque bloque--blanco" id="trampas" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Trampas</p>
+      <h2 class="bloque__titulo aparece" data-parada>Cuatro formas de equivocarse con cifras ciertas</h2>
+      <div class="rejilla rejilla--2">
+        <article class="ficha ficha--acento aparece">
+          <p class="ficha__antetitulo">No hagas medias de tasas</p>
+          <p class="ficha__titulo">Cataluña: ¿11,6 o 6,2?</p>
+          <p class="ficha__ejemplo">La media de las tasas de sus cuatro provincias es 11,6 viviendas turísticas por cada 1.000 habitantes. Pero Girona, con poca población y una tasa altísima, pesa lo mismo que Barcelona. La tasa real de Cataluña se calcula <strong>sumando viviendas y sumando población</strong>: 6,2.</p>
+          <p class="ficha__pie">Lo mismo vale para porcentajes: <b>suma numeradores y denominadores</b></p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Compara el mismo momento</p>
+          <p class="ficha__titulo">Girona «pierde» un 22,8 %</p>
+          <p class="ficha__ejemplo">De mayo a noviembre de 2025, Girona pasó de 22.998 a 17.754 viviendas turísticas. No es una caída: es el invierno. Los pisos de temporada se dan de baja y vuelven en verano.</p>
+          <p class="ficha__pie">Datos con estacionalidad: <b>mayo con mayo</b></p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:2">
+          <p class="ficha__antetitulo">Cuidado con las bases pequeñas</p>
+          <p class="ficha__titulo">Badajoz, la que «más crece»</p>
+          <p class="ficha__ejemplo">Es la provincia donde más suben las viviendas turísticas en un año: un 16 %. Son 105 viviendas más, de 657 a 762. Málaga perdió más de 3.000.</p>
+          <p class="ficha__pie">Un porcentaje grande puede ser <b>muy poca cosa</b></p>
+        </article>
+        <article class="ficha ficha--acento aparece" style="--retraso:3">
+          <p class="ficha__antetitulo">Porcentaje o puntos</p>
+          <p class="ficha__titulo">«El paro baja un 2 %»</p>
+          <p class="ficha__ejemplo">Si estaba en el 10 %, ¿ahora está en el 8 % o en el 9,8 %? Lo primero son 2 puntos; lo segundo, un 2 %. Si no se dice cuál, la frase no informa.</p>
+          <p class="ficha__pie">Cuando lo que cambia es un %, <b>di «puntos»</b></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IA ============ -->
+  <section class="bloque" id="ia" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">IA · Calcular sin creérselo</p>
+      <h2 class="bloque__titulo aparece" data-parada>Que lo calcule con código</h2>
+      <div class="bloque__texto aparece">
+        <p>Un chatbot que «calcula de cabeza» está prediciendo números, y a veces se inventa decimales. Si le pedís que escriba y ejecute código, el cálculo existe y se puede revisar.</p>
+        <p>Regla de la casa: <strong>comprobad siempre una fila a mano</strong>. Si esa fila está bien, el resto probablemente también. Si está mal, todo está mal.</p>
+      </div>
+
+      <div class="prompt aparece" data-parada>
+        <div class="prompt__cabecera"><span>Receta 3 · Calcula con código</span><button class="prompt__copiar" type="button">Copiar</button></div>
+        <pre class="prompt__texto">Adjunto un CSV con las viviendas turísticas y la población de cada provincia española (INE, mayo de 2026). Soy periodista y voy a publicar estas cifras.
+
+Calcula con código (Python) y enséñame el código y el resultado:
+1. Las viviendas turísticas por cada 1.000 habitantes de cada provincia, ordenadas de mayor a menor.
+2. La variación porcentual de las viviendas turísticas entre mayo de 2025 y mayo de 2026.
+3. La tasa por cada 1.000 habitantes de cada comunidad autónoma.
+
+Después explícame paso a paso cómo has calculado la fila de Girona, para que pueda comprobarla a mano.
+
+<mark>No redondees hasta el final. Si una columna que necesitas no está en el archivo, dilo en lugar de suponerla.</mark></pre>
+      </div>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>Caza el error</h3>
+      <div class="bloque__texto aparece"><p>Esto es lo que respondió un chatbot con los mismos datos. Hay frases correctas y frases con fallos. Encontrad cuáles están mal y por qué.</p></div>
+      <div class="prompt prompt--respuesta aparece" data-parada>
+        <div class="prompt__cabecera"><span>Respuesta de un chatbot</span><button class="prompt__copiar" type="button">Copiar</button></div>
+        <pre class="prompt__texto">Según los datos del INE que me has enviado:
+
+1. Málaga concentra el 13,2 % de las viviendas turísticas de España.
+2. En Málaga y en Girona hay una vivienda turística por cada 40 habitantes.
+3. Madrid ha reducido sus viviendas turísticas 27,6 puntos porcentuales en un año.
+4. Cataluña tiene 11,6 viviendas turísticas por cada 1.000 habitantes, que es la media de sus cuatro provincias.
+5. Badajoz es la provincia donde más crece el alquiler turístico, un 16 %: es la tendencia emergente del año.
+6. En Girona, las viviendas turísticas cayeron un 22,8 % entre mayo y noviembre de 2025, una señal de que el sector está en retroceso.</pre>
+      </div>
+      <details class="solucion aparece" data-parada data-solucion="clase2-error">
+        <summary>Solución: abrir al terminar</summary>
+        <div class="solucion__cuerpo">
+          <p><strong>Correctas: la 1 y la 2.</strong></p>
+          <p><strong>3.</strong> Una cantidad de viviendas no baja «puntos»: baja un <strong>27,6 %</strong>. Los puntos porcentuales son para restar porcentajes.</p>
+          <p><strong>4.</strong> Media de tasas. La tasa de Cataluña se calcula con el total de viviendas y el total de población: <strong>6,2</strong>, no 11,6.</p>
+          <p><strong>5.</strong> El 16 % es cierto, pero son 105 viviendas. Y «tendencia emergente» es una interpretación que los datos no sostienen.</p>
+          <p><strong>6.</strong> La resta está bien hecha, pero compara mayo con noviembre: la bajada es estacional. Y «el sector está en retroceso» es una conclusión inventada.</p>
+          <p>Fijaos en que los errores 5 y 6 no son de cálculo: son de <strong>interpretación</strong>. Un chatbot redacta con la misma seguridad lo que sale de los datos y lo que se imagina.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ PRÁCTICA ============ -->
+  <section class="bloque bloque--blanco" id="practica" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Tasas, variaciones y una tabla dinámica</h2>
+      <div class="bloque__texto aparece"><p>Las 52 provincias en una hoja de cálculo. Primero a mano, después con la receta 3, y se comparan.</p></div>
+      <a class="descarga aparece" href="../datos/ine_viviendas_turisticas_provincias_2026.csv" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+        Descargar ine_viviendas_turisticas_provincias_2026.csv
+      </a>
+      <ol class="pasos">
+        <li class="pasos__item aparece">Importad el CSV en Google Sheets y comprobad que las cifras se leen como números (alineadas a la derecha).</li>
+        <li class="pasos__item aparece">En una columna nueva, la <strong>tasa</strong>: <code>=C2/E2*1000</code>. Ordenad de mayor a menor. ¿Qué provincias suben y cuáles bajan respecto al ranking absoluto?</li>
+        <li class="pasos__item aparece">En otra, <strong>«uno de cada»</strong>: <code>=E2/C2</code>. Redondeadla. ¿Cuál es la frase para la tele de vuestra provincia?</li>
+        <li class="pasos__item aparece">La <strong>variación porcentual</strong> entre mayo de 2025 y mayo de 2026: <code>=(C2-F2)/F2*100</code>. ¿Dónde baja más? ¿Dónde sube? Mirad también la diferencia en viviendas, no solo el %.</li>
+        <li class="pasos__item aparece">Una <strong>tabla dinámica</strong> por comunidad autónoma con la SUMA de viviendas y la SUMA de población. Calculad la tasa de cada comunidad a partir de esas sumas. Comparad Cataluña con la media de las tasas de sus provincias.</li>
+        <li class="pasos__item aparece">Pasad el CSV a un chatbot con la receta 3 y rellenad la tabla.</li>
+      </ol>
+      <div class="tabla-scroll aparece" data-parada>
+        <table class="tabla">
+          <thead><tr><th>Cálculo</th><th>A mano</th><th>Chatbot</th><th>¿Coinciden?</th></tr></thead>
+          <tbody>
+            <tr><td>Tasa de Girona</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Provincia con la tasa más alta</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Variación de Madrid</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Tasa de Cataluña</td><td>…</td><td>…</td><td>…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="bloque__nota">Si la hoja muestra la tasa de Cataluña como 11,6, habéis hecho una media de tasas. Volved al paso 5.</p>
+    </div>
+  </section>
+
+  <!-- ============ RETO ============ -->
+  <section class="bloque bloque--acento" id="reto" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Reto en grupos · 75 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>¿Beben, fuman o apuestan más que antes?</h2>
+      <div class="bloque__texto aparece">
+        <p>La encuesta ESTUDES del Ministerio de Sanidad pregunta cada dos años a unos 35.000 estudiantes de 14 a 18 años. Cada grupo elige un indicador y cuenta cómo ha cambiado, sin confundir puntos con porcentajes.</p>
+        <p>Un grupo hace el reto europeo: ¿nos vamos de casa más tarde que el resto de Europa?</p>
+      </div>
+      <div class="rejilla rejilla--2" style="margin-top:2rem">
+        <a class="descarga aparece" href="../datos/estudes_consumo_14_18_1998_2025.csv" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+          ESTUDES: alcohol, tabaco y cannabis (1998-2025)
+        </a>
+        <a class="descarga aparece" href="../datos/estudes_juego_e_internet_14_18.csv" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+          ESTUDES: juego e internet (2021-2025)
+        </a>
+        <a class="descarga aparece" href="../datos/eurostat_edad_emancipacion_2025.csv" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+          Eurostat: edad de emancipación por país (2025)
+        </a>
+      </div>
+      <ol class="pasos">
+        <li class="pasos__item aparece">Elegid un indicador: alcohol, tabaco o cannabis en los últimos 30 días, tabaco a diario o juego online.</li>
+        <li class="pasos__item aparece">Comparad 2014 con 2025 (el juego online, 2023 con 2025). Calculad la diferencia en <strong>puntos</strong> y la variación en <strong>%</strong>.</li>
+        <li class="pasos__item aparece">Decidid qué cifra contáis y por qué. ¿Cuál exagera? ¿Cuál se entiende mejor?</li>
+        <li class="pasos__item aparece">Comprobad vuestros cálculos con un chatbot (receta 3) y anotad si se equivoca o si mezcla puntos y porcentajes.</li>
+        <li class="pasos__item aparece">Escribid un titular y preparad 20 segundos para contarlo «al aire».</li>
+      </ol>
+      <div class="tabla-scroll aparece" data-parada>
+        <table class="tabla">
+          <thead><tr><th>Indicador</th><th>Antes</th><th>2025</th><th>Puntos</th><th>Variación %</th><th>Titular</th></tr></thead>
+          <tbody>
+            <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <details class="solucion aparece" data-parada data-solucion="clase2-reto">
+        <summary>Solución: abrir al terminar el reto</summary>
+        <div class="solucion__cuerpo">
+          <p>Estudiantes de 14 a 18 años que lo han hecho en los últimos 30 días, salvo que se indique otra cosa:</p>
+          <div class="tabla-scroll">
+            <table class="tabla">
+              <thead><tr><th>Indicador</th><th>Antes</th><th>2025</th><th>Puntos</th><th>Variación</th></tr></thead>
+              <tbody>
+                <tr><td>Alcohol</td><td>68,2 % (2014)</td><td>51,8 %</td><td>−16,4</td><td>−24 %</td></tr>
+                <tr><td>Tabaco</td><td>25,9 % (2014)</td><td>15,5 %</td><td>−10,4</td><td>−40 %</td></tr>
+                <tr><td>Tabaco a diario</td><td>8,9 % (2014)</td><td>4,3 %</td><td>−4,6</td><td>−52 %</td></tr>
+                <tr><td>Cannabis</td><td>18,6 % (2014)</td><td>11,6 %</td><td>−7,0</td><td>−38 %</td></tr>
+                <tr><td>Juego online (último año)</td><td>10,7 % (2023)</td><td>13,0 %</td><td>+2,3</td><td>+21 %</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Qué contar:</strong> con porcentajes bajos, la variación en % se dispara. «El tabaco diario se reduce a la mitad» es cierto y claro. En el juego online, «+21 %» suena a explosión; «2 puntos más, del 11 % al 13 %» es más honesto. Lo mejor para la tele suele ser dar los dos valores: «uno de cada ocho estudiantes ha apostado online, frente a uno de cada nueve hace dos años».</p>
+          <p><strong>Reto europeo:</strong> los jóvenes españoles dejan la casa familiar a los 30,2 años de media; en la UE, a los 26,3. Son <strong>3,9 años más</strong>. Aquí no tiene sentido un porcentaje: la diferencia se cuenta en años. España comparte el cuarto puesto con Italia, por detrás de Croacia (31,5), Grecia y Eslovaquia (30,9).</p>
+          <p class="solucion__fuente">Fuentes: Ministerio de Sanidad, <a href="https://pnsd.sanidad.gob.es/profesionales/sistemasInformacion/sistemaInformacion/pdf/2025/ESTUDES_2025_Resumen_Ejecutivo_es.pdf" target="_blank" rel="noopener noreferrer">ESTUDES 2025</a> y <a href="https://pnsd.sanidad.gob.es/profesionales/sistemasInformacion/sistemaInformacion/pdf/2026/2025_OEDA_AdiccionesComportamentales_ResumenEjecutivo.pdf" target="_blank" rel="noopener noreferrer">informe de adicciones comportamentales 2025</a>; Eurostat, <a href="https://ec.europa.eu/eurostat/databrowser/view/yth_demo_030/default/table" target="_blank" rel="noopener noreferrer">yth_demo_030</a>.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ AL AIRE ============ -->
+  <section class="bloque bloque--oscuro" id="al-aire" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Al aire · 30 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>La tasa, contada para la tele</h2>
+      <div class="bloque__texto aparece"><p>Nadie entiende «24,8 por mil» al oírlo. Todo el mundo entiende «uno de cada 40».</p></div>
+      <div class="pantalla-tv aparece aparece--escala" data-parada role="img" aria-label="Simulación de un gráfico de televisión: en Málaga y Girona hay una vivienda turística por cada 40 vecinos. Viviendas turísticas por cada 1.000 habitantes: Málaga 24,8; Girona 24,8; Baleares 16,9; Madrid 1,9.">
+        <div class="pantalla-tv__segura" aria-hidden="true"></div>
+        <div class="pantalla-tv__grafico" aria-hidden="true">
+          <p class="pantalla-tv__cifra">1/40</p>
+          <div class="pantalla-tv__barras">
+            <div class="pantalla-tv__fila"><span>Málaga</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:1"></span><span class="pantalla-tv__valor">24,8</span></div>
+            <div class="pantalla-tv__fila"><span>Girona</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:0.998"></span><span class="pantalla-tv__valor">24,8</span></div>
+            <div class="pantalla-tv__fila"><span>Baleares</span><span class="pantalla-tv__barra" style="--v:0.68"></span><span class="pantalla-tv__valor">16,9</span></div>
+            <div class="pantalla-tv__fila"><span>Madrid</span><span class="pantalla-tv__barra" style="--v:0.075"></span><span class="pantalla-tv__valor">1,9</span></div>
+          </div>
+        </div>
+        <div class="pantalla-tv__rotulo" aria-hidden="true">
+          <span class="pantalla-tv__marca">DATOS</span>
+          <span class="pantalla-tv__texto">Málaga y Girona: un piso turístico por cada 40 vecinos</span>
+        </div>
+        <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: INE, mayo de 2026 · Viviendas turísticas por cada 1.000 habitantes</p>
+      </div>
+      <p class="locucion aparece">Uno de cada cuarenta. Es la proporción de pisos turísticos por vecino en Málaga y en Girona. Málaga tiene el doble, pero también el doble de habitantes. En Madrid, la proporción es de uno por cada quinientos.</p>
+      <p class="bloque__nota">La barra dice «por cada 1.000» porque compara; la cifra grande y la locución dicen «uno de cada 40» porque se oyen. Redondeado: en la tele, 535 es «quinientos».</p>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="bloque bloque--oscuro" id="cierre" data-seccion data-tono="oscuro" style="padding-top:0">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Cierre · 5 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Tres ideas para llevarse</h2>
+      <div class="resumen">
+        <div class="resumen__item aparece"><p class="resumen__num">1</p><p class="resumen__texto">Para comparar territorios o grupos de distinto tamaño, divide: tasa por habitante o «uno de cada».</p></div>
+        <div class="resumen__item aparece" style="--retraso:1"><p class="resumen__num">2</p><p class="resumen__texto">Las cantidades varían en %. Los porcentajes cambian en puntos.</p></div>
+        <div class="resumen__item aparece" style="--retraso:2"><p class="resumen__num">3</p><p class="resumen__texto">No hagas medias de tasas ni compares meses distintos.</p></div>
+      </div>
+
+      <div class="rejilla rejilla--2" style="margin-top:3rem">
+        <article class="ficha aparece">
+          <p class="ficha__antetitulo">Receta de IA de hoy</p>
+          <p class="ficha__titulo">Calcula con código y enséñame una fila</p>
+          <p class="ficha__ejemplo">Un cálculo ejecutado se puede revisar. Uno «de cabeza», no. Y una fila comprobada a mano vale más que cualquier explicación.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Para practicar en casa</p>
+          <p class="ficha__titulo">Vuestra provincia</p>
+          <p class="ficha__ejemplo">Calculad la tasa y la variación de vuestra provincia de origen y escribid la frase de 20 segundos.</p>
+        </article>
+      </div>
+
+      <div class="siguiente aparece" data-parada>
+        <p class="siguiente__titulo"><small>Próxima clase</small>El gráfico justo</p>
+        <p>Vocabulario visual para televisión: qué gráfico para cada pregunta.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="pie__interior">
+    <span>Jaime Gutiérrez · Periodista de datos en RTVE</span>
+    <a href="../">Volver al curso</a>
+  </div>
+</footer>
+
+<p class="atajos" aria-hidden="true"><kbd>→</kbd> <kbd>←</kbd> avanzar<span data-solo-profesor> · <kbd>P</kbd> proyector</span> · <kbd>F</kbd> pantalla completa</p>
+
+</body>
+</html>
