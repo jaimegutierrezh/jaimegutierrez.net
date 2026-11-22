@@ -62,8 +62,8 @@
     <li><a class="indice__enlace" href="#relativos"><span class="indice__texto">Absoluto y relativo</span></a></li>
     <li><a class="indice__enlace" href="#concepto"><span class="indice__texto">Herramientas</span></a></li>
     <li><a class="indice__enlace" href="#trampas"><span class="indice__texto">Trampas</span></a></li>
-    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
     <li><a class="indice__enlace" href="#practica"><span class="indice__texto">Práctica</span></a></li>
+    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
     <li><a class="indice__enlace" href="#reto"><span class="indice__texto">Reto</span></a></li>
     <li><a class="indice__enlace" href="#al-aire"><span class="indice__texto">Al aire</span></a></li>
     <li><a class="indice__enlace" href="#cierre"><span class="indice__texto">Cierre</span></a></li>
@@ -226,14 +226,35 @@
     </div>
   </section>
 
-  <!-- ============ IA ============ -->
-  <section class="bloque" id="ia" data-seccion>
+  <!-- ============ PRÁCTICA ============ -->
+  <section class="bloque" id="practica" data-seccion>
     <div class="bloque__interior">
-      <p class="bloque__etiqueta">IA · Calcular sin creérselo</p>
+      <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Primero a mano: tasas, variaciones y una tabla dinámica</h2>
+      <div class="bloque__texto aparece"><p>Las 52 provincias en una hoja de cálculo, a mano. Apuntad vuestros resultados: después se los pediremos a la IA y compararemos.</p></div>
+      <a class="descarga aparece" href="../datos/ine_viviendas_turisticas_provincias_2026.csv" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+        Descargar ine_viviendas_turisticas_provincias_2026.csv
+      </a>
+      <ol class="pasos">
+        <li class="pasos__item aparece">Importad el CSV en Google Sheets y comprobad que las cifras se leen como números (alineadas a la derecha).</li>
+        <li class="pasos__item aparece">En una columna nueva, la <strong>tasa</strong>: <code>=C2/E2*1000</code>. Ordenad de mayor a menor. ¿Qué provincias suben y cuáles bajan respecto al ranking absoluto?</li>
+        <li class="pasos__item aparece">En otra, <strong>«uno de cada»</strong>: <code>=E2/C2</code>. Redondeadla. ¿Cuál es la frase para la tele de vuestra provincia?</li>
+        <li class="pasos__item aparece">La <strong>variación porcentual</strong> entre mayo de 2025 y mayo de 2026: <code>=(C2-F2)/F2*100</code>. ¿Dónde baja más? ¿Dónde sube? Mirad también la diferencia en viviendas, no solo el %.</li>
+        <li class="pasos__item aparece">Una <strong>tabla dinámica</strong> por comunidad autónoma con la SUMA de viviendas y la SUMA de población. Calculad la tasa de cada comunidad a partir de esas sumas. Comparad Cataluña con la media de las tasas de sus provincias.</li>
+      </ol>
+      <p class="bloque__nota">Si la hoja muestra la tasa de Cataluña como 11,6, habéis hecho una media de tasas. Volved al paso 5.</p>
+    </div>
+  </section>
+
+  <!-- ============ IA ============ -->
+  <section class="bloque bloque--blanco" id="ia" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">IA · Comprobar con la máquina</p>
       <h2 class="bloque__titulo aparece" data-parada>Que lo calcule con código</h2>
       <div class="bloque__texto aparece">
         <p>Un chatbot que «calcula de cabeza» está prediciendo números, y a veces se inventa decimales. Si le pedís que escriba y ejecute código, el cálculo existe y se puede revisar.</p>
-        <p>Regla de la casa: <strong>comprobad siempre una fila a mano</strong>. Si esa fila está bien, el resto probablemente también. Si está mal, todo está mal.</p>
+        <p>Tenéis ventaja: ya lo habéis calculado a mano. Esa es la regla de la casa: <strong>comprobad siempre al menos una fila a mano</strong>. Si esa fila está bien, el resto probablemente también. Si está mal, todo está mal.</p>
       </div>
 
       <div class="prompt aparece" data-parada>
@@ -248,6 +269,20 @@ Calcula con código (Python) y enséñame el código y el resultado:
 Después explícame paso a paso cómo has calculado la fila de Girona, para que pueda comprobarla a mano.
 
 <mark>No redondees hasta el final. Si una columna que necesitas no está en el archivo, dilo en lugar de suponerla.</mark></pre>
+      </div>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>¿Coincide con lo vuestro?</h3>
+      <div class="bloque__texto aparece"><p>Pasad el CSV a un chatbot con la receta 3 y comparad sus resultados con los que habéis calculado a mano. Si no coinciden, no gana nadie por defecto: buscad dónde está la diferencia.</p></div>
+      <div class="tabla-scroll aparece" data-parada>
+        <table class="tabla">
+          <thead><tr><th>Cálculo</th><th>A mano</th><th>Chatbot</th><th>¿Coinciden?</th></tr></thead>
+          <tbody>
+            <tr><td>Tasa de Girona</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Provincia con la tasa más alta</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Variación de Madrid</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Tasa de Cataluña</td><td>…</td><td>…</td><td>…</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <h3 class="bloque__subtitulo aparece" data-parada>Caza el error</h3>
@@ -286,39 +321,6 @@ Después explícame paso a paso cómo has calculado la fila de Girona, para que 
           <button class="test__repetir" type="button">Repetir</button>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ PRÁCTICA ============ -->
-  <section class="bloque bloque--blanco" id="practica" data-seccion>
-    <div class="bloque__interior">
-      <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
-      <h2 class="bloque__titulo aparece" data-parada>Tasas, variaciones y una tabla dinámica</h2>
-      <div class="bloque__texto aparece"><p>Las 52 provincias en una hoja de cálculo. Primero a mano, después con la receta 3, y se comparan.</p></div>
-      <a class="descarga aparece" href="../datos/ine_viviendas_turisticas_provincias_2026.csv" download>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-        Descargar ine_viviendas_turisticas_provincias_2026.csv
-      </a>
-      <ol class="pasos">
-        <li class="pasos__item aparece">Importad el CSV en Google Sheets y comprobad que las cifras se leen como números (alineadas a la derecha).</li>
-        <li class="pasos__item aparece">En una columna nueva, la <strong>tasa</strong>: <code>=C2/E2*1000</code>. Ordenad de mayor a menor. ¿Qué provincias suben y cuáles bajan respecto al ranking absoluto?</li>
-        <li class="pasos__item aparece">En otra, <strong>«uno de cada»</strong>: <code>=E2/C2</code>. Redondeadla. ¿Cuál es la frase para la tele de vuestra provincia?</li>
-        <li class="pasos__item aparece">La <strong>variación porcentual</strong> entre mayo de 2025 y mayo de 2026: <code>=(C2-F2)/F2*100</code>. ¿Dónde baja más? ¿Dónde sube? Mirad también la diferencia en viviendas, no solo el %.</li>
-        <li class="pasos__item aparece">Una <strong>tabla dinámica</strong> por comunidad autónoma con la SUMA de viviendas y la SUMA de población. Calculad la tasa de cada comunidad a partir de esas sumas. Comparad Cataluña con la media de las tasas de sus provincias.</li>
-        <li class="pasos__item aparece">Pasad el CSV a un chatbot con la receta 3 y rellenad la tabla.</li>
-      </ol>
-      <div class="tabla-scroll aparece" data-parada>
-        <table class="tabla">
-          <thead><tr><th>Cálculo</th><th>A mano</th><th>Chatbot</th><th>¿Coinciden?</th></tr></thead>
-          <tbody>
-            <tr><td>Tasa de Girona</td><td>…</td><td>…</td><td>…</td></tr>
-            <tr><td>Provincia con la tasa más alta</td><td>…</td><td>…</td><td>…</td></tr>
-            <tr><td>Variación de Madrid</td><td>…</td><td>…</td><td>…</td></tr>
-            <tr><td>Tasa de Cataluña</td><td>…</td><td>…</td><td>…</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="bloque__nota">Si la hoja muestra la tasa de Cataluña como 11,6, habéis hecho una media de tasas. Volved al paso 5.</p>
     </div>
   </section>
 
