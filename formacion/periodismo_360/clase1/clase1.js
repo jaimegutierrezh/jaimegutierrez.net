@@ -224,6 +224,7 @@ function pintar(datos, origen) {
   const maxTramo = Math.max(t1, t2, t3, 1);
   [t1, t2, t3].forEach((v, i) => {
     poner(`tv-t${i + 1}`, String(v));
+    poner(`tv-u${i + 1}`, v === 1 ? ' persona' : ' personas');
     const barra = document.querySelector(`[data-barra="${i + 1}"]`);
     if (barra) barra.style.setProperty('--v', (v / maxTramo).toFixed(2));
   });

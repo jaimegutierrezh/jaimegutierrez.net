@@ -901,8 +901,11 @@ html:not(.vista-profesor) [data-solo-profesor] { display: none; }
 }
 .pantalla-tv__cifra small { font-size: 0.4em; color: #ffb48f; }
 .pantalla-tv__barras { display: grid; gap: 1.6cqi; }
-.pantalla-tv__fila { display: grid; grid-template-columns: 16cqi 1fr 4cqi; align-items: center; gap: 1.5cqi; font-size: 2.2cqi; font-weight: 600; }
-.pantalla-tv__valor { font-family: var(--ff-display); font-weight: 900; font-size: 3cqi; text-align: right; }
+/* La columna del valor tiene ancho fijo para que las barras de todas las filas
+   empiecen y midan igual aunque cambie la unidad (%, años, personas) */
+.pantalla-tv__fila { display: grid; grid-template-columns: 16cqi 1fr 13cqi; align-items: center; gap: 1.5cqi; font-size: 2.2cqi; font-weight: 600; }
+.pantalla-tv__valor { font-family: var(--ff-display); font-weight: 900; font-size: 3cqi; text-align: right; white-space: nowrap; }
+.pantalla-tv__valor small { font-family: var(--ff-body); font-weight: 700; font-size: 0.6em; color: rgba(255, 255, 255, 0.75); }
 .pantalla-tv__barra {
   height: 4cqi;
   background: rgba(255, 255, 255, 0.35);
