@@ -239,9 +239,27 @@ document.addEventListener('DOMContentLoaded', () => {
     secciones.forEach(s => obsS.observe(s));
   }
 
-  // ---- MODO PROYECTOR ----
+  // ---- VISTA DEL PROFESOR ----
+  // Se entra con #clave=… en la URL: la clave pasa a la sesión de la pestaña
+  // (sigue al navegar entre clases) y desaparece de la barra de direcciones.
+  // Lo marcado con data-solo-profesor (botón de proyector, atajo P) solo se
+  // ve en esta vista.
+  const CLAVE_SESION = 'encuesta-clave';
+  const mClave = location.hash.match(/clave=([^&]+)/);
+  if (mClave) {
+    try { sessionStorage.setItem(CLAVE_SESION, decodeURIComponent(mClave[1])); } catch (e) { /* nada */ }
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  let clave = null;
+  try { clave = sessionStorage.getItem(CLAVE_SESION); } catch (e) { /* nada */ }
+  const esProfesor = Boolean(clave);
+  raiz.classList.toggle('vista-profesor', esProfesor);
+  if (!esProfesor) document.querySelectorAll('[data-solo-profesor]').forEach(el => el.remove());
+
+  // ---- MODO PROYECTOR (solo profesor) ----
   const botonProyector = document.querySelector('[data-accion="proyector"]');
   function ponerProyector(activo) {
+    if (!esProfesor) return;
     raiz.classList.toggle('modo-proyector', activo);
     botonProyector?.setAttribute('aria-pressed', String(activo));
     CURSO_UTIL.guardar('curso-proyector', activo ? '1' : '0');
@@ -249,112 +267,144 @@ document.addEventListener('DOMContentLoaded', () => {
   if (CURSO_UTIL.leer('curso-proyector') === '1') ponerProyector(true);
   botonProyector?.addEventListener('click', () => ponerProyector(!raiz.classList.contains('modo-proyector')));
 
-  // ---- SOLUCIONES BLOQUEADAS ----
-  // Un <details data-solucion="id"> se oculta mientras se abre la página con
-  // ?grupo=… y el profesor no lo haya abierto. Los alumnos consultan el estado
-  // cada 10 s. El profesor entra con #clave=… y tiene un botón para abrirla o
-  // cerrarla. Sin grupo (visitantes de la web) o sin conexión se ve siempre.
-  const soluciones = [...document.querySelectorAll('[data-solucion]')];
+  // ---- APERTURAS: CLASES Y SOLUCIONES QUE ABRE EL PROFESOR ----
+  // - Clase cerrada: <html data-clase="clase2">. Se tapa con una cortina hasta
+  //   que el profesor la abra para el grupo (el de ?grupo= o, si no hay, el de
+  //   config.js, así que también afecta a los visitantes de la web).
+  // - Solución cerrada: <details data-solucion="clase1-reto">. Solo se cierra
+  //   cuando la página se abre con ?grupo= (en clase).
+  // Las dos usan la lista del script (accion=soluciones). Los alumnos consultan
+  // cada 10 s; el profesor tiene botones para abrir y cerrar. Sin conexión, todo
+  // se muestra para no dejar la clase sin material.
   const params = new URLSearchParams(location.search);
-  const grupoSol = params.get('grupo');
+  const valido = g => Boolean(g) && /^[a-z0-9-]{1,40}$/.test(g);
+  const grupoUrl = valido(params.get('grupo')) ? params.get('grupo') : null;
+  const grupoDefecto = valido(window.ENCUESTA_CONFIG?.grupo) ? window.ENCUESTA_CONFIG.grupo : null;
   const local = ['localhost', '127.0.0.1'].includes(location.hostname);
-  const endpointSol = (local && params.get('api')) || window.ENCUESTA_CONFIG?.endpoint;
+  const endpoint = (local && params.get('api')) || window.ENCUESTA_CONFIG?.endpoint;
+  const idClase = raiz.dataset.clase && valido(raiz.dataset.clase) ? raiz.dataset.clase : null;
+  const grupoAp = grupoUrl || (idClase ? grupoDefecto : null);
+  const candado = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+  const piezas = [];
 
-  if (soluciones.length && endpointSol && grupoSol && /^[a-z0-9-]{1,40}$/.test(grupoSol)) {
-    const CLAVE_SESION = 'encuesta-clave';
-    const m = location.hash.match(/clave=([^&]+)/);
-    if (m) {
-      try { sessionStorage.setItem(CLAVE_SESION, decodeURIComponent(m[1])); } catch (e) { /* nada */ }
-      history.replaceState(null, '', location.pathname + location.search);
-    }
-    let claveSol = null;
-    try { claveSol = sessionStorage.getItem(CLAVE_SESION); } catch (e) { /* nada */ }
+  function botonProfesor(clase, id) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = clase;
+    b.addEventListener('click', () => cambiar(id, b.dataset.abrir === '1', b));
+    return b;
+  }
 
-    const candado = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+  // Clase entera
+  if (idClase && endpoint && grupoAp) {
+    const titulo = document.querySelector('.barra__titulo')?.textContent || 'Esta clase';
+    const cortina = document.createElement('section');
+    cortina.className = 'cortina';
+    cortina.setAttribute('role', 'status');
+    cortina.innerHTML = `<div class="cortina__interior">${candado}<p class="cortina__titulo"></p><p class="cortina__texto">Esta clase todavía no está abierta. Se abrirá en el aula.</p><a class="cortina__volver" href="../">← Volver al curso</a></div>`;
+    cortina.querySelector('.cortina__titulo').textContent = titulo;
+    document.querySelector('main')?.before(cortina);
+    const boton = esProfesor ? botonProfesor('cortina__boton', idClase) : null;
+    piezas.push({
+      id: idClase,
+      poner(abierta) {
+        raiz.classList.toggle('clase-abierta', abierta);
+        cortina.hidden = abierta;
+        if (!boton) return;
+        boton.dataset.abrir = abierta ? '0' : '1';
+        boton.textContent = abierta ? 'Cerrar la clase' : 'Abrir la clase a los alumnos';
+        // Para abrir, dentro de la cortina; para cerrar, en la barra superior
+        if (abierta) document.querySelector('.barra__acciones')?.prepend(boton);
+        else cortina.querySelector('.cortina__volver').before(boton);
+      },
+      cerrada: () => !raiz.classList.contains('clase-abierta'),
+    });
+  } else if (idClase) {
+    raiz.classList.add('clase-abierta');
+  }
 
-    // Cada solución lleva un aviso «cerrada» y, para el profesor, un botón
-    const piezas = soluciones.map(det => {
+  // Soluciones de los retos (solo en clase, con ?grupo=)
+  if (grupoUrl && endpoint) {
+    document.querySelectorAll('[data-solucion]').forEach(det => {
       const aviso = document.createElement('div');
       aviso.className = 'solucion-cerrada';
       aviso.dataset.parada = '';
       aviso.setAttribute('role', 'status');
       aviso.innerHTML = `${candado}<p><strong>Solución cerrada.</strong> Se abrirá cuando terminéis el reto.</p>`;
       det.before(aviso);
-      let boton = null;
-      if (claveSol) {
-        boton = document.createElement('button');
-        boton.type = 'button';
-        boton.className = 'solucion-profesor';
-        det.after(boton);
-        boton.addEventListener('click', () => cambiar(det.dataset.solucion, boton.dataset.abrir === '1', boton));
-      }
-      return { det, aviso, boton, id: det.dataset.solucion };
-    });
-
-    function pintarSol(abiertas) {
-      piezas.forEach(p => {
-        const abierta = abiertas.includes(p.id);
-        const antes = !p.det.hidden;
-        p.det.hidden = !abierta;
-        p.aviso.hidden = abierta;
-        if (abierta && !antes && claveSol) p.det.open = true;
-        if (p.boton) {
-          p.boton.dataset.abrir = abierta ? '0' : '1';
-          p.boton.textContent = abierta ? 'Volver a cerrar la solución' : 'Abrir la solución a la clase';
-          // El botón de abrir va dentro del aviso; el de cerrar, debajo de la solución
-          (abierta ? p.det : p.aviso).after(p.boton);
-        }
+      const boton = esProfesor ? botonProfesor('solucion-profesor', det.dataset.solucion) : null;
+      piezas.push({
+        id: det.dataset.solucion,
+        poner(abierta) {
+          const antes = !det.hidden;
+          det.hidden = !abierta;
+          aviso.hidden = abierta;
+          if (abierta && !antes && esProfesor) det.open = true;
+          if (!boton) return;
+          boton.dataset.abrir = abierta ? '0' : '1';
+          boton.textContent = abierta ? 'Volver a cerrar la solución' : 'Abrir la solución a la clase';
+          // El botón de abrir va bajo el aviso; el de cerrar, bajo la solución
+          (abierta ? det : aviso).after(boton);
+        },
+        cerrada: () => det.hidden,
       });
-    }
+    });
+  }
 
-    async function cambiar(id, abrir, boton) {
-      boton.disabled = true;
-      try {
-        const resp = await fetch(endpointSol, {
-          method: 'POST',
-          body: JSON.stringify({ accion: 'solucion', grupo: grupoSol, clave: claveSol, id, abrir }),
-        });
-        const json = await resp.json();
-        if (json.ok) pintarSol(json.abiertas);
-        else boton.textContent = json.error === 'clave' ? 'La clave no es correcta' : 'No se pudo cambiar. Prueba otra vez';
-      } catch (e) {
-        boton.textContent = 'Sin conexión. Prueba otra vez';
-      }
-      boton.disabled = false;
-    }
+  function pintarAperturas(abiertas) {
+    piezas.forEach(p => p.poner(abiertas.includes(p.id)));
+  }
 
-    // Mientras se consulta el estado, la solución no se ve
-    pintarSol([]);
+  async function cambiar(id, abrir, boton) {
+    boton.disabled = true;
+    try {
+      const resp = await fetch(endpoint, {
+        method: 'POST',
+        body: JSON.stringify({ accion: 'solucion', grupo: grupoAp, clave, id, abrir }),
+      });
+      const json = await resp.json();
+      if (json.ok) pintarAperturas(json.abiertas);
+      else boton.textContent = json.error === 'clave' ? 'La clave no es correcta' : 'No se pudo cambiar. Prueba otra vez';
+    } catch (e) {
+      boton.textContent = 'Sin conexión. Prueba otra vez';
+    }
+    boton.disabled = false;
+  }
+
+  if (piezas.length) {
+    // Mientras se consulta el estado, todo empieza cerrado
+    pintarAperturas([]);
+    const todas = piezas.map(p => p.id);
     let primera = true;
     let temporizador = null;
+    const quedanCerradas = () => piezas.some(p => p.cerrada());
     async function consultar() {
       clearTimeout(temporizador);
       if (!document.hidden || primera) {
         try {
-          const resp = await fetch(`${endpointSol}?accion=soluciones&grupo=${encodeURIComponent(grupoSol)}`);
+          const resp = await fetch(`${endpoint}?accion=soluciones&grupo=${encodeURIComponent(grupoAp)}`);
           const json = await resp.json();
-          if (json.ok) pintarSol(json.abiertas);
-          else if (primera) pintarSol(piezas.map(p => p.id));
+          if (json.ok) pintarAperturas(json.abiertas);
+          else if (primera) pintarAperturas(todas);
         } catch (e) {
-          // Sin conexión la primera vez: se muestra para no dejar la clase sin solución
-          if (primera) pintarSol(piezas.map(p => p.id));
+          if (primera) pintarAperturas(todas);
         }
         primera = false;
       }
-      // Los alumnos siguen consultando mientras quede alguna cerrada
-      if (!claveSol && piezas.some(p => p.det.hidden)) temporizador = setTimeout(consultar, 10000);
+      // Los alumnos siguen consultando mientras quede algo cerrado
+      if (!esProfesor && quedanCerradas()) temporizador = setTimeout(consultar, 10000);
     }
     consultar();
-    // Al volver a la pestaña se consulta en el momento, sin esperar al siguiente turno
+    // Al volver a la pestaña se consulta en el momento
     document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && !claveSol && piezas.some(p => p.det.hidden)) consultar();
+      if (!document.hidden && !esProfesor && quedanCerradas()) consultar();
     });
   }
 
   // ---- NAVEGACIÓN CON TECLADO Y MANDO ----
   // → / ← y Avance/Retroceso de página (los mandos de presentación envían estas
   // teclas) saltan entre elementos con data-parada. «P» cambia el modo proyector
-  // y «F» pone la pantalla completa.
+  // (solo en la vista del profesor) y «F» pone la pantalla completa.
   function destinos() {
     const alto = window.innerHeight;
     const barraAlto = barra ? barra.offsetHeight : 0;
@@ -389,6 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault(); irA(-1); break;
       case 'p':
       case 'P':
+        // Solo hace algo en la vista del profesor
         ponerProyector(!raiz.classList.contains('modo-proyector')); break;
       case 'f':
       case 'F':
