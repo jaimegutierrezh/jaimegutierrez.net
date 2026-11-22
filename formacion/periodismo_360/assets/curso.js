@@ -249,6 +249,108 @@ document.addEventListener('DOMContentLoaded', () => {
   if (CURSO_UTIL.leer('curso-proyector') === '1') ponerProyector(true);
   botonProyector?.addEventListener('click', () => ponerProyector(!raiz.classList.contains('modo-proyector')));
 
+  // ---- SOLUCIONES BLOQUEADAS ----
+  // Un <details data-solucion="id"> se oculta mientras se abre la página con
+  // ?grupo=… y el profesor no lo haya abierto. Los alumnos consultan el estado
+  // cada 10 s. El profesor entra con #clave=… y tiene un botón para abrirla o
+  // cerrarla. Sin grupo (visitantes de la web) o sin conexión se ve siempre.
+  const soluciones = [...document.querySelectorAll('[data-solucion]')];
+  const params = new URLSearchParams(location.search);
+  const grupoSol = params.get('grupo');
+  const local = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const endpointSol = (local && params.get('api')) || window.ENCUESTA_CONFIG?.endpoint;
+
+  if (soluciones.length && endpointSol && grupoSol && /^[a-z0-9-]{1,40}$/.test(grupoSol)) {
+    const CLAVE_SESION = 'encuesta-clave';
+    const m = location.hash.match(/clave=([^&]+)/);
+    if (m) {
+      try { sessionStorage.setItem(CLAVE_SESION, decodeURIComponent(m[1])); } catch (e) { /* nada */ }
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    let claveSol = null;
+    try { claveSol = sessionStorage.getItem(CLAVE_SESION); } catch (e) { /* nada */ }
+
+    const candado = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+
+    // Cada solución lleva un aviso «cerrada» y, para el profesor, un botón
+    const piezas = soluciones.map(det => {
+      const aviso = document.createElement('div');
+      aviso.className = 'solucion-cerrada';
+      aviso.dataset.parada = '';
+      aviso.setAttribute('role', 'status');
+      aviso.innerHTML = `${candado}<p><strong>Solución cerrada.</strong> Se abrirá cuando terminéis el reto.</p>`;
+      det.before(aviso);
+      let boton = null;
+      if (claveSol) {
+        boton = document.createElement('button');
+        boton.type = 'button';
+        boton.className = 'solucion-profesor';
+        det.after(boton);
+        boton.addEventListener('click', () => cambiar(det.dataset.solucion, boton.dataset.abrir === '1', boton));
+      }
+      return { det, aviso, boton, id: det.dataset.solucion };
+    });
+
+    function pintarSol(abiertas) {
+      piezas.forEach(p => {
+        const abierta = abiertas.includes(p.id);
+        const antes = !p.det.hidden;
+        p.det.hidden = !abierta;
+        p.aviso.hidden = abierta;
+        if (abierta && !antes && claveSol) p.det.open = true;
+        if (p.boton) {
+          p.boton.dataset.abrir = abierta ? '0' : '1';
+          p.boton.textContent = abierta ? 'Volver a cerrar la solución' : 'Abrir la solución a la clase';
+          // El botón de abrir va dentro del aviso; el de cerrar, debajo de la solución
+          (abierta ? p.det : p.aviso).after(p.boton);
+        }
+      });
+    }
+
+    async function cambiar(id, abrir, boton) {
+      boton.disabled = true;
+      try {
+        const resp = await fetch(endpointSol, {
+          method: 'POST',
+          body: JSON.stringify({ accion: 'solucion', grupo: grupoSol, clave: claveSol, id, abrir }),
+        });
+        const json = await resp.json();
+        if (json.ok) pintarSol(json.abiertas);
+        else boton.textContent = json.error === 'clave' ? 'La clave no es correcta' : 'No se pudo cambiar. Prueba otra vez';
+      } catch (e) {
+        boton.textContent = 'Sin conexión. Prueba otra vez';
+      }
+      boton.disabled = false;
+    }
+
+    // Mientras se consulta el estado, la solución no se ve
+    pintarSol([]);
+    let primera = true;
+    let temporizador = null;
+    async function consultar() {
+      clearTimeout(temporizador);
+      if (!document.hidden || primera) {
+        try {
+          const resp = await fetch(`${endpointSol}?accion=soluciones&grupo=${encodeURIComponent(grupoSol)}`);
+          const json = await resp.json();
+          if (json.ok) pintarSol(json.abiertas);
+          else if (primera) pintarSol(piezas.map(p => p.id));
+        } catch (e) {
+          // Sin conexión la primera vez: se muestra para no dejar la clase sin solución
+          if (primera) pintarSol(piezas.map(p => p.id));
+        }
+        primera = false;
+      }
+      // Los alumnos siguen consultando mientras quede alguna cerrada
+      if (!claveSol && piezas.some(p => p.det.hidden)) temporizador = setTimeout(consultar, 10000);
+    }
+    consultar();
+    // Al volver a la pestaña se consulta en el momento, sin esperar al siguiente turno
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && !claveSol && piezas.some(p => p.det.hidden)) consultar();
+    });
+  }
+
   // ---- NAVEGACIÓN CON TECLADO Y MANDO ----
   // → / ← y Avance/Retroceso de página (los mandos de presentación envían estas
   // teclas) saltan entre elementos con data-parada. «P» cambia el modo proyector
@@ -256,7 +358,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function destinos() {
     const alto = window.innerHeight;
     const barraAlto = barra ? barra.offsetHeight : 0;
-    return [...document.querySelectorAll('[data-parada]')].map(el => {
+    // Los elementos ocultos (por ejemplo, una solución cerrada) no cuentan
+    return [...document.querySelectorAll('[data-parada]')].filter(el => el.getClientRects().length).map(el => {
       const r = el.getBoundingClientRect();
       const arriba = r.top + window.scrollY;
       return el.dataset.parada === 'centro'

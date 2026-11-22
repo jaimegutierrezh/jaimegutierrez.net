@@ -664,6 +664,34 @@ body.leccion {
   font-variant-numeric: tabular-nums;
 }
 .solucion__fuente { font-size: 0.82rem; color: var(--mid); }
+.solucion[hidden] { display: none; }
+
+/* Aviso mientras el profesor no abre la solución */
+.solucion-cerrada {
+  margin-top: 2.5rem;
+  max-width: 48rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  border-radius: var(--c-radio);
+}
+.solucion-cerrada[hidden] { display: none; }
+.solucion-cerrada svg { flex: none; width: 1.6rem; height: 1.6rem; }
+.solucion-profesor {
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font: 700 0.9rem var(--ff-body);
+  cursor: pointer;
+}
+.solucion-profesor:hover { background: var(--dark); }
+.solucion-profesor:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.solucion-profesor:disabled { opacity: 0.6; cursor: wait; }
 
 /* ---- PANTALLA DE TV (simulación 16:9) ---- */
 .pantalla-tv {
