@@ -764,8 +764,10 @@ html:not(.js) .test__repetir { display: none; }
 /* Sobre fondo claro (fuera del reto) */
 .bloque:not(.bloque--acento) .solucion { background: #fff; border: 1px solid var(--rule); }
 .bloque--blanco .solucion { background: var(--paper); }
-.bloque:not(.bloque--acento) .solucion-cerrada { border-color: var(--rule); color: var(--ink-2); }
+.bloque:not(.bloque--acento):not(.bloque--oscuro) .solucion-cerrada { border-color: var(--rule); color: var(--ink-2); }
 .bloque:not(.bloque--acento) .solucion-cerrada svg { color: var(--accent); }
+.bloque--oscuro .solucion-cerrada { border-color: var(--c-linea-clara); color: var(--c-texto-claro-2); }
+.bloque--oscuro .solucion-profesor { background: var(--accent); }
 
 /* ---- VISTA DEL PROFESOR ---- */
 html:not(.vista-profesor) [data-solo-profesor] { display: none; }
@@ -926,6 +928,76 @@ html:not(.vista-profesor) [data-solo-profesor] { display: none; }
 .locucion { margin-top: 1.5rem; max-width: 56rem; font-family: var(--ff-display); font-style: italic; font-size: 1.15rem; color: var(--ink); }
 .bloque--oscuro .locucion { color: #fff; }
 .locucion::before { content: "Locución · "; font-family: var(--ff-body); font-style: normal; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+
+/* ---- CARRUSEL (pantallas de TV, una por tema) ---- */
+.carrusel {
+  position: relative;
+  max-width: 56rem;
+  margin-top: 2.5rem;
+  container-type: inline-size;
+}
+.carrusel[hidden] { display: none; }
+.carrusel__pista {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  border-radius: 10px;
+}
+.carrusel__pista::-webkit-scrollbar { display: none; }
+.carrusel__pista:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.carrusel__item { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; }
+.carrusel .pantalla-tv { margin-top: 0; box-shadow: none; }
+.carrusel .locucion { margin-top: 1.25rem; }
+/* Las barras crecen al llegar a cada pantalla */
+.carrusel.is-activo .carrusel__item:not(.is-actual) .pantalla-tv__barra { transform: scaleX(0); transition: none; }
+.carrusel.is-activo .carrusel__item.is-actual .pantalla-tv__barra { transition-delay: 0.25s; }
+/* Flechas a los lados, a media altura de la pantalla (alto = 9/16 del ancho) */
+.carrusel__flecha {
+  position: absolute;
+  top: calc(100cqi * 9 / 32);
+  width: 3rem;
+  height: 3rem;
+  margin-top: -1.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 0;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  z-index: 2;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.carrusel__flecha svg { width: 1.4rem; height: 1.4rem; }
+.carrusel__flecha--ant { left: -1.5rem; }
+.carrusel__flecha--sig { right: -1.5rem; }
+.carrusel__flecha:hover:not(:disabled) { background: var(--accent); color: #fff; }
+.carrusel__flecha:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.carrusel__flecha:disabled { opacity: 0.25; cursor: default; }
+/* En pantallas estrechas no caben fuera: van justo debajo de la pantalla,
+   cada una en su lado, para no tapar las cifras */
+@media (max-width: 700px) {
+  .carrusel__flecha { width: 2.6rem; height: 2.6rem; margin-top: 0; top: calc(100cqi * 9 / 16 + 0.75rem); }
+  .carrusel__flecha--ant { left: 0; }
+  .carrusel__flecha--sig { right: 0; }
+  .carrusel .locucion { margin-top: 4.25rem; }
+}
+.carrusel__nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.carrusel__chip {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--c-linea-clara);
+  background: transparent;
+  color: var(--c-texto-claro-2);
+  font: 700 0.85rem var(--ff-body);
+  cursor: pointer;
+}
+.carrusel__chip:hover { color: #fff; border-color: #fff; }
+.carrusel__chip[aria-current="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.carrusel__chip:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
 
 /* ---- CIERRE ---- */
 .resumen { margin-top: 2rem; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }

@@ -239,6 +239,85 @@ document.addEventListener('DOMContentLoaded', () => {
     secciones.forEach(s => obsS.observe(s));
   }
 
+  // ---- CARRUSEL ----
+  // <div class="carrusel" data-carrusel><div class="carrusel__pista">
+  //   <div class="carrusel__item" data-titulo="…">…</div>…
+  // La pista se desliza en horizontal (también sin JS, con el dedo o la
+  // barra). El JS añade flechas a los lados y un botón por elemento con su
+  // título. Con el foco dentro, ← y → cambian de elemento en lugar de
+  // avanzar la página.
+  document.querySelectorAll('[data-carrusel]').forEach(carrusel => {
+    const pista = carrusel.querySelector('.carrusel__pista');
+    const items = [...pista.querySelectorAll('.carrusel__item')];
+    if (items.length < 2) return;
+    pista.setAttribute('tabindex', '0');
+    carrusel.setAttribute('role', 'region');
+    carrusel.setAttribute('aria-roledescription', 'carrusel');
+    items.forEach((it, i) => {
+      it.setAttribute('role', 'group');
+      it.setAttribute('aria-roledescription', 'pantalla');
+      it.setAttribute('aria-label', `${i + 1} de ${items.length}: ${it.dataset.titulo || ''}`);
+    });
+
+    const flecha = (dir, texto) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = `carrusel__flecha carrusel__flecha--${dir > 0 ? 'sig' : 'ant'}`;
+      b.setAttribute('aria-label', texto);
+      b.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="${dir > 0 ? 'M9 5l7 7-7 7' : 'M15 5l-7 7 7 7'}"/></svg>`;
+      b.addEventListener('click', () => ir(actual + dir));
+      return b;
+    };
+    const ant = flecha(-1, 'Pantalla anterior');
+    const sig = flecha(1, 'Pantalla siguiente');
+    carrusel.append(ant, sig);
+
+    const nav = document.createElement('div');
+    nav.className = 'carrusel__nav';
+    const chips = items.map((it, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'carrusel__chip';
+      b.textContent = it.dataset.titulo || String(i + 1);
+      b.addEventListener('click', () => ir(i));
+      nav.append(b);
+      return b;
+    });
+    carrusel.append(nav);
+
+    let actual = -1;
+    function marcar(i) {
+      if (i === actual) return;
+      actual = i;
+      items.forEach((it, j) => {
+        it.classList.toggle('is-actual', j === i);
+        it.inert = j !== i;
+      });
+      chips.forEach((c, j) => c.setAttribute('aria-current', j === i ? 'true' : 'false'));
+      ant.disabled = i === 0;
+      sig.disabled = i === items.length - 1;
+    }
+    function ir(i) {
+      const n = Math.max(0, Math.min(items.length - 1, i));
+      pista.scrollTo({ left: items[n].offsetLeft - pista.offsetLeft, behavior: reducir() ? 'auto' : 'smooth' });
+      marcar(n);
+    }
+    // Al deslizar a mano, se actualiza el elemento actual
+    let espera = null;
+    pista.addEventListener('scroll', () => {
+      clearTimeout(espera);
+      espera = setTimeout(() => marcar(Math.round(pista.scrollLeft / pista.clientWidth)), 80);
+    });
+    carrusel.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      e.stopPropagation();
+      ir(actual + (e.key === 'ArrowRight' ? 1 : -1));
+    });
+    carrusel.classList.add('is-activo');
+    marcar(0);
+  });
+
   // ---- TEST DE VERDADERO O FALSO ----
   // <div class="test" data-test><ol><li class="test__item" data-correcta="v|f">
   //   <p class="test__frase">…</p><div class="test__explicacion">…</div></li>…

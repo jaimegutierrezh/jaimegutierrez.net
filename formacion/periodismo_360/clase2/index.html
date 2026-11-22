@@ -393,27 +393,122 @@ Después explícame paso a paso cómo has calculado la fila de Girona, para que 
   <section class="bloque bloque--oscuro" id="al-aire" data-seccion data-tono="oscuro">
     <div class="bloque__interior">
       <p class="bloque__etiqueta">Al aire · 30 min</p>
-      <h2 class="bloque__titulo aparece" data-parada>La tasa, contada para la tele</h2>
-      <div class="bloque__texto aparece"><p>Nadie entiende «24,8 por mil» al oírlo. Todo el mundo entiende «uno de cada 40».</p></div>
-      <div class="pantalla-tv aparece aparece--escala" data-parada role="img" aria-label="Simulación de un gráfico de televisión: en Málaga y Girona hay una vivienda turística por cada 40 vecinos. Viviendas turísticas por cada 1.000 habitantes: Málaga 24,8; Girona 24,8; Baleares 16,9; Madrid 1,9.">
-        <div class="pantalla-tv__segura" aria-hidden="true"></div>
-        <div class="pantalla-tv__grafico" aria-hidden="true">
-          <p class="pantalla-tv__cifra">1/40</p>
-          <div class="pantalla-tv__barras">
-            <div class="pantalla-tv__fila"><span>Málaga</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:1"></span><span class="pantalla-tv__valor">24,8</span></div>
-            <div class="pantalla-tv__fila"><span>Girona</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:0.998"></span><span class="pantalla-tv__valor">24,8</span></div>
-            <div class="pantalla-tv__fila"><span>Baleares</span><span class="pantalla-tv__barra" style="--v:0.68"></span><span class="pantalla-tv__valor">16,9</span></div>
-            <div class="pantalla-tv__fila"><span>Madrid</span><span class="pantalla-tv__barra" style="--v:0.075"></span><span class="pantalla-tv__valor">1,9</span></div>
+      <h2 class="bloque__titulo aparece" data-parada>Vuestro indicador, contado para la tele</h2>
+      <div class="bloque__texto aparece"><p>Cada grupo presenta su indicador en 20 segundos, unas 50 palabras. Después, comparad con esta versión: ¿habéis elegido la misma cifra? ¿En puntos, en porcentaje o en «uno de cada»?</p></div>
+      <div class="carrusel aparece" data-carrusel data-parada data-solucion="clase2-reto" aria-label="Pantallas para la tele, una por indicador del reto">
+        <div class="carrusel__pista">
+          <div class="carrusel__item" data-titulo="Alcohol">
+            <div class="pantalla-tv" role="img" aria-label="Simulación de un gráfico de televisión. La mitad de los estudiantes de 14 a 18 años ha bebido alcohol en el último mes: 51,8 % en 2025 frente a 68,2 % en 2014.">
+              <div class="pantalla-tv__segura" aria-hidden="true"></div>
+              <div class="pantalla-tv__grafico" aria-hidden="true">
+                <p class="pantalla-tv__cifra">−16<small> puntos</small></p>
+                <div class="pantalla-tv__barras">
+              <div class="pantalla-tv__fila"><span>2014</span><span class="pantalla-tv__barra" style="--v:1"></span><span class="pantalla-tv__valor">68,2</span></div>
+              <div class="pantalla-tv__fila"><span>2025</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:0.76"></span><span class="pantalla-tv__valor">51,8</span></div>
+                </div>
+              </div>
+              <div class="pantalla-tv__rotulo" aria-hidden="true">
+                <span class="pantalla-tv__marca">DATOS</span>
+                <span class="pantalla-tv__texto">Estudiantes y alcohol: 16 puntos menos en once años</span>
+              </div>
+              <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: Ministerio de Sanidad (ESTUDES) · % de estudiantes de 14 a 18 años, último mes</p>
+            </div>
+            <p class="locucion">La mitad de los estudiantes de entre 14 y 18 años ha bebido alcohol en el último mes. Hace once años eran casi siete de cada diez: 16 puntos menos, según la encuesta ESTUDES del Ministerio de Sanidad.</p>
+          </div>
+          <div class="carrusel__item" data-titulo="Tabaco">
+            <div class="pantalla-tv" role="img" aria-label="Simulación de un gráfico de televisión. Uno de cada seis estudiantes ha fumado en el último mes: 15,5 % en 2025 frente a 25,9 % en 2014.">
+              <div class="pantalla-tv__segura" aria-hidden="true"></div>
+              <div class="pantalla-tv__grafico" aria-hidden="true">
+                <p class="pantalla-tv__cifra">1/6</p>
+                <div class="pantalla-tv__barras">
+              <div class="pantalla-tv__fila"><span>2014</span><span class="pantalla-tv__barra" style="--v:1"></span><span class="pantalla-tv__valor">25,9</span></div>
+              <div class="pantalla-tv__fila"><span>2025</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:0.6"></span><span class="pantalla-tv__valor">15,5</span></div>
+                </div>
+              </div>
+              <div class="pantalla-tv__rotulo" aria-hidden="true">
+                <span class="pantalla-tv__marca">DATOS</span>
+                <span class="pantalla-tv__texto">Uno de cada seis estudiantes fuma, el mínimo de la serie</span>
+              </div>
+              <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: Ministerio de Sanidad (ESTUDES) · % de estudiantes de 14 a 18 años, último mes</p>
+            </div>
+            <p class="locucion">Uno de cada seis estudiantes de secundaria ha fumado en el último mes. En 2014 era uno de cada cuatro. Son diez puntos menos y el dato más bajo desde que se hace la encuesta.</p>
+          </div>
+          <div class="carrusel__item" data-titulo="Tabaco a diario">
+            <div class="pantalla-tv" role="img" aria-label="Simulación de un gráfico de televisión. Fuman a diario el 4,3 % de los estudiantes en 2025, frente al 8,9 % de 2014: la mitad.">
+              <div class="pantalla-tv__segura" aria-hidden="true"></div>
+              <div class="pantalla-tv__grafico" aria-hidden="true">
+                <p class="pantalla-tv__cifra">−52<small> %</small></p>
+                <div class="pantalla-tv__barras">
+              <div class="pantalla-tv__fila"><span>2014</span><span class="pantalla-tv__barra" style="--v:1"></span><span class="pantalla-tv__valor">8,9</span></div>
+              <div class="pantalla-tv__fila"><span>2025</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:0.48"></span><span class="pantalla-tv__valor">4,3</span></div>
+                </div>
+              </div>
+              <div class="pantalla-tv__rotulo" aria-hidden="true">
+                <span class="pantalla-tv__marca">DATOS</span>
+                <span class="pantalla-tv__texto">Fumar a diario entre estudiantes, a la mitad</span>
+              </div>
+              <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: Ministerio de Sanidad (ESTUDES) · % de estudiantes de 14 a 18 años, a diario</p>
+            </div>
+            <p class="locucion">Cada vez menos adolescentes fuman a diario. Son el 4 % de los estudiantes, la mitad que en 2014. En 1998, fumaba a diario casi uno de cada cuatro.</p>
+          </div>
+          <div class="carrusel__item" data-titulo="Cannabis">
+            <div class="pantalla-tv" role="img" aria-label="Simulación de un gráfico de televisión. El 11,6 % de los estudiantes ha consumido cannabis en el último mes en 2025, frente al 18,6 % de 2014.">
+              <div class="pantalla-tv__segura" aria-hidden="true"></div>
+              <div class="pantalla-tv__grafico" aria-hidden="true">
+                <p class="pantalla-tv__cifra">−7<small> puntos</small></p>
+                <div class="pantalla-tv__barras">
+              <div class="pantalla-tv__fila"><span>2014</span><span class="pantalla-tv__barra" style="--v:1"></span><span class="pantalla-tv__valor">18,6</span></div>
+              <div class="pantalla-tv__fila"><span>2025</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:0.62"></span><span class="pantalla-tv__valor">11,6</span></div>
+                </div>
+              </div>
+              <div class="pantalla-tv__rotulo" aria-hidden="true">
+                <span class="pantalla-tv__marca">DATOS</span>
+                <span class="pantalla-tv__texto">Cannabis entre estudiantes: del 19 % al 12 %</span>
+              </div>
+              <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: Ministerio de Sanidad (ESTUDES) · % de estudiantes de 14 a 18 años, último mes</p>
+            </div>
+            <p class="locucion">El 12 % de los estudiantes ha consumido cannabis en el último mes. Son siete puntos menos que en 2014, cuando era casi uno de cada cinco.</p>
+          </div>
+          <div class="carrusel__item" data-titulo="Juego online">
+            <div class="pantalla-tv" role="img" aria-label="Simulación de un gráfico de televisión. El 13 % de los estudiantes ha apostado dinero online en el último año en 2025, frente al 10,7 % de 2023.">
+              <div class="pantalla-tv__segura" aria-hidden="true"></div>
+              <div class="pantalla-tv__grafico" aria-hidden="true">
+                <p class="pantalla-tv__cifra">1/8</p>
+                <div class="pantalla-tv__barras">
+              <div class="pantalla-tv__fila"><span>2023</span><span class="pantalla-tv__barra" style="--v:0.82"></span><span class="pantalla-tv__valor">10,7</span></div>
+              <div class="pantalla-tv__fila"><span>2025</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:1"></span><span class="pantalla-tv__valor">13,0</span></div>
+                </div>
+              </div>
+              <div class="pantalla-tv__rotulo" aria-hidden="true">
+                <span class="pantalla-tv__marca">DATOS</span>
+                <span class="pantalla-tv__texto">Apuestas online: uno de cada ocho estudiantes</span>
+              </div>
+              <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: Ministerio de Sanidad (ESTUDES) · % de estudiantes de 14 a 18 años, último año</p>
+            </div>
+            <p class="locucion">Uno de cada ocho estudiantes ha apostado dinero por internet en el último año. Hace dos años era uno de cada nueve. Es lo único que sube de todo lo que hemos visto.</p>
+          </div>
+          <div class="carrusel__item" data-titulo="Emancipación">
+            <div class="pantalla-tv" role="img" aria-label="Simulación de un gráfico de televisión. Los jóvenes españoles dejan el hogar familiar a los 30,2 años de media, frente a 26,3 en la UE y 31,5 en Croacia.">
+              <div class="pantalla-tv__segura" aria-hidden="true"></div>
+              <div class="pantalla-tv__grafico" aria-hidden="true">
+                <p class="pantalla-tv__cifra">30,2<small> años</small></p>
+                <div class="pantalla-tv__barras">
+              <div class="pantalla-tv__fila"><span>Croacia</span><span class="pantalla-tv__barra" style="--v:1"></span><span class="pantalla-tv__valor">31,5</span></div>
+              <div class="pantalla-tv__fila"><span>España</span><span class="pantalla-tv__barra pantalla-tv__barra--acento" style="--v:0.96"></span><span class="pantalla-tv__valor">30,2</span></div>
+              <div class="pantalla-tv__fila"><span>UE</span><span class="pantalla-tv__barra" style="--v:0.83"></span><span class="pantalla-tv__valor">26,3</span></div>
+                </div>
+              </div>
+              <div class="pantalla-tv__rotulo" aria-hidden="true">
+                <span class="pantalla-tv__marca">DATOS</span>
+                <span class="pantalla-tv__texto">Nos vamos de casa casi cuatro años más tarde que en Europa</span>
+              </div>
+              <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: Eurostat, 2025 · Edad media al dejar el hogar familiar</p>
+            </div>
+            <p class="locucion">Los jóvenes españoles dejan la casa de sus padres a los 30 años de media. Casi cuatro años más tarde que la media europea. Solo los croatas, los griegos y los eslovacos se van más tarde; los italianos, a la misma edad.</p>
           </div>
         </div>
-        <div class="pantalla-tv__rotulo" aria-hidden="true">
-          <span class="pantalla-tv__marca">DATOS</span>
-          <span class="pantalla-tv__texto">Málaga y Girona: un piso turístico por cada 40 vecinos</span>
-        </div>
-        <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: INE, mayo de 2026 · Viviendas turísticas por cada 1.000 habitantes</p>
       </div>
-      <p class="locucion aparece">Uno de cada cuarenta. Es la proporción de pisos turísticos por vecino en Málaga y en Girona. Málaga tiene el doble, pero también el doble de habitantes. En Madrid, la proporción es de uno por cada quinientos.</p>
-      <p class="bloque__nota">La barra dice «por cada 1.000» porque compara; la cifra grande y la locución dicen «uno de cada 40» porque se oyen. Redondeado: en la tele, 535 es «quinientos».</p>
+      <p class="bloque__nota">Una cifra grande, un mensaje y la fuente siempre visible. Fijaos en que cada pantalla elige una forma distinta de contar el cambio: en puntos cuando lo que cambia es un porcentaje, «la mitad» cuando se reduce a la mitad y «uno de cada» cuando se entiende mejor así.</p>
     </div>
   </section>
 
