@@ -1269,6 +1269,23 @@ html:not(.js) .partes-grafico__punto { pointer-events: none; }
 .siguiente__titulo { font-family: var(--ff-display); font-weight: 900; font-size: clamp(1.6rem, 3.5vw, 2.6rem); line-height: 1.05; color: #fff; }
 .siguiente__titulo small { display: block; font-family: var(--ff-body); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
 
+/* ---- LECTURAS RECOMENDADAS (cierre de cada clase) ---- */
+.lecturas { margin-top: 3rem; }
+.lecturas__titulo { font-family: var(--ff-display); font-weight: 600; font-size: clamp(1.3rem, 2.4vw, 1.7rem); color: var(--c-texto-claro); }
+.lecturas__intro { margin-top: 0.4rem; color: var(--c-texto-claro-2); max-width: 40rem; }
+.lecturas__grupo { margin-top: 1.5rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); }
+.lecturas__lista { list-style: none; margin: 0.5rem 0 0; padding: 0; max-width: 46rem; }
+.lecturas__lista li + li { border-top: 1px solid var(--c-linea-clara); }
+/* Lista compacta: título, autor e idioma en una línea; para qué sirve, debajo */
+.lecturas__enlace { display: block; padding: 0.6rem 0; color: var(--c-texto-claro); text-decoration: none; }
+.lecturas__obra { font-family: var(--ff-display); font-weight: 600; font-style: italic; font-size: 1rem; line-height: 1.3; text-decoration: underline; text-decoration-color: var(--c-linea-clara); text-underline-offset: 3px; transition: color 0.15s ease, text-decoration-color 0.15s ease; overflow-wrap: anywhere; }
+.lecturas__enlace:hover .lecturas__obra, .lecturas__enlace:focus-visible .lecturas__obra { color: var(--accent); text-decoration-color: var(--accent); }
+.lecturas__autor { font-size: 0.82rem; color: var(--c-texto-claro-2); }
+.lecturas__autor::before { content: " · "; }
+.lecturas__idioma { margin-left: 0.4rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-texto-claro-2); border: 1px solid var(--c-linea-clara); border-radius: 999px; padding: 0.05rem 0.4rem; white-space: nowrap; vertical-align: 0.1em; }
+.lecturas__idioma--rtve { color: var(--accent); border-color: rgba(193, 68, 14, 0.5); }
+.lecturas__para { display: block; margin-top: 0.15rem; font-size: 0.88rem; line-height: 1.4; color: var(--c-texto-claro-2); }
+
 /* ---- PIE ---- */
 .pie { padding: 2rem 0; font-size: 0.85rem; color: var(--mid); border-top: 1px solid var(--rule); }
 .pie__interior { max-width: var(--c-ancho); margin-inline: auto; padding-inline: var(--pad); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
