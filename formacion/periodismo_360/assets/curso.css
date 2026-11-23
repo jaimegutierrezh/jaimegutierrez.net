@@ -1047,8 +1047,17 @@ html:not(.vista-profesor) [data-solo-profesor] { display: none; }
 .ficha__icono--linea circle { fill: var(--accent); stroke: none; }
 
 /* ---- ANATOMÍA DE UN GRÁFICO ---- */
-.anatomia-grafico { margin-top: 2rem; max-width: 48rem; padding: 1.25rem; background: var(--paper); border-radius: var(--c-radio); }
-.anatomia-grafico svg { width: 100%; height: auto; display: block; }
+.partes-grafico {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 3fr) minmax(15rem, 2fr);
+  align-items: start;
+}
+@media (max-width: 820px) { .partes-grafico { grid-template-columns: 1fr; } }
+.partes-grafico__grafico { margin: 0; padding: 1.25rem; background: var(--paper); border-radius: var(--c-radio); }
+.partes-grafico__lienzo { position: relative; }
+.partes-grafico__lienzo svg { width: 100%; height: auto; display: block; }
 .an-titulo { font-family: var(--ff-display); font-weight: 600; font-size: 20px; fill: var(--ink); }
 .an-subtitulo { font-family: var(--ff-body); font-size: 14px; fill: var(--mid); }
 .an-filas text { font-family: var(--ff-body); font-size: 14px; fill: var(--ink-2); }
@@ -1062,11 +1071,73 @@ html:not(.vista-profesor) [data-solo-profesor] { display: none; }
 .an-anotacion { font-family: var(--ff-body); font-size: 13px; font-weight: 700; fill: var(--ink); }
 .an-escala text { font-family: var(--ff-body); font-size: 12px; fill: var(--mid); }
 .an-fuente { font-family: var(--ff-body); font-size: 12px; fill: var(--mid); }
-.an-marcas circle { fill: var(--teal); }
-.an-marcas text { font-family: var(--ff-body); font-size: 12px; font-weight: 700; fill: #fff; text-anchor: middle; }
-.anatomia-lista { margin-top: 2rem; max-width: 48rem; display: grid; gap: 0.6rem; padding-left: 1.75rem; list-style: decimal; }
-.anatomia-lista li { display: list-item; }
-.anatomia-lista li::marker { font-weight: 700; color: var(--teal); }
+/* Los números son botones HTML sobre el SVG: tamaño fijo para poder tocarlos en el móvil */
+.partes-grafico__punto {
+  position: absolute;
+  width: 1.75rem; height: 1.75rem;
+  --dx: -50%;
+  transform: translate(var(--dx), -50%);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--teal);
+  color: #fff;
+  font: 700 0.8rem/1 var(--ff-body);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(15, 14, 12, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.partes-grafico__punto:hover { transform: translate(var(--dx), -50%) scale(1.12); }
+.partes-grafico__punto:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.partes-grafico__punto.is-activo { background: var(--accent); transform: translate(var(--dx), -50%) scale(1.2); }
+.partes-grafico__punto.is-visto:not(.is-activo) { background: #5f9e98; }
+@media (max-width: 560px) {
+  .partes-grafico__grafico { padding: 1rem 0.75rem 1rem 1.25rem; }
+  .partes-grafico__punto { width: 1.5rem; height: 1.5rem; font-size: 0.72rem; }
+  /* Los números de la izquierda salen al margen para no tapar el título ni la fuente */
+  .partes-grafico__punto--margen { --dx: -95%; }
+}
+
+.partes-grafico__panel { display: grid; gap: 1rem; align-content: start; }
+.partes-grafico__pista { color: var(--mid); font-style: italic; }
+.partes-grafico__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.partes-grafico__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.75rem;
+  align-items: baseline;
+}
+.partes-grafico__num {
+  display: inline-grid; place-items: center;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: 50%;
+  background: var(--teal); color: #fff;
+  font: 700 0.8rem/1 var(--ff-body);
+}
+.partes-grafico__nombre { font-family: var(--ff-display); font-weight: 600; font-size: 1.15rem; }
+.partes-grafico__texto { grid-column: 2; margin: 0.2rem 0 0; }
+.partes-grafico__pasos { display: none; align-items: center; gap: 0.75rem; }
+.partes-grafico__paso {
+  width: 2.5rem; height: 2.5rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-2);
+  background: #fff; color: var(--ink);
+  font: 700 1rem/1 var(--ff-body);
+  cursor: pointer;
+}
+.partes-grafico__paso:hover { border-color: var(--accent); color: var(--accent); }
+.partes-grafico__contador { font-size: 0.85rem; color: var(--mid); font-variant-numeric: tabular-nums; }
+
+/* Con JS: solo se ve la parte elegida, que se despliega en el panel */
+.js .partes-grafico__item { display: none; }
+.js .partes-grafico__item.is-activo { display: grid; animation: parte-entra 0.3s ease both; }
+.js .partes-grafico__item.is-activo .partes-grafico__num { background: var(--accent); width: 2.25rem; height: 2.25rem; font-size: 1rem; }
+.js .partes-grafico__item.is-activo .partes-grafico__nombre { font-size: 1.6rem; }
+.js .partes-grafico__item.is-activo .partes-grafico__texto { font-size: 1.1rem; line-height: 1.5; }
+.js .partes-grafico.is-iniciado .partes-grafico__pasos { display: flex; }
+.js .partes-grafico.is-iniciado .partes-grafico__pista { display: none; }
+html:not(.js) .partes-grafico__punto { pointer-events: none; }
+@keyframes parte-entra { from { opacity: 0; transform: translateX(-0.75rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .js .partes-grafico__item.is-activo { animation: none; } }
 
 /* ---- PALETAS ---- */
 .paleta { display: flex; height: 1.5rem; border-radius: 4px; overflow: hidden; }

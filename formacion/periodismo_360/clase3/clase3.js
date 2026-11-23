@@ -417,6 +417,38 @@ async function montarMejora(caja) {
   pintarBotones();
 }
 
+// ---- ANATOMÍA: NÚMEROS SOBRE EL GRÁFICO ----
+// Cada número es un botón; al pulsarlo, su descripción se despliega en el panel.
+function montarPartesGrafico(caja) {
+  const puntos = [...caja.querySelectorAll('.partes-grafico__punto')];
+  const items = [...caja.querySelectorAll('.partes-grafico__item')];
+  const contador = caja.querySelector('.partes-grafico__contador');
+  let activo = 0;
+
+  function elegir(n) {
+    activo = n;
+    caja.classList.add('is-iniciado');
+    puntos.forEach(p => {
+      const es = Number(p.dataset.punto) === n;
+      p.classList.toggle('is-activo', es);
+      p.setAttribute('aria-pressed', es);
+      if (es) p.classList.add('is-visto');
+    });
+    items.forEach(li => li.classList.toggle('is-activo', Number(li.dataset.punto) === n));
+    contador.textContent = n + ' de ' + items.length;
+  }
+
+  puntos.forEach(p => {
+    p.setAttribute('aria-pressed', 'false');
+    p.addEventListener('click', () => elegir(Number(p.dataset.punto)));
+  });
+  caja.querySelectorAll('[data-avance]').forEach(b => b.addEventListener('click', () => {
+    const total = items.length;
+    elegir(((activo - 1 + Number(b.dataset.avance) + total) % total) + 1);
+  }));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-partes-grafico]').forEach(montarPartesGrafico);
   document.querySelectorAll('[data-mejora]').forEach(montarMejora);
 });
