@@ -61,8 +61,8 @@
     <li><a class="indice__enlace" href="#gancho"><span class="indice__texto">Gancho</span></a></li>
     <li><a class="indice__enlace" href="#concepto"><span class="indice__texto">Concepto</span></a></li>
     <li><a class="indice__enlace" href="#medias"><span class="indice__texto">Medias</span></a></li>
-    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
     <li><a class="indice__enlace" href="#practica"><span class="indice__texto">Práctica</span></a></li>
+    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
     <li><a class="indice__enlace" href="#reto"><span class="indice__texto">Reto</span></a></li>
     <li><a class="indice__enlace" href="#al-aire"><span class="indice__texto">Al aire</span></a></li>
     <li><a class="indice__enlace" href="#cierre"><span class="indice__texto">Cierre</span></a></li>
@@ -248,13 +248,35 @@
     </div>
   </section>
 
+  <!-- ============ PRÁCTICA ============ -->
+  <section class="bloque" id="practica" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Primero a mano: media, mediana y moda</h2>
+      <div class="bloque__texto aparece"><p>Hoja de cálculo desde cero, con los datos de la encuesta. Si sabéis cómo se calcula, sabréis cuándo se equivoca el chatbot.</p></div>
+      <a class="descarga aparece" href="datos/encuesta_ejemplo.csv" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+        Descargar encuesta_ejemplo.csv
+      </a>
+      <ol class="pasos">
+        <li class="pasos__item aparece">Abrid Google Sheets e importad el CSV: <em>Archivo › Importar › Subir</em>.</li>
+        <li class="pasos__item aparece">Comprobad los encabezados y el formato. Si <code>horas_pantalla</code> aparece alineado a la izquierda, la hoja lo ha leído como texto: el CSV usa punto decimal y la hoja en español espera coma. Arreglarlo es vuestro primer trabajo de limpieza.</li>
+        <li class="pasos__item aparece">Ordenad la hoja por <code>horas_pantalla</code> de mayor a menor. ¿Qué aparece arriba del todo?</li>
+        <li class="pasos__item aparece">Calculad <code>=PROMEDIO(B2:B26)</code>, <code>=MEDIANA(B2:B26)</code> y <code>=MODA(B2:B26)</code>.</li>
+        <li class="pasos__item aparece">Repetid la media sin el valor extremo: <code>=PROMEDIO.SI(B2:B26;"&lt;15")</code>.</li>
+      </ol>
+      <p class="bloque__nota">Apuntad vuestros cuatro resultados: después se los pediremos a la IA y compararemos.</p>
+    </div>
+  </section>
+
   <!-- ============ IA ============ -->
-  <section class="bloque" id="ia" data-seccion>
+  <section class="bloque bloque--blanco" id="ia" data-seccion>
     <div class="bloque__interior">
       <p class="bloque__etiqueta">IA · El chatbot como colega</p>
       <h2 class="bloque__titulo aparece" data-parada>Un colega nuevo: muy capaz y sin contexto</h2>
       <div class="bloque__texto aparece">
         <p>Un chatbot escribe con la misma seguridad cuando sabe y cuando no sabe. Por eso no se le hacen preguntas: se le hacen <strong>encargos</strong>, como a alguien que acaba de llegar a la redacción.</p>
+        <p>Tenéis ventaja: ya lo habéis calculado a mano. Ahora sabréis si el chatbot acierta.</p>
       </div>
       <div class="anatomia">
         <div class="anatomia__parte aparece"><span class="anatomia__nombre">Contexto</span><span>Quién eres, para qué es y quién lo va a ver. Adjunta el material.</span></div>
@@ -278,27 +300,9 @@ Calcula la media, la mediana y la moda de la columna horas_pantalla y explícame
 Si algo no está en el archivo, dilo.</pre>
       </div>
       <p class="bloque__nota">La separación entre lo que dice la fuente, lo que se infiere y lo que no aparece está tomada del taller de Sergio Sánchez (tacosdedatos) para Escuela de Datos.</p>
-    </div>
-  </section>
 
-  <!-- ============ PRÁCTICA ============ -->
-  <section class="bloque bloque--blanco" id="practica" data-seccion>
-    <div class="bloque__interior">
-      <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
-      <h2 class="bloque__titulo aparece" data-parada>Primero a mano, luego con IA</h2>
-      <div class="bloque__texto aparece"><p>Hoja de cálculo desde cero. Si sabéis cómo se calcula, sabréis cuándo se equivoca el chatbot.</p></div>
-      <a class="descarga aparece" href="datos/encuesta_ejemplo.csv" download>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
-        Descargar encuesta_ejemplo.csv
-      </a>
-      <ol class="pasos">
-        <li class="pasos__item aparece">Abrid Google Sheets e importad el CSV: <em>Archivo › Importar › Subir</em>.</li>
-        <li class="pasos__item aparece">Comprobad los encabezados y el formato. Si <code>horas_pantalla</code> aparece alineado a la izquierda, la hoja lo ha leído como texto: el CSV usa punto decimal y la hoja en español espera coma. Arreglarlo es vuestro primer trabajo de limpieza.</li>
-        <li class="pasos__item aparece">Ordenad la hoja por <code>horas_pantalla</code> de mayor a menor. ¿Qué aparece arriba del todo?</li>
-        <li class="pasos__item aparece">Calculad <code>=PROMEDIO(B2:B26)</code>, <code>=MEDIANA(B2:B26)</code> y <code>=MODA(B2:B26)</code>.</li>
-        <li class="pasos__item aparece">Repetid la media sin el valor extremo: <code>=PROMEDIO.SI(B2:B26;"&lt;15")</code>.</li>
-        <li class="pasos__item aparece">Subid el CSV a un chatbot con la receta 1 y comparad sus resultados con los vuestros.</li>
-      </ol>
+      <h3 class="bloque__subtitulo aparece" data-parada>¿Coincide con lo vuestro?</h3>
+      <div class="bloque__texto aparece"><p>Subid el CSV a un chatbot con la receta 1 y apuntad sus resultados junto a los vuestros.</p></div>
       <div class="tabla-scroll aparece" data-parada>
         <table class="tabla">
           <thead><tr><th>Medida</th><th>A mano</th><th>Chatbot</th><th>¿Coinciden?</th></tr></thead>
