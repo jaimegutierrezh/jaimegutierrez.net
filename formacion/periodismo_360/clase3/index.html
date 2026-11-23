@@ -63,6 +63,7 @@
     <li><a class="indice__enlace" href="#catalogo"><span class="indice__texto">Catálogo</span></a></li>
     <li><a class="indice__enlace" href="#anatomia"><span class="indice__texto">Anatomía</span></a></li>
     <li><a class="indice__enlace" href="#tele"><span class="indice__texto">Códigos de TV</span></a></li>
+    <li><a class="indice__enlace" href="#mejora"><span class="indice__texto">Mejora un gráfico</span></a></li>
     <li><a class="indice__enlace" href="#practica"><span class="indice__texto">Práctica</span></a></li>
     <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
     <li><a class="indice__enlace" href="#reto"><span class="indice__texto">Reto</span></a></li>
@@ -340,6 +341,34 @@
         <article class="ficha aparece" style="--retraso:4"><p class="ficha__antetitulo">Ritmo</p><p class="ficha__titulo">Animación al ritmo de la voz</p><p class="ficha__ejemplo">Cada elemento aparece cuando la locución lo nombra, ni antes ni después.</p></article>
         <article class="ficha aparece" style="--retraso:5"><p class="ficha__antetitulo">Texto</p><p class="ficha__titulo">El rótulo no repite el gráfico</p><p class="ficha__ejemplo">El rótulo da la conclusión; el gráfico, la prueba; la voz, el contexto. Y la fuente, siempre en pantalla.</p></article>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ MEJORA UN GRÁFICO ============ -->
+  <section class="bloque" id="mejora" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Taller · 20 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>De gráfico feo a gráfico emitible</h2>
+      <div class="bloque__texto aparece">
+        <p>Uso de internet por edad, según el INE. El gráfico de partida es correcto: los datos son ciertos. Pero no se entiende. Aplicad los cambios de uno en uno y fijaos en qué mejora cada uno.</p>
+        <p>Algunos cambios abren otros nuevos. Y no todos los que aparecen son buena idea.</p>
+      </div>
+      <div class="mejora aparece" data-mejora data-parada>
+        <figure class="mejora__grafico">
+          <svg role="img" aria-label="Cargando el gráfico"></svg>
+        </figure>
+        <div class="mejora__panel">
+          <p class="mejora__rotulo">Cambios disponibles</p>
+          <div class="mejora__botones" aria-live="polite"></div>
+          <p class="mejora__explicacion" aria-live="polite">Gráfico de partida: barras apiladas en millones de personas, seis segmentos en orden alfabético, colores de arcoíris y una leyenda arriba. ¿Qué cambiaríais primero?</p>
+          <div class="mejora__aplicados" hidden>
+            <p class="mejora__rotulo">Aplicados</p>
+            <ol class="mejora__historial"></ol>
+          </div>
+          <button class="mejora__reiniciar" type="button" hidden>Empezar de nuevo</button>
+        </div>
+      </div>
+      <p class="bloque__nota">Fuente: INE, Encuesta TIC-H 2026 (tabla 82785). Las seis categorías se calculan restando los porcentajes acumulados del INE. <a href="../datos/ine_tich_2026_frecuencia_uso_por_edad.csv" download>Descargar CSV</a>. La secuencia de mejoras viene del gráfico de mascotas de la <a href="../parte2.html">parte 2 del curso antiguo</a>.</p>
     </div>
   </section>
 
