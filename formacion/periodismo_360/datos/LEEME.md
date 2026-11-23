@@ -12,6 +12,9 @@ Datos para comparar la encuesta de clase con las estadísticas oficiales. Todos 
 | `eurostat_edad_emancipacion_espana_ue.csv` | La misma edad media para España (total, hombres y mujeres) y la UE-27, de 2010 a 2025. | Eurostat, yth_demo_030 |
 | `estudes_consumo_14_18_1998_2025.csv` | % de estudiantes de 14 a 18 años que han consumido alcohol, tabaco o cannabis alguna vez, en los últimos 12 meses, en los últimos 30 días y a diario. 1998-2025. | Ministerio de Sanidad, Plan Nacional sobre Drogas, [ESTUDES 2025, resumen ejecutivo](https://pnsd.sanidad.gob.es/profesionales/sistemasInformacion/sistemaInformacion/pdf/2025/ESTUDES_2025_Resumen_Ejecutivo_es.pdf) |
 | `estudes_juego_e_internet_14_18.csv` | % de estudiantes de 14 a 18 años que han jugado con dinero, con posible juego problemático y con posible uso problemático de internet o de redes sociales. 2021-2025. | OEDA, [Informe sobre adicciones comportamentales 2025, resumen ejecutivo](https://pnsd.sanidad.gob.es/profesionales/sistemasInformacion/sistemaInformacion/pdf/2026/2025_OEDA_AdiccionesComportamentales_ResumenEjecutivo.pdf) |
+| `112_informe_llamadas_dana_29oct2024.pdf` | Informe del 112 de la Comunitat Valenciana para el juzgado que investiga la dana: llamadas e incidentes por hora (anexo I, toda la Comunitat y todo tipo de incidentes) y listado de cada incidente por fenómeno natural en la provincia de Valencia el 29 de octubre de 2024, por hora y por municipio. 100 páginas. | Subdirección General de Emergencias, Generalitat Valenciana (febrero de 2025). Copia del que ya estaba en `ejercicios/datos/`. |
+| `112_incidentes_dana_valencia_29oct2024_10min.csv` | Incidentes por fenómeno natural gestionados por el 112 en la provincia de Valencia el 29 de octubre de 2024, agrupados cada diez minutos. 2.342 en total. | Extraído del listado del PDF anterior. Comprobado el 23-nov-2026: coincide intervalo a intervalo con el listado. |
+| `sucios/viviendas_turisticas_ine_sucio.csv` y `sucios/poblacion_provincias_sucio.csv` | Los datos de `ine_viviendas_turisticas_provincias_2026.csv`, **ensuciados a propósito** para la clase 4. Las cifras no cambian. | Ver «Archivos sucios», más abajo. |
 
 ## Para tener en cuenta
 
@@ -22,6 +25,21 @@ Datos para comparar la encuesta de clase con las estadísticas oficiales. Todos 
 - **Las viviendas turísticas tienen estacionalidad.** El INE las cuenta dos veces al año (mayo y noviembre; antes, febrero y agosto). Para calcular una variación hay que comparar el mismo mes: mayo con mayo.
 - **La población tiene que ser del mismo momento que las viviendas.** El archivo antiguo del workbook (`ejercicios/datos/`) cruza viviendas de 2024 con el padrón de 2021.
 - **En 2025, España e Italia empatan** (30,2 años) en la edad de emancipación.
+
+## Archivos sucios (clase 4)
+
+Se han hecho a partir de los datos limpios del INE para practicar limpieza y cruce. Lo que se ha cambiado:
+
+- `viviendas_turisticas_ine_sucio.csv`: separado por punto y coma; números con punto de miles; una línea de título, una fila «Total Nacional» (suma de las provincias) y una nota de fuente al final; provincia con su código delante, al estilo del INE («07 Balears, Illes»); un espacio al final de «Cádiz» y «Toledo»; Málaga duplicada.
+- `poblacion_provincias_sucio.csv`: separado por comas; código de provincia sin el cero de delante («7»); nombres de uso corriente que no coinciden con los del INE (Álava, Alicante, Illes Balears, Castellón, A Coruña, La Rioja, Las Palmas, Valencia, Gerona, Lérida, Guipúzcoa, Vizcaya, Orense).
+- Cruzando por nombre, tras quitar los espacios, no cruzan 13 provincias; sin quitarlos, 15. Cruzando por código con dos cifras, cruzan las 52.
+
+## Para tener en cuenta en el 112
+
+- **Llamadas no son incidentes.** Un incidente puede generar decenas de llamadas. El anexo I (19.821 llamadas y 4.770 incidentes) es de toda la Comunitat Valenciana y de todo tipo de incidentes; el CSV (2.342), solo de fenómeno natural en la provincia de Valencia.
+- **El CSV omite los intervalos sin incidentes:** tiene 108 filas en lugar de 114 (faltan de 5:20 a 5:50, 11:00 y 11:30).
+- Hasta las 20:10 (CSV) hubo 1.199 incidentes; contando al segundo con el listado del PDF, 1.202 antes de las 20:11.
+- El listado incluye descripciones con edades y situaciones personales: se cuentan, no se reproducen.
 
 ## Reutilización
 

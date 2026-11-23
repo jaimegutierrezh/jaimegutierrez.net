@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es" data-clase="clase4">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clase 4. Datos sucios, fuentes y mapas · Periodismo de datos con IA · Jaime Gutiérrez</title>
+<meta name="description" content="Cuarta clase del curso de periodismo de datos con IA: dónde se buscan los datos, cómo se sacan de un PDF, cómo se limpian y cruzan, qué no se sube a un chatbot y cómo se pintan en un mapa.">
+<link rel="canonical" href="https://jaimegutierrez.net/formacion/periodismo_360/clase4/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Jaime Gutiérrez">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Clase 4. Datos sucios, fuentes y mapas">
+<meta property="og:description" content="Del PDF del 112 durante la dana a un mapa de coropletas: fuentes, limpieza, verificación, privacidad y mapas. Curso de periodismo de datos con IA.">
+<meta property="og:url" content="https://jaimegutierrez.net/formacion/periodismo_360/clase4/">
+<meta property="og:image" content="https://jaimegutierrez.net/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jaime Gutiérrez, periodista de datos en RTVE Noticias">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@JaimeGutierrezH">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Clase 4. Datos sucios, fuentes y mapas",
+  "description": "Fuentes de datos, extracción de tablas de PDF, limpieza y cruce de tablas, verificación en capas, privacidad al usar IA y mapas de coropletas.",
+  "url": "https://jaimegutierrez.net/formacion/periodismo_360/clase4/",
+  "inLanguage": "es",
+  "learningResourceType": "Clase",
+  "teaches": ["Fuentes de datos", "Limpieza de datos", "Extracción de datos de PDF", "Verificación", "Privacidad y uso de IA", "Mapas de coropletas"],
+  "isPartOf": { "@type": "Course", "name": "Periodismo de datos con IA", "url": "https://jaimegutierrez.net/formacion/periodismo_360/" },
+  "author": { "@id": "https://jaimegutierrez.net/#person", "@type": "Person", "name": "Jaime Gutiérrez" }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../assets/curso.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../encuesta/config.js" defer></script>
+<script src="../assets/curso.js" defer></script>
+<script src="clase4.js" defer></script>
+</head>
+<body class="leccion">
+
+<div class="progreso" aria-hidden="true"></div>
+
+<header class="barra">
+  <a class="barra__volver" href="../">← Curso</a>
+  <span class="barra__titulo">Clase 4 · Datos sucios, fuentes y mapas</span>
+  <div class="barra__acciones">
+    <button class="barra__boton" type="button" data-accion="proyector" data-solo-profesor aria-pressed="false" title="Letra más grande para proyectar (tecla P)">Proyector</button>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Bloques de la clase">
+  <ol class="indice__lista">
+    <li><a class="indice__enlace" href="#gancho"><span class="indice__texto">Gancho</span></a></li>
+    <li><a class="indice__enlace" href="#fuentes"><span class="indice__texto">Fuentes</span></a></li>
+    <li><a class="indice__enlace" href="#perfil"><span class="indice__texto">Datos sucios</span></a></li>
+    <li><a class="indice__enlace" href="#capas"><span class="indice__texto">Verificar</span></a></li>
+    <li><a class="indice__enlace" href="#privacidad"><span class="indice__texto">Privacidad</span></a></li>
+    <li><a class="indice__enlace" href="#mapas"><span class="indice__texto">Mapas</span></a></li>
+    <li><a class="indice__enlace" href="#practica"><span class="indice__texto">Práctica</span></a></li>
+    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">IA</span></a></li>
+    <li><a class="indice__enlace" href="#reto"><span class="indice__texto">Reto</span></a></li>
+    <li><a class="indice__enlace" href="#al-aire"><span class="indice__texto">Al aire</span></a></li>
+    <li><a class="indice__enlace" href="#cierre"><span class="indice__texto">Cierre</span></a></li>
+  </ol>
+</nav>
+
+<main>
+
+  <!-- ============ PORTADA ============ -->
+  <section class="portada" data-parada>
+    <div class="portada__capa portada__capa--puntos" data-velocidad="0.15" aria-hidden="true"></div>
+    <div class="portada__capa" data-velocidad="0.35" aria-hidden="true">
+      <span class="portada__cifra" style="top:14%;left:54%;font-size:clamp(5rem,18vw,15rem)">.pdf</span>
+      <span class="portada__cifra" style="top:58%;left:-3%;font-size:clamp(4rem,12vw,10rem)">#N/A</span>
+    </div>
+    <div class="portada__capa" data-velocidad="0.6" aria-hidden="true">
+      <span class="portada__cifra portada__cifra--acento" style="top:34%;left:8%;font-size:clamp(2.5rem,6vw,5rem)">1.202</span>
+      <span class="portada__cifra portada__cifra--acento" style="top:68%;left:64%;font-size:clamp(2.5rem,6vw,5rem)">‰</span>
+    </div>
+    <div class="portada__contenido">
+      <p class="portada__antetitulo">Clase 4 de 5 · Periodismo de datos con IA</p>
+      <h1 class="portada__titulo">Datos sucios,<br><em>fuentes y mapas</em></h1>
+      <p class="portada__entradilla">Casi nunca llegan limpios. Hay que sacarlos, revisarlos y cruzarlos antes de contarlos.</p>
+      <p class="portada__pista"><span class="portada__flecha" aria-hidden="true">↓</span> Desliza o usa <kbd>→</kbd> para avanzar</p>
+    </div>
+  </section>
+
+  <!-- ============ GANCHO ============ -->
+  <section class="bloque bloque--oscuro" id="gancho" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Gancho · 15 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>El dato estaba en un PDF</h2>
+      <div class="bloque__texto aparece">
+        <p>29 de octubre de 2024. La dana arrasa la provincia de Valencia. Meses después, el 112 de la Comunitat Valenciana entrega a un juzgado el registro de lo que pasó ese día: cada aviso, con su hora al segundo y su municipio.</p>
+        <p>Lo entregó así:</p>
+      </div>
+      <figure class="documento aparece" data-parada aria-label="Extracto del informe del 112: listado de incidentes con número, hora, tipo, descripción y municipio">
+        <div class="documento__hoja" aria-hidden="true"></div>
+        <div class="documento__hoja" aria-hidden="true"></div>
+        <div class="documento__hoja">
+          <p class="documento__cabecera">Incidentes Procedentes clasificados como «Fenómeno Natural» en la provincia de Valencia · 29/10/2024</p>
+          <p class="documento__linea">35833701 · 05:11:05 · Vía Peligrosa/Intransitable · pl informa ctra cortada por acumulación de agua (lluvia) · Xàtiva</p>
+          <p class="documento__linea">35834106 · 07:15:12 · Precipitación Intensa/Acumulación · acumulación de agua en la via · Massalavés</p>
+          <p class="documento__linea">35837505 · 13:50:43 · Desbordamiento Cauce · se ha desbordado rambla/ ctra queda inundada · Ademuz</p>
+          <p class="documento__linea">35840799 · 18:32:06 · Desbordamiento Cauce · se está desbordando barranco/ no han cortado la zona/ · Paiporta</p>
+          <p class="documento__linea">35840882 · 18:41:09 · Rescate · +50 coches se los lleva el agua, por las lluvias · Massanassa</p>
+          <p class="documento__linea documento__linea--tenue">…</p>
+          <p class="documento__pie">Página 6 de 100</p>
+        </div>
+      </figure>
+      <div class="cifras-gancho" data-parada>
+        <div class="cifras-gancho__item aparece"><p class="cifras-gancho__num">100</p><p class="cifras-gancho__texto">páginas</p></div>
+        <div class="cifras-gancho__item aparece" style="--retraso:1"><p class="cifras-gancho__num">2.342</p><p class="cifras-gancho__texto">incidentes por la dana ese día</p></div>
+        <div class="cifras-gancho__item aparece" style="--retraso:2"><p class="cifras-gancho__num">0</p><p class="cifras-gancho__texto">tablas que se puedan descargar</p></div>
+      </div>
+      <div class="preguntas" data-parada>
+        <p class="preguntas__item aparece">A las 20:11 sonó la alerta en los móviles.</p>
+        <p class="preguntas__item preguntas__item--remate aparece" style="--retraso:1">¿Cuántos avisos por la dana había gestionado ya el 112?</p>
+        <p class="preguntas__item aparece" style="--retraso:2">Apuntad vuestra apuesta. La respuesta está en el PDF, y la vais a sacar en el reto.</p>
+      </div>
+      <p class="bloque__nota">Fuente: Subdirección General de Emergencias de la Generalitat Valenciana, informe sobre las llamadas al 112 del 29 de octubre de 2024 para el juzgado que investiga la dana (febrero de 2025).</p>
+    </div>
+  </section>
+
+  <!-- ============ FUENTES ============ -->
+  <section class="bloque bloque--blanco" id="fuentes" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · 40 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Dónde están los datos</h2>
+      <div class="bloque__texto aparece"><p>Antes de preguntar a un chatbot, preguntad a quien mide. Casi todo lo que habéis usado en el curso sale de aquí.</p></div>
+      <div class="rejilla">
+        <a class="ficha aparece" href="https://www.ine.es/" target="_blank" rel="noopener noreferrer">
+          <p class="ficha__antetitulo">Estadística oficial</p>
+          <p class="ficha__titulo">INE</p>
+          <p class="ficha__ejemplo">Población, precios, empleo, hogares, turismo. Las viviendas turísticas y el uso de internet de las clases anteriores.</p>
+        </a>
+        <a class="ficha aparece" style="--retraso:1" href="https://ec.europa.eu/eurostat/data/database" target="_blank" rel="noopener noreferrer">
+          <p class="ficha__antetitulo">Europa</p>
+          <p class="ficha__titulo">Eurostat</p>
+          <p class="ficha__ejemplo">Los mismos indicadores para todos los países de la UE. La edad de emancipación de la clase 2.</p>
+        </a>
+        <a class="ficha aparece" style="--retraso:2" href="https://datos.gob.es/" target="_blank" rel="noopener noreferrer">
+          <p class="ficha__antetitulo">Catálogo</p>
+          <p class="ficha__titulo">datos.gob.es</p>
+          <p class="ficha__ejemplo">El buscador de datos abiertos de las administraciones españolas: ministerios, comunidades y ayuntamientos.</p>
+        </a>
+        <a class="ficha aparece" style="--retraso:3" href="https://www.cis.es/" target="_blank" rel="noopener noreferrer">
+          <p class="ficha__antetitulo">Opinión</p>
+          <p class="ficha__titulo">CIS</p>
+          <p class="ficha__ejemplo">Barómetros y encuestas, con sus microdatos: se puede rehacer cada cruce.</p>
+        </a>
+        <article class="ficha aparece" style="--retraso:4">
+          <p class="ficha__antetitulo">Cerca de la noticia</p>
+          <p class="ficha__titulo">Portales autonómicos y municipales</p>
+          <p class="ficha__ejemplo">Sanidad, educación, tráfico, licencias. Suelen ser los más útiles y los peor documentados.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:5">
+          <p class="ficha__antetitulo">Lo que no se publica</p>
+          <p class="ficha__titulo">Transparencia, juzgados e informes</p>
+          <p class="ficha__ejemplo">Solicitudes de acceso a la información, documentos judiciales y respuestas parlamentarias. El PDF del 112 llegó por aquí.</p>
+        </article>
+      </div>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>La escalera de los formatos</h3>
+      <div class="bloque__texto aparece"><p>El mismo dato puede llegar de muchas formas. Cuanto más abajo, más trabajo y más riesgo de error al sacarlo.</p></div>
+      <ol class="escalera aparece" data-parada>
+        <li class="escalera__peldano" style="--n:0"><strong>CSV o API</strong><span>Se abre y se usa. Lo ideal.</span></li>
+        <li class="escalera__peldano" style="--n:1"><strong>Excel</strong><span>Con celdas combinadas, notas al pie y varias tablas en una hoja.</span></li>
+        <li class="escalera__peldano" style="--n:2"><strong>Tabla en una web</strong><span>Se copia y se pega, con cuidado con los formatos.</span></li>
+        <li class="escalera__peldano" style="--n:3"><strong>PDF con texto</strong><span>Se puede seleccionar, pero las columnas se descolocan. Tabula o un chatbot.</span></li>
+        <li class="escalera__peldano escalera__peldano--peor" style="--n:4"><strong>PDF escaneado o imagen</strong><span>Hay que reconocer los caracteres (OCR) y revisar cada cifra.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ DATOS SUCIOS ============ -->
+  <section class="bloque" id="perfil" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Datos sucios</p>
+      <h2 class="bloque__titulo aparece" data-parada>Perfilar antes de limpiar</h2>
+      <div class="bloque__texto aparece">
+        <p>Así llega de verdad la tabla de viviendas turísticas que usasteis limpia en la clase 2, y la de población con la que hay que cruzarla. Antes de tocar nada, se mira: cuántas filas hay, qué representa cada una y qué está mal.</p>
+      </div>
+      <div class="perfil aparece" data-perfil data-parada>
+        <div class="perfil__archivos">
+          <p class="perfil__archivo">viviendas_turisticas_ine_sucio.csv</p>
+          <ol class="crudo">
+            <li><span data-problema="filas">Viviendas turísticas por provincia. Mayo de 2026 y mayo de 2025</span></li>
+            <li>Provincias<span data-problema="separador">;</span>Viviendas turísticas mayo 2026<span data-problema="separador">;</span>Plazas mayo 2026<span data-problema="separador">;</span>Viviendas turísticas mayo 2025</li>
+            <li><span data-problema="filas">Total Nacional;341.001;1.714.702;381.837</span></li>
+            <li><span data-problema="codigo">01 </span><span data-problema="claves">Araba/Álava</span>;276;<span data-problema="miles">1.485</span>;368</li>
+            <li><span data-problema="codigo">07 </span><span data-problema="claves">Balears, Illes</span>;<span data-problema="miles">21.304</span>;<span data-problema="miles">134.282</span>;<span data-problema="miles">24.361</span></li>
+            <li><span data-problema="codigo">11 </span>Cádiz<span data-problema="espacios" class="crudo__espacio" title="espacio"> </span>;<span data-problema="miles">15.116</span>;<span data-problema="miles">73.667</span>;<span data-problema="miles">16.624</span></li>
+            <li><span data-problema="duplicados">29 Málaga;45.176;213.006;48.412</span></li>
+            <li><span data-problema="duplicados">29 Málaga;45.176;213.006;48.412</span></li>
+            <li class="crudo__tenue">…</li>
+            <li><span data-problema="filas">Fuente: INE. Estadística experimental. Medición del número de viviendas turísticas…</span></li>
+          </ol>
+          <p class="perfil__archivo">poblacion_provincias_sucio.csv</p>
+          <ol class="crudo">
+            <li>cod_provincia<span data-problema="separador">,</span>provincia<span data-problema="separador">,</span>poblacion_1_abril_2026</li>
+            <li><span data-problema="codigo">7</span>,<span data-problema="claves">Illes Balears</span>,1261890</li>
+            <li><span data-problema="codigo">11</span>,Cádiz,1267454</li>
+            <li><span data-problema="codigo">1</span>,<span data-problema="claves">Álava</span>,345448</li>
+            <li class="crudo__tenue">…</li>
+          </ol>
+        </div>
+        <div class="perfil__panel">
+          <p class="perfil__rotulo">Siete problemas. Pulsad cada uno:</p>
+          <div class="perfil__botones">
+            <button type="button" class="perfil__boton" data-problema="filas">Filas que no son datos</button>
+            <button type="button" class="perfil__boton" data-problema="separador">Separadores distintos</button>
+            <button type="button" class="perfil__boton" data-problema="miles">Puntos de miles</button>
+            <button type="button" class="perfil__boton" data-problema="codigo">Códigos pegados y sin cero</button>
+            <button type="button" class="perfil__boton" data-problema="espacios">Espacios invisibles</button>
+            <button type="button" class="perfil__boton" data-problema="duplicados">Filas duplicadas</button>
+            <button type="button" class="perfil__boton" data-problema="claves">Nombres que no coinciden</button>
+          </div>
+          <div class="perfil__explicaciones" aria-live="polite">
+            <p class="perfil__pista">Pulsad un problema para verlo marcado en los archivos.</p>
+            <div class="perfil__explica" data-problema="filas"><strong>Filas que no son datos.</strong> Un título, una fila de total y una nota de fuente. Si se quedan, el total se suma dos veces y la nota acaba como una provincia más.</div>
+            <div class="perfil__explica" data-problema="separador"><strong>Separadores distintos.</strong> Uno usa punto y coma y el otro, coma. Al importar hay que decirle a la hoja cuál es, o todo acaba en una sola columna.</div>
+            <div class="perfil__explica" data-problema="miles">
+              <strong>Puntos de miles.</strong> En España, «21.304» son veintiún mil; para un programa en inglés, veintiuno con algo. Comprobad que las cifras se alinean a la derecha: entonces son números.</div>
+            <div class="perfil__explica" data-problema="codigo"><strong>Códigos pegados y sin cero.</strong> En un archivo, el código va pegado al nombre («07 Balears»); en el otro, la hoja de cálculo se ha comido el cero («7»). El código es la mejor clave para cruzar, pero hay que separarlo y escribirlo igual en los dos.</div>
+            <div class="perfil__explica" data-problema="espacios"><strong>Espacios invisibles.</strong> «Cádiz » con un espacio al final no es «Cádiz». No se ve y rompe el cruce. La función ESPACIOS los quita.</div>
+            <div class="perfil__explica" data-problema="duplicados"><strong>Filas duplicadas.</strong> Málaga aparece dos veces. Si nadie lo mira, España tiene 45.176 viviendas turísticas más de las que tiene.</div>
+            <div class="perfil__explica" data-problema="claves"><strong>Nombres que no coinciden.</strong> Araba/Álava y Álava, Balears, Illes e Illes Balears, Girona y Gerona. La misma provincia escrita de dos formas no cruza. Por eso se cruza por código.</div>
+          </div>
+        </div>
+      </div>
+      <p class="bloque__nota">Los dos archivos se han ensuciado a propósito a partir de los datos limpios del INE, imitando lo que pasa al descargar tablas reales. Las cifras son las de verdad.</p>
+    </div>
+  </section>
+
+  <!-- ============ VERIFICAR EN CAPAS ============ -->
+  <section class="bloque bloque--blanco" id="capas" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Verificación</p>
+      <h2 class="bloque__titulo aparece" data-parada>Ninguna comprobación basta sola</h2>
+      <div class="bloque__texto aparece">
+        <p>En seguridad aérea y en los hospitales se usa el modelo del <strong>queso suizo</strong>: cada capa de control tiene agujeros, pero si se ponen varias seguidas, es difícil que un error las atraviese todas. Con los datos, y más con la IA, pasa lo mismo.</p>
+      </div>
+      <figure class="queso aparece" data-parada>
+        <svg viewBox="0 0 640 220" role="img" aria-label="Cuatro lonchas de queso con agujeros en sitios distintos. Una flecha que representa un error atraviesa las tres primeras por sus agujeros y se detiene en la cuarta.">
+          <defs>
+            <mask id="queso-agujeros-0"><rect x="0" y="0" width="90" height="160" fill="#fff"/><circle cx="45" cy="80" r="15" fill="#000"/><circle cx="25" cy="30" r="8" fill="#000"/><circle cx="62" cy="130" r="10" fill="#000"/></mask>
+            <mask id="queso-agujeros-1"><rect x="0" y="0" width="90" height="160" fill="#fff"/><circle cx="45" cy="80" r="15" fill="#000"/><circle cx="65" cy="35" r="9" fill="#000"/><circle cx="22" cy="125" r="7" fill="#000"/></mask>
+            <mask id="queso-agujeros-2"><rect x="0" y="0" width="90" height="160" fill="#fff"/><circle cx="45" cy="80" r="15" fill="#000"/><circle cx="20" cy="40" r="7" fill="#000"/><circle cx="60" cy="128" r="11" fill="#000"/></mask>
+            <mask id="queso-agujeros-3"><rect x="0" y="0" width="90" height="160" fill="#fff"/><circle cx="30" cy="35" r="9" fill="#000"/><circle cx="62" cy="125" r="12" fill="#000"/></mask>
+          </defs>
+          <line x1="10" y1="110" x2="484" y2="110" class="queso__error"/>
+          <path d="M474 102 L486 110 L474 118" class="queso__error queso__punta"/>
+          <g class="queso__capas">
+            <g transform="translate(70 30)"><path d="M0 12 Q0 0 12 0 L78 0 Q90 0 90 12 L90 148 Q90 160 78 160 L12 160 Q0 160 0 148 Z" class="queso__loncha" mask="url(#queso-agujeros-0)"/><circle cx="45" cy="80" r="15" class="queso__agujero"/><circle cx="25" cy="30" r="8" class="queso__agujero"/><circle cx="62" cy="130" r="10" class="queso__agujero"/></g>
+            <g transform="translate(210 30)"><path d="M0 12 Q0 0 12 0 L78 0 Q90 0 90 12 L90 148 Q90 160 78 160 L12 160 Q0 160 0 148 Z" class="queso__loncha" mask="url(#queso-agujeros-1)"/><circle cx="45" cy="80" r="15" class="queso__agujero"/><circle cx="65" cy="35" r="9" class="queso__agujero"/><circle cx="22" cy="125" r="7" class="queso__agujero"/></g>
+            <g transform="translate(350 30)"><path d="M0 12 Q0 0 12 0 L78 0 Q90 0 90 12 L90 148 Q90 160 78 160 L12 160 Q0 160 0 148 Z" class="queso__loncha" mask="url(#queso-agujeros-2)"/><circle cx="45" cy="80" r="15" class="queso__agujero"/><circle cx="20" cy="40" r="7" class="queso__agujero"/><circle cx="60" cy="128" r="11" class="queso__agujero"/></g>
+            <g transform="translate(490 30)"><path d="M0 12 Q0 0 12 0 L78 0 Q90 0 90 12 L90 148 Q90 160 78 160 L12 160 Q0 160 0 148 Z" class="queso__loncha queso__loncha--ultima" mask="url(#queso-agujeros-3)"/><circle cx="30" cy="35" r="9" class="queso__agujero"/><circle cx="62" cy="125" r="12" class="queso__agujero"/></g>
+          </g>
+          <text x="10" y="98" class="queso__rotulo">un error</text>
+          <text x="115" y="212" class="queso__capa-nombre" text-anchor="middle">1 · Fuente</text>
+          <text x="255" y="212" class="queso__capa-nombre" text-anchor="middle">2 · Procedimiento</text>
+          <text x="395" y="212" class="queso__capa-nombre" text-anchor="middle">3 · Prueba a mano</text>
+          <text x="535" y="212" class="queso__capa-nombre" text-anchor="middle">4 · Otra persona</text>
+        </svg>
+      </figure>
+      <div class="rejilla">
+        <article class="ficha aparece"><p class="ficha__antetitulo">Capa 1</p><p class="ficha__titulo">La fuente, adjunta</p><p class="ficha__ejemplo">Cada cifra va con el documento del que sale, no con «según el chatbot». Si no hay fuente, no hay cifra.</p></article>
+        <article class="ficha aparece" style="--retraso:1"><p class="ficha__antetitulo">Capa 2</p><p class="ficha__titulo">El procedimiento, a la vista</p><p class="ficha__ejemplo">Qué filas se quitaron y por qué, qué fórmula, qué código. Lo que no se puede revisar no está verificado.</p></article>
+        <article class="ficha aparece" style="--retraso:2"><p class="ficha__antetitulo">Capa 3</p><p class="ficha__titulo">Una prueba a mano</p><p class="ficha__ejemplo">Una fila calculada por vosotros, un total que cuadra con el del documento. Es la regla de la clase 2.</p></article>
+        <article class="ficha aparece" style="--retraso:3"><p class="ficha__antetitulo">Capa 4</p><p class="ficha__titulo">Otra persona</p><p class="ficha__ejemplo">Alguien que no hizo el trabajo y lo mira antes de emitir. En una redacción, esa capa no se salta.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRIVACIDAD ============ -->
+  <section class="bloque bloque--oscuro" id="privacidad" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Privacidad</p>
+      <h2 class="bloque__titulo aparece" data-parada>Qué se sube a un chatbot y qué no</h2>
+      <div class="bloque__texto aparece"><p>Lo que pegáis en un chatbot sale de vuestro ordenador. En las versiones gratuitas, además, puede usarse para entrenar el modelo. Antes de subir un archivo, clasificadlo.</p></div>
+      <div class="semaforo">
+        <article class="semaforo__item semaforo__item--verde aparece">
+          <p class="semaforo__nivel">Público</p>
+          <p class="semaforo__regla">Se puede subir</p>
+          <p>Tablas del INE o de Eurostat, el PDF del 112 que ya publicó la prensa, una nota de prensa.</p>
+        </article>
+        <article class="semaforo__item semaforo__item--ambar aparece" style="--retraso:1">
+          <p class="semaforo__nivel">Interno</p>
+          <p class="semaforo__regla">Solo con las herramientas que autorice el medio</p>
+          <p>Borradores de guion, datos que la redacción aún no ha publicado, la escaleta de mañana.</p>
+        </article>
+        <article class="semaforo__item semaforo__item--rojo aparece" style="--retraso:2">
+          <p class="semaforo__nivel">Sensible</p>
+          <p class="semaforo__regla">Nunca</p>
+          <p>Datos personales, fuentes, salud, menores, documentos filtrados, contraseñas.</p>
+        </article>
+      </div>
+      <div class="rejilla rejilla--2" style="margin-top:2.5rem">
+        <article class="ficha aparece">
+          <p class="ficha__antetitulo">Sin nombres no es anónimo</p>
+          <p class="ficha__titulo">Por qué la encuesta no pregunta edad ni género</p>
+          <p class="ficha__ejemplo">En una clase de 25, la provincia, la edad y el género juntos pueden señalar a una sola persona. Por eso se quedaron fuera de la encuesta del curso.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Público no es reproducible</p>
+          <p class="ficha__titulo">El PDF del 112 tiene personas dentro</p>
+          <p class="ficha__ejemplo">Algunas descripciones llevan edades, direcciones y horas. Se pueden contar los avisos; no hace falta copiar en pantalla quién pedía ayuda y desde dónde.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAPAS ============ -->
+  <section class="bloque bloque--blanco" id="mapas" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Concepto · Mapas</p>
+      <h2 class="bloque__titulo aparece" data-parada>Antes de pintar, dividir y cortar</h2>
+      <div class="bloque__texto aparece"><p>Un mapa es un gráfico más, y responde a una pregunta: ¿dónde? Tres tipos cubren casi todo lo que se ve en un informativo.</p></div>
+      <div class="rejilla">
+        <article class="ficha aparece">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><rect x="2" y="2" width="18" height="17" opacity="0.25"/><rect x="23" y="2" width="18" height="17" opacity="0.6"/><rect x="44" y="2" width="18" height="17"/><rect x="2" y="21" width="18" height="17" opacity="0.6"/><rect x="23" y="21" width="18" height="17" opacity="0.4"/><rect x="44" y="21" width="18" height="17" opacity="0.25"/></svg>
+          <p class="ficha__antetitulo">Coropletas</p>
+          <p class="ficha__titulo">Territorios coloreados</p>
+          <p class="ficha__ejemplo">Para tasas y porcentajes: viviendas turísticas por cada 1.000 habitantes. Con cifras absolutas, el mapa solo enseña dónde vive más gente.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><circle cx="14" cy="14" r="10" opacity="0.8"/><circle cx="40" cy="12" r="5" opacity="0.8"/><circle cx="50" cy="28" r="9" opacity="0.8"/><circle cx="26" cy="31" r="4" opacity="0.8"/></svg>
+          <p class="ficha__antetitulo">Símbolos proporcionales</p>
+          <p class="ficha__titulo">Círculos que crecen</p>
+          <p class="ficha__ejemplo">Para cifras absolutas: incidentes por municipio. El círculo es la cantidad; el área del territorio no importa.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:2">
+          <svg class="ficha__icono" viewBox="0 0 64 40" aria-hidden="true"><path d="M32 4c-7 0-12 5-12 11 0 9 12 21 12 21s12-12 12-21c0-6-5-11-12-11z"/><circle cx="32" cy="15" r="4" fill="#fff"/></svg>
+          <p class="ficha__antetitulo">Localizador</p>
+          <p class="ficha__titulo">¿Dónde está esto?</p>
+          <p class="ficha__ejemplo">Un punto en un mapa sencillo para situar la noticia. En la tele es el mapa más frecuente, y el más rápido de leer.</p>
+        </article>
+      </div>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>Los colores dependen de dónde cortéis</h3>
+      <div class="bloque__texto aparece"><p>En un mapa de coropletas, las 52 provincias se reparten en unos pocos colores. Dónde se pone cada corte cambia lo que cuenta el mapa. Cada punto es una provincia: viviendas turísticas por cada 1.000 habitantes.</p></div>
+      <div class="intervalos aparece" data-intervalos data-parada>
+        <div class="intervalos__botones" role="group" aria-label="Forma de cortar los intervalos">
+          <button type="button" class="intervalos__boton" data-metodo="iguales" aria-pressed="true">Intervalos iguales</button>
+          <button type="button" class="intervalos__boton" data-metodo="cuantiles" aria-pressed="false">Cuantiles</button>
+          <button type="button" class="intervalos__boton" data-metodo="redondos" aria-pressed="false">Cortes redondos</button>
+        </div>
+        <svg class="intervalos__grafico" viewBox="0 0 640 190" role="img" aria-label="Las 52 provincias según sus viviendas turísticas por cada 1.000 habitantes, coloreadas según el método de intervalos elegido."></svg>
+        <ul class="intervalos__leyenda"></ul>
+        <p class="intervalos__lectura" aria-live="polite"></p>
+        <p class="intervalos__error" data-error-grafico hidden>No se han podido cargar los datos.</p>
+      </div>
+      <p class="bloque__nota">Datos: INE, viviendas turísticas (mayo de 2026) y población a 1 de abril de 2026.</p>
+    </div>
+  </section>
+
+  <!-- ============ PRÁCTICA ============ -->
+  <section class="bloque" id="practica" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Práctica guiada · 60 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Primero a mano: limpiar, cruzar y pintar</h2>
+      <div class="bloque__texto aparece"><p>Los dos archivos sucios del perfil, en Google Sheets. Apuntad cuántas filas tenéis en cada paso: después se lo pediremos a la IA y compararemos.</p></div>
+      <a class="descarga aparece" href="../datos/sucios/viviendas_turisticas_ine_sucio.csv" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+        Descargar viviendas_turisticas_ine_sucio.csv
+      </a>
+      <a class="descarga aparece" href="../datos/sucios/poblacion_provincias_sucio.csv" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+        Descargar poblacion_provincias_sucio.csv
+      </a>
+      <ol class="pasos">
+        <li class="pasos__item aparece">Importad cada archivo en una pestaña: <em>Archivo › Importar › Subir</em>, con el separador que le toque a cada uno. ¿Cuántas filas tiene cada pestaña?</li>
+        <li class="pasos__item aparece">En la de viviendas, borrad las filas que no son provincias y buscad la duplicada (<em>Limpieza de datos › Quitar duplicados</em>). Tienen que quedar 52.</li>
+        <li class="pasos__item aparece">Separad el código del nombre: <code>=IZQUIERDA(A2;2)</code> y <code>=ESPACIOS(EXTRAE(A2;4;100))</code>. Comprobad que las cifras están alineadas a la derecha.</li>
+        <li class="pasos__item aparece">Cruzad <strong>por nombre</strong> con la población: <code>=BUSCARV(nombre;Población!B:C;2;FALSO)</code>. Contad los errores: <code>=SUMAPRODUCTO(--ESNOD(F2:F53))</code>. ¿Cuántas provincias no cruzan y por qué?</li>
+        <li class="pasos__item aparece">Ahora <strong>por código</strong>. En la pestaña de población, escribid el código con dos cifras: <code>=TEXTO(A2;"00")</code>. Repetid el BUSCARV con el código. ¿Cuántas fallan ahora?</li>
+        <li class="pasos__item aparece">Calculad la tasa por cada 1.000 habitantes y comprobad Málaga a mano: tiene que dar 24,8.</li>
+        <li class="pasos__item aparece">En Datawrapper: <em>Nuevo mapa › Coropletas › España › Provincias</em>. Pegad el código y la tasa, y probad los tres tipos de intervalos. ¿Con cuál se entiende mejor?</li>
+      </ol>
+      <p class="bloque__nota">Guardad el número de filas de cada paso y el de provincias que no cruzaban por nombre: son las cifras que vais a comprobar con la IA.</p>
+    </div>
+  </section>
+
+  <!-- ============ IA ============ -->
+  <section class="bloque bloque--blanco" id="ia" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">IA · Limpieza trazable</p>
+      <h2 class="bloque__titulo aparece" data-parada>Que la IA limpie, pero que lo cuente</h2>
+      <div class="bloque__texto aparece">
+        <p>Un chatbot limpia una tabla en segundos y no avisa de lo que se ha llevado por delante. La regla: que primero describa los datos, que proponga las reglas y que espere a que digáis que sí. Y al final, que cuente las filas que entraron, las que salieron y las que no cruzaron.</p>
+        <p>Tenéis ventaja: ya lo habéis hecho a mano y sabéis cuántas filas tiene que haber.</p>
+      </div>
+      <div class="prompt aparece" data-parada>
+        <div class="prompt__cabecera"><span>Receta 6 · Perfila, propón y espera</span><button class="prompt__copiar" type="button">Copiar</button></div>
+        <pre class="prompt__texto">Adjunto dos CSV: viviendas turísticas por provincia (INE) y población por provincia. Quiero cruzarlos para calcular viviendas turísticas por cada 1.000 habitantes.
+
+Antes de limpiar nada:
+1. Describe cada archivo: cuántas filas tiene, qué representa una fila, qué tipo de dato hay en cada columna y qué problemas ves.
+2. Propón las reglas de limpieza, numeradas, y por qué cada una.
+<mark>3. Para aquí y espera a que te diga qué reglas apruebo.</mark>
+
+Cuando las apruebe, aplícalas con código y dime:
+- cuántas filas había, cuántas has quitado y por qué cada una,
+- qué filas no cruzan entre los dos archivos y por qué,
+- la tasa de Málaga, paso a paso, para que la compruebe a mano.</pre>
+      </div>
+      <div class="prompt aparece" data-parada>
+        <div class="prompt__cabecera"><span>Receta 7 · Saca la tabla de este PDF</span><button class="prompt__copiar" type="button">Copiar</button></div>
+        <pre class="prompt__texto">Adjunto un informe en PDF. En la página 2 hay una tabla con las llamadas recibidas y los incidentes gestionados por hora.
+
+Pásala a una tabla con tres columnas: hora, llamadas_recibidas, incidentes_gestionados. Usa números sin punto de miles.
+
+Después, para que pueda verificarla:
+- suma cada columna y compárala con la fila de totales del propio documento,
+- dime si alguna cifra no se leía bien o la has tenido que deducir.
+
+<mark>No completes ni corrijas nada por tu cuenta: si un valor no se lee, déjalo vacío y avísame.</mark></pre>
+      </div>
+      <p class="bloque__nota">Tabula hace lo mismo sin IA y sin subir el archivo a ningún sitio: <a href="https://tabula.technology/" target="_blank" rel="noopener noreferrer">tabula.technology</a>. Sirve para documentos que no se deben compartir.</p>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>¿Coincide con lo vuestro?</h3>
+      <div class="bloque__texto aparece"><p>Usad la receta 6 con los dos archivos sucios y comparad sus cuentas con las vuestras.</p></div>
+      <div class="tabla-scroll aparece" data-parada>
+        <table class="tabla">
+          <thead><tr><th>Comprobación</th><th>A mano</th><th>Chatbot</th><th>¿Coinciden?</th></tr></thead>
+          <tbody>
+            <tr><td>Filas de provincias tras limpiar</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Provincias que no cruzan por nombre</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Provincias que no cruzan por código</td><td>…</td><td>…</td><td>…</td></tr>
+            <tr><td>Tasa de Málaga</td><td>…</td><td>…</td><td>…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="bloque__subtitulo aparece" data-parada>¿Lo subirías?</h3>
+      <div class="bloque__texto aparece"><p>Siete situaciones de limpieza y privacidad. ¿Verdadero o falso? Votad en clase antes de pulsar.</p></div>
+      <div class="test aparece" data-test>
+        <p class="test__cabecera">Datos sucios y privacidad · verdadero o falso</p>
+        <ol class="test__lista">
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Si un archivo no tiene nombres ni DNI, es anónimo y se puede subir a cualquier chatbot.</p>
+            <div class="test__explicacion"><p>La provincia, la edad y el género juntos pueden identificar a una persona en un grupo pequeño. Anónimo es que no se pueda saber quién es, no que no ponga su nombre.</p></div>
+          </li>
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">Una tabla publicada por el INE se puede subir a un chatbot gratuito.</p>
+            <div class="test__explicacion"><p>Es información pública. Lo que hay que verificar es lo que el chatbot hace con ella, no si se puede subir.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Si el chatbot dice que ha limpiado los datos, basta con revisar que la tabla final tiene buen aspecto.</p>
+            <div class="test__explicacion"><p>Una tabla limpia puede haber perdido filas por el camino. Hay que pedir cuántas había, cuántas quitó y por qué cada una.</p></div>
+          </li>
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">Que una provincia no cruce entre dos tablas puede deberse a cómo está escrita, no a que falte el dato.</p>
+            <div class="test__explicacion"><p>Gerona y Girona, «Cádiz » con un espacio. Antes de decir que falta un dato, mirad cómo se escribe la clave en los dos archivos.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Para cruzar dos tablas de provincias, el nombre es mejor clave que el código.</p>
+            <div class="test__explicacion"><p>Al revés. Un nombre se escribe de muchas formas; un código, de una sola, siempre que no se pierda el cero de delante.</p></div>
+          </li>
+          <li class="test__item" data-correcta="f" data-parada="centro">
+            <p class="test__frase">Se puede pegar en un chatbot gratuito el borrador del guion de mañana, con datos que aún no se han publicado, para que lo revise.</p>
+            <div class="test__explicacion"><p>Es información interna. Solo con las herramientas que autorice el medio, y la versión gratuita de un chatbot normalmente no lo es.</p></div>
+          </li>
+          <li class="test__item" data-correcta="v" data-parada="centro">
+            <p class="test__frase">Al sacar una tabla de un PDF con IA, sumar las columnas y compararlas con el total del documento es una forma de verificarla.</p>
+            <div class="test__explicacion"><p>Si la suma cuadra con el total impreso, es difícil que falte o sobre una cifra. Es la capa 3 del queso.</p></div>
+          </li>
+        </ol>
+        <div class="test__final" data-parada>
+          <p class="test__marcador" aria-live="polite"></p>
+          <p class="test__moraleja">Dos preguntas antes de usar IA con datos: <strong>¿puedo subir esto?</strong> y <strong>¿cómo voy a comprobar lo que me devuelve?</strong></p>
+          <button class="test__repetir" type="button">Repetir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RETO ============ -->
+  <section class="bloque bloque--acento" id="reto" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Reto en grupos · 75 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Antes de la alerta</h2>
+      <div class="bloque__texto aparece">
+        <p>Volvemos al gancho: ¿cuántos avisos por la dana había gestionado el 112 cuando sonó la alerta en los móviles? Tenéis el PDF original y una tabla de incidentes cada diez minutos sacada de él.</p>
+      </div>
+      <a class="descarga aparece" href="../datos/112_informe_llamadas_dana_29oct2024.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+        Descargar el informe del 112 (PDF, 2 MB)
+      </a>
+      <a class="descarga aparece" href="../datos/112_incidentes_dana_valencia_29oct2024_10min.csv" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>
+        Descargar 112_incidentes_dana_valencia_29oct2024_10min.csv
+      </a>
+      <ol class="pasos">
+        <li class="pasos__item aparece"><strong>Leed el documento.</strong> Las páginas 1 y 2 explican qué es una llamada y qué es un incidente. ¿Por qué hay muchas más llamadas que incidentes?</li>
+        <li class="pasos__item aparece"><strong>Sacad la tabla de la página 2</strong> con la receta 7 y verificadla con su fila de totales. ¿Por qué sus incidentes no coinciden con los 2.342 del CSV? Pista: mirad qué cuenta cada uno y en qué territorio.</li>
+        <li class="pasos__item aparece"><strong>Perfilad el CSV.</strong> ¿Qué representa una fila? ¿Cuántas debería tener un día de diez en diez minutos desde las 5:00 y cuántas tiene? ¿Qué significa un intervalo que falta?</li>
+        <li class="pasos__item aparece"><strong>Calculad el acumulado</strong> en una columna nueva. ¿Cuántos incidentes había hasta las 20:10? ¿Y al final del día?</li>
+        <li class="pasos__item aparece"><strong>Comprobad la hora de la alerta</strong> en dos medios distintos. Es una cifra más de vuestra pieza y también lleva fuente.</li>
+        <li class="pasos__item aparece"><strong>Haced el gráfico</strong> en Datawrapper: una línea del acumulado con la hora como fecha (para que los huecos ocupen su tiempo) y una anotación en la hora de la alerta.</li>
+        <li class="pasos__item aparece"><strong>Escribid el titular</strong> y una frase para la tele que diga exactamente qué se ha contado: incidentes, no llamadas; provincia de Valencia, no toda la Comunitat.</li>
+      </ol>
+
+      <details class="solucion aparece" data-parada data-solucion="clase4-reto">
+        <summary>Solución: abrir cuando todos los grupos tengan su cifra</summary>
+        <div class="solucion__cuerpo">
+          <div class="solucion__cifras">
+            <p><b>1.199</b> incidentes hasta las 20:10, contando con el CSV de diez en diez minutos</p>
+            <p><b>1.202</b> hasta las 20:11, contando al segundo con el listado del PDF</p>
+            <p><b>51 %</b> de los 2.342 incidentes de todo el día</p>
+          </div>
+          <ul>
+            <li><strong>Llamadas e incidentes no son lo mismo.</strong> Un puente caído es un incidente y puede generar decenas de llamadas. La tabla de la página 2 suma 19.821 llamadas y 4.770 incidentes, pero de <em>todo tipo</em> y en <em>toda la Comunitat Valenciana</em>. El CSV cuenta solo los incidentes clasificados como fenómeno natural en la provincia de Valencia.</li>
+            <li><strong>El CSV tiene 108 filas y no 114.</strong> Faltan seis intervalos (de 5:20 a 5:50, 11:00 y 11:30) porque en ellos no hubo ningún incidente. Si se dibuja con las horas como categorías, esos huecos desaparecen y la curva se deforma. Es la misma trampa del eje temporal de la clase 3.</li>
+            <li><strong>El primer aviso</strong> se registró a las 5:03, en Cofrentes, más de quince horas antes de la alerta.</li>
+            <li><strong>Rescates:</strong> de los 1.379 incidentes clasificados como rescate en todo el día, 474 llegaron antes de las 20:11.</li>
+          </ul>
+          <p><strong>Titular posible:</strong> «Cuando sonó la alerta, el 112 ya había gestionado más de 1.200 avisos por la dana en la provincia de Valencia».</p>
+          <p class="solucion__fuente">Cálculo propio a partir del listado de incidentes del informe del 112 de la Comunitat Valenciana al juzgado (febrero de 2025).</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ AL AIRE ============ -->
+  <section class="bloque bloque--oscuro" id="al-aire" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Al aire · 30 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Una curva y una hora</h2>
+      <div class="bloque__texto aparece"><p>Cada grupo presenta su gráfico y su frase en 20 segundos. Después, comparad con esta versión: ¿habéis contado lo mismo? ¿Habéis dicho «incidentes» o «llamadas»?</p></div>
+      <div class="aparece" data-parada data-solucion="clase4-reto">
+        <div class="pantalla-tv" role="img" aria-label="Simulación de un gráfico de televisión. Curva de incidentes acumulados gestionados por el 112 el 29 de octubre de 2024 en la provincia de Valencia. A las 20:11, cuando sonó la alerta, ya había más de 1.200 de los 2.342 del día.">
+          <div class="pantalla-tv__segura" aria-hidden="true"></div>
+          <div class="pantalla-tv__grafico pantalla-tv__grafico--linea" aria-hidden="true">
+            <p class="pantalla-tv__cifra">1.202<small class="pantalla-tv__subcifra">de 2.342 en todo el día</small></p>
+            <svg class="pantalla-tv__curva" viewBox="0 0 400 190" data-curva-112></svg>
+          </div>
+          <div class="pantalla-tv__rotulo" aria-hidden="true">
+            <span class="pantalla-tv__marca">DANA</span>
+            <span class="pantalla-tv__texto">Más de 1.200 avisos antes de que sonara la alerta</span>
+          </div>
+          <p class="pantalla-tv__fuente" aria-hidden="true">Fuente: 112 Comunitat Valenciana, informe al juzgado · Incidentes por fenómeno natural, provincia de Valencia</p>
+        </div>
+        <p class="locucion">El 29 de octubre, el 112 empezó a recibir avisos por la lluvia a las cinco de la mañana. Cuando a las ocho y once de la tarde sonó la alerta en los móviles, ya había gestionado más de 1.200 incidentes en la provincia de Valencia: más de la mitad de los de todo el día.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="bloque bloque--oscuro" id="cierre" data-seccion data-tono="oscuro" style="padding-top:0">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Cierre · 5 min</p>
+      <h2 class="bloque__titulo aparece" data-parada>Tres ideas para llevarse</h2>
+      <div class="resumen">
+        <div class="resumen__item aparece"><p class="resumen__num">1</p><p class="resumen__texto">Antes de limpiar, contad las filas. Después, también.</p></div>
+        <div class="resumen__item aparece" style="--retraso:1"><p class="resumen__num">2</p><p class="resumen__texto">Se cruza por código, no por nombre. Y lo que no cruza se cuenta.</p></div>
+        <div class="resumen__item aparece" style="--retraso:2"><p class="resumen__num">3</p><p class="resumen__texto">Antes de subir un archivo a un chatbot, preguntad si se puede.</p></div>
+      </div>
+
+      <div class="rejilla rejilla--2" style="margin-top:3rem">
+        <article class="ficha aparece">
+          <p class="ficha__antetitulo">Recetas de IA de hoy</p>
+          <p class="ficha__titulo">Perfila y espera; saca la tabla y súmala</p>
+          <p class="ficha__ejemplo">La IA describe y propone, vosotros aprobáis. Y cada tabla extraída se verifica contra su propio total.</p>
+        </article>
+        <article class="ficha aparece" style="--retraso:1">
+          <p class="ficha__antetitulo">Para practicar en casa</p>
+          <p class="ficha__titulo">Un PDF de vuestro ayuntamiento</p>
+          <p class="ficha__ejemplo">Buscad un presupuesto, un informe o unas estadísticas en PDF de vuestro municipio y sacad una tabla con Tabula o con la receta 7. ¿Cuadran los totales?</p>
+        </article>
+      </div>
+
+      <div class="lecturas aparece">
+        <h3 class="lecturas__titulo">Para leer más</h3>
+        <p class="lecturas__intro">Lecturas para seguir por vuestra cuenta: la bibliografía del curso y algunos casos reales.</p>
+        <p class="lecturas__grupo">Datos, IA y verificación</p>
+        <ul class="lecturas__lista">
+          <li><a class="lecturas__enlace" href="https://www.rtve.es/noticias/20260909/informes-desclasificados-ceuta-crisis-migratoria-buscador-ia/17217877.shtml" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">Buscador de los informes sobre Ceuta</span>
+              <span class="lecturas__autor">RTVE, septiembre de 2026</span><span class="lecturas__idioma lecturas__idioma--rtve">DatosRTVE</span>
+              <span class="lecturas__para">Cientos de páginas escaneadas convertidas en un buscador: reconocimiento de texto, extracción con IA y revisión humana de cada resultado.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/la-aepd-publica-un-decalogo-para-delegar-tareas-en-asistentes" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">Decálogo para delegar tareas en asistentes y agentes de IA</span>
+              <span class="lecturas__autor">Agencia Española de Protección de Datos</span>
+              <span class="lecturas__para">Diez pautas para usar asistentes de IA sin perder el control de los datos personales.</span>
+            </a></li>
+        </ul>
+        <p class="lecturas__grupo">Mapas</p>
+        <ul class="lecturas__lista">
+          <li><a class="lecturas__enlace" href="http://www.ericson.net/content/2011/10/when-maps-shouldnt-be-maps/" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">When Maps Shouldn’t Be Maps</span>
+              <span class="lecturas__autor">Matthew Ericson</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">Cuándo un mapa no es el mejor gráfico, aunque los datos sean geográficos.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://www.datawrapper.de/blog/choroplethmaps" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">What to consider when creating choropleth maps</span>
+              <span class="lecturas__autor">Datawrapper</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">Tasas frente a absolutos, intervalos y colores: todo lo de esta clase, con ejemplos.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://www.datawrapper.de/docs/how-to-create-a-symbol-map" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">How to create a symbol map</span>
+              <span class="lecturas__autor">Datawrapper</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">Paso a paso para el mapa de círculos, el que toca con cifras absolutas.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://your.kingcounty.gov/GIS/ClientServices/URISA/NCGIS2019/URISA_CartographyWorkshop_NCGIS-2019.pdf" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">Cartography &amp; Map Design. How to Make a Successful Map</span>
+              <span class="lecturas__autor">Patrick Jankanish · URISA</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">Un taller de cartografía para quien quiera ir más allá: jerarquía visual, color y tipografía en los mapas.</span>
+            </a></li>
+        </ul>
+      </div>
+
+      <div class="siguiente aparece" data-parada>
+        <p class="siguiente__titulo"><small>Próxima clase</small>Al aire: proyecto final</p>
+        <p>De una pregunta sobre vuestra vida a una pieza de televisión de un minuto, con cada cifra verificada.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
