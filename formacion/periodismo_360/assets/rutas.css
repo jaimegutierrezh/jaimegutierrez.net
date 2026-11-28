@@ -34,6 +34,11 @@
 }
 .etapa strong { color: var(--e-fuerte); }
 .etapa a:not([class]) { color: var(--e-acento); }
+/* Fichas dentro de una etapa: toman los colores de la etapa (en las oscuras, tarjeta oscura) */
+.etapa .ficha { background: var(--e-tarjeta); border-color: var(--e-linea); color: var(--e-texto); }
+.etapa .ficha__antetitulo { color: var(--e-suave); }
+.etapa .ficha__titulo { color: var(--e-fuerte); }
+.etapa .ficha:hover, .etapa .ficha:focus-visible { border-color: var(--e-acento); }
 
 /* I. Papel y tinta: grano de papel y filetes de grabado */
 .etapa--papel {
