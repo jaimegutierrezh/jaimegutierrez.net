@@ -347,6 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Los botones los pone el JS. Al responder se marca acierto o fallo y se
   // muestra la explicación. Sin JS, las explicaciones se ven directamente.
   // Otras respuestas: data-test="emite:Se emite|corrige:Se corrige|cae:Se cae"
+  // Con data-votacion="id", en clase se vota sin ver la solución (APERTURAS).
   document.querySelectorAll('[data-test]').forEach(test => {
     const items = [...test.querySelectorAll('.test__item')];
     const marcador = test.querySelector('.test__marcador');
@@ -366,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
         b.dataset.respuesta = valor;
         b.textContent = texto;
         b.setAttribute('aria-pressed', 'false');
-        b.addEventListener('click', () => responder(item, valor));
+        b.addEventListener('click', () => pulsar(item, valor));
         botones.append(b);
       });
       const veredicto = document.createElement('p');
@@ -377,7 +378,19 @@ document.addEventListener('DOMContentLoaded', () => {
       item.querySelector('.test__frase').after(botones);
     });
 
-    function responder(item, valor) {
+    // En votación (ver APERTURAS) el clic solo marca el voto, sin corregir
+    function pulsar(item, valor) {
+      if (test.classList.contains('is-votando')) {
+        item.dataset.voto = valor;
+        item.querySelectorAll('.test__boton').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.respuesta === valor)));
+        api.alVotar?.();
+        return;
+      }
+      responder(item, valor);
+    }
+
+    // quien: 'La clase' cuando se responde con lo más votado
+    function responder(item, valor, quien) {
       if (item.dataset.respondida) return;
       const acierto = valor === item.dataset.correcta;
       item.dataset.respondida = acierto ? 'acierto' : 'fallo';
@@ -389,7 +402,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const correcta = test.dataset.test
         ? nombre[item.dataset.correcta].toLowerCase()
         : 'es ' + (item.dataset.correcta === 'v' ? 'verdadera' : 'falsa');
-      item.querySelector('.test__veredicto').textContent = acierto ? `Bien: ${correcta}.` : `No: ${correcta}.`;
+      const texto = acierto ? `Bien: ${correcta}.` : `No: ${correcta}.`;
+      item.querySelector('.test__veredicto').textContent = quien ? `${quien}: ${nombre[valor].toLowerCase()}. ${texto}` : texto;
+      test.dataset.quien = quien || '';
       actualizar();
     }
 
@@ -399,25 +414,106 @@ document.addEventListener('DOMContentLoaded', () => {
       const completo = hechas.length === items.length;
       test.classList.toggle('is-completo', completo);
       if (final) final.hidden = !completo;
-      if (marcador) marcador.textContent = completo ? `${aciertos} de ${items.length} aciertos` : '';
+      if (marcador) {
+        marcador.textContent = !completo ? ''
+          : test.dataset.quien ? `${test.dataset.quien} acertó ${aciertos} de ${items.length}`
+          : `${aciertos} de ${items.length} aciertos`;
+      }
     }
 
-    test.querySelector('.test__repetir')?.addEventListener('click', () => {
+    function reiniciar() {
       items.forEach(item => {
         delete item.dataset.respondida;
         item.querySelector('.test__veredicto').textContent = '';
         item.querySelectorAll('.test__boton').forEach(b => {
           b.disabled = false;
-          b.setAttribute('aria-pressed', 'false');
+          b.setAttribute('aria-pressed', String(test.classList.contains('is-votando') && b.dataset.respuesta === item.dataset.voto));
           b.classList.remove('is-correcta');
         });
       });
+      test.dataset.quien = '';
       actualizar();
+    }
+
+    test.querySelector('.test__repetir')?.addEventListener('click', () => {
+      reiniciar();
       items[0].scrollIntoView({ behavior: reducir() ? 'auto' : 'smooth', block: 'center' });
     });
 
+    const api = { items, opciones, nombre, responder, reiniciar, alVotar: null };
+    test.cursoTest = api;
     test.classList.add('is-activo');
     actualizar();
+  });
+
+  // ---- TEMPORIZADOR ----
+  // <div class="temporizador" data-temporizador="300" data-etiqueta="…"></div>
+  // Cuenta atrás visible con Empezar / Pausar / Seguir y Reiniciar. Se calcula
+  // contra el reloj (no sumando ticks) para que no se retrase. Sin JS no se ve.
+  document.querySelectorAll('[data-temporizador]').forEach(caja => {
+    const total = Math.max(1, parseInt(caja.dataset.temporizador, 10) || 300);
+    caja.innerHTML = `
+      <p class="temporizador__etiqueta"></p>
+      <p class="temporizador__tiempo" role="timer" aria-live="off"></p>
+      <div class="temporizador__botones">
+        <button type="button" class="temporizador__boton temporizador__boton--principal"></button>
+        <button type="button" class="temporizador__boton" data-reiniciar>Reiniciar</button>
+      </div>
+      <p class="temporizador__aviso" aria-live="assertive"></p>`;
+    caja.querySelector('.temporizador__etiqueta').textContent = caja.dataset.etiqueta || 'Tiempo';
+    const tiempo = caja.querySelector('.temporizador__tiempo');
+    const principal = caja.querySelector('.temporizador__boton--principal');
+    const reiniciar = caja.querySelector('[data-reiniciar]');
+    const aviso = caja.querySelector('.temporizador__aviso');
+    let quedan = total * 1000, fin = null, intervalo = null;
+
+    const formato = ms => {
+      const s = Math.ceil(ms / 1000);
+      return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+    };
+    function pintar() {
+      const restante = fin ? Math.max(0, fin - Date.now()) : quedan;
+      tiempo.textContent = formato(restante);
+      caja.classList.toggle('is-ultimos', restante > 0 && restante <= 30000);
+      if (fin && restante === 0) terminar();
+    }
+    function terminar() {
+      clearInterval(intervalo);
+      intervalo = null; fin = null; quedan = 0;
+      caja.classList.remove('is-corriendo', 'is-ultimos');
+      caja.classList.add('is-fin');
+      principal.textContent = 'Otra vez';
+      aviso.textContent = '¡Tiempo!';
+    }
+    function estado(nuevo) {
+      caja.classList.toggle('is-corriendo', nuevo === 'corriendo');
+      principal.textContent = { parado: 'Empezar', corriendo: 'Pausar', pausado: 'Seguir' }[nuevo];
+    }
+    function poner(ms) {
+      clearInterval(intervalo);
+      intervalo = null; fin = null; quedan = ms;
+      caja.classList.remove('is-fin', 'is-corriendo');
+      aviso.textContent = '';
+      estado('parado');
+      pintar();
+    }
+
+    principal.addEventListener('click', () => {
+      if (caja.classList.contains('is-fin')) poner(total * 1000);
+      if (fin) {                       // pausar
+        quedan = Math.max(0, fin - Date.now());
+        fin = null;
+        clearInterval(intervalo); intervalo = null;
+        estado('pausado');
+      } else {                         // empezar o seguir
+        fin = Date.now() + quedan;
+        intervalo = setInterval(pintar, 250);
+        estado('corriendo');
+      }
+      pintar();
+    });
+    reiniciar.addEventListener('click', () => poner(total * 1000));
+    poner(total * 1000);
   });
 
   // ---- VISTA DEL PROFESOR ----
@@ -532,6 +628,202 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Votaciones de los tests (solo en clase, con ?grupo=):
+  // <div class="test" data-test data-votacion="clase5-gancho">
+  // Mientras no se resuelve, cada alumno vota sin ver la solución y su voto se
+  // guarda en el script, anónimo (un identificador aleatorio del navegador).
+  // El profesor ve el reparto en directo, con lo más votado marcado, y la
+  // resuelve con el mismo mecanismo que las soluciones: su página responde con
+  // lo que ha votado la clase y la de cada alumno, con lo suyo y el reparto.
+  // Si el script no admite votos (versión antigua), el test funciona como siempre.
+  let servidorVotos = null;
+  if (grupoUrl && endpoint) {
+    let votante = CURSO_UTIL.leer('curso-votante');
+    if (!/^v[a-z0-9]{11,39}$/.test(votante || '')) {
+      votante = 'v' + Array.from(crypto.getRandomValues(new Uint8Array(15)), b => (b % 36).toString(36)).join('');
+      CURSO_UTIL.guardar('curso-votante', votante);
+    }
+    document.querySelectorAll('.test[data-votacion]').forEach(test => {
+      const api = test.cursoTest;
+      const id = test.dataset.votacion;
+      if (!api || !valido(id)) return;
+
+      const claveLocal = `curso-voto-${grupoUrl}-${id}`;
+      let guardados = {};
+      try { guardados = JSON.parse(CURSO_UTIL.leer(claveLocal) || '{}') || {}; } catch (e) { guardados = {}; }
+      api.items.forEach((item, i) => { if (guardados[i]) item.dataset.voto = guardados[i]; });
+
+      const estado = document.createElement('div');
+      estado.className = 'test__estado';
+      const estadoTexto = document.createElement('p');
+      estadoTexto.setAttribute('aria-live', 'polite');
+      estado.append(estadoTexto);
+      test.querySelector('.test__lista').before(estado);
+      const boton = esProfesor ? botonProfesor('test__resolver', id) : null;
+      if (boton) estado.append(boton);
+      const repartos = api.items.map(item => {
+        const r = document.createElement('div');
+        r.className = 'test__reparto';
+        r.hidden = true;
+        item.querySelector('.test__botones').after(r);
+        return r;
+      });
+
+      let abierta = null;      // null: todavía no se sabe
+      let reparto = null;      // { n, reparto: { '0': { cae: 3, … }, … } }
+      let envio = null, sondeo = null, ultimoEnvio = '';
+
+      async function leerReparto() {
+        const q = new URLSearchParams({ accion: 'votos', grupo: grupoUrl, id });
+        if (esProfesor) q.set('clave', clave);
+        const json = await (await fetch(`${endpoint}?${q}`)).json();
+        if (!json.ok) throw new Error(json.error);
+        reparto = json;
+      }
+
+      function masVotada(i) {
+        const cuenta = reparto?.reparto?.[i] || {};
+        let mejor = null, max = 0, empate = false;
+        api.opciones.forEach(([valor]) => {
+          const n = cuenta[valor] || 0;
+          if (n > max) { max = n; mejor = valor; empate = false; }
+          else if (n && n === max) empate = true;
+        });
+        return { valor: mejor, empate };
+      }
+
+      function pintarReparto() {
+        const ver = Boolean(reparto) && (esProfesor || abierta);
+        api.items.forEach((item, i) => {
+          const cuenta = reparto?.reparto?.[i] || {};
+          const total = Object.values(cuenta).reduce((a, b) => a + b, 0);
+          const mayoria = masVotada(i).valor;
+          const r = repartos[i];
+          r.textContent = '';
+          r.hidden = !ver || !total;
+          item.querySelectorAll('.test__boton').forEach(b =>
+            b.classList.toggle('is-mas-votada', esProfesor && !abierta && b.dataset.respuesta === mayoria));
+          if (r.hidden) return;
+          api.opciones.forEach(([valor, texto]) => {
+            const n = cuenta[valor] || 0;
+            const fila = document.createElement('p');
+            fila.className = 'test__reparto-fila' + (valor === mayoria ? ' is-mayoria' : '');
+            fila.style.setProperty('--p', total ? n / total : 0);
+            fila.innerHTML = '<span class="test__reparto-texto"></span><span class="test__reparto-barra" aria-hidden="true"></span><span class="test__reparto-n"></span>';
+            fila.querySelector('.test__reparto-texto').textContent = texto;
+            fila.querySelector('.test__reparto-n').textContent = `${n} · ${Math.round(total ? n / total * 100 : 0)} %`;
+            r.append(fila);
+          });
+        });
+      }
+
+      function pintarEstado(nuevoEnvio) {
+        if (nuevoEnvio !== undefined) ultimoEnvio = nuevoEnvio;
+        const n = reparto?.n || 0;
+        const personas = `${n} ${n === 1 ? 'persona' : 'personas'}`;
+        let t;
+        if (abierta) {
+          t = esProfesor ? `Resuelta con lo que ha votado la clase (${personas}).`
+            : n ? `Resuelta. Debajo de cada frase, lo que votó la clase (${personas}).` : 'Resuelta.';
+        } else if (esProfesor) {
+          t = `Votación en marcha: han votado ${personas}. Lo más votado se marca en cada frase. Los alumnos no verán la solución hasta que la resolváis.`;
+        } else {
+          const votadas = api.items.filter(i => i.dataset.voto).length;
+          t = `Votación en marcha: elegid una opción en cada frase (${votadas} de ${api.items.length}). Podéis cambiarla hasta que el profesor la resuelva.`;
+          t += { enviando: ' Enviando…', enviado: ' Voto guardado.', error: ' No se ha podido enviar; se reintentará.', tarde: ' La votación ya está resuelta.' }[ultimoEnvio] || '';
+        }
+        estadoTexto.textContent = t;
+        estado.classList.toggle('is-resuelta', Boolean(abierta));
+      }
+
+      async function enviar() {
+        clearTimeout(envio);
+        if (abierta !== false || !Object.keys(guardados).length) return;
+        try {
+          const resp = await fetch(endpoint, {
+            method: 'POST',
+            body: JSON.stringify({ accion: 'voto', grupo: grupoUrl, id, votante, respuestas: guardados }),
+          });
+          const json = await resp.json();
+          pintarEstado(json.ok ? 'enviado' : json.error === 'resuelta' ? 'tarde' : 'error');
+          if (!json.ok && json.error !== 'resuelta') envio = setTimeout(enviar, 5000);
+        } catch (e) {
+          pintarEstado('error');
+          envio = setTimeout(enviar, 5000);
+        }
+      }
+
+      api.alVotar = () => {
+        if (esProfesor) return;
+        api.items.forEach((item, i) => { if (item.dataset.voto) guardados[i] = item.dataset.voto; });
+        CURSO_UTIL.guardar(claveLocal, JSON.stringify(guardados));
+        pintarEstado('enviando');
+        clearTimeout(envio);
+        envio = setTimeout(enviar, 500);
+      };
+
+      // El profesor sigue el reparto mientras se vota
+      async function seguirReparto() {
+        clearTimeout(sondeo);
+        if (abierta !== false) return;
+        if (!document.hidden) {
+          try { await leerReparto(); } catch (e) { /* se reintenta */ }
+          if (abierta !== false) return;
+          pintarReparto();
+          pintarEstado();
+        }
+        sondeo = setTimeout(seguirReparto, 4000);
+      }
+
+      async function poner(nueva) {
+        if (nueva === abierta) return;
+        abierta = nueva;
+        test.classList.toggle('is-votando', !abierta);
+        api.reiniciar();
+        if (!abierta) {
+          if (esProfesor) {
+            test.querySelectorAll('.test__boton').forEach(b => { b.disabled = true; });
+            seguirReparto();
+          } else if (ultimoEnvio === '' && Object.keys(guardados).length) {
+            enviar();   // votos guardados en el navegador que quizá no llegaron
+          }
+          pintarReparto();
+          pintarEstado();
+          return;
+        }
+        clearTimeout(sondeo);
+        clearTimeout(envio);
+        try { await leerReparto(); } catch (e) { reparto = null; }
+        if (abierta !== true) return;
+        api.reiniciar();
+        pintarReparto();
+        api.items.forEach((item, i) => {
+          if (esProfesor) {
+            const m = masVotada(i);
+            if (!m.valor) return;
+            api.responder(item, m.valor, 'La clase');
+            if (m.empate) item.querySelector('.test__veredicto').append(' Hubo empate.');
+          } else if (item.dataset.voto) {
+            api.responder(item, item.dataset.voto);
+          }
+        });
+        pintarEstado();
+      }
+
+      piezas.push({
+        id,
+        poner(ab) {
+          // Sin votaciones en el script, el test funciona como siempre
+          poner(ab || servidorVotos === false);
+          if (!boton) return;
+          boton.dataset.abrir = ab ? '0' : '1';
+          boton.textContent = ab ? 'Volver a abrir la votación' : 'Resolver con lo que ha votado la clase';
+        },
+        cerrada: () => abierta === false,
+      });
+    });
+  }
+
   function pintarAperturas(abiertas) {
     piezas.forEach(p => p.poner(abiertas.includes(p.id)));
   }
@@ -565,6 +857,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
           const resp = await fetch(`${endpoint}?accion=soluciones&grupo=${encodeURIComponent(grupoAp)}`);
           const json = await resp.json();
+          if (json.ok) servidorVotos = Boolean(json.votos);
           if (json.ok) pintarAperturas(json.abiertas);
           else if (primera) pintarAperturas(todas);
         } catch (e) {

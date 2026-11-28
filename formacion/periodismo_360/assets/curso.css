@@ -660,6 +660,53 @@ body.leccion {
 .test__repetir:hover { border-color: var(--accent); color: var(--accent); }
 html:not(.js) .test__repetir { display: none; }
 
+/* ---- VOTACIÓN EN CLASE (data-votacion) ---- */
+.test__estado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  background: rgba(193, 68, 14, 0.06);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.test__estado p { flex: 1 1 18rem; }
+.test__estado.is-resuelta { background: rgba(22, 112, 106, 0.08); }
+.test__resolver {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+.test__estado.is-resuelta .test__resolver { background: transparent; border: 1px solid var(--ink); color: var(--ink); }
+.test__resolver:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.test.is-votando .test__boton[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.test.is-votando .test__boton.is-mas-votada { opacity: 1; border-color: var(--accent); background: var(--accent); color: #fff; }
+.test.is-votando .test__boton.is-mas-votada::after { content: " · más votada"; font-weight: 400; }
+.test__reparto { margin-top: 0.75rem; display: grid; gap: 0.3rem; max-width: 30rem; }
+.test__reparto[hidden] { display: none; }
+.test__reparto-fila {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr 4.5rem;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+.test__reparto-barra { height: 0.6rem; border-radius: 999px; background: var(--rule); position: relative; overflow: hidden; }
+.test__reparto-barra::before { content: ""; position: absolute; inset: 0; width: calc(var(--p, 0) * 100%); background: var(--mid); border-radius: inherit; transition: width 0.4s ease; }
+.test__reparto-fila.is-mayoria { color: var(--ink); font-weight: 700; }
+.test__reparto-fila.is-mayoria .test__reparto-barra::before { background: var(--accent); }
+.test__reparto-n { font-variant-numeric: tabular-nums; text-align: right; }
+@media (prefers-reduced-motion: reduce) { .test__reparto-barra::before { transition: none; } }
+
 
 /* ---- ANATOMÍA DEL ENCARGO ---- */
 .anatomia { margin-top: 2rem; display: grid; gap: 0.75rem; max-width: 48rem; }
@@ -1465,6 +1512,60 @@ html:not(.js) .perfil__pista, html:not(.js) .perfil__botones, html:not(.js) .per
    CLASE 5 · AL AIRE: PROYECTO FINAL
    ================================================ */
 
+/* ---- TEMPORIZADOR (pieza genérica: data-temporizador="segundos") ---- */
+.temporizador {
+  position: sticky;
+  top: calc(var(--c-barra-alto) + 0.75rem);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.6rem 0.75rem 0.6rem 1.25rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  transition: background 0.3s ease;
+}
+html:not(.js) .temporizador { display: none; }
+.temporizador__etiqueta { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; }
+.temporizador__tiempo { font-family: var(--ff-display); font-weight: 900; font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; min-width: 4.2ch; }
+.temporizador__botones { display: flex; gap: 0.4rem; }
+.temporizador__boton {
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 240, 232, 0.35);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.temporizador__boton--principal { background: var(--paper); color: var(--ink); border-color: var(--paper); min-width: 6.5rem; }
+.temporizador__boton:hover { border-color: var(--paper); }
+.temporizador__boton:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.temporizador__aviso { font-weight: 700; }
+.temporizador__aviso:empty { display: none; }
+.temporizador.is-ultimos,
+.temporizador.is-fin { background: var(--accent); }
+.temporizador.is-fin .temporizador__boton--principal { color: var(--accent); }
+.temporizador.is-fin { animation: temporizador-fin 0.6s ease 3; }
+@keyframes temporizador-fin { 50% { transform: scale(1.06); } }
+@media (max-width: 560px) {
+  .temporizador { gap: 0.6rem; padding: 0.4rem 0.45rem 0.4rem 1rem; flex-wrap: nowrap; }
+  .temporizador__etiqueta { display: none; }
+  .temporizador__tiempo { font-size: 1.5rem; }
+  .temporizador__boton { font-size: 0.8rem; padding: 0.4rem 0.7rem; }
+  .temporizador__boton--principal { min-width: 5.2rem; }
+  .temporizador__aviso { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .temporizador { transition: none; } .temporizador.is-fin { animation: none; } }
+
 /* ---- GUION ESCRITO POR UN CHATBOT ---- */
 .guion {
   margin: 2rem 0 0;
@@ -1479,7 +1580,7 @@ html:not(.js) .perfil__pista, html:not(.js) .perfil__botones, html:not(.js) .per
   line-height: 1.5;
   color: var(--ink);
 }
-.guion::before { content: "Locución · borrador del chatbot"; display: block; margin-bottom: 0.75rem; font-family: var(--ff-body); font-style: normal; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.guion::before { content: "Locución de radio · borrador del chatbot"; display: block; margin-bottom: 0.75rem; font-family: var(--ff-body); font-style: normal; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
 .guion mark { background: rgba(193, 68, 14, 0.12); color: inherit; padding: 0 0.15em; border-radius: 3px; }
 .guion sup { font-family: var(--ff-body); font-style: normal; font-weight: 700; font-size: 0.65em; color: var(--accent); margin-left: 0.1em; }
 
