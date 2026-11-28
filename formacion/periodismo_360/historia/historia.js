@@ -490,6 +490,13 @@
     el.querySelectorAll(selector).forEach((c, i) => { c.style.transitionDelay = `${i * 90}ms`; });
     return {};
   };
+  // ---- VÍDEOS EN BUCLE ----
+  // Con movimiento reducido, se detienen y se muestran los controles.
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!window.RUTAS.reducir()) return;
+    document.querySelectorAll('video[autoplay]').forEach(v => { v.autoplay = false; v.pause(); v.controls = true; });
+  });
+
   // ---- USA TODAY: SECUENCIA DE PASOS ----
   // Texto y foto del paso activo; las flechas avanzan o retroceden.
   window.RUTAS.piezas.rorick = el => {

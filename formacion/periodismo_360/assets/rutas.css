@@ -554,7 +554,7 @@
 .alumnos--despues { background: #F3E8CF; }
 .alumnos__clave { margin-top: 0.75rem; font-size: 0.78rem; color: var(--e-suave); }
 .facsimil { display: grid; gap: 1.5rem; align-items: start; margin-top: 2rem; }
-.facsimil img { width: 100%; height: auto; border: 1px solid var(--e-linea); box-shadow: 0 18px 40px -24px rgba(42, 33, 23, 0.5); }
+.facsimil img, .facsimil__video { display: block; width: 100%; height: auto; border: 1px solid var(--e-linea); box-shadow: 0 18px 40px -24px rgba(42, 33, 23, 0.5); }
 .facsimil figcaption { font-size: 0.85rem; }
 @media (min-width: 760px) { .facsimil { grid-template-columns: minmax(0, 15rem) 1fr; } }
 /* Cuando la imagen es la protagonista (hay que leer sus detalles) */
