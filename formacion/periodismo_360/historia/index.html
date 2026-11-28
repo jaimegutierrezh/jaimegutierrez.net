@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De dónde viene todo esto. Ruta histórica · Periodismo de datos con IA · Jaime Gutiérrez</title>
+<meta name="description" content="Ruta opcional del curso de periodismo de datos con IA: 240 años de periodismo de datos en 15 paradas, de Playfair, Snow y Nightingale a los chatbots, con los gráficos históricos redibujados.">
+<link rel="canonical" href="https://jaimegutierrez.net/formacion/periodismo_360/historia/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Jaime Gutiérrez">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="De dónde viene todo esto. Ruta histórica del periodismo de datos">
+<meta property="og:description" content="240 años de periodismo de datos en 15 paradas, con los gráficos de Playfair, Snow, Nightingale, Minard y Du Bois redibujados con sus datos originales.">
+<meta property="og:url" content="https://jaimegutierrez.net/formacion/periodismo_360/historia/">
+<meta property="og:image" content="https://jaimegutierrez.net/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Jaime Gutiérrez, periodista de datos en RTVE Noticias">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@JaimeGutierrezH">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "De dónde viene todo esto. Ruta histórica del periodismo de datos",
+  "description": "Ruta opcional de autoestudio: la historia del periodismo de datos en 15 paradas, con los gráficos históricos redibujados con sus datos originales.",
+  "url": "https://jaimegutierrez.net/formacion/periodismo_360/historia/",
+  "inLanguage": "es",
+  "learningResourceType": "Ruta opcional",
+  "teaches": ["Historia del periodismo de datos", "Historia de la visualización de datos", "Narrativas visuales"],
+  "isPartOf": { "@type": "Course", "name": "Periodismo de datos con IA", "url": "https://jaimegutierrez.net/formacion/periodismo_360/" },
+  "author": { "@id": "https://jaimegutierrez.net/#person", "@type": "Person", "name": "Jaime Gutiérrez" }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../assets/curso.css">
+<link rel="stylesheet" href="../assets/rutas.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../assets/curso.js" defer></script>
+<script src="../assets/rutas.js" defer></script>
+<script src="datos.js" defer></script>
+<script src="historia.js" defer></script>
+</head>
+<body class="leccion ruta">
+
+<div class="progreso" aria-hidden="true"></div>
+
+<header class="barra">
+  <a class="barra__volver" href="../clase1/#cierre">← Clase 1</a>
+  <span class="barra__titulo">Ruta opcional · De dónde viene todo esto</span>
+  <div class="barra__acciones"></div>
+</header>
+
+<nav class="indice" aria-label="Etapas de la ruta">
+  <ol class="indice__lista">
+    <li><a class="indice__enlace" href="#como"><span class="indice__texto">Cómo leerla</span></a></li>
+    <li><a class="indice__enlace" href="#papel"><span class="indice__texto">Papel y tinta</span></a></li>
+    <li><a class="indice__enlace" href="#maquinas"><span class="indice__texto">Las máquinas</span></a></li>
+    <li><a class="indice__enlace" href="#web"><span class="indice__texto">La web</span></a></li>
+    <li><a class="indice__enlace" href="#ia"><span class="indice__texto">La IA</span></a></li>
+    <li><a class="indice__enlace" href="#cierre"><span class="indice__texto">Vuestro turno</span></a></li>
+  </ol>
+</nav>
+
+<div class="reloj" aria-hidden="true">
+  <span class="reloj__anio">1786</span>
+  <span class="reloj__era"></span>
+  <span class="reloj__riel"></span>
+</div>
+
+<main>
+
+  <!-- ============ PORTADA ============ -->
+  <section class="portada portada--ruta" data-parada>
+    <div class="portada__capa portada__capa--puntos" data-velocidad="0.15" aria-hidden="true"></div>
+    <div class="portada__capa" data-velocidad="0.3" aria-hidden="true">
+      <div class="regla" data-desde="1780" data-hasta="2030" data-hitos="1786,1821,1854,1858,1869,1900,1952,1967,1988,2005,2009,2011,2016,2022"></div>
+    </div>
+    <div class="portada__contenido">
+      <p class="portada__antetitulo">Ruta opcional · Clase 1</p>
+      <h1 class="portada__titulo">De dónde viene <em>todo esto</em></h1>
+      <p class="portada__entradilla">240 años de periodismo de datos en 15 paradas: de un gráfico del precio del trigo a los chatbots.</p>
+      <p class="portada__pista"><span class="portada__flecha">↓</span> Bajad despacio: cada parada se cuenta con un recurso de narrativa visual distinto.</p>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO LEERLA ============ -->
+  <section class="bloque bloque--blanco" id="como" data-seccion>
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Antes de empezar</p>
+      <h2 class="bloque__titulo aparece" data-parada>Una historia contada con sus propias herramientas</h2>
+      <div class="bloque__texto aparece">
+        <p>El periodismo de datos es mucho más viejo que los ordenadores. Esta ruta recorre algunos de sus momentos clave, desde los primeros gráficos hasta la IA. Es para leerla por vuestra cuenta y a vuestro ritmo.</p>
+        <p>Los gráficos históricos están <strong>redibujados con sus datos originales</strong>, para que se lean bien en pantalla. Y cada parada lleva un sello con el <strong>recurso de narrativa visual</strong> que usa. Son los mismos de la ruta opcional de la clase 3: si pulsáis un sello, os lleva a su explicación.</p>
+      </div>
+      <div class="leyenda-recursos aparece">
+        <div class="leyenda-recursos__item"><a class="recurso" href="../parte3.html#/scrollytelling">Scrollytelling</a><span class="leyenda-recursos__donde">Toda la ruta, y el gráfico de Playfair (1821)</span></div>
+        <div class="leyenda-recursos__item"><a class="recurso" href="../parte3.html#/gráficos">Gráficos</a><span class="leyenda-recursos__donde">Playfair, Nightingale, Du Bois, Dedman, Papeles de Panamá</span></div>
+        <div class="leyenda-recursos__item"><a class="recurso" href="../parte3.html#/mapas">Mapas</a><span class="leyenda-recursos__donde">Snow (1854) y Minard (1869)</span></div>
+        <div class="leyenda-recursos__item"><a class="recurso" href="../parte3.html#/interactividad">Interactividad</a><span class="leyenda-recursos__donde">Snow, Nightingale y Meyer: pulsad los botones</span></div>
+        <div class="leyenda-recursos__item"><a class="recurso" href="../ejercicios/workbook-RTVE.html#antes-y-después-con-flourish">Antes y después</a><span class="leyenda-recursos__donde">The Guardian (1821): arrastrad el deslizador</span></div>
+        <div class="leyenda-recursos__item"><a class="recurso" href="../parte3.html#/animación-vídeo-y-sonido">Animación y vídeo</a><span class="leyenda-recursos__donde">Minard, la tele de 1952 y los Papeles de Panamá</span></div>
+        <div class="leyenda-recursos__item"><a class="recurso" href="../parte3.html#/esquemas">Esquemas</a><span class="leyenda-recursos__donde">La encuesta de Detroit (1967)</span></div>
+        <div class="leyenda-recursos__item"><a class="recurso" href="../parte3.html#/ilustración-decorativa">Ilustración</a><span class="leyenda-recursos__donde">chicagocrime.org (2005)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       I. PAPEL Y TINTA
+       ================================================ -->
+  <div class="etapa etapa--papel" id="papel" data-seccion data-era="Papel y tinta" data-tono-reloj="papel">
+    <header class="era">
+      <p class="era__anios" aria-hidden="true">1786<br>1900</p>
+      <p class="era__numero">I.</p>
+      <h2 class="era__titulo" data-parada>Papel y tinta</h2>
+      <p class="era__entradilla">Antes de los ordenadores ya había quien contaba, sumaba y dibujaba los datos para demostrar algo. Casi todos los gráficos que usamos hoy se inventaron en esta época.</p>
+    </header>
+
+    <div class="cronologia">
+
+      <!-- 1786 · PLAYFAIR -->
+      <article class="parada" id="playfair" data-anio="1786">
+        <p class="parada__anio">1786<small>El gráfico de abajo es de 1821</small></p>
+        <p class="parada__quien">William Playfair · Londres</p>
+        <h3 class="parada__titulo" data-parada>El hombre que inventó los gráficos</h3>
+        <div class="parada__texto">
+          <p>En 1786, el escocés William Playfair publicó <em>The Commercial and Political Atlas</em>, con 43 gráficos de evolución en el tiempo y un gráfico de barras: el primero que se conoce. En 1801 inventó también la tarta. Ejes, escalas, líneas y barras: casi todo lo de la clase 3 empieza aquí.</p>
+          <p>Este es uno de sus gráficos más conocidos. Bajad despacio: se construye paso a paso.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/gráficos">Gráficos</a>
+          <a class="recurso" href="../parte3.html#/scrollytelling">Scrollytelling</a>
+        </div>
+        <div class="parada__pieza parada__pieza--ancha">
+          <div class="scrolly" data-scrolly="playfair">
+            <div class="scrolly__grafico"><svg class="scrolly__svg" preserveAspectRatio="xMidYMid meet"></svg></div>
+            <div class="scrolly__pasos">
+              <div class="scrolly__paso" data-paso="0"><div class="scrolly__tarjeta">
+                <p><strong>Las barras son el precio del trigo</strong> en Inglaterra, en chelines por <em>quarter</em> (unos 290 litros), cada cinco años desde 1565.</p>
+                <p>Playfair dibujó este gráfico en 1821 para defender una idea: el trigo nunca había sido tan barato en proporción al trabajo.</p>
+              </div></div>
+              <div class="scrolly__paso" data-paso="1"><div class="scrolly__tarjeta">
+                <p><strong>La línea roja es el salario semanal de un buen mecánico</strong>, también en chelines.</p>
+                <p>Las dos series suben. Pero ¿cuál sube más deprisa? Con las dos en el mismo eje, cuesta verlo.</p>
+              </div></div>
+              <div class="scrolly__paso" data-paso="2"><div class="scrolly__tarjeta">
+                <p><strong>Arriba, los reyes y reinas de cada época</strong>, como en el original. La franja negra es la república de Cromwell.</p>
+                <p>Playfair ya ponía contexto dentro del gráfico: es una anotación, como las que pondríais hoy.</p>
+              </div></div>
+              <div class="scrolly__paso" data-paso="3"><div class="scrolly__tarjeta">
+                <p><strong>La idea de Playfair se ve mejor con un cálculo:</strong> cuántas semanas de salario costaba el trigo. Se divide una serie entre la otra.</p>
+                <p>En 1565 hacían falta <span class="dato" style="color:var(--teal)">8,2 semanas</span>; en 1810, <span class="dato" style="color:var(--teal)">3,3</span>. Dos cifras absolutas se convierten en una relativa, como en la clase 2.</p>
+              </div></div>
+            </div>
+          </div>
+          <p class="parada__fuente">Fuente: William Playfair, <em>A Letter on Our Agricultural Distresses</em> (1821). Datos del paquete HistData (<code>Wheat</code>); el salario no tiene datos después de 1810. Redibujado para esta ruta.</p>
+        </div>
+      </article>
+
+      <!-- 1821 · THE GUARDIAN -->
+      <article class="parada" id="guardian" data-anio="1821">
+        <p class="parada__anio">1821</p>
+        <p class="parada__quien">The Manchester Guardian · primer número</p>
+        <h3 class="parada__titulo" data-parada>Una tabla que desmentía al Gobierno</h3>
+        <div class="parada__texto">
+          <p>El 5 de mayo de 1821 salió el primer número del <em>Manchester Guardian</em>, hoy <em>The Guardian</em>. En sus páginas, un lector que firmaba «N. H.» publicó una tabla con todas las escuelas de Manchester y Salford: cuántos niños y niñas iban a cada una y cuánto costaban al año.</p>
+          <p>La enviaba para desmentir el informe oficial sobre educación, hecho con lo que contaban los clérigos de la zona. Según ese informe, en Manchester, Salford y Ardwick solo había <strong>siete escuelas dominicales con 8.000 alumnos</strong>. Arrastrad el deslizador.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../ejercicios/workbook-RTVE.html#antes-y-después-con-flourish">Antes y después</a>
+          <a class="recurso" href="../parte3.html#/gráficos">Gráficos</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="antesdespues" data-antesdespues>
+            <div class="antesdespues__capa">
+              <div class="alumnos">
+                <p class="alumnos__cifra">8.000 alumnos<small>7 escuelas dominicales</small></p>
+                <div class="alumnos__rejilla" data-puntos="80" data-total="240" aria-hidden="true"></div>
+                <p class="alumnos__clave">Cada punto, 100 alumnos.</p>
+              </div>
+            </div>
+            <div class="antesdespues__capa antesdespues__capa--despues" aria-hidden="true">
+              <div class="alumnos alumnos--despues">
+                <p class="alumnos__cifra">23.108 alumnos<small>65 escuelas dominicales</small></p>
+                <div class="alumnos__rejilla" data-puntos="231" data-previos="80" data-total="240"></div>
+                <p class="alumnos__clave">Cada punto, 100 alumnos.</p>
+              </div>
+            </div>
+            <span class="antesdespues__rotulo antesdespues__rotulo--antes">Informe oficial</span>
+            <span class="antesdespues__rotulo antesdespues__rotulo--despues">The Guardian</span>
+            <input class="antesdespues__rango" type="range" min="0" max="100" value="55" aria-label="Comparar el informe oficial (izquierda) con la tabla publicada en The Guardian (derecha)">
+            <span class="antesdespues__tirador" aria-hidden="true"></span>
+          </div>
+          <p class="parada__fuente">A la izquierda, el informe oficial; a la derecha, la tabla de N. H. En rojo, los alumnos que no aparecían en el informe.</p>
+          <figure class="facsimil">
+            <a href="../img/escuelas_manchester_guardian.jpg" target="_blank" rel="noopener noreferrer"><img src="../img/escuelas_manchester_guardian.jpg" alt="Página del primer número del Manchester Guardian, de 1821, con la tabla de escuelas de Manchester y Salford" width="1200" height="1589" loading="lazy"></a>
+            <figcaption>
+              <p><strong>La página original.</strong> La tabla está en la columna central. Para el informe oficial, el problema era de fuente: preguntó a quien no lo sabía. La tabla cuenta las escuelas una a una: <strong>65 escuelas dominicales y 23.108 alumnos</strong>, casi el triple.</p>
+              <p style="margin-top:.75rem">Es uno de los primeros ejemplos de lo que hoy llamamos periodismo de datos: alguien reúne los datos, el periódico los publica y la versión oficial queda en evidencia.</p>
+            </figcaption>
+          </figure>
+          <p class="parada__fuente">Fuente: <em>The Manchester Guardian</em>, 5 de mayo de 1821. Cifras transcritas de la tabla original (alumnos de las escuelas dominicales, anglicanas y de otras confesiones).</p>
+        </div>
+      </article>
+
+      <!-- 1854 · SNOW -->
+      <article class="parada" id="snow" data-anio="1854">
+        <p class="parada__anio">1854</p>
+        <p class="parada__quien">John Snow · Londres</p>
+        <h3 class="parada__titulo" data-parada>El mapa que señaló una bomba de agua</h3>
+        <div class="parada__texto">
+          <p>A finales de agosto de 1854, un brote de cólera mató a cientos de personas en pocos días en el Soho de Londres. Entonces se creía que el cólera se transmitía por el aire. El médico John Snow sospechaba del agua.</p>
+          <p>Fue casa por casa, apuntó cada muerte y preguntó de dónde sacaban el agua. El 8 de septiembre convenció a las autoridades para quitar la palanca de la bomba de Broad Street. En 1855 publicó el mapa en su libro sobre el cólera. Probad los botones.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/mapas">Mapas</a>
+          <a class="recurso" href="../parte3.html#/interactividad">Interactividad</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="conmutador" data-para="snow" role="group" aria-label="Qué mostrar en el mapa">
+            <button class="conmutador__boton" type="button" data-estado="calles">Las calles</button>
+            <button class="conmutador__boton" type="button" data-estado="muertes">Las muertes</button>
+            <button class="conmutador__boton" type="button" data-estado="bomba">La bomba</button>
+            <button class="conmutador__boton" type="button" data-estado="cercania">¿Qué bomba está más cerca?</button>
+          </div>
+          <div class="lienzo mapa-snow" data-pieza="snow" data-estado="muertes"><svg></svg></div>
+          <p class="pieza__lectura" aria-live="polite">Cada cuadrado es una muerte. Hay 578 en este mapa.</p>
+          <button class="repetir" type="button" data-repetir="snow">Ver otra vez cómo se extiende</button>
+          <p class="parada__fuente">Fuente: John Snow, <em>On the Mode of Communication of Cholera</em> (2.ª ed., 1855). Coordenadas digitalizadas por Waldo Tobler (paquete HistData, <code>Snow.deaths</code>). Redibujado para esta ruta. <a href="../img/mapa_colera_snow.png" target="_blank" rel="noopener noreferrer">Ver el mapa original</a>.</p>
+        </div>
+      </article>
+
+      <!-- 1858 · NIGHTINGALE -->
+      <article class="parada" id="nightingale" data-anio="1858">
+        <p class="parada__anio">1858<small>Datos de 1854 a 1856</small></p>
+        <p class="parada__quien">Florence Nightingale · guerra de Crimea</p>
+        <h3 class="parada__titulo" data-parada>Los soldados no morían en la batalla</h3>
+        <div class="parada__texto">
+          <p>Florence Nightingale dirigió a las enfermeras del hospital militar británico de Scutari durante la guerra de Crimea. Volvió convencida de que la mayoría de los soldados no morían por las heridas, sino por enfermedades que se podían evitar con higiene: cólera, tifus, disentería.</p>
+          <p>Para convencer al Gobierno publicó en 1858 este diagrama. De las <strong>17.982 muertes</strong> registradas entre abril de 1854 y marzo de 1856, <strong>14.476 (el 80 %)</strong> fueron por esas enfermedades. Ese mismo año fue la primera mujer elegida miembro de la Royal Statistical Society.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/gráficos">Gráficos</a>
+          <a class="recurso" href="../parte3.html#/interactividad">Interactividad</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="conmutador" data-para="nightingale" role="group" aria-label="Forma del gráfico">
+            <button class="conmutador__boton" type="button" data-estado="rosa">La rosa de 1858</button>
+            <button class="conmutador__boton" type="button" data-estado="barras">Los mismos datos en barras</button>
+          </div>
+          <div class="lienzo rosa" data-pieza="nightingale" data-estado="rosa"><svg></svg></div>
+          <div class="leyenda-mini">
+            <span><i style="background:#9DB9D3"></i>Enfermedades evitables</span>
+            <span><i style="background:#E3A49A"></i>Heridas</span>
+            <span><i style="background:#4A4038"></i>Otras causas</span>
+          </div>
+          <div class="parada__texto">
+            <p>En la rosa, cada mes es una cuña, y el <strong>área</strong> de cada color es proporcional a la tasa de mortalidad. Impresiona, pero comparar áreas cuesta. <strong>¿Rosa o barras?</strong> Si tuvierais ocho segundos en un informativo, ¿cuál emitiríais?</p>
+          </div>
+          <p class="parada__fuente">Fuente: Florence Nightingale, <em>Notes on Matters Affecting the Health, Efficiency, and Hospital Administration of the British Army</em> (1858). Muertes al año por cada 1.000 soldados. Datos del paquete HistData (<code>Nightingale</code>). Redibujado para esta ruta.</p>
+        </div>
+      </article>
+
+      <!-- 1869 · MINARD -->
+      <article class="parada" id="minard" data-anio="1869">
+        <p class="parada__anio">1869<small>La campaña fue en 1812</small></p>
+        <p class="parada__quien">Charles Joseph Minard · París</p>
+        <h3 class="parada__titulo" data-parada>Seis datos en un solo dibujo</h3>
+        <div class="parada__texto">
+          <p>El ingeniero francés Charles Joseph Minard dibujó en 1869 la campaña de Napoleón en Rusia. El grosor de la franja es el tamaño del ejército: en color claro, la ida hacia Moscú; en negro, la vuelta. Abajo, el frío de la retirada.</p>
+          <p>En una sola imagen hay seis variables: tamaño del ejército, latitud, longitud, dirección, temperatura y fecha. Según Minard, de <strong>422.000 hombres</strong> que cruzaron el río Niemen volvieron unos <strong>10.000</strong>. Más de un siglo después, Edward Tufte escribió que quizá fuera el mejor gráfico estadístico jamás dibujado.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/mapas">Mapas</a>
+          <a class="recurso" href="../parte3.html#/animación-vídeo-y-sonido">Animación</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="lienzo" data-pieza="minard"><svg></svg></div>
+          <button class="repetir" type="button" data-repetir="minard">Repetir la marcha</button>
+          <p class="parada__fuente">Fuente: Charles Joseph Minard, <em>Carte figurative des pertes successives en hommes de l'Armée Française dans la campagne de Russie 1812-1813</em> (1869). Datos del paquete HistData (<code>Minard.troops</code>, <code>Minard.cities</code> y <code>Minard.temp</code>). Nombres de ciudades como en el original. Redibujado para esta ruta.</p>
+        </div>
+      </article>
+
+      <!-- 1900 · DU BOIS -->
+      <article class="parada" id="dubois" data-anio="1900">
+        <p class="parada__anio">1900</p>
+        <p class="parada__quien">W. E. B. Du Bois · Exposición Universal de París</p>
+        <h3 class="parada__titulo" data-parada>Datos para que los entienda cualquiera</h3>
+        <div class="parada__texto">
+          <p>En la Exposición Universal de París de 1900, el sociólogo W. E. B. Du Bois y sus estudiantes de la Universidad de Atlanta presentaron más de medio centenar de gráficos dibujados a mano sobre la vida de la población negra en Estados Unidos, una generación después de la esclavitud.</p>
+          <p>Colores planos, formas atrevidas y títulos en inglés y en francés: estaban pensados para un público que no sabía nada del tema. Este cuenta qué parte de la población negra era libre y qué parte estaba esclavizada, de 1790 a 1870. Tras la abolición de la esclavitud, en 1865, la franja verde lo ocupa todo.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/gráficos">Gráficos</a>
+          <a class="recurso" href="../parte3.html#/los-colores-tienen-significado">Color</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="lienzo dubois" data-pieza="dubois" style="max-width:40rem"><svg></svg></div>
+          <p class="parada__fuente">Fuente: W. E. B. Du Bois, <em>Proportion of freemen and slaves among American Negroes</em> (1900), Biblioteca del Congreso de EE. UU. Datos transcritos por el <a href="https://github.com/ajstarks/dubois-data-portraits" target="_blank" rel="noopener noreferrer">#DuBoisChallenge</a>. Reconstrucción libre: no copia exactamente el diseño de la lámina.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ================================================
+       II. LAS MÁQUINAS
+       ================================================ -->
+  <div class="etapa etapa--maquinas" id="maquinas" data-seccion data-tono="oscuro" data-era="Las máquinas" data-tono-reloj="fosforo">
+    <header class="era">
+      <p class="era__anios" aria-hidden="true">1952<br>1988</p>
+      <p class="era__numero">II.</p>
+      <h2 class="era__titulo" data-parada>Las máquinas</h2>
+      <p class="era__entradilla">Los ordenadores entran en las redacciones. Ya no hace falta contar a mano: se pueden hacer encuestas, cruzar registros y encontrar patrones que nadie veía.</p>
+    </header>
+
+    <div class="cronologia">
+
+      <!-- 1952 · UNIVAC -->
+      <article class="parada" id="univac" data-anio="1952">
+        <p class="parada__anio">1952</p>
+        <p class="parada__quien">CBS · noche electoral en EE. UU.</p>
+        <h3 class="parada__titulo" data-parada>La tele no se fio del ordenador</h3>
+        <div class="parada__texto">
+          <p>La noche de las elecciones presidenciales de 1952, la cadena CBS llevó al plató un ordenador UNIVAC para predecir el resultado. Con los primeros votos escrutados, la máquina dio una victoria aplastante a Eisenhower.</p>
+          <p>Las encuestas decían que la carrera estaba igualada, así que en la cadena dudaron y tardaron en contar la predicción. Acertó casi de pleno. ¿Os suena? Si os fiáis o no de lo que dice una máquina es la gran pregunta de este curso.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/animación-vídeo-y-sonido">Animación y vídeo</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="tele" data-pieza="univac">
+            <div class="tele__pantalla" role="img" aria-label="Recreación de la predicción del UNIVAC: Eisenhower 438 votos electorales, Stevenson 93">
+              <p class="tele__linea">CBS · NOCHE ELECTORAL · 1952</p>
+              <p class="tele__linea">PREDICCIÓN DEL UNIVAC:</p>
+              <p class="tele__linea tele__linea--grande">EISENHOWER 438</p>
+              <p class="tele__linea tele__linea--grande">STEVENSON   93</p>
+              <p class="tele__linea">PROBABILIDAD: 100 A 1</p>
+            </div>
+            <div class="tele__mandos"><span>Recreación</span><span><i></i><i></i></span></div>
+          </div>
+          <div class="votos" aria-label="Votos electorales: predicción y resultado">
+            <div class="votos__fila"><span>Eisenhower · predicción</span><div class="votos__barra" style="--v:438"><span>438</span></div></div>
+            <div class="votos__fila"><span>Eisenhower · resultado</span><div class="votos__barra votos__barra--real" style="--v:442"><span>442</span></div></div>
+            <div class="votos__fila"><span>Stevenson · predicción</span><div class="votos__barra" style="--v:93"><span>93</span></div></div>
+            <div class="votos__fila"><span>Stevenson · resultado</span><div class="votos__barra votos__barra--real" style="--v:89"><span>89</span></div></div>
+          </div>
+          <button class="repetir" type="button" data-repetir="univac">Volver a emitir</button>
+          <p class="parada__fuente">Fuente: <a href="https://computerhistory.org/blog/have-you-got-a-prediction-for-us-univac/" target="_blank" rel="noopener noreferrer">Computer History Museum</a>. Votos electorales (531 en total). La pantalla es una recreación, no la imagen de la emisión.</p>
+        </div>
+      </article>
+
+      <!-- 1967 · MEYER -->
+      <article class="parada" id="meyer" data-anio="1967">
+        <p class="parada__anio">1967</p>
+        <p class="parada__quien">Philip Meyer · Detroit Free Press</p>
+        <h3 class="parada__titulo" data-parada>Una encuesta contra los tópicos</h3>
+        <div class="parada__texto">
+          <p>En julio de 1967, Detroit vivió cinco días de disturbios que dejaron 43 muertos. Se dijeron muchas cosas sobre quién había salido a la calle. Philip Meyer, periodista del grupo Knight, propuso al <em>Detroit Free Press</em> comprobarlo como lo haría un científico social: con una encuesta.</p>
+          <p>Con el sociólogo Nathan Caplan, de la Universidad de Míchigan, entrevistaron a 437 vecinos negros de la ciudad y analizaron las respuestas con un ordenador. En 1973, Meyer contó el método en un libro que dio nombre a todo esto: <em>Precision Journalism</em>, periodismo de precisión. Pulsad las tarjetas.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/esquemas">Esquemas</a>
+          <a class="recurso" href="../parte3.html#/interactividad">Interactividad</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="esquema" aria-label="Cómo se hizo">
+            <div class="esquema__nodo"><strong>437</strong>entrevistas</div>
+            <span class="esquema__flecha" aria-hidden="true">→</span>
+            <div class="esquema__nodo"><strong>∑</strong>análisis con ordenador</div>
+            <span class="esquema__flecha" aria-hidden="true">→</span>
+            <div class="esquema__nodo"><strong>20-VIII</strong>en portada, un mes después</div>
+            <span class="esquema__flecha" aria-hidden="true">→</span>
+            <div class="esquema__nodo"><strong>1973</strong>el método, en un libro</div>
+          </div>
+          <div class="giro" style="margin-top:1.5rem">
+            <button class="giro__carta" type="button" aria-pressed="false">
+              <span class="giro__cara giro__cara--mito"><span class="giro__etiqueta">Lo que se decía</span><span class="giro__frase">Los que salieron a la calle eran los que menos estudios tenían.</span><span class="giro__pista">Pulsad para ver qué dijo la encuesta</span></span>
+              <span class="giro__cara giro__cara--dato"><span class="giro__etiqueta">Lo que dijo la encuesta</span><span class="giro__frase">Quienes habían ido a la universidad participaron tanto como quienes no habían acabado el instituto.</span><span class="giro__pista">Pulsad para volver</span></span>
+            </button>
+            <button class="giro__carta" type="button" aria-pressed="false">
+              <span class="giro__cara giro__cara--mito"><span class="giro__etiqueta">Lo que se decía</span><span class="giro__frase">Eran recién llegados del sur que no se habían adaptado a la ciudad.</span><span class="giro__pista">Pulsad para ver qué dijo la encuesta</span></span>
+              <span class="giro__cara giro__cara--dato"><span class="giro__etiqueta">Lo que dijo la encuesta</span><span class="giro__frase">Los que se habían criado en el norte tenían tres veces más probabilidades de haber participado.</span><span class="giro__pista">Pulsad para volver</span></span>
+            </button>
+          </div>
+          <p class="parada__fuente">Fuente: Institute for Social Research, Universidad de Míchigan. La cobertura de los disturbios del <em>Detroit Free Press</em> ganó el premio Pulitzer en 1968.</p>
+        </div>
+      </article>
+
+      <!-- 1988 · DEDMAN -->
+      <article class="parada" id="dedman" data-anio="1988">
+        <p class="parada__anio">1988</p>
+        <p class="parada__quien">Bill Dedman · The Atlanta Journal-Constitution</p>
+        <h3 class="parada__titulo" data-parada>El color del dinero</h3>
+        <div class="parada__texto">
+          <p>Bill Dedman, un reportero de 27 años, cruzó los registros de hipotecas de los bancos de Atlanta con los datos del censo de cada barrio. Su serie <em>The Color of Money</em>, publicada en mayo de 1988, demostró que, a igualdad de ingresos, los bancos favorecían a los barrios blancos frente a los negros por <strong>cinco a uno</strong>.</p>
+          <p>Ganó el Pulitzer de periodismo de investigación de 1989 y es un clásico del periodismo asistido por ordenador: la historia no estaba en ninguna declaración, estaba en los datos.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/gráficos">Gráficos</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="casas" data-pieza="casas" role="img" aria-label="Por cada préstamo en barrios negros, cinco en barrios blancos de los mismos ingresos">
+            <div class="casas__grupo">
+              <p class="casas__texto">BARRIOS BLANCOS</p>
+              <div class="casas__fila" aria-hidden="true">
+                <svg class="casas__casa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg>
+                <svg class="casas__casa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg>
+                <svg class="casas__casa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg>
+                <svg class="casas__casa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg>
+                <svg class="casas__casa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg>
+              </div>
+              <p class="casas__texto">5 préstamos</p>
+            </div>
+            <div class="casas__grupo">
+              <p class="casas__texto">BARRIOS NEGROS · MISMOS INGRESOS</p>
+              <div class="casas__fila" aria-hidden="true">
+                <svg class="casas__casa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"/></svg>
+              </div>
+              <p class="casas__texto">1 préstamo</p>
+            </div>
+          </div>
+          <p class="parada__fuente">Fuente: Bill Dedman, «<a href="https://powerreporting.com/color" target="_blank" rel="noopener noreferrer">The Color of Money</a>», <em>The Atlanta Journal-Constitution</em>, mayo de 1988. Pictograma: cada casa es una proporción, no un número de préstamos.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ================================================
+       III. LA WEB
+       ================================================ -->
+  <div class="etapa etapa--web" id="web" data-seccion data-era="La web y los datos abiertos">
+    <header class="era">
+      <p class="era__anios" aria-hidden="true">2005<br>2016</p>
+      <p class="era__numero">III.</p>
+      <h2 class="era__titulo" data-parada>La web</h2>
+      <p class="era__entradilla">Los datos se publican, se comparten y se exploran. El lector ya no solo lee: busca su calle, descarga la tabla y comprueba. Y las redacciones aprenden a trabajar juntas.</p>
+    </header>
+
+    <div class="cronologia">
+
+      <!-- 2005 · HOLOVATY -->
+      <article class="parada" id="chicagocrime" data-anio="2005">
+        <p class="parada__anio">2005</p>
+        <p class="parada__quien">Adrian Holovaty · chicagocrime.org</p>
+        <h3 class="parada__titulo" data-parada>Buscad vuestra calle</h3>
+        <div class="parada__texto">
+          <p>En mayo de 2005, el periodista y programador Adrian Holovaty lanzó chicagocrime.org: cogía los datos de delitos de la policía de Chicago y los ponía sobre Google Maps. Cualquier vecino podía ver qué había pasado en su manzana.</p>
+          <p>Fue uno de los primeros <em>mashups</em> de Google Maps y defendía una idea que cambió las redacciones: a veces, la noticia es la propia base de datos. La web cerró en 2008 y dio paso a EveryBlock.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/interactividad">Interactividad</a>
+          <a class="recurso" href="../parte3.html#/ilustración-decorativa">Ilustración</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="lienzo" data-pieza="chinchetas" style="max-width:44rem"><svg></svg></div>
+          <p class="parada__fuente">Ilustración: no son delitos reales ni es el mapa de Chicago. Una ilustración decorativa acompaña, pero no informa: hay que decirlo. Más información en el <a href="https://holovaty.com/writing/chicagocrime.org-launch/" target="_blank" rel="noopener noreferrer">anuncio de Holovaty</a>.</p>
+        </div>
+      </article>
+
+      <!-- 2009 · DATABLOG -->
+      <article class="parada parada--breve" id="datablog" data-anio="2009">
+        <p class="parada__anio">2009</p>
+        <p class="parada__quien">The Guardian · Datablog · WikiLeaks</p>
+        <h3 class="parada__titulo" data-parada>«Los hechos son sagrados»</h3>
+        <div class="parada__texto">
+          <p>En 2009, <em>The Guardian</em> abrió su Datablog: publicaba los datos de sus noticias para que cualquiera pudiera descargarlos y revisarlos. El lema venía de un editorial de 1921 de su director, C. P. Scott: «El comentario es libre, pero los hechos son sagrados».</p>
+          <p>En 2010, <em>The Guardian</em>, <em>The New York Times</em> y <em>Der Spiegel</em> analizaron juntos más de 90.000 registros militares de la guerra de Afganistán filtrados por WikiLeaks.</p>
+        </div>
+      </article>
+
+      <!-- 2011 · CIVIO -->
+      <article class="parada parada--breve" id="civio" data-anio="2011">
+        <p class="parada__anio">2011</p>
+        <p class="parada__quien">Fundación Civio · Madrid</p>
+        <h3 class="parada__titulo" data-parada>Periodismo de datos hecho en España</h3>
+        <div class="parada__texto">
+          <p>En diciembre de 2011 nació la Fundación Civio. Desde entonces ha publicado «¿Dónde van mis impuestos?», que explica los Presupuestos; «El BOE nuestro de cada día», que lee el BOE cada mañana; o «España en llamas», sobre los incendios forestales. En la clase 5 leeréis sus normas sobre el uso de la IA.</p>
+        </div>
+      </article>
+
+      <!-- 2016 · PAPELES DE PANAMÁ -->
+      <article class="parada" id="panama" data-anio="2016">
+        <p class="parada__anio">2016</p>
+        <p class="parada__quien">ICIJ y Süddeutsche Zeitung · cerca de 400 periodistas</p>
+        <h3 class="parada__titulo" data-parada>11,5 millones de documentos</h3>
+        <div class="parada__texto">
+          <p>El 3 de abril de 2016, periodistas de decenas de países publicaron a la vez los Papeles de Panamá: 11,5 millones de documentos (2,6 terabytes) del despacho de abogados Mossack Fonseca. Los filtraron al <em>Süddeutsche Zeitung</em>, que los compartió con el Consorcio Internacional de Periodistas de Investigación (ICIJ). En España participaron <em>El Confidencial</em> y laSexta.</p>
+          <p>A esa escala no basta con leer: hacen falta herramientas para buscar, cruzar y ordenar. Y una redacción no puede sola.</p>
+        </div>
+        <div class="recursos">
+          <a class="recurso" href="../parte3.html#/gráficos">Gráficos</a>
+          <a class="recurso" href="../parte3.html#/animación-vídeo-y-sonido">Animación</a>
+        </div>
+        <div class="parada__pieza">
+          <div class="lienzo" data-pieza="panama"><svg></svg></div>
+          <p class="parada__fuente">Cada punto, 10.000 documentos: 1.150 puntos son 11,5 millones. Fuente: ICIJ.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ================================================
+       IV. LA IA
+       ================================================ -->
+  <div class="etapa etapa--ia" id="ia" data-seccion data-tono="oscuro" data-era="La IA" data-tono-reloj="oscuro">
+    <header class="era">
+      <p class="era__anios" aria-hidden="true">2022<br>hoy</p>
+      <p class="era__numero">IV.</p>
+      <h2 class="era__titulo" data-parada>La IA</h2>
+      <p class="era__entradilla">Un colega nuevo, muy capaz y sin contexto. La herramienta cambia; las preguntas son las mismas que en 1821.</p>
+    </header>
+
+    <div class="cronologia">
+
+      <!-- 2022 · CHATGPT -->
+      <article class="parada parada--breve" id="chatgpt" data-anio="2022">
+        <p class="parada__anio">2022</p>
+        <p class="parada__quien">Los chatbots llegan a las redacciones</p>
+        <h3 class="parada__titulo" data-parada>La máquina que contesta</h3>
+        <div class="parada__texto">
+          <p>El 30 de noviembre de 2022 se abrió ChatGPT al público. En pocos meses, los chatbots entraron en las redacciones: resumir documentos, sacar tablas de un PDF, escribir el código para analizar unos datos.</p>
+          <p>Pero la pregunta es la de la CBS en 1952: ¿cuándo nos fiamos de la máquina? Y la respuesta es la de N. H. en 1821: cuando podemos comprobar de dónde sale cada cifra.</p>
+        </div>
+      </article>
+
+      <!-- HOY -->
+      <article class="parada" id="hoy" data-anio="2026">
+        <p class="parada__anio">Hoy</p>
+        <p class="parada__quien">DatosRTVE · y vosotros</p>
+        <h3 class="parada__titulo" data-parada>Las mismas preguntas, otras herramientas</h3>
+        <div class="parada__texto">
+          <p>Dos piezas recientes de DatosRTVE que repiten gestos de esta ruta: comparar con lo normal, como Nightingale, y convertir miles de papeles en algo que se puede consultar, como los Papeles de Panamá, con una persona que revisa cada resultado.</p>
+        </div>
+        <div class="rejilla rejilla--2">
+          <a class="ficha aparece" href="https://www.rtve.es/noticias/20260703/normal-este-calor-records-analisis-temperaturas-espana/17137331.shtml" target="_blank" rel="noopener noreferrer">
+            <p class="ficha__antetitulo">RTVE · julio de 2026</p>
+            <p class="ficha__titulo">¿Es normal este calor?</p>
+            <p class="ficha__ejemplo">Cada temperatura se compara con lo normal para esa fecha antes de decir si es noticia.</p>
+            <span class="ficha__enlace">Ver la pieza →</span>
+          </a>
+          <a class="ficha aparece" href="https://www.rtve.es/noticias/20260909/informes-desclasificados-ceuta-crisis-migratoria-buscador-ia/17217877.shtml" target="_blank" rel="noopener noreferrer" style="--retraso:1">
+            <p class="ficha__antetitulo">RTVE · septiembre de 2026</p>
+            <p class="ficha__titulo">Buscador de los informes sobre Ceuta</p>
+            <p class="ficha__ejemplo">Cientos de páginas escaneadas convertidas en un buscador, con IA y revisión humana de cada resultado.</p>
+            <span class="ficha__enlace">Ver la pieza →</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="bloque bloque--oscuro" id="cierre" data-seccion data-tono="oscuro">
+    <div class="bloque__interior">
+      <p class="bloque__etiqueta">Cierre</p>
+      <h2 class="bloque__titulo aparece" data-parada>Vuestro turno</h2>
+      <div class="turno aparece">
+        <p class="turno__titulo">Elegid una parada y emitidla hoy</p>
+        <ol>
+          <li>¿Qué cuenta su gráfico <strong>en una sola frase</strong>?</li>
+          <li>¿Cómo lo contaríais en <strong>ocho segundos de tele</strong>? Repasad los códigos de la clase 3.</li>
+          <li>¿Usaríais el <strong>mismo recurso narrativo</strong> u otro? Por ejemplo: ¿la rosa de Nightingale o barras? ¿El mapa de Snow o una animación?</li>
+        </ol>
+      </div>
+
+      <blockquote class="cita aparece" style="margin-top:4rem">«Cuando la información era escasa, la mayor parte de nuestros esfuerzos estaban dedicados a buscarla y recogerla. Ahora que hay información abundante, el procesamiento es más importante».<br><small style="font-size:.5em">Philip Meyer</small></blockquote>
+
+      <div class="resumen">
+        <div class="resumen__item aparece"><p class="resumen__num">1</p><p class="resumen__texto">El periodismo de datos es mucho más viejo que los ordenadores.</p></div>
+        <div class="resumen__item aparece" style="--retraso:1"><p class="resumen__num">2</p><p class="resumen__texto">Cada máquina nueva cambió cómo se procesan los datos, no las preguntas.</p></div>
+        <div class="resumen__item aparece" style="--retraso:2"><p class="resumen__num">3</p><p class="resumen__texto">Los grandes gráficos de la historia también eran narrativa visual.</p></div>
+      </div>
+
+      <div class="lecturas aparece">
+        <h3 class="lecturas__titulo">Para leer más</h3>
+        <p class="lecturas__intro">Las fuentes de algunas paradas, para seguir tirando del hilo.</p>
+        <ul class="lecturas__lista">
+          <li><a class="lecturas__enlace" href="https://www.theguardian.com/news/datablog/2011/sep/26/data-journalism-guardian" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">The first Guardian data journalism: May 5, 1821</span>
+              <span class="lecturas__autor">The Guardian · Datablog, septiembre de 2011</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">El propio periódico presenta la tabla de su primer número como su primer trabajo de periodismo de datos.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://friendly.github.io/HistDataVis/ch05-playfair.html" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">The Big Bang: William Playfair, the father of modern graphics</span>
+              <span class="lecturas__autor">Michael Friendly y Howard Wainer · History of Data Visualization</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">Un capítulo sobre Playfair y sus gráficos, de dos historiadores de la visualización de datos.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://exhibits.lib.lehigh.edu/exhibits/show/data_visualization/science/nightingale" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">Nightingale's Rose Diagram</span>
+              <span class="lecturas__autor">Lehigh University Libraries</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">El diagrama original, el libro en el que se publicó y para qué lo usó.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://blogs.loc.gov/picturethis/2020/04/african-americans-at-the-turn-of-the-20th-century-a-graphic-visualization/" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">African Americans at the Turn of the 20th Century: A Graphic Visualization</span>
+              <span class="lecturas__autor">Biblioteca del Congreso de EE. UU.</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">Los gráficos de Du Bois para la exposición de París, con enlaces a las láminas originales.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://powerreporting.com/color" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">The Color of Money</span>
+              <span class="lecturas__autor">Bill Dedman · The Atlanta Journal-Constitution, 1988</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">La serie completa, con la explicación de cómo se hizo el análisis.</span>
+            </a></li>
+          <li><a class="lecturas__enlace" href="https://computerhistory.org/blog/have-you-got-a-prediction-for-us-univac/" target="_blank" rel="noopener noreferrer">
+              <span class="lecturas__obra">Have you got a prediction for us, UNIVAC?</span>
+              <span class="lecturas__autor">Computer History Museum</span><span class="lecturas__idioma">En inglés</span>
+              <span class="lecturas__para">La noche electoral de 1952 contada con detalle.</span>
+            </a></li>
+        </ul>
+      </div>
+
+      <div class="rejilla rejilla--2" style="margin-top:3rem">
+        <a class="ficha aparece" href="../clase1/#cierre">
+          <p class="ficha__antetitulo">Volver</p>
+          <p class="ficha__titulo">Clase 1. Tu vida en datos</p>
+          <span class="ficha__enlace">← Volver a la clase</span>
+        </a>
+        <a class="ficha aparece" href="../parte3.html#/narrativas-visuales" style="--retraso:1">
+          <p class="ficha__antetitulo">Otra ruta opcional</p>
+          <p class="ficha__titulo">Más allá del gráfico</p>
+          <p class="ficha__ejemplo">Los recursos de narrativa visual de esta ruta, explicados uno a uno.</p>
+          <span class="ficha__enlace">Abrir la ruta de narrativas →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="pie__interior">
+    <span>Jaime Gutiérrez · Periodista de datos en RTVE</span>
+    <a href="../">Volver al curso</a>
+  </div>
+</footer>
+
+<p class="atajos" aria-hidden="true"><kbd>→</kbd> <kbd>←</kbd> avanzar · <kbd>F</kbd> pantalla completa</p>
+
+</body>
+</html>

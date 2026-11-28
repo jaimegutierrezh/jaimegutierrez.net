@@ -1,0 +1,640 @@
+/* ================================================
+   CURSO · Rutas opcionales (desvíos)
+   Identidad visual compartida de los tres desvíos:
+   historia (clase 1), narrativas (clase 3) y cartografía (clase 4).
+   Requiere ../../../style.css y curso.css
+   ================================================ */
+
+/* ---- TOKENS DE LAS RUTAS ---- */
+.ruta {
+  --r-papel: #EFE5CF;
+  --r-papel-2: #E4D6B8;
+  --r-tinta: #2A2117;
+  --r-tinta-2: #5A4A36;
+  --r-sangre: #A3341B;
+  --r-fosforo: #7CF2A8;
+  --r-crt: #08110C;
+  --r-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  --r-col-anio: clamp(7rem, 16vw, 13rem);
+}
+
+/* ---- ETAPAS (cada una con su propio material) ---- */
+.etapa {
+  --e-fondo: var(--paper);
+  --e-texto: var(--ink-2);
+  --e-fuerte: var(--ink);
+  --e-suave: var(--mid);
+  --e-acento: var(--accent);
+  --e-linea: var(--rule);
+  --e-tarjeta: #fff;
+  position: relative;
+  overflow-x: clip;
+  background: var(--e-fondo);
+  color: var(--e-texto);
+}
+.etapa strong { color: var(--e-fuerte); }
+.etapa a:not([class]) { color: var(--e-acento); }
+
+/* I. Papel y tinta: grano de papel y filetes de grabado */
+.etapa--papel {
+  --e-fondo: var(--r-papel);
+  --e-texto: var(--r-tinta-2);
+  --e-fuerte: var(--r-tinta);
+  --e-suave: #8C7A5E;
+  --e-acento: var(--r-sangre);
+  --e-linea: rgba(42, 33, 23, 0.22);
+  --e-tarjeta: #F7F0DF;
+  background-image:
+    radial-gradient(rgba(42, 33, 23, 0.07) 0.8px, transparent 1.2px),
+    radial-gradient(rgba(42, 33, 23, 0.05) 0.6px, transparent 1px);
+  background-size: 7px 7px, 11px 13px;
+  background-position: 0 0, 3px 5px;
+}
+/* II. Las máquinas: pantalla de fósforo */
+.etapa--maquinas {
+  --e-fondo: var(--r-crt);
+  --e-texto: rgba(215, 245, 227, 0.78);
+  --e-fuerte: #E6FFF0;
+  --e-suave: rgba(124, 242, 168, 0.55);
+  --e-acento: var(--r-fosforo);
+  --e-linea: rgba(124, 242, 168, 0.2);
+  --e-tarjeta: #0F1C15;
+}
+.etapa--maquinas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(124, 242, 168, 0.035) 0 1px, transparent 1px 4px);
+}
+/* III. La web: blanco, limpio, enlaces */
+.etapa--web { --e-fondo: #fff; --e-tarjeta: var(--paper); }
+/* IV. La IA: oscuro con brillos */
+.etapa--ia {
+  --e-fondo: var(--dark);
+  --e-texto: var(--c-texto-claro-2);
+  --e-fuerte: #fff;
+  --e-suave: rgba(245, 240, 232, 0.5);
+  --e-linea: var(--c-linea-clara);
+  --e-tarjeta: #1E1B18;
+  background-image:
+    radial-gradient(60rem 30rem at 85% 10%, rgba(193, 68, 14, 0.22), transparent 70%),
+    radial-gradient(40rem 30rem at 10% 80%, rgba(22, 112, 106, 0.2), transparent 70%);
+}
+
+/* ---- PORTADA DE ETAPA ---- */
+.era {
+  position: relative;
+  min-height: 88svh;
+  display: grid;
+  align-content: center;
+  max-width: var(--c-ancho);
+  margin-inline: auto;
+  padding: clamp(5rem, 14vh, 8rem) var(--pad);
+}
+.era__anios {
+  position: absolute;
+  right: -0.06em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-size: clamp(6rem, 22vw, 19rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  text-align: right;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--e-linea);
+  pointer-events: none;
+  user-select: none;
+}
+.era__numero {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--e-acento);
+}
+.era__titulo {
+  position: relative;
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-size: clamp(2.8rem, 9vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--e-fuerte);
+  max-width: 11ch;
+  margin-top: 0.5rem;
+}
+.era__entradilla {
+  position: relative;
+  margin-top: 1.5rem;
+  max-width: 34rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+}
+.etapa--maquinas .era__titulo { font-family: var(--r-mono); font-weight: 700; letter-spacing: -0.06em; text-shadow: 0 0 18px rgba(124, 242, 168, 0.45); }
+.etapa--maquinas .era__numero { font-family: var(--r-mono); font-style: normal; }
+
+/* ---- LÍNEA DE TIEMPO ---- */
+.cronologia {
+  position: relative;
+  max-width: var(--c-ancho);
+  margin-inline: auto;
+  padding: 0 var(--pad) clamp(4rem, 10vh, 7rem);
+}
+.cronologia::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--pad) + 0.3rem);
+  width: 2px;
+  background: var(--e-linea);
+}
+.parada {
+  position: relative;
+  padding: clamp(3rem, 9vh, 6rem) 0 clamp(2rem, 6vh, 4rem) 2.25rem;
+}
+.parada::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(clamp(3rem, 9vh, 6rem) + 0.9rem);
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--e-fondo);
+  border: 2.5px solid var(--e-acento);
+}
+.parada__anio {
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-size: clamp(3.2rem, 7vw, 5.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  color: var(--e-acento);
+  font-variant-numeric: lining-nums;
+}
+.parada__anio small { display: block; font-size: 0.22em; letter-spacing: 0; font-weight: 600; color: var(--e-suave); margin-top: 0.4rem; }
+.etapa--maquinas .parada__anio { font-family: var(--r-mono); font-weight: 700; letter-spacing: -0.08em; text-shadow: 0 0 14px rgba(124, 242, 168, 0.5); }
+.parada__quien {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--e-suave);
+}
+.parada__titulo {
+  font-family: var(--ff-display);
+  font-weight: 900;
+  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--e-fuerte);
+  max-width: 20ch;
+  margin-top: 0.4rem;
+}
+.parada__texto { max-width: var(--c-ancho-texto); margin-top: 1.25rem; }
+.parada__texto > * + * { margin-top: 1em; }
+.parada__pieza { margin-top: 2rem; }
+.parada__fuente { margin-top: 0.75rem; font-size: 0.8rem; color: var(--e-suave); max-width: 46rem; }
+.parada__fuente a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.parada--breve .parada__titulo { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+.parada--breve .parada__anio { font-size: clamp(2.4rem, 6vw, 4rem); }
+@media (min-width: 900px) {
+  .cronologia::before { left: calc(var(--pad) + var(--r-col-anio) + 1.1rem); }
+  .parada {
+    display: grid;
+    grid-template-columns: var(--r-col-anio) minmax(0, 1fr);
+    column-gap: 2.5rem;
+    padding-left: 0;
+  }
+  .parada::before { left: calc(var(--r-col-anio) + 0.8rem); }
+  .parada__anio { grid-column: 1; grid-row: 1 / span 20; text-align: right; align-self: start; position: sticky; top: calc(var(--c-barra-alto) + 1.5rem); }
+  .parada > :not(.parada__anio) { grid-column: 2; }
+  /* Pieza a todo el ancho (por ejemplo, un scrollytelling) */
+  .parada > .parada__pieza--ancha { grid-column: 1 / -1; }
+  .parada__quien { margin-top: 0.4rem; }
+}
+
+/* ---- SELLOS DE RECURSO NARRATIVO ---- */
+.recursos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.recurso {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem 0.25rem 0.45rem;
+  border: 1.5px solid currentColor;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--e-acento);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.recurso::before { content: "◆"; font-size: 0.6rem; }
+.recurso:hover, .recurso:focus-visible { background: var(--e-acento); color: var(--e-fondo); }
+.recurso:focus-visible { outline: 2px solid var(--e-acento); outline-offset: 2px; }
+.etapa--papel .recurso { transform: rotate(-1.2deg); }
+.etapa--papel .recurso:nth-child(2n) { transform: rotate(0.8deg); }
+.etapa--maquinas .recurso { font-family: var(--r-mono); letter-spacing: 0.04em; }
+
+/* ---- LEYENDA DE RECURSOS (introducción) ---- */
+.leyenda-recursos { display: grid; gap: 0.75rem; margin-top: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.leyenda-recursos__item { padding: 1rem 1.1rem; border-radius: var(--c-radio); border: 1px solid var(--rule); background: #fff; }
+.leyenda-recursos__item .recurso { --e-acento: var(--accent); --e-fondo: #fff; }
+.leyenda-recursos__donde { display: block; margin-top: 0.5rem; font-size: 0.85rem; color: var(--mid); }
+
+/* ---- CONMUTADOR (cambia el estado de una pieza) ---- */
+.conmutador { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.conmutador__boton {
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--e-linea);
+  background: transparent;
+  color: var(--e-texto);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.conmutador__boton:hover { border-color: var(--e-acento); }
+.conmutador__boton[aria-pressed="true"] { background: var(--e-acento); border-color: var(--e-acento); color: var(--e-fondo); }
+.conmutador__boton:focus-visible { outline: 2px solid var(--e-acento); outline-offset: 2px; }
+.etapa--maquinas .conmutador__boton { font-family: var(--r-mono); border-radius: 3px; }
+.pieza__lectura { margin-top: 0.75rem; min-height: 1.5em; font-weight: 600; color: var(--e-fuerte); max-width: 46rem; }
+
+/* ---- LIENZO DE UNA PIEZA (SVG) ---- */
+.lienzo {
+  position: relative;
+  border-radius: var(--c-radio);
+  background: var(--e-tarjeta);
+  border: 1px solid var(--e-linea);
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+}
+.lienzo svg { display: block; width: 100%; height: auto; overflow: visible; }
+.etapa--papel .lienzo { box-shadow: 0 1px 0 rgba(42, 33, 23, 0.1), 0 18px 40px -24px rgba(42, 33, 23, 0.45); }
+
+/* ---- ANTES Y DESPUÉS (deslizador) ---- */
+.antesdespues { --pos: 50%; position: relative; user-select: none; touch-action: pan-y; }
+.antesdespues__capa { position: relative; }
+.antesdespues__capa--despues {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 var(--pos));
+}
+.antesdespues__tirador {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--e-acento);
+  pointer-events: none;
+}
+.antesdespues__tirador::after {
+  content: "◀ ▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: 0.7rem;
+  letter-spacing: -0.1em;
+  padding: 0.55rem 0.6rem;
+  border-radius: 999px;
+  background: var(--e-acento);
+  color: var(--e-fondo);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.antesdespues__rango {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+.antesdespues__rango:focus-visible + .antesdespues__tirador { outline: 3px solid var(--e-acento); outline-offset: 4px; }
+.antesdespues__rotulo {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 2;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  background: var(--e-fuerte);
+  color: var(--e-fondo);
+  pointer-events: none;
+}
+.antesdespues__rotulo--antes { left: 0.75rem; }
+.antesdespues__rotulo--despues { right: 0.75rem; background: var(--e-acento); }
+
+/* ---- BOTÓN DE REPETIR ANIMACIÓN ---- */
+.repetir {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--e-linea);
+  background: transparent;
+  color: var(--e-texto);
+  cursor: pointer;
+}
+.repetir:hover { border-color: var(--e-acento); color: var(--e-acento); }
+.repetir:focus-visible { outline: 2px solid var(--e-acento); outline-offset: 2px; }
+
+/* ---- RELOJ DE AÑOS (fijo, a la izquierda) ---- */
+.reloj {
+  position: fixed;
+  z-index: 40;
+  left: 1rem;
+  bottom: 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(20, 18, 16, 0.88);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.reloj.is-visible { opacity: 1; transform: none; }
+.reloj__anio { font-family: var(--ff-display); font-weight: 900; font-size: 1.35rem; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.reloj__era { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.65); }
+.reloj__riel { display: none; }
+/* En escritorio, el año de cada parada ya se queda fijo a la izquierda */
+@media (min-width: 900px) { .reloj { display: none; } }
+
+/* ---- PORTADA DE LA RUTA ---- */
+.portada--ruta .portada__antetitulo { color: #E9B48F; }
+/* Regla de años: más ancha que la pantalla, como si siguiera fuera del encuadre */
+.regla {
+  position: absolute;
+  left: 4vw;
+  bottom: 62%;
+  width: max(160vw, 90rem);
+  height: 7rem;
+  white-space: nowrap;
+  color: rgba(245, 240, 232, 0.22);
+  border-bottom: 1px solid rgba(245, 240, 232, 0.22);
+}
+.regla__marca {
+  position: absolute;
+  bottom: 0;
+  height: 1.2rem;
+  border-left: 1px solid currentColor;
+}
+.regla__marca--decena { height: 2.4rem; }
+.regla__marca--siglo { height: 4.5rem; border-left-width: 2px; color: rgba(245, 240, 232, 0.5); }
+.regla__marca--hito { color: var(--accent); height: 3.4rem; border-left-width: 3px; z-index: 1; }
+.regla__marca--alto { height: 5.2rem; }
+.regla__marca span {
+  position: absolute;
+  bottom: 100%;
+  left: 0.35rem;
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: rgba(245, 240, 232, 0.55);
+}
+.regla__marca--hito span { color: var(--accent); }
+
+/* ---- TARJETAS QUE SE GIRAN (mito / dato) ---- */
+.giro { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.giro__carta {
+  position: relative;
+  min-height: 15rem;
+  font: inherit;
+  text-align: left;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  perspective: 900px;
+}
+.giro__cara {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 6px;
+  border: 1px solid var(--e-linea);
+  background: var(--e-tarjeta);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
+}
+.giro__cara--dato { transform: rotateY(180deg); border-color: var(--e-acento); }
+.giro__carta[aria-pressed="true"] .giro__cara--mito { transform: rotateY(-180deg); }
+.giro__carta[aria-pressed="true"] .giro__cara--dato { transform: rotateY(0); }
+.giro__etiqueta { font-family: var(--r-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--e-suave); }
+.giro__cara--dato .giro__etiqueta { color: var(--e-acento); }
+.giro__frase { font-family: var(--ff-display); font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.2; color: var(--e-fuerte); }
+.giro__pista { font-size: 0.78rem; color: var(--e-suave); }
+.giro__carta:focus-visible { outline: 2px solid var(--e-acento); outline-offset: 4px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { .giro__cara { transition: none; } }
+
+/* ---- ESQUEMA DE PASOS (nodos y flechas) ---- */
+.esquema { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.5rem; margin-top: 1.5rem; counter-reset: esquema; }
+.esquema__nodo {
+  flex: 1 1 10rem;
+  position: relative;
+  padding: 1rem 1.1rem;
+  border: 1px dashed var(--e-acento);
+  border-radius: 4px;
+  font-family: var(--r-mono);
+  font-size: 0.85rem;
+  color: var(--e-fuerte);
+}
+.esquema__nodo::before { counter-increment: esquema; content: "0" counter(esquema); display: block; font-size: 0.7rem; color: var(--e-acento); margin-bottom: 0.4rem; }
+.esquema__nodo strong { display: block; font-size: 1.6rem; color: var(--e-acento); text-shadow: 0 0 12px rgba(124, 242, 168, 0.35); }
+.esquema__flecha { align-self: center; font-family: var(--r-mono); color: var(--e-acento); }
+@media (max-width: 640px) { .esquema__flecha { display: none; } }
+
+/* ---- ACTIVIDAD («vuestro turno») ---- */
+.turno {
+  margin-top: 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--c-radio);
+  background: var(--accent);
+  color: rgba(255, 255, 255, 0.9);
+}
+.turno__titulo { font-family: var(--ff-display); font-weight: 900; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.05; color: #fff; }
+.turno ol { margin: 1rem 0 0; padding-left: 1.25rem; }
+.turno li + li { margin-top: 0.5rem; }
+.turno strong { color: #fff; }
+
+/* ================================================
+   RUTA HISTÓRICA (clase 1): piezas
+   ================================================ */
+
+/* Playfair: barras de trigo, salario y monarcas */
+.h-trigo { fill: var(--r-tinta-2); opacity: 0.8; transform-box: fill-box; transform-origin: bottom; transition: transform 0.6s cubic-bezier(.2, .8, .2, 1), opacity 0.4s ease; }
+.h-salario { fill: none; stroke: var(--r-sangre); stroke-width: 3; stroke-linejoin: round; transition: stroke-dashoffset 1.4s ease, opacity 0.4s ease; }
+.h-salario-area { fill: rgba(163, 52, 27, 0.14); transition: opacity 0.6s ease; }
+.h-ratio { fill: none; stroke: var(--teal); stroke-width: 3.5; stroke-linejoin: round; transition: stroke-dashoffset 1.4s ease; }
+.h-monarca { fill: none; stroke: var(--r-tinta); stroke-width: 1; }
+.h-monarca--commonwealth { fill: var(--r-tinta); }
+.h-texto { font-family: var(--ff-body); font-size: 13px; fill: var(--r-tinta-2); }
+.h-texto--fuerte { font-weight: 700; fill: var(--r-tinta); }
+.h-texto--sangre { fill: var(--r-sangre); font-weight: 700; }
+.h-texto--teal { fill: var(--teal); font-weight: 700; }
+.h-texto--serif { font-family: var(--ff-display); font-style: italic; }
+.h-eje { stroke: var(--r-tinta-2); stroke-width: 1; }
+.h-rejilla { stroke: rgba(42, 33, 23, 0.14); stroke-width: 1; }
+.etapa--papel .scrolly__tarjeta { background: rgba(247, 240, 223, 0.97); border-color: rgba(42, 33, 23, 0.2); }
+@media (max-width: 899px) { .etapa--papel .scrolly__grafico { background: var(--r-papel); } }
+
+/* Guardian 1821: pictograma de alumnos */
+.alumnos { padding: 3.25rem clamp(1rem, 3vw, 1.75rem) clamp(1rem, 3vw, 1.75rem); background: var(--e-tarjeta); border: 1px solid var(--e-linea); border-radius: var(--c-radio); }
+.antesdespues .alumnos { border-radius: 0; border: 0; }
+.antesdespues { border-radius: var(--c-radio); overflow: hidden; border: 1px solid var(--e-linea); }
+.alumnos__cifra { font-family: var(--ff-display); font-weight: 900; font-size: clamp(2.4rem, 7vw, 4.5rem); line-height: 1; color: var(--e-fuerte); }
+.alumnos__cifra small { display: block; font-family: var(--ff-body); font-size: 0.85rem; font-weight: 600; color: var(--e-suave); margin-top: 0.35rem; }
+.alumnos__rejilla { display: grid; grid-template-columns: repeat(24, 1fr); gap: 3px; margin-top: 1.25rem; }
+.alumnos__punto { aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--e-linea); }
+.alumnos__punto--lleno { background: var(--r-tinta); border-color: var(--r-tinta); }
+.alumnos__punto--nuevo { background: var(--r-sangre); border-color: var(--r-sangre); }
+.alumnos--despues { background: #F3E8CF; }
+.alumnos__clave { margin-top: 0.75rem; font-size: 0.78rem; color: var(--e-suave); }
+.facsimil { display: grid; gap: 1.5rem; align-items: start; margin-top: 2rem; }
+.facsimil img { width: 100%; height: auto; border: 1px solid var(--e-linea); box-shadow: 0 18px 40px -24px rgba(42, 33, 23, 0.5); }
+.facsimil figcaption { font-size: 0.85rem; }
+@media (min-width: 760px) { .facsimil { grid-template-columns: minmax(0, 15rem) 1fr; } }
+
+/* Snow: mapa */
+.h-calle { stroke: rgba(42, 33, 23, 0.55); stroke-width: 0.06; stroke-linecap: round; fill: none; }
+.h-muerte { fill: var(--r-tinta); transition: opacity 0.4s ease, fill 0.4s ease; }
+.h-bomba { fill: var(--e-tarjeta, #fff); stroke: var(--r-sangre); stroke-width: 0.09; }
+.h-bomba--broad { fill: var(--r-sangre); }
+.h-bomba-nombre { font-family: var(--ff-body); font-size: 0.34px; fill: var(--r-sangre); font-weight: 700; paint-order: stroke; stroke: #F7F0DF; stroke-width: 0.1px; }
+.h-anillo { fill: none; stroke: var(--r-sangre); stroke-width: 0.08; opacity: 0; transition: opacity 0.4s ease; transform-box: fill-box; transform-origin: center; }
+.h-zona { transition: opacity 0.5s ease; opacity: 0; }
+.mapa-snow[data-estado="bomba"] .h-anillo,
+.mapa-snow[data-estado="cercania"] .h-anillo { opacity: 1; animation: latido 1.6s ease-in-out infinite; }
+.mapa-snow[data-estado="calles"] .h-muerte { opacity: 0; }
+.mapa-snow[data-estado="bomba"] .h-muerte { opacity: 0.35; }
+.mapa-snow[data-estado="cercania"] .h-zona { opacity: 1; }
+.mapa-snow[data-estado="cercania"] .h-muerte:not(.is-broad) { opacity: 0.25; }
+.mapa-snow[data-estado="cercania"] .h-muerte.is-broad { fill: var(--r-sangre); }
+
+/* Nightingale: rosa y barras */
+.h-cuna { transition: opacity 0.5s ease, transform 0.8s cubic-bezier(.2, .8, .2, 1); transform-origin: 0 0; }
+.h-enfermedad { fill: #9DB9D3; stroke: #5D7E9C; stroke-width: 0.8; }
+.h-heridas { fill: #E3A49A; stroke: #A3341B; stroke-width: 0.8; }
+.h-otras { fill: #4A4038; stroke: #2A2117; stroke-width: 0.8; }
+.h-vista { transition: opacity 0.5s ease; }
+.rosa[data-estado="rosa"] .h-vista--barras,
+.rosa[data-estado="barras"] .h-vista--rosa { opacity: 0; pointer-events: none; }
+.h-barra-n { transform-box: fill-box; transform-origin: bottom; transition: transform 0.7s cubic-bezier(.2, .8, .2, 1); }
+.rosa[data-estado="rosa"] .h-barra-n { transform: scaleY(0); }
+.h-cuna-g { transition: transform 0.9s cubic-bezier(.2, .8, .2, 1); }
+.rosa[data-estado="barras"] .h-cuna-g { transform: scale(0.2); }
+.leyenda-mini { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin-top: 0.75rem; font-size: 0.82rem; }
+.leyenda-mini span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.leyenda-mini i { width: 0.85rem; height: 0.85rem; border-radius: 2px; display: inline-block; }
+
+/* Minard */
+.h-flujo { stroke-linecap: round; transition: opacity 0.25s ease; }
+.h-flujo--a { stroke: #D9B98A; }
+.h-flujo--r { stroke: #1F1A14; }
+.h-ciudad { fill: var(--r-tinta); }
+.h-ciudad-nombre { font-family: var(--ff-display); font-style: italic; font-size: 13px; fill: var(--r-tinta-2); }
+.h-temp { fill: none; stroke: var(--r-tinta-2); stroke-width: 1.5; }
+.h-contador { font-family: var(--ff-display); font-weight: 900; font-size: 34px; fill: var(--r-sangre); }
+
+/* Du Bois */
+.dubois { background: #E8D7C0; border-color: rgba(42, 33, 23, 0.25); }
+.h-db-titulo { font-family: var(--ff-body); font-weight: 700; font-size: 15px; letter-spacing: 0.06em; fill: #1C1712; }
+.h-db-subtitulo { font-family: var(--ff-body); font-weight: 500; font-size: 12px; letter-spacing: 0.06em; fill: #1C1712; }
+.h-db-texto { font-family: var(--ff-body); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; fill: #1C1712; }
+.h-db-esclavos { fill: #141414; }
+.h-db-libres { fill: #2E8B57; transition: transform 1.6s cubic-bezier(.2, .8, .2, 1); transform-box: view-box; }
+
+/* UNIVAC: televisor */
+.tele {
+  position: relative;
+  max-width: 40rem;
+  padding: 1.25rem;
+  border-radius: 28px;
+  background: linear-gradient(160deg, #3A3026, #1B1611);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.08);
+}
+.tele__pantalla {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 40px / 30px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #1A2620 0%, #050806 80%);
+  color: #CFE8D8;
+  font-family: var(--r-mono);
+  font-size: clamp(0.8rem, 2.4vw, 1.15rem);
+  padding: 8% 9%;
+  text-shadow: 0 0 8px rgba(207, 232, 216, 0.5);
+  filter: grayscale(1) contrast(1.15);
+}
+.tele__pantalla::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 4px);
+  pointer-events: none;
+}
+.tele__linea { white-space: pre-wrap; min-height: 1.4em; }
+.tele__linea--grande { font-size: 1.6em; font-weight: 700; margin-top: 0.4em; }
+.tele__cursor { display: inline-block; width: 0.6em; height: 1em; background: currentColor; vertical-align: -0.15em; animation: parpadeo 1s steps(1) infinite; }
+@keyframes parpadeo { 50% { opacity: 0; } }
+.tele__mandos { display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem; padding-inline: 0.5rem; color: rgba(255, 255, 255, 0.5); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
+.tele__mandos i { width: 1.4rem; height: 1.4rem; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #6B5B4A, #2A221A); display: inline-block; margin-left: 0.4rem; }
+.votos { display: grid; gap: 0.5rem; margin-top: 1.25rem; max-width: 40rem; font-family: var(--r-mono); font-size: 0.85rem; }
+.votos__fila { display: grid; grid-template-columns: 13rem 1fr; align-items: center; gap: 0.25rem 0.75rem; padding-right: 3rem; }
+@media (max-width: 600px) { .votos__fila { grid-template-columns: 1fr; } }
+.votos__barra { position: relative; height: 1.1rem; background: var(--e-acento); width: calc(var(--v) / 531 * 100%); box-shadow: 0 0 10px rgba(124, 242, 168, 0.35); transform-origin: left; }
+.votos__barra--real { background: transparent; border: 1.5px solid var(--e-acento); }
+.votos__barra span { position: absolute; left: 100%; margin-left: 0.5rem; line-height: 1.1rem; color: var(--e-fuerte); }
+
+/* Dedman: pictograma de casas */
+.casas { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.casas__grupo { padding: 1.25rem; border: 1px solid var(--e-linea); border-radius: 6px; }
+.casas__fila { display: flex; gap: 0.5rem; margin: 0.75rem 0; min-height: 3.2rem; }
+.casas__casa { width: 3rem; height: 3rem; color: var(--e-acento); filter: drop-shadow(0 0 6px rgba(124, 242, 168, 0.4)); }
+.js .casas__casa { opacity: 0; transform: translateY(10px) scale(0.8); transition: opacity 0.35s ease, transform 0.35s cubic-bezier(.2, .8, .2, 1); }
+.js .casas.is-visible .casas__casa { opacity: 1; transform: none; }
+.casas__texto { font-family: var(--r-mono); font-size: 0.85rem; }
+
+/* Holovaty: ilustración de un mapa con chinchetas */
+.h-manzana { fill: #F1EEE8; }
+.h-avenida { stroke: #fff; stroke-width: 10; }
+.h-chincheta { fill: var(--accent); stroke: #fff; stroke-width: 1.5; transform-box: fill-box; transform-origin: 50% 100%; }
+.js .h-chincheta { opacity: 0; transform: translateY(-14px); transition: opacity 0.3s ease, transform 0.45s cubic-bezier(.2, 1.4, .4, 1); }
+.js .is-visible .h-chincheta { opacity: 1; transform: none; }
+
+/* Papeles de Panamá: un punto, 10.000 documentos */
+.h-doc { fill: var(--rule); transition: fill 0.3s ease; }
+.h-doc.is-lleno { fill: var(--ink); }
+.h-doc.is-lleno.is-acento { fill: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .h-trigo, .h-salario, .h-ratio, .h-cuna, .h-barra-n, .h-cuna-g, .h-db-libres, .h-doc { transition: none; }
+  .js .casas__casa, .js .h-chincheta { transition: none; opacity: 1; transform: none; }
+  .mapa-snow .h-anillo { animation: none !important; }
+}
