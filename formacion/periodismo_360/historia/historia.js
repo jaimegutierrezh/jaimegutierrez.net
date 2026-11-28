@@ -400,6 +400,57 @@
     };
   };
 
+  // ---- ISOTYPE: REPETIR, NO AGRANDAR ----
+  // Los alumnos de 1821 en figuras de 1.000: 8 frente a 23
+  window.RUTAS.piezas.isotype = el => {
+    const svg = el.querySelector('svg');
+    const lectura = el.parentElement.querySelector('.pieza__lectura');
+    const W = 780, H = 270, x0 = 170, paso = 26;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', 'Alumnos de las escuelas dominicales de Manchester en 1821: 8.000 según el informe oficial y 23.108 según la tabla del Guardian, en figuras de 1.000');
+    // Figura de 20 × 48 con la base en (0, 0)
+    const figura = (padre, x, y, clase) => {
+      const g = S('g', { transform: `translate(${x} ${y})` }, padre);
+      const f = S('g', { class: 'h-figura-g' }, g);
+      S('circle', { class: clase, cx: 10, cy: -40, r: 7.5 }, f);
+      S('path', { class: clase, d: 'M3,-31 h14 a3,3 0 0 1 3,3 v15 h-4 v13 h-5 v-12 h-2 v12 h-5 v-13 h-4 v-15 a3,3 0 0 1 3,-3 z' }, f);
+      return f;
+    };
+    // Hay sitio entre filas para la figura agrandada (48 × 2,9 de alto)
+    const filas = [[70, 'Informe oficial', '8.000', 8, 8], [232, 'Tabla de N. H.', '23.108', 23, 8]];
+    const etiquetas = (y, nombre, cifra) => {
+      S('text', { class: 'h-texto h-texto--fuerte', x: 0, y: y - 26 }, svg).textContent = nombre;
+      S('text', { class: 'h-texto', x: 0, y: y - 8, 'font-size': 22, 'font-family': 'var(--ff-display)', 'font-weight': 900 }, svg).textContent = cifra;
+    };
+    filas.forEach(([y, nombre, cifra]) => etiquetas(y, nombre, cifra));
+
+    const repetir = S('g', { class: 'h-vista h-vista--repetir' }, svg);
+    const todas = [];
+    filas.forEach(([y, , , n, previas]) => {
+      for (let i = 0; i < n; i++) {
+        const f = figura(repetir, x0 + i * paso, y, i < previas ? 'h-figura' : 'h-figura h-figura--nueva');
+        f.style.transitionDelay = `${todas.length * 45}ms`;
+        todas.push(f);
+      }
+    });
+    S('text', { class: 'h-texto', x: x0, y: H - 6 }, repetir).textContent = 'Cada figura, 1.000 alumnos.';
+
+    const agrandar = S('g', { class: 'h-vista h-vista--agrandar' }, svg);
+    figura(agrandar, x0, filas[0][0], 'h-figura');
+    const escala = 23108 / 8000;
+    const grande = S('g', { class: 'h-grande' }, S('g', { transform: `translate(${x0} ${filas[1][0]})` }, agrandar));
+    figura(S('g', { transform: `scale(${escala})` }, grande), 0, 0, 'h-figura h-figura--nueva');
+    S('text', { class: 'h-texto h-texto--sangre', x: x0 + 20 * escala + 16, y: filas[1][0] - 60 }, agrandar).textContent = `${num(escala, 1)} veces más alta…`;
+    S('text', { class: 'h-texto h-texto--sangre', x: x0 + 20 * escala + 16, y: filas[1][0] - 40 }, agrandar).textContent = `…pero ocupa ${num(escala * escala, 1)} veces más superficie`;
+
+    const textos = {
+      repetir: 'Isotype: la figura vale siempre lo mismo. Para decir «más», se repite. 8 figuras frente a 23: se cuentan y se comparan de un vistazo.',
+      agrandar: `El error clásico: agrandar la figura. Es ${num(escala, 1)} veces más alta, pero el ojo compara superficies y ve ${num(escala * escala, 1)} veces más. Exagera la diferencia.`,
+    };
+    return { estado(v) { if (lectura) lectura.textContent = textos[v] || ''; } };
+  };
+
   // ---- UNIVAC: LA NOCHE ELECTORAL DE 1952 ----
   window.RUTAS.piezas.univac = el => {
     const lineas = [...el.querySelectorAll('.tele__linea')];

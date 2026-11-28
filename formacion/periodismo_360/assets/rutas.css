@@ -217,6 +217,43 @@
   .parada__quien { margin-top: 0.4rem; }
 }
 
+/* ---- DOS HILOS: DATOS E INFOGRAFÍA ---- */
+/* Las paradas del hilo visual llevan un rombo en la línea de tiempo y una
+   etiqueta con su propio color (--e-hilo), distinto en cada etapa. */
+.etapa { --e-hilo: var(--teal); }
+.etapa--papel { --e-hilo: #1F5F7A; }
+.etapa--maquinas { --e-hilo: #F2C14E; }
+.etapa--ia { --e-hilo: #6FC3B8; }
+.parada--visual::before {
+  border-radius: 2px;
+  transform: rotate(45deg);
+  border-color: var(--e-hilo);
+  background: var(--e-hilo);
+}
+.parada--visual .parada__anio { color: var(--e-hilo); }
+.etapa--maquinas .parada--visual .parada__anio { text-shadow: 0 0 14px rgba(242, 193, 78, 0.45); }
+.hilo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--e-hilo);
+}
+.hilo::before { content: ""; width: 0.55rem; height: 0.55rem; background: currentColor; transform: rotate(45deg); }
+.hilo--datos::before { border-radius: 50%; transform: none; }
+.hilo--datos { color: var(--e-acento); }
+@media (min-width: 900px) { .parada > .hilo { margin-top: 0; } }
+.parada--visual .recurso { color: var(--e-hilo); }
+.parada--visual .recurso:hover, .parada--visual .recurso:focus-visible { background: var(--e-hilo); color: var(--e-fondo); }
+.hilos { display: grid; gap: 1rem; margin-top: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.hilos__item { padding: 1.25rem 1.35rem; border-radius: var(--c-radio); border: 1px solid var(--rule); background: var(--paper); }
+.hilos__item .hilo { margin-top: 0; --e-hilo: var(--teal); --e-acento: var(--accent); }
+.hilos__item p { margin-top: 0.5rem; }
+
 /* ---- SELLOS DE RECURSO NARRATIVO ---- */
 .recursos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
 .recurso {
@@ -628,13 +665,26 @@
 .js .h-chincheta { opacity: 0; transform: translateY(-14px); transition: opacity 0.3s ease, transform 0.45s cubic-bezier(.2, 1.4, .4, 1); }
 .js .is-visible .h-chincheta { opacity: 1; transform: none; }
 
+/* Isotype: repetir frente a agrandar */
+.h-figura { fill: var(--r-tinta); }
+.h-figura--nueva { fill: var(--r-sangre); }
+.isotype .h-vista { transition: opacity 0.5s ease; }
+.isotype[data-estado="repetir"] .h-vista--agrandar,
+.isotype[data-estado="agrandar"] .h-vista--repetir { opacity: 0; }
+.h-figura-g { transform-box: fill-box; transform-origin: 50% 100%; }
+.js .isotype .h-vista--repetir .h-figura-g { opacity: 0; transition: opacity 0.25s ease; }
+.js .isotype.is-visible .h-vista--repetir .h-figura-g { opacity: 1; }
+.h-grande { transform-box: fill-box; transform-origin: 50% 100%; transition: transform 0.9s cubic-bezier(.2, .8, .2, 1); }
+.isotype[data-estado="repetir"] .h-grande { transform: scale(0.35); }
+
 /* Papeles de Panamá: un punto, 10.000 documentos */
 .h-doc { fill: var(--rule); transition: fill 0.3s ease; }
 .h-doc.is-lleno { fill: var(--ink); }
 .h-doc.is-lleno.is-acento { fill: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
-  .h-trigo, .h-salario, .h-ratio, .h-cuna, .h-barra-n, .h-cuna-g, .h-db-libres, .h-doc { transition: none; }
+  .h-trigo, .h-salario, .h-ratio, .h-cuna, .h-barra-n, .h-cuna-g, .h-db-libres, .h-doc, .h-grande { transition: none; }
+  .js .isotype .h-vista--repetir .h-figura-g { opacity: 1; transition: none; }
   .js .casas__casa, .js .h-chincheta { transition: none; opacity: 1; transform: none; }
   .mapa-snow .h-anillo { animation: none !important; }
 }
