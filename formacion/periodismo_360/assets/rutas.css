@@ -560,6 +560,40 @@
 /* Cuando la imagen es la protagonista (hay que leer sus detalles) */
 @media (min-width: 760px) { .facsimil--grande { grid-template-columns: minmax(0, 26rem) 1fr; } }
 
+/* USA Today 1982: secuencia de pasos (texto encima, foto sobre una mesa de luz, flechas a los lados) */
+.secuencia__textos, .secuencia__mesa { display: grid; }
+.secuencia__texto, .secuencia__foto { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s; }
+.secuencia__texto.is-activo, .secuencia__foto.is-activo { opacity: 1; visibility: visible; }
+.secuencia__texto { margin: 0 0 1rem; font-size: 0.95rem; color: var(--e-texto); max-width: 60ch; align-self: end; }
+.secuencia__texto strong { color: var(--e-acento); }
+.secuencia__visor { position: relative; }
+.secuencia__mesa {
+  place-items: center;
+  height: clamp(17rem, 70vw, 34rem);
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(2.75rem, 7vw, 4.5rem);
+  background: radial-gradient(ellipse at center, #1B2A22 0%, #0A120E 100%);
+  border: 1px solid var(--e-linea);
+  border-radius: var(--c-radio);
+}
+.secuencia__foto { max-width: 100%; max-height: 100%; min-height: 0; width: auto; height: auto; object-fit: contain; box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.8); }
+.secuencia__flecha {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  display: grid; place-items: center;
+  width: clamp(2.25rem, 5vw, 3rem); aspect-ratio: 1;
+  padding: 0; border-radius: 50%; cursor: pointer;
+  background: rgba(10, 18, 14, 0.75); color: var(--e-acento);
+  border: 1px solid var(--e-acento);
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
+}
+.secuencia__flecha svg { width: 55%; height: 55%; }
+.secuencia__flecha--ant { left: clamp(0.35rem, 1.5vw, 0.9rem); }
+.secuencia__flecha--sig { right: clamp(0.35rem, 1.5vw, 0.9rem); }
+.secuencia__flecha:hover:not(:disabled), .secuencia__flecha:focus-visible { background: var(--e-acento); color: var(--e-fondo); }
+.secuencia__flecha:focus-visible { outline: 2px solid var(--e-acento); outline-offset: 3px; }
+.secuencia__flecha:disabled { opacity: 0.25; cursor: default; }
+.secuencia__contador { position: absolute; right: 0.9rem; bottom: 0.6rem; margin: 0; font-family: var(--r-mono, monospace); font-size: 0.78rem; color: var(--e-suave); }
+@media (prefers-reduced-motion: reduce) { .secuencia__texto, .secuencia__foto, .secuencia__flecha { transition: none; } }
+
 /* Snow: mapa */
 .h-calle { stroke: rgba(42, 33, 23, 0.55); stroke-width: 0.06; stroke-linecap: round; fill: none; }
 .h-muerte { fill: var(--r-tinta); transition: opacity 0.4s ease, fill 0.4s ease; }

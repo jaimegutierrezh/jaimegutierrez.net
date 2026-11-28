@@ -490,6 +490,26 @@
     el.querySelectorAll(selector).forEach((c, i) => { c.style.transitionDelay = `${i * 90}ms`; });
     return {};
   };
+  // ---- USA TODAY: SECUENCIA DE PASOS ----
+  // Texto y foto del paso activo; las flechas avanzan o retroceden.
+  window.RUTAS.piezas.rorick = el => {
+    const total = el.querySelectorAll('.secuencia__foto').length;
+    const ant = el.querySelector('[data-mover="-1"]');
+    const sig = el.querySelector('[data-mover="1"]');
+    const contador = el.querySelector('[data-contador]');
+    let actual = 1;
+    const ir = n => {
+      actual = Math.min(total, Math.max(1, n));
+      el.dataset.estado = actual;
+      el.querySelectorAll('[data-paso]').forEach(p => p.classList.toggle('is-activo', Number(p.dataset.paso) === actual));
+      ant.disabled = actual === 1;
+      sig.disabled = actual === total;
+      contador.textContent = actual;
+    };
+    [ant, sig].forEach(b => b.addEventListener('click', () => ir(actual + Number(b.dataset.mover))));
+    return { estado(v) { ir(Number(v)); } };
+  };
+
   window.RUTAS.piezas.casas = escalonar('.casas__casa');
 
   window.RUTAS.piezas.chinchetas = el => {
