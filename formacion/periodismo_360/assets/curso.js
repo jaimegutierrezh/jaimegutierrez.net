@@ -346,15 +346,20 @@ document.addEventListener('DOMContentLoaded', () => {
   //   <p class="test__frase">…</p><div class="test__explicacion">…</div></li>…
   // Los botones los pone el JS. Al responder se marca acierto o fallo y se
   // muestra la explicación. Sin JS, las explicaciones se ven directamente.
+  // Otras respuestas: data-test="emite:Se emite|corrige:Se corrige|cae:Se cae"
   document.querySelectorAll('[data-test]').forEach(test => {
     const items = [...test.querySelectorAll('.test__item')];
     const marcador = test.querySelector('.test__marcador');
     const final = test.querySelector('.test__final');
+    const opciones = test.dataset.test
+      ? test.dataset.test.split('|').map(o => o.split(':'))
+      : [['v', 'Verdadero'], ['f', 'Falso']];
+    const nombre = Object.fromEntries(opciones);
 
     items.forEach(item => {
       const botones = document.createElement('div');
       botones.className = 'test__botones';
-      [['v', 'Verdadero'], ['f', 'Falso']].forEach(([valor, texto]) => {
+      opciones.forEach(([valor, texto]) => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'test__boton';
@@ -381,8 +386,10 @@ document.addEventListener('DOMContentLoaded', () => {
         b.setAttribute('aria-pressed', String(b.dataset.respuesta === valor));
         b.classList.toggle('is-correcta', b.dataset.respuesta === item.dataset.correcta);
       });
-      const correcta = item.dataset.correcta === 'v' ? 'verdadera' : 'falsa';
-      item.querySelector('.test__veredicto').textContent = acierto ? `Bien: es ${correcta}.` : `No: es ${correcta}.`;
+      const correcta = test.dataset.test
+        ? nombre[item.dataset.correcta].toLowerCase()
+        : 'es ' + (item.dataset.correcta === 'v' ? 'verdadera' : 'falsa');
+      item.querySelector('.test__veredicto').textContent = acierto ? `Bien: ${correcta}.` : `No: ${correcta}.`;
       actualizar();
     }
 

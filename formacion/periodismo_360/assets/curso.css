@@ -1462,6 +1462,84 @@ html:not(.js) .perfil__pista, html:not(.js) .perfil__botones, html:not(.js) .per
 @media (prefers-reduced-motion: reduce) { .js .pantalla-tv__curva .tv-linea { transition: none; stroke-dashoffset: 0; } }
 
 /* ================================================
+   CLASE 5 · AL AIRE: PROYECTO FINAL
+   ================================================ */
+
+/* ---- GUION ESCRITO POR UN CHATBOT ---- */
+.guion {
+  margin: 2rem 0 0;
+  max-width: 48rem;
+  padding: 1.5rem 1.75rem;
+  border-left: 6px solid var(--accent);
+  border-radius: 0 var(--c-radio) var(--c-radio) 0;
+  background: var(--paper);
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--ink);
+}
+.guion::before { content: "Locución · borrador del chatbot"; display: block; margin-bottom: 0.75rem; font-family: var(--ff-body); font-style: normal; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.guion mark { background: rgba(193, 68, 14, 0.12); color: inherit; padding: 0 0.15em; border-radius: 3px; }
+.guion sup { font-family: var(--ff-body); font-style: normal; font-weight: 700; font-size: 0.65em; color: var(--accent); margin-left: 0.1em; }
+
+/* ---- TRES PREGUNTAS (detalle bajo cada una) ---- */
+.resumen__detalle { margin-top: 0.5rem; font-size: 0.95rem; color: var(--c-texto-claro-2); }
+
+/* ---- PUENTE FRENTE A FILTRO ---- */
+.puente { margin-top: 2rem; display: grid; gap: 1rem; max-width: 52rem; }
+.puente__fila {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+.puente__etiqueta { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-texto-claro-2); }
+.puente__fila--filtro .puente__etiqueta { color: var(--accent); }
+.puente__nodo {
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--c-linea-clara);
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+}
+.puente__nodo small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--c-texto-claro-2); }
+.puente__nodo--vacio { border-style: dashed; color: var(--c-texto-claro-2); }
+.puente__nodo--filtro { border: 2px solid var(--accent); background: rgba(193, 68, 14, 0.2); }
+.puente__flecha { color: var(--c-texto-claro-2); font-size: 1.2rem; }
+@media (max-width: 640px) {
+  .puente__fila { grid-template-columns: 1fr; justify-items: stretch; }
+  .puente__flecha { justify-self: center; transform: rotate(90deg); }
+  .puente__fila + .puente__fila { margin-top: 1rem; }
+}
+
+/* ---- DECLARACIÓN DE UN MEDIO (cita) ---- */
+.declaracion {
+  margin: 1.5rem 0 2rem;
+  max-width: 48rem;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  border-left: 4px solid var(--teal);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.declaracion footer { margin-top: 0.6rem; font-size: 0.85rem; }
+.declaracion a { color: var(--teal); font-weight: 700; }
+
+/* ---- VARIAS DESCARGAS SEGUIDAS ---- */
+.descargas { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.descargas .descarga { margin-top: 0; }
+
+/* ---- ESCALETA ---- */
+.tabla--escaleta { max-width: none; min-width: 46rem; }
+.tabla--escaleta td { vertical-align: top; }
+.tabla--escaleta td:first-child { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 700; }
+.tabla--escaleta td:nth-child(3) { font-family: var(--ff-display); font-style: italic; }
+
+.siguiente a { color: var(--accent); font-weight: 700; }
+
+/* ================================================
    ANIMACIONES AL HACER SCROLL
    Solo se ocultan los elementos si hay JS y el
    usuario no ha pedido reducir el movimiento.
