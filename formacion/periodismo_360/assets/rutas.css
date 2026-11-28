@@ -557,6 +557,8 @@
 .facsimil img { width: 100%; height: auto; border: 1px solid var(--e-linea); box-shadow: 0 18px 40px -24px rgba(42, 33, 23, 0.5); }
 .facsimil figcaption { font-size: 0.85rem; }
 @media (min-width: 760px) { .facsimil { grid-template-columns: minmax(0, 15rem) 1fr; } }
+/* Cuando la imagen es la protagonista (hay que leer sus detalles) */
+@media (min-width: 760px) { .facsimil--grande { grid-template-columns: minmax(0, 26rem) 1fr; } }
 
 /* Snow: mapa */
 .h-calle { stroke: rgba(42, 33, 23, 0.55); stroke-width: 0.06; stroke-linecap: round; fill: none; }
